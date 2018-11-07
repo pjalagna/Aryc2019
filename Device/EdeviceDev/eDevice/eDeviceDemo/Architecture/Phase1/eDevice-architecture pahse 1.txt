@@ -1,0 +1,22 @@
+architecture phase1
+objective: show the data from a continuous device could be placed into a server database
+
+
+sr232 agents write files to ./<<dev>>in
+prep
+registerChannel('dev1')
+
+
+device--sr232S(hub/dev)==sr232R(dev)-->..hub/in<file>         hubFQA — (devHubAddr) in service.txt
+                                       ..hub/in<file>  <----- readDev
+                                                                     same dir “service”.py
+                                                                               does: xml to db via DAO
+proof: db2CSV.py -> (csv contents) -> Excel
+
+prep -
+copy device to home
+copy hub to home
+capture address of hub/dev1 to hubaddr.txt in device
+create/edit dev1serviceBox.py to perform code
+
+

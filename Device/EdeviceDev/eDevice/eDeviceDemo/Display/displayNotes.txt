@@ -1,0 +1,34 @@
+pja 11-10-13
+ /in ==> FQA -> dispServiceBox ==> DB( t=dev1, c=val, v=<val> r=td )
+                                     ( t=dev1, c=mark v=new r=td )
+
+DB(t=dev1 , v=new) ==> DBAgent —> Report1serviceBox ==> DB (t=dev1 , c=max v=<val> r=c )
+                                                           (t=dev1 , c=min v=<val> r=c )
+                                                           (t=dev1 , c=avg v=<val> r=c )
+                                                           (t=dev1 , c=x v=<val> r=c )
+                                                           (t=dev1 , c=y v=<val> r=c )
+object Report1serviceBox(dbPath) 
+— developMax
+- clearMax
+- developMin
+- clearMin
+- developAvg
+- clearAvg
+- setXMax
+- setX
+— getX
+- getOldX
+- setOldX
+- setY
+- getY
+- updateX
+- updateY
+
+php dbagent(OldX <> newX ) ==> buildScreen; sleep
+               
+/11-10-13
+
+display creates a html5 script read by a cyclic reading page (php?)
+html5 has a "<canvas> type that allows x,y
+if x++ mod 100 and y = input value from device then graph looks like medical monitor
+use array of y@x to display full set

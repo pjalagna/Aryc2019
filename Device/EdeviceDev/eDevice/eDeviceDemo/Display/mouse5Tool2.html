@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+<table border=‘3’><tr><td>
+    <canvas id="myCanvas" width="500" height="50"></canvas></td>
+    <td><canvas id="Canvas2" width="1000" height="650"></canvas>
+</td></tr></table>
+    <img id="scream" src="yGrid.jpg" alt="The Scream" width="220" height="277">
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var canvas2 = document.getElementById('Canvas2');
+      var context = canvas.getContext('2d');
+      var context2 = canvas2.getContext('2d');
+      var img=document.getElementById("scream");
+      context2.drawImage(img,10,10);
+
+      function writeMessage(canvas, message) {
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+      
+      canvas2.addEventListener('mousemove', function(evt) {
+        var mousePos = getMousePos(canvas2, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(canvas, message);
+      }, false);
+      /*
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        // draw cropped image
+        var sourceX = 100;
+        var sourceY = 30;
+        var sourceWidth = 120;
+        var sourceHeight = 90;
+        var destWidth = 50;
+        var destHeight = 400;
+        var destX = 50;
+        var destY = 30;
+       // var destX = canvas.width / 2 - destWidth / 2;
+       // var destY = canvas.height / 2 - destHeight / 2;
+
+        canvas2.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      imageObj.src = '/Users/alagnarythms/Desktop/EdeviceDev/eDevice/eDeviceDemo/Display/yGrid.jpg';
+      */
+    </script>
+  </body>
+</html>

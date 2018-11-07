@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title> Bundle Bundle-Rules </title>
+    </head>
+    <body>
+        <h1> bundle - rules report </h1>
+        <form>
+<table border='3'>
+  <tr>
+     <td> 
+     <center>
+     <input type='button' value='use Current' name='useCurrentBundle'/>
+     </center> 
+     </td>
+     <td> Bundle-list <br /> plus "(new)" </td>
+     <td> .. </td>
+     <td> <input type='button' value='select Bundle' name='loadRules'/> </td>
+     <td> .. </td>
+     <td> <input type='button' value='Load-cold' name='loadBundleCold'/> </td>
+     <td> .. </td>
+     <td> <input type='button' value='Load-ready' name='loadBundleReady'/> </td>
+     <td> .. </td>
+     <td> <input type='button' value='Load-all' name='loadBundleAll'/> </td>
+     <td> .. </td>
+  </tr>
+  <tr>
+     <td> .. </td>
+     <td> <div name='bundle'> selected bundle </div>  </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+  </tr>
+  <tr>
+     <td> <div name='dropRule1'> dynamic drop button </div> </td>
+     <td> <div name='rule1'> dynamic of rule </div> </td>
+     <td> .. </td>
+     <td> <div name='rule1Link'> dynamic link of rule </div> </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+  </tr>
+  
+  <tr>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+  </tr>
+  <tr>
+     <td> .. </td>
+     <td> <input type='button' value='SAVE'/> </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+     <td> .. </td>
+  </tr>
+     
+</table>
+notes<br/>
+<ul>
+  <li> selection of "use current" will load from sticky
+  <li> selection of "select bundle" will spawn bundle selection page
+  <li> selection of "(new)" bundle-name will save bundle name to database
+  <li> load-cold button = reload bundle list from b where b.cold = true
+  <li> load-ready button = reload bundle list from b where b.ready = true
+  <li> load-all button = reload bundle list from b
+  <li> select button = dynamic load of rules (8max) with drop button and link
+  <li> SAVE button = save b/rb to database
+</ul>
+        </form>
+    </body>
+</html>
+

@@ -1,0 +1,18 @@
+architecture
+sr232 agents write files to ./in
+prep
+registerChannel('dev1')
+
+
+device--sr232S(hub/dev)==sr232R(dev)-->..hub/in<file>         hubFQA
+                                       ..hub/in<file>  <----- readDev
+                                                              cmd-fan
+                                                           +---------------+
+                                                        //service         //display
+                                                           +----------------+
+                                                                   loop
+
+//service==
+sr232S(serv/serv1)==sr232R(serv1)--> ..serv/in<file>
+
+

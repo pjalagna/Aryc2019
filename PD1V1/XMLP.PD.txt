@@ -1,0 +1,55 @@
+    XML parser point diagram
+    Note all eq cells do a dupe and drop on true
+objj = {}
+import XMLP
+dd = XMLP.XMLPClass()
+ret = dd.main(objj,1)
+XML Parser v0.0.xgml
+
+    <project> XMLP </project> 
+
+    2 "$XML filename ? " --> 3 _ask --> 4 _dup --> 5 "$fn" --> 6 _! --> 
+    7 initfioi -->  700 "$V-07-06-2013--2300" --> 701 "$Version" --> 702 _! --> 
+    8 "$XMLP.db" --> 9 initSQClass --> 
+    10 nop --> 
+    11 ioi --> 
+    12 =eof --> 100 cleanup --> -100 x 
+    12.13 =< --> 14 x 
+    13.140 nop --> 11 x 
+    14 ioi --> 
+    15 =/ --> 57 is=EndTag --> 58 ioi --> 59 => --> 40 x 
+                                          59.590 "$bad format 59.590  " --> 591 _cat --> 592 _msg --> -101 x
+                  57.570 "$not end tag" --> 571 _cat --> 572 _msg --> -101 x 
+
+    15.16 =? --> 60 ioi --> 61 =? --> 63 ioi --> 64 => --> 40 x 
+                                     61.62 _drop --> 60 x 
+                                                                   64.65 _drop --> 60 x
+    16.17 =! --> 66 ioi --> 67 =- --> 69 ioi --------> 70 =- --> 72 ioi -------------> 73 => --> 40 x 
+                                    67.68 _drop --> 66 x    70.71 _drop --> 66 x            73.74 _drop --> 66 x 
+
+
+    17.18  ioo --> 19 ioo --> 20 x
+
+    20 GetLable --> 
+    21 Save2Tag --> 
+    22 ioi --> 23 =space --> 28 x 
+                   23.24 =/ --> 43 x 
+                         24.25  => --> 46 x 
+                               25.26 "$bad format 25-26 " --> 260 _cat --> 261 _msg --> -101 x 
+
+    28 getAttribute --> 29 ioi --> 32 =space --> 28 x  /* getAttribute grabs name='--'  or name="--" to space  */
+                                                32.31 =/ --> 37 ioi --> 38 => --> 39 MakeMaster --> 40 nop --> 10 x 
+                                                      31.30 => --> 41 MakeMaster --> 42 addParent --> 40 x 
+                                                          30.36 "$bad format 30.36 " --> 360 _cat --> 361 _msg --> -101 x 
+
+    43 ioi --> 44 => --> 45 MakeMaster --> 40 x 
+                    44.440 "$bad format 44.440 " --> 441  _cat --> 442 _msg --> -101 x 
+    46 MakeMater -->  47 addParent --> 48 ioi --> 49 =< --> 51 ioo --> 40 x 
+                                                                             49.50 _drop --> 52 _ctill</ --> 53 saveAsValue --> 54 x 
+
+    54 is=EndTag --> 55  ioi --> 56 => --> 40 x 
+                                                56.560 "$bad format 65.560 " --> 561 _cat --> 562 _msg --> -101 x 
+    54.540 "$not end tag " --> 541 _cat --> 542 _msg --> -101 x 
+
+
+     @endend 

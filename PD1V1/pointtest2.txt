@@ -1,0 +1,47 @@
+file pointtest2.txt
+
+ <project> test </project>
+ 2 nop --> 20 x 
+ 20 //300(40) --> 40  //300(-100) --> -100 x 
+
+ 300 msg1 --> 200 ask --> 21 =show ----------------> 22 disp --> 400 endCall --> -1 x
+                          21.30 disp --> 35 msg2 --> 22 x 
+
+
+ @work endCall (
+ main :-
+ [[ 1 ]] r@ retbox[0]! . ;
+ )
+ @work //300(40) (
+  main :-
+  [[ 1 ]] 40 r< 300 retbox[0]! . 
+  ;
+ ) 
+  @work //300(-100) (
+  main :-
+  [[ 1 ]] -100 r< 300 retbox[0]! . 
+  ;
+ ) 
+ @work ask (
+ main :-
+ [[ 1 ]] ask . ;
+ )
+ @work msg1 (
+ main :-
+ [[ 1 ]] "' this is message 1 '" . ;
+ )
+ @work msg2 (
+ main :-
+ [[ 1 ]] "' this is message 2 '" . ;
+ )
+ @work =show (
+ main :-
+ [[ 1 ]] dup "'show'" =  0 retbox[0] ! .
+ [[ 2 ]] retbox[0] -1 ! .
+ ;
+ )
+ @work disp (
+ main :-
+ [[ 1 ]] msg . ;
+ )
+ @endend   

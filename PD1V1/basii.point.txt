@@ -1,0 +1,101 @@
+ /* file basii.point.txt 
+ lud 7-22-2013 0200
+ -- changed paragraphName to pgfName as per write records
+ 7-17-2013 1210
+  creates BPX records into <project>.db
+  */
+   <project> BPXG1 </project>  
+  2 init --> 3 x  
+  
+  /* p1 :-
+  [[ 4 ]]  "$Filename? " __ask  __dup "$fn" __! 
+            __pword ==<project> __pword "$project" __! 
+            __pword __drop 
+            // p2 .
+  [[ 15 ]] "$Project name not found" __msg fail. .
+ ;
+*/
+ 3 "$07-22-2013 0200" --> 300 "$version" --> 302 __! --> 4 x 
+4  "$Filename? " --> 
+5 __ask  --> 
+6 __dup  -->  
+7 "$fn"   --> 
+8 __!   --> 
+800 __initFioi --> 
+9 __pword   --> 
+10 ==<project> --> 11 __pword --> 12  x 
+10.16 ==eof --> 17 "$unexpected eof" --> -90 x 
+16.18  __nop --> 9 x /* skip everything till project */
+12 __dup --> 
+120 "$project" --> 
+13 __!  -->  
+130 //500//14// -->  
+14 __pword   --> 
+15 __drop   --> 50 x 
+
+
+/* 
+  p2 :- 
+  [[ 50 ]] pword ...
+  [[ 51 ]] =endend cleanup .
+  [[ 61 ]] saveParagraphName p3 tail. .
+  ;
+  */
+  50 __pword --> 51 ==@endend --> 52 cleanup -->  -100 x /* good end */
+                            51.61 "$pgfName" --> 610 __!  --> 62 //70//63// -->  63 __nop --> 50 x 
+                        
+  /*
+  p3 :-
+  [[ 70 ]] pword ...
+  [[ 71 ]] =:- drop p4 .
+  [[ 75 ]] badFormatMsg fail .
+  ;
+  */
+  70 __pword --> 71 ==:- --> 72 __drop --> 73 //80//74// --> 74 __callend --> -1 x 
+                         71.75 "$bad Format no ( :- ) " --> 750 __msg --> -90 x  
+  /*
+  p4 :- 
+  [[ 80 ]] pword ...
+  [[ 81 ]] =; cn++  vn=0 vn++ writeBPXRecord .
+  [[ 85 ]] =[[ pword saveClauseNum pword =]] vn=1 p5 tail. .
+  ;
+  */ 
+  80 __pword --> 81 ==; -->  310  x 
+                            81.85 ==[[ --> 200 __pword --> 210 "$cn" --> 2100 __!  --> 215 __pword --> 220 ==]] -->  225 x 
+                            85.285 "$ bad Format ( no [[  or (;) )" --> 286 __msg --> -9285 x                 220.250  "$ bad format ( no ]] )"  --> 286 x  
+                            
+  225 "$0" --> 2250 "$vn" --> 2251 __!  -->  86 //90//87// --> 87 __nop --> 80  x 
+  
+  310 "$cn" --> 
+  3131 //3100//315// --> 
+  315 "$0" --> 3150 "$vn" --> 3151 __! -->  
+  320 "$vn" --> 
+   3200 //3100//325// -->  
+   325 __writeBPXEofRecord --> 82 __callend --> -1 x 
+   
+   /* ++ */
+  3100 __dup --> 
+  3101 __@ --> 
+  3102 __++  --> 
+  3103 __swap --> 
+  3104 __! -->  3105 __callend --> -1 x 
+     
+  /*
+  p5 :-
+  [[ 90 ]] pword ...
+  [[ 91 ]] =. writePeriod .
+  [[ 400 ]] =// pword setTypeAsPGF writeBPXRecord setTypeAsString tail. .
+  [[ 95 ]] writeBPXRecord tail. .
+  ;
+  */
+  90 __pword --> 91 ==. --> 92 "$vn" --> 9200 //3100//301// --> 301 __writeBPXEolRecord --> 93 __callend --> -1 x 
+                            91.400 ==// --> 410 __pword --> 420 "$vn" --> 4200 //3100//430// --> 430 __writeBPXPgfRecord -->  90 x 
+                                400.95 "$vn" --> 950 //3100//227// --> 227 __writeBPXRecord ------------------------------------------> 90 x 
+  
+          /* db name is projectName.db */                                             
+  500 __initLib --> 510 __writeProjectRecord --> 511 __callend --> -1 x 
+  
+        @endend 
+        
+                           
+   

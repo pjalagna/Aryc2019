@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+  image crop and display (good use of color sheet)
+    <canvas id="myCanvas" width="1000" height="600"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        // draw cropped image
+        var sourceX = 100;
+        var sourceY = 30;
+        var sourceWidth = 120;
+        var sourceHeight = 90;
+        var destWidth = 50;
+        var destHeight = 400;
+        var destX = 50;
+        var destY = 30;
+       // var destX = canvas.width / 2 - destWidth / 2;
+       // var destY = canvas.height / 2 - destHeight / 2;
+
+        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      imageObj.src = '/Users/alagnarythms/Desktop/EdeviceDev/eDevice/eDeviceDemo/Display/yGrid.jpg';
+    </script>
+  </body>
+</html>

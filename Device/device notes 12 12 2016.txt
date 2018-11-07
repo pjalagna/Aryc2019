@@ -1,0 +1,2 @@
+person -> url of assigned channel "valueWanted=rpm of objectWanted=right front motor"
+assigned channel // compose qml

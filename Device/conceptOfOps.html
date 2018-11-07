@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>concept of operations for the moedems demonstrator</title>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#FFFFFF">
+<table border="3" cellspacing="2" cellpadding="1">
+<tr align="left" valign="top">
+	<td>Document Title</td> <td>Concept of operations for the Modems demonstration</td>
+</tr>
+</table>
+<table border="3" cellspacing="2" cellpadding="1">
+<tr align="left" valign="top">
+	<td>document history</td> 
+</tr>
+
+	<tr><b><td> </td> <td>date</td><td>Author</td><td>reason</td></b></tr>
+	<tr><td> </td> <td>11/11/12</td><td>PJA</td><td>original</td></tr>
+
+</table>
+<table border="3" cellspacing="2" cellpadding="1">
+<tr align="left" valign="top">
+	<td>overview</td> <td> <br>
+<b>the device sends changes for storage</b> <br>
+device sends changes to html page (devlog.html)<br>
+devlog.html calls devlog.php<br>
+devlog.php via sr232 transfers data to phpReader.py<br>
+phpReader writes QML message to SOA<br>
+SOA directs the task of logging device changes<br>
+<br>
+<b>the user requests an average be created</b> <br>
+user requests via userRequest.html for "Average" viz command picklist<br>
+user logs off<br>
+<br>
+<b>the user checks their status reports</b><br>
+user requests via userRequest.html for "Status" viz command picklist<br>
+if the final processing of the device changes average has been completed; the "average" report will be part of the report package.<br>
+</td>
+</tr>
+</table>
+<table border="3" cellspacing="2" cellpadding="1">
+<tr align="left" valign="top">
+	<td>Goals</td> <td><br>
+	<b>Technical goal to prove:</b><br>
+1- that messages can be transfered between php and python without sockets<br>
+2- that an agent can do some work (log changes, create an average ) <br>
+3- that an SOA task can be built from point diagrams<br>
+4- that an SOA agent can orchestrate inter-agent work to accomplish a task<br> <br>
+<b>Business goal to prove:</b><br>
+1- that a platform can be presented to the medical device community to:<br>
+----a)  have some device enter information simply into a larger system.<br>
+----b)  allow different analysis to be performed on the information provided.<br>
+----c)  allow results to be published to online subscribers.
+</td>
+</tr>
+</table>
+<table border="3" cellspacing="2" cellpadding="1">
+<tr align="left" valign="top">
+	<td>title</td> <td>text</td>
+</tr>
+</table>
+</body>
+</html>

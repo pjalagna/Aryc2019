@@ -1,0 +1,186 @@
+8334      
+X-Apparently-To: pjalagna@yahoo.com via 98.139.220.56; Tue, 16 Aug 2011 21:53:18 -0700
+Return-Path: <pjalagna@gmail.com>
+Return-Path: <pjalagna@gmail.com>
+X-YahooFilteredBulk: 209.85.212.51
+Received-SPF: pass (domain of gmail.com designates 209.85.212.51 as permitted sender)
+X-YMailISG: NmM8q0kWLDtPWAKUqx22ScOrpy45jeJbItyytmhDBQQfPduT
+ 08k6FsqgdZnJIsfIgHDtng4XH4xZ2m1QXedKCu951Dr4SCZHMgWRhOdKarf4
+ kFcnIPdrWqOTzx_qiTyZIDqSTJuA4tVjN.B1odB_wuZDPAQJIsQZfW301w.G
+ NZpyxDF8Ffx0xgIoWXaFsF8LzBeETLxX7GJy3bj3qn71ujWD6ChN3AUtXXJK
+ Y4FFbGEDrK4X16CNLteu_MwR5rsLaz8NQLUz2I6hy.jXP8OOUew0iHQJ.iMm
+ o5TY48tKr67mWyGTEop2hKber7CSywpKbtkGyqK1ugls7J3eaRVRKAfjv.72
+ e0skMOzKs6vLNFwz_iW4cktLSkgwemRptH9_n5kW5PgqwAhY41pAXluNn_Ea
+ EOmb0tU8RuZ_3vI64n4vlZC.IZsSu3v3QO73nqxDA.2JBjunc3y2M12uc7lR
+ dCPydh.cdd0a_DZvtdF9DAgqCn59X8HA0hanikCU00KCB9Nwi0.qCkHgbduo
+ LP2.H8hSVwQh72xVpvb9aORs1JsJ40KzDY72cNEpvrJcJntabliMtPzPzGqm
+ eemLNU6ripqX9nhNvMo4ggWzoLvHPEDCOBTInXJzaBOM2I7JrskDyU3Mh6ER
+ 3vri68q_j.c.49OSAadkwdy7uN7wste1V.F9jvAhPrw4aXJazMC8XkIsGHyf
+ uup2cK9uJc5gD.zWos6nsrK2JVtxpCy4_G2IXk9mup.Z3Co52oq8V9NLma00
+ 8T0JJLH5k.ghKc0g__eowzaimCechnyeZbcmgepil22J0U1xgEbGlBBm2VwI
+ 8jCbYT0ZIqyu5Fm2a51iMPzkVYSH6MpO6RZBn2VYkDtBXOy3bHU9MX57XAfs
+ sok.OGuELoQvw2gV0I4.Yo72ssQYUCB7bPCyRMNERHgkK4tbrVkE5hZphrIi
+ LMVpSYLBVHsLoaE7nbSCCPUWMcZcjAAr2u10ia_K7dBmj5RqDIH1dwHkuwZf
+ 3v5p2_HalrdFWzeZCEfDHv7T2edYiaBhLQcaq_1sEVoCGjR84YL0CJG7poyV
+ h3vzlEnZyR8rg.NL1SLmoiR5zY72TFzXqVOdkuvVmieGRfQ4lWjVXTXhckno
+ 0TZpDxBhlbnOjSdW8VNf0g--
+X-Originating-IP: [209.85.212.51]
+Authentication-Results: mta1000.mail.ac4.yahoo.com  from=gmail.com; domainkeys=neutral (no sig);  from=gmail.com; dkim=pass (ok)
+Received: from 127.0.0.1  (EHLO mail-vw0-f51.google.com) (209.85.212.51)
+  by mta1000.mail.ac4.yahoo.com with SMTP; Tue, 16 Aug 2011 21:53:18 -0700
+Received: by vws20 with SMTP id 20so366839vws.10
+        for <pjalagna@yahoo.com>; Tue, 16 Aug 2011 21:53:18 -0700 (PDT)
+Received: by 10.52.65.131 with SMTP id x3mr553959vds.68.1313556798378;
+        Tue, 16 Aug 2011 21:53:18 -0700 (PDT)
+Received: from [10.1.10.27] (c-69-140-11-187.hsd1.md.comcast.net [69.140.11.187])
+        by mx.google.com with ESMTPS id cg6sm484952vdc.29.2011.08.16.21.52.45
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Tue, 16 Aug 2011 21:53:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=from:content-type:subject:date:message-id:to:mime-version:x-mailer;
+        bh=tveqJ56H3ISJuwESs93su0b1dSDvbyQpp5AGiThMe4g=;
+        b=RQmmwX9SfNoYzZ2s/SIPHIKVFweszlsKSuEVPfEqAk2QD8RDCSYPzWCDx/MVSSLho/
+         IbOi17FQ6VvApfXIxIqWxQMHucOOThk5mqk8mqPVC6Op/cAJVEGxJB/pU+vCD1MfXYNS
+         lcAimW/IrzLDdCT7Ejumlz4Bck4pA65ds0duk=
+From: Paul John Alagna <pjalagna@gmail.com>
+Content-Type: multipart/alternative; boundary=Apple-Mail-3-242116080
+Subject: # file iniClass.py
+Date: Wed, 17 Aug 2011 00:52:45 -0400
+Message-Id: <7CD12988-0812-4587-B7C9-B2C90FFD5490@Gmail.com>
+To: Paul Alagna <pjalagna@yahoo.com>
+Mime-Version: 1.0 (Apple Message framework v1084)
+X-Mailer: Apple Mail (2.1084)
+Content-Length: 5255
+
+
+--Apple-Mail-3-242116080
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
+
+# file iniClass.py
+# history
+#--pja 8/16/11 0108
+class ini:
+    """ class text """
+    # interclass globals
+    def __init__(self,name):
+        """ sets up database for reading """
+        self.dbna =3D name
+        import sqlite3
+        self.d =3D sqlite3.Connection(self.dbna)
+    # end def init   =20
+    def iniRead(self,target):
+        """ reads ini table for target """
+        self.stmt =3D "Select resp from TblIni where target =3D '" + =
+target.__str__() + "' ;"
+        self.d1 =3D self.d.execute(self.stmt)
+        self.d2 =3D self.d1.fetchone()
+        self.d1.close()
+        return(self.d2)
+    # end def iniRead
+    def iniCreate(self):
+        """ create table for ini """
+        self.stmt =3D 'create table TblIni ( target text , resp text, =
+primary key(target));'
+        self.d1 =3D self.d.execute(self.stmt)
+        self.d2 =3D self.d1.fetchone()
+        self.d1.close()
+        return(self.d2)
+    # end def iniCreate
+    def iniWrite(self, target,response):
+        """ writes an entry into the table """
+        self.stmt =3D "Insert into TblIni values ('" + target.__str__() =
++ "' , '" + response.__str__() + "' ); "
+        print("test stmt =3D<<" + self.stmt + ">>")
+        self.d1 =3D self.d.execute(self.stmt)
+        self.d.commit()
+        self.d1.close()
+    #end def iniWrite
+    def iniDump(self):
+        self.stmt =3D 'select * from TblIni;'
+        self.d1 =3D self.d.execute(self.stmt)
+        ans =3D []
+        self.d2 =3D self.d1.fetchone()
+        while (self.d2.__str__().__len__() !=3D 4):
+            ans.append(self.d2)
+            self.d2 =3D self.d1.fetchone() # adj
+        #wend
+        return (ans)
+    # end def ini dump
+# end class ini
+
+
+--Apple-Mail-3-242116080
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; -webkit-line-break: after-white-space; "><span =
+class=3D"Apple-style-span" style=3D"line-height: 20px; font-family: =
+'Marker Felt'; "><div># file iniClass.py</div><div># =
+history</div><div>#--pja 8/16/11 0108</div><div>class =
+ini:</div><div>&nbsp; &nbsp; """ class text """</div><div>&nbsp; &nbsp; =
+# interclass globals</div><div>&nbsp; &nbsp; def =
+__init__(self,name):</div><div>&nbsp; &nbsp; &nbsp; &nbsp; """ sets up =
+database for reading """</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.dbna =
+=3D name</div><div>&nbsp; &nbsp; &nbsp; &nbsp; import =
+sqlite3</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.d =3D =
+sqlite3.Connection(self.dbna)</div><div>&nbsp; &nbsp; # end def init =
+&nbsp; &nbsp;</div><div>&nbsp; &nbsp; def =
+iniRead(self,target):</div><div>&nbsp; &nbsp; &nbsp; &nbsp; """ reads =
+ini table for target """</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.stmt =
+=3D "Select resp from TblIni where target =3D '" + target.__str__() + "' =
+;"</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.d1 =3D =
+self.d.execute(self.stmt)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.d2 =
+=3D self.d1.fetchone()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+self.d1.close()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+return(self.d2)</div><div>&nbsp; &nbsp; # end def =
+iniRead</div><div>&nbsp; &nbsp; def iniCreate(self):</div><div>&nbsp; =
+&nbsp; &nbsp; &nbsp; """ create table for ini """</div><div>&nbsp; =
+&nbsp; &nbsp; &nbsp; self.stmt =3D 'create table TblIni ( target text , =
+resp text, primary key(target));'</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+self.d1 =3D self.d.execute(self.stmt)</div><div>&nbsp; &nbsp; &nbsp; =
+&nbsp; self.d2 =3D self.d1.fetchone()</div><div>&nbsp; &nbsp; &nbsp; =
+&nbsp; self.d1.close()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+return(self.d2)</div><div>&nbsp; &nbsp; # end def =
+iniCreate</div><div>&nbsp; &nbsp; def iniWrite(self, =
+target,response):</div><div>&nbsp; &nbsp; &nbsp; &nbsp; """ writes an =
+entry into the table """</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.stmt =
+=3D "Insert into TblIni values ('" + target.__str__() + "' , '" + =
+response.__str__() + "' ); "</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+print("test stmt =3D&lt;&lt;" + self.stmt + "&gt;&gt;")</div><div>&nbsp; =
+&nbsp; &nbsp; &nbsp; self.d1 =3D =
+self.d.execute(self.stmt)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+self.d.commit()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; =
+self.d1.close()</div><div>&nbsp; &nbsp; #end def =
+iniWrite</div><div>&nbsp; &nbsp; def iniDump(self):</div><div>&nbsp; =
+&nbsp; &nbsp; &nbsp; self.stmt =3D 'select * from =
+TblIni;'</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.d1 =3D =
+self.d.execute(self.stmt)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; ans =3D =
+[]</div><div>&nbsp; &nbsp; &nbsp; &nbsp; self.d2 =3D =
+self.d1.fetchone()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; while =
+(self.d2.__str__().__len__() !=3D 4):</div><div>&nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; ans.append(self.d2)</div><div>&nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; self.d2 =3D self.d1.fetchone() # =
+adj</div><div>&nbsp; &nbsp; &nbsp; &nbsp; #wend</div><div>&nbsp; &nbsp; =
+&nbsp; &nbsp; return (ans)</div><div>&nbsp; &nbsp; # end def ini =
+dump</div><div># end class ini</div><div><br></div></span></body></html>=
+
+--Apple-Mail-3-242116080--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-last-viewed</key>
+	<integer>0</integer>
+	<key>date-received</key>
+	<integer>1313556798</integer>
+	<key>flags</key>
+	<integer>17180130305</integer>
+	<key>remote-id</key>
+	<string>228590</string>
+</dict>
+</plist>

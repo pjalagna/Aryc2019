@@ -1,0 +1,10 @@
+file registration common notes
+registration:
+-- adds a profile to some dataset
+-- adds a task to the cold start list
+-- executes a start-now of task
+
+demo doesn't use
+
+registerAgent(class fileName, [parameterNames])
+-- class is service under agentHead can only have one string parameter

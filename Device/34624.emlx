@@ -1,0 +1,50 @@
+1304      
+MIME-Version: 1.0
+Received: by 10.143.98.14 with HTTP; Mon, 11 Jun 2012 11:10:23 -0700 (PDT)
+Date: Mon, 11 Jun 2012 14:10:23 -0400
+Message-ID: <CAH=9gSTfMvFjcd0e9OhFUrBLL69+tgjQBk4BR7YEVg4=ucSpKA@mail.gmail.com>
+Subject: arpo.py
+From: Paul Alagna <pjalagna@gmail.com>
+Content-Type: multipart/alternative; boundary=001636e0a51f7d651104c2364313
+
+--001636e0a51f7d651104c2364313
+Content-Type: text/plain; charset=UTF-8
+
+# file arpo.py
+def po(ar):
+    """ prints array objects one line at a time """
+    for x in range(ar.__len__()):
+        print("(" + x.__str__()+"){"+ar[x].__str__()+"}"+'\n')
+    # next x
+# end po
+
+-- 
+-----------------------------
+Paul Alagna - PJAlagna@Gmail.com
+
+--001636e0a51f7d651104c2364313
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+# file arpo.py<br>def po(ar):<br>=C2=A0=C2=A0=C2=A0 &quot;&quot;&quot; prin=
+ts array objects one line at a time &quot;&quot;&quot;<br>=C2=A0=C2=A0=C2=
+=A0 for x in range(ar.__len__()):<br>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 print(&quot;(&quot; + x.__str__()+&quot;){&quot;+ar[x].__str__()+&qu=
+ot;}&quot;+&#39;\n&#39;)<br>
+=C2=A0=C2=A0=C2=A0 # next x<br># end po<br clear=3D"all"><br>-- <br>-------=
+----------------------<br>Paul Alagna - PJAlagna@Gmail.com<br>
+
+--001636e0a51f7d651104c2364313--<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-last-viewed</key>
+	<integer>0</integer>
+	<key>date-received</key>
+	<integer>1339438223</integer>
+	<key>flags</key>
+	<integer>8623750145</integer>
+	<key>remote-id</key>
+	<string>68103</string>
+</dict>
+</plist>

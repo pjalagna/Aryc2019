@@ -1,0 +1,5 @@
+device Name:
+send channel
+receive channel
+op1:
+   Unit of Measure

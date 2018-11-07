@@ -1,0 +1,107 @@
+4235      
+MIME-Version: 1.0
+Received: by 10.143.98.14 with HTTP; Mon, 11 Jun 2012 11:10:59 -0700 (PDT)
+Date: Mon, 11 Jun 2012 14:10:59 -0400
+Message-ID: <CAH=9gSStu=+PU4vrsRbghNdbxSFxR2S_vyQdBVbAUOgeNGOCZg@mail.gmail.com>
+Subject: cvkey.py
+From: Paul Alagna <pjalagna@gmail.com>
+Content-Type: multipart/alternative; boundary=001636e0a51ea694e204c236459c
+
+--001636e0a51ea694e204c236459c
+Content-Type: text/plain; charset=UTF-8
+
+# file cvkey.py
+def CVK(strin):
+    """ converts any special chars into textual """
+    lstrin = strin # local copy
+    lstrin = lstrin.replace('!',"Bng")
+    lstrin = lstrin.replace('@',"Att")
+    lstrin = lstrin.replace('#',"Shp")
+    lstrin = lstrin.replace('$',"Dlr")
+    lstrin = lstrin.replace('%',"Pcnt")
+    lstrin = lstrin.replace('^',"Ugr")
+    lstrin = lstrin.replace('&',"And")
+    lstrin = lstrin.replace('*',"Str")
+    lstrin = lstrin.replace('(',"Oprn")
+    lstrin = lstrin.replace(')',"Cprn")
+    lstrin = lstrin.replace('+',"Plus")
+    lstrin = lstrin.replace('=',"Eq")
+    ###################################('\',"BSl") can't use char escape in 
+python
+    lstrin = lstrin.replace('{',"Oq")
+    lstrin = lstrin.replace('}',"Cq")
+    lstrin = lstrin.replace('[',"Ob")
+    lstrin = lstrin.replace(']',"Cb")
+    lstrin = lstrin.replace(':',"Coln")
+    lstrin = lstrin.replace(';',"Semi")
+    lstrin = lstrin.replace('<',"Gt")
+    lstrin = lstrin.replace('>',"Lt")
+    lstrin = lstrin.replace(',',"Coma")
+    lstrin = lstrin.replace('.',"Prd")
+    lstrin = lstrin.replace('?',"Hook")
+    lstrin = lstrin.replace('/',"Slash")
+    return(lstrin)
+#end CVK
+    
+# end po
+
+-- 
+-----------------------------
+Paul Alagna - PJAlagna@Gmail.com
+
+--001636e0a51ea694e204c236459c
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+# file cvkey.py<br>def CVK(strin):<br>=C2=A0=C2=A0=C2=A0 &quot;&quot;&quot;=
+ converts any special chars into textual &quot;&quot;&quot;<br>=C2=A0=C2=A0=
+=C2=A0 lstrin =3D strin # local copy<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstri=
+n.replace(&#39;!&#39;,&quot;Bng&quot;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lst=
+rin.replace(&#39;@&#39;,&quot;Att&quot;)<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;#&#39;,&quot;Shp&quot;)<b=
+r>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;$&#39;,&quot;Dlr&quot;)=
+<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;%&#39;,&quot;Pcnt&quo=
+t;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;^&#39;,&quot;Ugr&q=
+uot;)<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;&amp;&#39;,&quot;And&quot=
+;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;*&#39;,&quot;Str&qu=
+ot;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;(&#39;,&quot;Oprn=
+&quot;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;)&#39;,&quot;C=
+prn&quot;)<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;+&#39;,&quot;Plus&quot;)<=
+br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;=3D&#39;,&quot;Eq&quot=
+;)<br>=C2=A0=C2=A0=C2=A0 ###################################(&#39;\&#39;,&q=
+uot;BSl&quot;) can&#39;t use char escape in python<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;{&#39;,&quot;Oq&quot;)<br=
+>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;}&#39;,&quot;Cq&quot;)<b=
+r>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;[&#39;,&quot;Ob&quot;)<=
+br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;]&#39;,&quot;Cb&quot;)=
+<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;:&#39;,&quot;Coln&quot;)<=
+br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;;&#39;,&quot;Semi&quot=
+;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;&lt;&#39;,&quot;Gt&=
+quot;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;&gt;&#39;,&quot=
+;Lt&quot;)<br>
+=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;,&#39;,&quot;Coma&quot;)<=
+br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;.&#39;,&quot;Prd&quot;=
+)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;?&#39;,&quot;Hook&qu=
+ot;)<br>=C2=A0=C2=A0=C2=A0 lstrin =3D lstrin.replace(&#39;/&#39;,&quot;Slas=
+h&quot;)<br>
+=C2=A0=C2=A0=C2=A0 return(lstrin)<br>#end CVK<br>=C2=A0=C2=A0=C2=A0 <br># e=
+nd po<br clear=3D"all"><br>-- <br>-----------------------------<br>Paul Ala=
+gna - PJAlagna@Gmail.com<br>
+
+--001636e0a51ea694e204c236459c--<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-last-viewed</key>
+	<integer>1471657121</integer>
+	<key>date-received</key>
+	<integer>1339438259</integer>
+	<key>flags</key>
+	<integer>8623750145</integer>
+	<key>remote-id</key>
+	<string>2304</string>
+</dict>
+</plist>

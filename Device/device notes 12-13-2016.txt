@@ -1,0 +1,22 @@
+device notes 12-13-2016
+
+person --a--> URLhub
+:.: a= ?iam=obj&to=obj2&cmd=Read+RPM
+
+<<hub>> <-- ?iam=obj&to=obj2&cmd=Read+RPM
+SID?
+N
+SID <== genSID()
+originator = [to]
+SIDDate <== getDate()
+END
+
+toChannel = getSendChannel([to])
+stick&go(toChannel)
+===========================================
+<<channel>> <-- SID
+
+
+python 
+socket
+urllib

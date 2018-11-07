@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+  <table border='3'> <tr><td>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+</td></tr></table>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(100, 150);
+      context.lineTo(450, 50);
+      // pja
+      context.moveTo(450, 50);
+      context.lineTo(500, 500);
+      context.lineWidth = 10;
+
+      // set line color
+      // context.strokeStyle = '#ff8800'; // works too
+      context.strokeStyle = 'black'; // works too
+      
+      context.stroke();
+      context.font = 'italic 40pt Calibri';
+      context.fillStyle = 'blue';
+      context.fillText('Hello World!', 150, 100);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+     /* file pd2Test.txt simple tester */
+     <project> pd3tst  </project> 
+
+
+
+     2 "$hello" --> 
+     3 __msg --> 
+     5 "$box" --> 6 __! --> 
+     7 "$box" --> 8 __@ --> 9 ==Choo --> 10 x
+                           9.11 ==Foo --> 12 "$its foo" ------------> 13 __msg --> -100 x
+                             11.20 "$unk" --> 21 __! --> 22 "$done" --> 13 x 
+     10 clearNds -----------------------------------> 22 x 
+     22 ==> --> 
+     23 "$test msg" --> 24 __msg --> -1 x 
+
+ 
+     @endend 
+

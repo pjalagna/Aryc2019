@@ -1,0 +1,12 @@
+raspberry pi device (demo)
+is a number sawtooth (1-10) with a random number of zeros (3-6)
+sr232 to a receiver. 
+
+
+channel-0 reciever for unchanneled messages (such as registration of channel)
+channel-x sender
+channel-y receiver - one shot receiver
+
+
+demoStep = deviceSawClass
+

@@ -1,0 +1,41 @@
+file BertaNotes2017.txt
+LED 2/22/2017
+aside task is parsing table description into sql statements with data dictionary entries
+format is:
+<tableName> 
+(( 
+<keyName> of ( refTable.RefCol ) [ valueset ,+ ] ''' description ''' ,+ 
+) 
+<TagName> of ( refTable.RefCol ) [ valueset ,+ ] """ description """ ,+ 
+) 
+;
+
+LED 2/20/2017
+what to do with passed variables into worksheet.
+LED = 2/18/2017
+
+YAWL is too complicated to use as a user driven format for medical devices. I believe BERTA has a smaller learning curve and therefore more intuitive.
+
+a) all forms are tcl.
+b) all processes are COTS POP python
+c) all indexing and RI will be database driven except for:
+c.1 ) subtype supertype rules
+c.2 ) persistant queueing
+c.3 ) execution of the BPX protocol
+c.4 ) unless specified
+
+d) design formats
+- table definitions
+-- TABLE <t-name> (( key ,+ ) tag ,+ ) ;
+
+e) process definitions
+-- bassi diagrams and BPX tables
+
+rule form
+list-bundle from bundle table + new
+list-rule from rule table + new
+test spread sheet
+- each V-cell is list from test table + "rule..." + "number..." + "literal..." + "none"
+- each op cell is "<<" "<" = != ">" ">>" + "none" + "is"
+
+

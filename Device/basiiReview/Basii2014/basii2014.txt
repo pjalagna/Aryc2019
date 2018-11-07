@@ -1,0 +1,25 @@
+file basii2014.txt
+-- pja 4-6-2014 reviewed and edited
+===========================
+basii compiler
+basiiC (script) --> {bpx}
+-- feeds to BPXReader({bpx}) for execution
+per paragraph
+per clause
+per verb 
+
+bpx == see (link)
+
+sections
+in memory pages == nds
+-- that are 
+---- {bpx}
+---- templates
+------ string
+------ marker (a for b)
+------ paragraph point
+---- fragments
+
+ok \03
+nok \04
+

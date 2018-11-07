@@ -1,0 +1,10 @@
+service name
+send channel
+receive channel
+input parameters
+-- op1.1:
+---- format
+output parameters
+-- op2.1
+---- format
+    
