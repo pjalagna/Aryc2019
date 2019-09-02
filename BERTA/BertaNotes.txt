@@ -1,0 +1,47 @@
+file BertaNotes.txt
+pja 8/17/2019 changed name to be dateless (was notes2017)
+- sequencing in berta
+-- suppose we want to have a,b entered and then develop xa = a**2 + 2ab + b**2
+--- clearly we need to sequence
+---- we do this at e=>p time (ie when e executes p) p is a basii execution tree (Bpx) which holds that all v in Bpx are executed in a strict logical progression. so the berta progression is already b=>r=>t=>e=>p=>re=>ax=b'. it is at e=>p that an entry can be called to take and store [a] and [b] THEN the function can be called to develop and store [xa].
+
+LED 2/22/2017
+aside task is parsing table description into sql statements with data dictionary entries
+format is:
+<tableName> 
+(( 
+<keyName> of ( refTable.RefCol ) [ valueset ,+ ] ''' description ''' ,+ 
+) 
+<TagName> of ( refTable.RefCol ) [ valueset ,+ ] """ description """ ,+ 
+) 
+;
+
+LED 2/20/2017
+what to do with passed variables into worksheet.
+LED = 2/18/2017
+
+YAWL is too complicated to use as a user driven format for medical devices. I believe BERTA has a smaller learning curve and therefore more intuitive.
+
+a) all forms are tcl.
+b) all processes are COTS POP python
+c) all indexing and RI will be database driven except for:
+c.1 ) subtype supertype rules
+c.2 ) persistant queueing
+c.3 ) execution of the BPX protocol
+c.4 ) unless specified
+
+d) design formats
+- table definitions
+-- TABLE <t-name> (( key ,+ ) tag ,+ ) ;
+
+e) process definitions
+-- bassi diagrams and BPX tables
+
+rule form
+list-bundle from bundle table + new
+list-rule from rule table + new
+test spread sheet
+- each V-cell is list from test table + "rule..." + "number..." + "literal..." + "none"
+- each op cell is "<<" "<" = != ">" ">>" + "none" + "is"
+
+

@@ -1,0 +1,15 @@
+/* file pointDiagrams.BNF.txt 
+pja 08-12-2019
+project <projectName>
+point - op            - --> newPoint
+      - "lit" literal -
+      - =x -
+      
+oldPoint.newPoint -
+=; -
+
+parsePoint :-
+[[1]] <num> ...
+[[2]] isNeg 
+[[3]] isSemi
+[[4]] hasDecimal setDoldNum setDnewNum setPDX(oldnum,no=newNum) //parseOp// //parseLine// tail. .
