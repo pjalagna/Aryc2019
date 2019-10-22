@@ -1,0 +1,48 @@
+""" def  FExpression :-
+[[  1 ]]   FTerm FExpression1 retStack .
+;
+"""
+Stk = { six , SStk }
+six = 0
+Nds = {}
+fin = /* open file read all */
+arch = { Stk , Nds , fin } 
+
+def FExpression (arch):
+	arch = FTerm(arch)
+	arch = FExpression1(arch)
+	ret(arch)
+# FExpression
+
+def  FExpression1 :-
+[[  1 ]]   EQPlus FTerm actPlus tail. .
+[[  2 ]]   EQNeg FTerm actNeg tail. .
+[[  3 ]]   EQDot FTerm actConcat tail. .
+[[  4 ]]   “expected +/- operator” abort ;
+;
+
+def  FTerm :-
+[[  1 ]]   FFactor FTerm1 .
+;
+
+def  FTerm1 :-
+[[  1 ]]   EQMul FFactor actMul tail. .
+[[  2 ]]   EQDiv FFactor actDiv tail. .
+;
+
+def  FFactor :-
+[[  1 ]]   WWord … . /* sets coo,cbo,ctype,cvalue */ 
+[[  2 ]]   is_number Save .
+[[  3 ]]   EQOP FExpression EQCP Save .
+[[  4 ]]   is_Label FFactor2 .
+[[  5 ]]   is_quotedString Save .
+;
+
+
+def  FFactor2 :-
+[[  1 ]]   wword … .
+[[   2  ]]   EQOAR FExpression EQCAR actArray Save .
+[[  3 ]]   EQOP FParameters EQCP actFunction Save .
+[[   4  ]]   SaveAsVar .
+;
+
