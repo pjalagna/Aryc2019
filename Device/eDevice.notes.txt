@@ -1,0 +1,16 @@
+File eDevice.notes.txt
+Real time Input types 
+- temperature
+Strain
+GvSR (galvanic skin response)
+3 point GvSR
+Opacity
+Color
+Water content (viscosity)
+Ph
+Weight
+Angle
+Gps location
+RFID location
+-- indirectly kinetics
+
