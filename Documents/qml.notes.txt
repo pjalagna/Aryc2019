@@ -1,0 +1,45 @@
+// file QML.notes.txt
+// pja 5/26/2019 added jPlus features
+// pja 5/5/2019
+// see also Xpickle.php
+
+QID - uid
+uu = uu55aa - garbage identifier - if this is incorrect then the file/transmission is invalid
+Quser name
+Qorig URL
+QDate - timestamp
+QFrom j+ array URL
+QTo    URL
+QRespondTo URL
+Qbody jsonRPC+
+
+$qmlAR = QMLInit(sysuser,sysURL);
+function QMLInit($user,$Qorig) {
+$qmlAR = array();
+$qmlAR['last'] = 'a0';
+$g = genx();
+$qmlAR = JARadd($qmlAR,"QID",$g);
+$qmlAR = JARadd($qmlAR,"uu","uu55aa");
+$qmlAR = JARadd($qmlAR,"Quser",$user);
+$qmlAR = JARadd($qmlAR,"Qorig",$Qorig);
+$qmlAR = JARadd($qmlAR,"Qdate",date("Y-m-d H:i:s"));
+$qmlAR = JARadd($qmlAR,"QFrom",array());
+$qmlAR['QFrom']['last'] = 'F0';
+$qmlAR = JARadd($qmlAR,"QTo",''); //init
+$qmlAR = JARadd($qmlAR,"QRespondTo",''); //init
+$qmlAR = JARadd($qmlAR,"QBody",array());
+$qmlAR['QBody']['last'] = 'B0';
+$qmlAR['QBody']['jsonrpc'] = 'jsonrpc';
+$qmlAR['QBody']['method'] = ''; //init compliant but redundant
+$qmlAR['QBody']['id'] = $user . '-' . $g ; //compliant but redundant
+$qmlAR['QBody'] = JARadd($qmlAR['QBody'],'jsonrpc','jsonrpc');
+$qmlAR['QBody'] = JARadd($qmlAR['QBody'],'method',''); //init
+$qmlAR['QBody'] = JARadd($qmlAR['QBody'],'id',$qmlAR['QBody']['id']); 
+$qmlAR['QBody']['params'] = array();
+$qmlAR['QBody']['params']['last'] = 'P0';
+$qmlAR['QBody']['records'] = array();
+$qmlAR['QBody']['records']['last'] = 'R0';
+return($qmlAR);
+} //QMLInit
+
+

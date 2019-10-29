@@ -1,0 +1,6 @@
+File BPX-records.txt
+Pja 10-29-2019
+
+T: BPX((paragraphName, ClauseNumber, VerbNumber) VerbName , LitString)
+
+Each record contains a single Basii element 

@@ -1,0 +1,13 @@
+file mooseRec.txt
+Pja 10-28-2019
+
+The moose record is that portable object that travels to every service
+It contains 
+A) the transaction record as POSTed parameters
+- transaction id (XANID) paragraph-name, Clause-number, Verb-Number
+A1) trace, and monitor (sends copy to display agent)
+B) the QML record in JSON JPlus
+-- see file QML.notes.txt
+
+the Basii architecture in a database (via a database service - url in the QML)
+- Nds, data-stack, return-stack, heap , lib as execution-tree (BPX records)
