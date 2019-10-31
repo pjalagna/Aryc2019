@@ -1,0 +1,5 @@
+File NDS-records.txt
+Pja 10-29-2019
+
+T: NDS((name) vvalue)
+Each record contains a named data store element 

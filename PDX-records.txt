@@ -1,0 +1,6 @@
+File PDX-records.txt
+Pja 10-29-2019
+
+T: PDX((pointNumber) OperationName, YesNextPointNumber, NoNextPointNumber, LitString )
+
+Each record contains a point diagram element
