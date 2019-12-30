@@ -1,0 +1,62 @@
+smart RDF - paul alagna 
+12-25-2019
+Predicate rules are agents applied at time of read
+
+
+Q1- where does [[ ( localTime is 'Local' ) ]] get stored
+-- subject.predicate = object? Ie NDS 
+---- limits subject to 1 entry per predicate unless we use indexing
+------ subject.predicate[index]
+So 
+[1] RDF localTime is 'Local' ; produces NDS localTime.is = 'local'  on entry
+[2] RDF temp2Time receives ( time parameter localTime )
+-- ( time parameter localTime ) produces NDS time.parameter = localTime on entry
+-- temp2Time receives  produces NDS temp2Time.receives = time.parameter on entry
+
+[3] At read temp2Time:
+Extract temp2Time.receives
+-- why
+---- rule on receives
+Replaced with time.parameter
+[4] At read time.parameter:
+-- rule on parameter
+---- read parameter execute subject with parameter
+[4.1] Read time.parameter (localTime,,)
+Read localTime
+Extract localTime.is 
+-- rule on "is"
+---- replace name with value
+[4.2] ("local",,)
+[4.3] execute time() with parameter IE time('local') example ("12/25/2019",,)
+
+
+Rule for [[ has ( id of ]]
+As in ( localTime is 'Local' ) has ( id of ID3 )
+"Has ( id of ID3 )" creates ID3 = localTime.is@
+
+12-24-2019
+intro
+
+example
+predicate <- is receives
+predicate returns is ->
+predicate : is executeObject
+predicate receives does executeForSubject
+basii executeForSubject :-
+[[ 1 ]] executeObject writeSubject . ;
+
+basilTemp <- temp2
+sequence temp2 :-
+[[ 1 ]]  ans <- temp() ...
+[[ 2 ]]  localtime is "Local" ...
+[[ 3 ]]  temp2Time <- ( time parameter localtime ) ) ) ...
+[[ 4 ]]  temp2 ->  ans .
+;
+         
+
+
+berta usage
+Basii test[x] :-
+[[ 1 ]] 'test[x]' // basilTemp 99 .gt. 'tempHi' // store .
+[[ 2 ]] 'tempLo' // store .
+;

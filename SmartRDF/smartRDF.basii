@@ -1,0 +1,80 @@
+/*
+question - where does the output go?
+design - clear all spo variables use clearAll
+pja 12-29-2019 editing act1
+pja 12-28-2019 changed wword to fpword
+               dup before ==token 
+pja 12-27-2019 added comments
+pja 12-1-2019 orig
+
+basii protocol output-filename [ def paragraph :- [ [[ clause-number ]] [ verbs till period ] ] till ; ] till @endend
+*/
+smartRDFX.py
+
+def RDFMain :-
+[[ 1 ]] "script file" ask dup "scriptF" ! RDFMain2 . 
+;
+
+def RDFMain2 :-
+[[ 1 ]] clearAll fpword ... .
+[[ 2 ]] ==RDF getSubject 
+        fpword "predicate" ! getObject act1 tail. .
+[[ 3 ]] "error at main " abort .
+;
+
+def getSubject :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ==( complexSubject fpword ==)  .
+[[ 3 ]] "subject" !  .
+;
+
+def complexSubject :-
+[[ 1 ]] fpword "subject1" ! ... .
+[[ 2 ]] fpword "predicate1" ! ... .
+[[ 3 ]] fpword "object1" !  .
+;
+
+def getObject :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ==( complexObject fpword ==)  .
+[[ 3 ]] "Object" !  .
+;
+
+def complexObject :-
+[[ 1 ]] fpword "subject2" ! ... .
+[[ 2 ]] fpword "predicate2" ! ... .
+[[ 3 ]] fpword "object2" !  .
+;
+
+def initIOI :- 
+/* sets up fioiClass vectors 
+g: filename on datastack 
+*/ 
+[[ 1 ]] "fioiP" takeV . 
+;
+def act1 :- 
+[[ 1 ]] '0' 'e' ! ... .
+[[ 2 ]] 'subject' @ '' = 'e' @ 1 + 'e' ! ... .
+[[ 3 ]] 'object' @ '' = 'e' @ 2 + 'e' ! ... .
+[[ 4 ]] act1Case .
+;
+def act1Case :-
+[[ 1 ]] 'e' @ ... .
+[[ 2 ]] dup 0 = /* simple spo */
+
+/* 
+e=0
+if subject<>null then complex subject v+1
+if object<>null then complex object v+2
+
+case
+v0 spo
+v1 (spo) p o
+v2 s p (spo)
+v3 (spo) p (spo)
+*/
+
+;
+
+@endend @endend
+
