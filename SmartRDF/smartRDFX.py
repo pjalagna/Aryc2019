@@ -90,11 +90,11 @@ def RDFMain_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing verb ( ... ) ')
+    logg('processing verb ( RDFMain2 ) ')
     if (r == p['OK']):
-        logg('call ... ')
-        p['sy']['...'](p)
-        logg('after ...')
+        logg('call RDFMain2 ')
+        p['sy']['RDFMain2'](p)
+        logg('after RDFMain2')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -106,9 +106,34 @@ def RDFMain_1():
     logg('final RDFMain_1')
 #end RDFMain_1
 
-def RDFMain_2():
+def RDFMain (x):
     global p
-    logg('RDFMain_2')
+    logg('begin RDFMain')
+    ## point of umbrella
+    RDFMainCtl = 1 # starting spoke
+    while RDFMainCtl != 0:
+        logg('loop RDFMainCtl = ' + RDFMainCtl.__str__())
+        if (RDFMainCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (RDFMainCtl == 1):
+            logg('call RDFMain_1')
+            RDFMain_1()
+            logg('after call RDFMain_1')
+            # test and adjust for new spoke
+            RDFMainCtl = chk(RDFMainCtl)
+
+        else:
+            #final
+            logg('final RDFMain')    
+            RDFMainCtl = 0 # break
+        #endif
+    #wend
+#end RDFMain
+
+def RDFMain2_1():
+    global p
+    logg('RDFMain2_1')
     datPush(p['OK'])
 
     r = p['sy']['pop']()
@@ -138,12 +163,12 @@ def RDFMain_2():
     #endif
 
     #final
-    logg('final RDFMain_2')
-#end RDFMain_2
+    logg('final RDFMain2_1')
+#end RDFMain2_1
 
-def RDFMain_3():
+def RDFMain2_2():
     global p
-    logg('RDFMain_3')
+    logg('RDFMain2_2')
     datPush(p['OK'])
 
     r = p['sy']['pop']()
@@ -250,12 +275,12 @@ def RDFMain_3():
     #endif
 
     #final
-    logg('final RDFMain_3')
-#end RDFMain_3
+    logg('final RDFMain2_2')
+#end RDFMain2_2
 
-def RDFMain_4():
+def RDFMain2_3():
     global p
-    logg('RDFMain_4')
+    logg('RDFMain2_3')
     datPush(p['OK'])
 
     r = p['sy']['pop']()
@@ -284,54 +309,47 @@ def RDFMain_4():
     #endif
 
     #final
-    logg('final RDFMain_4')
-#end RDFMain_4
+    logg('final RDFMain2_3')
+#end RDFMain2_3
 
-def RDFMain (x):
+def RDFMain2 (x):
     global p
-    logg('begin RDFMain')
+    logg('begin RDFMain2')
     ## point of umbrella
-    RDFMainCtl = 1 # starting spoke
-    while RDFMainCtl != 0:
-        logg('loop RDFMainCtl = ' + RDFMainCtl.__str__())
-        if (RDFMainCtl == -1):
+    RDFMain2Ctl = 1 # starting spoke
+    while RDFMain2Ctl != 0:
+        logg('loop RDFMain2Ctl = ' + RDFMain2Ctl.__str__())
+        if (RDFMain2Ctl == -1):
             nop = -1 # false test to set up elif chain
 
-        elif (RDFMainCtl == 1):
-            logg('call RDFMain_1')
-            RDFMain_1()
-            logg('after call RDFMain_1')
+        elif (RDFMain2Ctl == 1):
+            logg('call RDFMain2_1')
+            RDFMain2_1()
+            logg('after call RDFMain2_1')
             # test and adjust for new spoke
-            RDFMainCtl = chk(RDFMainCtl)
+            RDFMain2Ctl = chk(RDFMain2Ctl)
 
-        elif (RDFMainCtl == 2):
-            logg('call RDFMain_2')
-            RDFMain_2()
-            logg('after call RDFMain_2')
+        elif (RDFMain2Ctl == 2):
+            logg('call RDFMain2_2')
+            RDFMain2_2()
+            logg('after call RDFMain2_2')
             # test and adjust for new spoke
-            RDFMainCtl = chk(RDFMainCtl)
+            RDFMain2Ctl = chk(RDFMain2Ctl)
 
-        elif (RDFMainCtl == 3):
-            logg('call RDFMain_3')
-            RDFMain_3()
-            logg('after call RDFMain_3')
+        elif (RDFMain2Ctl == 3):
+            logg('call RDFMain2_3')
+            RDFMain2_3()
+            logg('after call RDFMain2_3')
             # test and adjust for new spoke
-            RDFMainCtl = chk(RDFMainCtl)
-
-        elif (RDFMainCtl == 4):
-            logg('call RDFMain_4')
-            RDFMain_4()
-            logg('after call RDFMain_4')
-            # test and adjust for new spoke
-            RDFMainCtl = chk(RDFMainCtl)
+            RDFMain2Ctl = chk(RDFMain2Ctl)
 
         else:
             #final
-            logg('final RDFMain')    
-            RDFMainCtl = 0 # break
+            logg('final RDFMain2')    
+            RDFMain2Ctl = 0 # break
         #endif
     #wend
-#end RDFMain
+#end RDFMain2
 
 def getSubject_1():
     global p
@@ -1139,9 +1157,115 @@ def initIOI_1():
         p['sy']['push'](r) # pass nok to next
     #endif
 
+    r = p['sy']['pop']()
+    logg('processing verb ( ... ) ')
+    if (r == p['OK']):
+        logg('call ... ')
+        p['sy']['...'](p)
+        logg('after ...')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
     #final
     logg('final initIOI_1')
 #end initIOI_1
+
+def initIOI_2():
+    global p
+    logg('initIOI_2')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('processing text -- RDF.db -- ') 
+    if (r == p['OK']):
+        logg('push text RDF.db ')
+        datPush("RDF.db")
+        logg('after RDF.db ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- SQV -- ') 
+    if (r == p['OK']):
+        logg('push text SQV ')
+        datPush("SQV")
+        logg('after SQV ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( takeV ) ')
+    if (r == p['OK']):
+        logg('call takeV ')
+        p['sy']['takeV'](p)
+        logg('after takeV')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ... ) ')
+    if (r == p['OK']):
+        logg('call ... ')
+        p['sy']['...'](p)
+        logg('after ...')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final initIOI_2')
+#end initIOI_2
+
+def initIOI_3():
+    global p
+    logg('initIOI_3')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('processing text -- create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); -- ') 
+    if (r == p['OK']):
+        logg('push text create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
+        datPush("create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);")
+        logg('after create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( SQX ) ')
+    if (r == p['OK']):
+        logg('call SQX ')
+        p['sy']['SQX'](p)
+        logg('after SQX')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final initIOI_3')
+#end initIOI_3
 
 def initIOI (x):
     global p
@@ -1160,6 +1284,20 @@ def initIOI (x):
             # test and adjust for new spoke
             initIOICtl = chk(initIOICtl)
 
+        elif (initIOICtl == 2):
+            logg('call initIOI_2')
+            initIOI_2()
+            logg('after call initIOI_2')
+            # test and adjust for new spoke
+            initIOICtl = chk(initIOICtl)
+
+        elif (initIOICtl == 3):
+            logg('call initIOI_3')
+            initIOI_3()
+            logg('after call initIOI_3')
+            # test and adjust for new spoke
+            initIOICtl = chk(initIOICtl)
+
         else:
             #final
             logg('final initIOI')    
@@ -1168,17 +1306,670 @@ def initIOI (x):
     #wend
 #end initIOI
 
-def act1_1():
+def act1_subject():
     global p
-    logg('act1_1')
+    logg('act1_subject')
     datPush(p['OK'])
 
     r = p['sy']['pop']()
-    logg('processing verb ( .s ) ')
+    logg('processing text -- subject -- ') 
     if (r == p['OK']):
-        logg('call .s ')
-        p['sy']['.s'](p)
-        logg('after .s')
+        logg('push text subject ')
+        datPush("subject")
+        logg('after subject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- predicate -- ') 
+    if (r == p['OK']):
+        logg('push text predicate ')
+        datPush("predicate")
+        logg('after predicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- predicate -- ') 
+    if (r == p['OK']):
+        logg('push text predicate ')
+        datPush("predicate")
+        logg('after predicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- object -- ') 
+    if (r == p['OK']):
+        logg('push text object ')
+        datPush("object")
+        logg('after object ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- object -- ') 
+    if (r == p['OK']):
+        logg('push text object ')
+        datPush("object")
+        logg('after object ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- ssubject -- ') 
+    if (r == p['OK']):
+        logg('push text ssubject ')
+        datPush("ssubject")
+        logg('after ssubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- ssubject -- ') 
+    if (r == p['OK']):
+        logg('push text ssubject ')
+        datPush("ssubject")
+        logg('after ssubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- spredicate -- ') 
+    if (r == p['OK']):
+        logg('push text spredicate ')
+        datPush("spredicate")
+        logg('after spredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- spredicate -- ') 
+    if (r == p['OK']):
+        logg('push text spredicate ')
+        datPush("spredicate")
+        logg('after spredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- sobject -- ') 
+    if (r == p['OK']):
+        logg('push text sobject ')
+        datPush("sobject")
+        logg('after sobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- sobject -- ') 
+    if (r == p['OK']):
+        logg('push text sobject ')
+        datPush("sobject")
+        logg('after sobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- osubject -- ') 
+    if (r == p['OK']):
+        logg('push text osubject ')
+        datPush("osubject")
+        logg('after osubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- osubject -- ') 
+    if (r == p['OK']):
+        logg('push text osubject ')
+        datPush("osubject")
+        logg('after osubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- opredicate -- ') 
+    if (r == p['OK']):
+        logg('push text opredicate ')
+        datPush("opredicate")
+        logg('after opredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- opredicate -- ') 
+    if (r == p['OK']):
+        logg('push text opredicate ')
+        datPush("opredicate")
+        logg('after opredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- oobject -- ') 
+    if (r == p['OK']):
+        logg('push text oobject ')
+        datPush("oobject")
+        logg('after oobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- oobject -- ') 
+    if (r == p['OK']):
+        logg('push text oobject ')
+        datPush("oobject")
+        logg('after oobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- RDFTuple -- ') 
+    if (r == p['OK']):
+        logg('push text RDFTuple ')
+        datPush("RDFTuple")
+        logg('after RDFTuple ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( SQWrite ) ')
+    if (r == p['OK']):
+        logg('call SQWrite ')
+        p['sy']['SQWrite'](p)
+        logg('after SQWrite')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- subject -- ') 
+    if (r == p['OK']):
+        logg('push text subject ')
+        datPush("subject")
+        logg('after subject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- predicate -- ') 
+    if (r == p['OK']):
+        logg('push text predicate ')
+        datPush("predicate")
+        logg('after predicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- object -- ') 
+    if (r == p['OK']):
+        logg('push text object ')
+        datPush("object")
+        logg('after object ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- ssubject -- ') 
+    if (r == p['OK']):
+        logg('push text ssubject ')
+        datPush("ssubject")
+        logg('after ssubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- spredicate -- ') 
+    if (r == p['OK']):
+        logg('push text spredicate ')
+        datPush("spredicate")
+        logg('after spredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- sobject -- ') 
+    if (r == p['OK']):
+        logg('push text sobject ')
+        datPush("sobject")
+        logg('after sobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- osubject -- ') 
+    if (r == p['OK']):
+        logg('push text osubject ')
+        datPush("osubject")
+        logg('after osubject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- opredicate -- ') 
+    if (r == p['OK']):
+        logg('push text opredicate ')
+        datPush("opredicate")
+        logg('after opredicate ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text --  -- ') 
+    if (r == p['OK']):
+        logg('push text  ')
+        datPush("")
+        logg('after  ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- oobject -- ') 
+    if (r == p['OK']):
+        logg('push text oobject ')
+        datPush("oobject")
+        logg('after oobject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -1187,8 +1978,8 @@ def act1_1():
     #endif
 
     #final
-    logg('final act1_1')
-#end act1_1
+    logg('final act1_subject')
+#end act1_subject
 
 def act1 (x):
     global p
@@ -1201,9 +1992,9 @@ def act1 (x):
             nop = -1 # false test to set up elif chain
 
         elif (act1Ctl == 1):
-            logg('call act1_1')
-            act1_1()
-            logg('after call act1_1')
+            logg('call act1_subject')
+            act1_subject()
+            logg('after call act1_subject')
             # test and adjust for new spoke
             act1Ctl = chk(act1Ctl)
 
@@ -1270,12 +2061,17 @@ def main(startpoint,trace='off'):
     p['sy']['push'] = datPush
     p['sy']['dump'] = dump
     p['sy']['.s'] = dots
+    p['sy']['.si'] = doti
     prepSy()
     p['OK'] = 'pOK'
     p['NOK'] = 'pNOK'
 
     # paragraph RDFMain
     p['sy']['RDFMain'] = RDFMain
+    #
+
+    # paragraph RDFMain2
+    p['sy']['RDFMain2'] = RDFMain2
     #
 
     # paragraph ==RDF
@@ -1382,15 +2178,14 @@ def dots(p):
     p['sy']['push'](p['OK'])
 #end dots
 
+def doti(p):
+    # not callable reveal datastack
+    print('dat:' + p['dat'].__str__()+'TOS')
+#end doti
+
 def datPop():
     global p
-    try:
-        v = p['dat'].pop()
-    except:
-        v = ''
-    finally:
-    	nop = -1
-    #end try
+    v = p['dat'].pop()
     logg('................pop('+ v.__str__() + ")")
     return(v)
 #end datPop

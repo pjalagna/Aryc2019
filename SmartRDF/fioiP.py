@@ -1,19 +1,21 @@
 # file fioiP.py
 """
+pja 01-02-2020 added fioo
 pja 12-28-2019 edited fpword ! command added ok to stack
 pja 12-27-2019 edited main for datastack pickup of filename
 pja 02-11-2018 orig
 vector sets fioi verbs for basiiP protocol
 
-I: requires parse file name in ['v']['PFN']
+I: requires parse file name on data stack
 -- as per datPush protocol
 O: returns new architecture array with inclusions
-using 'take' operator
 
-note: all symbols and subroutine names must be unique within
+note: all symbols and subroutine names must be unique within architecture p
 
-fioi , 
-fioo , 
+not all signals of the class have been added. those beginning with "--" have
+--fioi , 
+--fioo ,
+--fpword 
 get/set iox, 
 flookup , 
 fwhite, 
@@ -31,6 +33,7 @@ def main(p):
     p['sy']['fioC'] = fioiClass.fio(PFN)
     # need facades for all class bound verbs
     p['sy']['fioi'] = fioiP
+    p['sy']['fioo'] = fiooP
     p['sy']['fpword'] = fpwordP
     return (p)
 #end main
@@ -41,6 +44,12 @@ def fioiP(p):
     #push ok
     p['sy']['push'](p['OK'])
 #end fioiP
+def fiooP(p):
+    """ push back character counter """
+    p['sy']['fioC'].fioo()
+    p['sy']['push'](p['OK'])
+#end fiooP
+
 def fpwordP(p):
     ans = p['sy']['fioC'].fpword()
     # ans is startPos,word,endpos,type

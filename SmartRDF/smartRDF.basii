@@ -1,6 +1,5 @@
-/*
-question - where does the output go?
-design - clear all spo variables use clearAll
+/* after use clear all vars
+pja 01-02-2020 editing actCase
 pja 12-29-2019 editing act1
 pja 12-28-2019 changed wword to fpword
                dup before ==token 
@@ -12,11 +11,11 @@ basii protocol output-filename [ def paragraph :- [ [[ clause-number ]] [ verbs 
 smartRDFX.py
 
 def RDFMain :-
-[[ 1 ]] "script file" ask dup "scriptF" ! RDFMain2 . 
+[[ 1 ]]  "script file" ask dup "scriptF" ! initIOI  RDFMain2 . 
 ;
 
 def RDFMain2 :-
-[[ 1 ]] clearAll fpword ... .
+[[ 1 ]] fpword ... .
 [[ 2 ]] ==RDF getSubject 
         fpword "predicate" ! getObject act1 tail. .
 [[ 3 ]] "error at main " abort .
@@ -50,31 +49,38 @@ def initIOI :-
 /* sets up fioiClass vectors 
 g: filename on datastack 
 */ 
-[[ 1 ]] "fioiP" takeV . 
+[[ 1 ]] "fioiP" takeV ... . /* file parser */
+[[ 2 ]] "RDF.db" "SQV" takeV ... . /* database */
+[[ 3 ]] "create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);" SQX .
 ;
 def act1 :- 
-[[ 1 ]] '0' 'e' ! ... .
-[[ 2 ]] 'subject' @ '' = 'e' @ 1 + 'e' ! ... .
-[[ 3 ]] 'object' @ '' = 'e' @ 2 + 'e' ! ... .
-[[ 4 ]] act1Case .
+[[ 1 ]] 
+/* save a complete tuple */
+/* cv format */
+"0"
+"subject" @ "subject" 
+"predicate" @ "predicate" 
+"object" @ "object" 
+"ssubject" @ "ssubject" 
+"spredicate" @ "spredicate" 
+"sobject" @ "sobject" 
+"osubject" @ "osubject" 
+"opredicate" @ "opredicate" 
+"oobject" @ "oobject" 
+"RDFTuple" /* table name */
+SQWrite
+/* clear */
+"" "subject" !
+"" "predicate" !
+"" "object" !
+"" "ssubject" !
+"" "spredicate" !
+"" "sobject" !
+"" "osubject" !
+"" "opredicate" !
+"" "oobject" !
+.
 ;
-def act1Case :-
-[[ 1 ]] 'e' @ ... .
-[[ 2 ]] dup 0 = /* simple spo */
-
-/* 
-e=0
-if subject<>null then complex subject v+1
-if object<>null then complex object v+2
-
-case
-v0 spo
-v1 (spo) p o
-v2 s p (spo)
-v3 (spo) p (spo)
-*/
-
-;
-
+  
 @endend @endend
 

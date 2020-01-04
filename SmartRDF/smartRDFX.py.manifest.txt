@@ -1,8 +1,10 @@
 takeV
 initIOI:P
 getSubject
+@
 getObject:P
 tail.
+RDFMain2:P
 getObject
 abort
 getSubject:P
@@ -18,6 +20,8 @@ complexSubject
 ask
 complexObject
 complexSubject:P
+SQX
 act1
-.s
+RDFMain2
+SQWrite
 RDFMain:P

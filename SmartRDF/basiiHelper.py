@@ -1,5 +1,8 @@
 #file basiiHelper.py
 """history
+--Q how do we determine runaway?
+--N add time of compile
+pja 01-02-2020 added doti (.si) non callable .s
 pja 12-28-2019 removed nok push from hxp1
                added .s 
 pja 12-27-2019 changed helper rtns
@@ -42,9 +45,12 @@ pgf :-
 ; or @endend
 ===================================
 test as
-filename = 't11.txt'
+import basiiHelper
+filename = 'smartRDF.basii'
 import basiiHelper
 basiiHelper.main(filename)
+exit()
+
 struct = basiiHelper.getSec()
 # generates manifest.txt and output files
 """
@@ -329,6 +335,11 @@ def dots(p):
     p['sy']['push'](p['OK'])
 #end dots
 
+def doti(p):
+    # not callable reveal datastack
+    print('dat:' + p['dat'].__str__()+'TOS')
+#end doti
+
 def datPop():
     global p
     v = p['dat'].pop()
@@ -415,6 +426,7 @@ def main(startpoint,trace='off'):
     p['sy']['push'] = datPush
     p['sy']['dump'] = dump
     p['sy']['.s'] = dots
+    p['sy']['.si'] = doti
     prepSy()
     p['OK'] = 'pOK'
     p['NOK'] = 'pNOK'
