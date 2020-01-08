@@ -8,12 +8,14 @@ what are the rules
 ---- does predicate have to exist?
 */
 
+RDF ( author named Alagna ) isAuthorOf  temp
 RDF temp receives temp2
 RDF temp2 does temp2:1 
-RDF temp2:1 is  ( temp2Ans gets temp() )
+RDF temp2:1 is  ( temp2Ans gets temp() ) 
 RDF temp2 does temp2:2 
-RDF temp2:2 is  ( temp2.tempTime gets localTime )
+RDF temp2:2 is  ( temp2.tempTime gets localTime() ) 
 RDF temp2 does temp2:3 
-RDF temp2:3 is  ( temp2 returns temp2Ans )
+RDF temp2:3 is  ( temp2 returns temp2Ans ) 
+
 
 @endend

@@ -1,4 +1,7 @@
 /* after use clear all vars
+pja 01-04-2020 editing act1
+-------------- clearing sql problems
+-------------- added drops after ==( tests
 pja 01-02-2020 editing actCase
 pja 12-29-2019 editing act1
 pja 12-28-2019 changed wword to fpword
@@ -18,31 +21,31 @@ def RDFMain2 :-
 [[ 1 ]] fpword ... .
 [[ 2 ]] ==RDF getSubject 
         fpword "predicate" ! getObject act1 tail. .
-[[ 3 ]] "error at main " abort .
+[[ 3 ]] "not RDF header " msg .
 ;
 
 def getSubject :-
 [[ 1 ]] fpword ... .
-[[ 2 ]] dup ==( complexSubject fpword ==)  .
+[[ 2 ]] dup ==( drop complexSubject fpword ==)  .
 [[ 3 ]] "subject" !  .
 ;
 
 def complexSubject :-
-[[ 1 ]] fpword "subject1" ! ... .
-[[ 2 ]] fpword "predicate1" ! ... .
-[[ 3 ]] fpword "object1" !  .
+[[ 1 ]] fpword "ssubject" ! ... .
+[[ 2 ]] fpword "spredicate" ! ... .
+[[ 3 ]] fpword "sobject" !  .
 ;
 
 def getObject :-
 [[ 1 ]] fpword ... .
-[[ 2 ]] dup ==( complexObject fpword ==)  .
-[[ 3 ]] "Object" !  .
+[[ 2 ]] dup ==( drop complexObject fpword ==)  .
+[[ 3 ]] "object" !  .
 ;
 
 def complexObject :-
-[[ 1 ]] fpword "subject2" ! ... .
-[[ 2 ]] fpword "predicate2" ! ... .
-[[ 3 ]] fpword "object2" !  .
+[[ 1 ]] fpword "osubject" ! ... .
+[[ 2 ]] fpword "opredicate" ! ... .
+[[ 3 ]] fpword "oobject" !  .
 ;
 
 def initIOI :- 
@@ -51,7 +54,7 @@ g: filename on datastack
 */ 
 [[ 1 ]] "fioiP" takeV ... . /* file parser */
 [[ 2 ]] "RDF.db" "SQV" takeV ... . /* database */
-[[ 3 ]] "create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);" SQX .
+[[ 3 ]] "create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);" SQX .
 ;
 def act1 :- 
 [[ 1 ]] 
@@ -69,6 +72,7 @@ def act1 :-
 "oobject" @ "oobject" 
 "RDFTuple" /* table name */
 SQWrite
+
 /* clear */
 "" "subject" !
 "" "predicate" !

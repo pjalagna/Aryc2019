@@ -1,5 +1,7 @@
 """
 #file doVerb.py
+pja 01-08-2020 added inp verb
+-------------- added .X verb
 pja 12-29-2019 edited att==@ to return '' on nos
 pja 12-27-2019 redid this header block
                added ?space after msg inverb ask
@@ -22,6 +24,7 @@ def init(p):
     p['sy']['@'] = att
     p['sy']['depth'] = depth
     p['sy']['ask'] = ask
+    p['sy']['inp'] = inp
     p['sy']['tail.'] = tail
     p['sy']['drop'] = drop
     p['sy']['swap'] = swap
@@ -45,14 +48,28 @@ def init(p):
     p['sy']['@0'] = mattzero
     p['sy']['find'] = find
     p['sy']['split'] = split
+    p['sy']['.X'] = dox
     return(p)
 #end init
 def ndsOut(p):
+    if (p['v']['trace'] == 'on'):
+        print('ndsOut')
+    #endif
     print('begin nds dump \n')
     print(p['v'])
     print('\n end nds dump \n')
     p['sy']['push'](p['OK'])
 # end ndsOut
+
+def dox(p):
+    """ executes verb on stack """
+    if (p['v']['trace'] == 'on'):
+        print('.X')
+    #endif
+    m = p['sy']['pop']()
+    p['sy'][m](p) 
+    # verb adds ok/nok
+#end dox
 
 def takeV(p):
     # (vectorFile,,) add vectors to architecture 
@@ -374,6 +391,17 @@ def ask(p):
     #endif
     m = p['sy']['pop']()
     j = raw_input(':'+m+'? ')
+    # push answer
+    p['sy']['push'](j)
+    # push ok
+    p['sy']['push'](p['OK'])
+#end ask
+def inp(p):
+    # get input w/o question
+    if (p['v']['trace'] == 'on'):
+        print('inp')
+    #endif
+    j = raw_input()
     # push answer
     p['sy']['push'](j)
     # push ok

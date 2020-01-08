@@ -1,7 +1,16 @@
 #file basiiHelper.py
 """history
---Q how do we determine runaway?
---N add time of compile
+--N add time of compile use time.asctime()
+Q- add <<codeFile>> pickup
+pja 01-08-2020 added .sy verb
+pja 01-06-2020 added logg to p['sy']
+-------------- added compile time 
+-------------- added exit to p['sy']
+pja 01-05-2020 edited for runaway (detects @eof on read)
+-------------- added pgn to cn logg
+-------------- added pgn,cn to vn logg
+-------------- added metacode to logg pgn,cn,vn at verb calls
+-------------- "<<" processing
 pja 01-02-2020 added doti (.si) non callable .s
 pja 12-28-2019 removed nok push from hxp1
                added .s 
@@ -107,13 +116,14 @@ def paragraph(ffo):
     pp = 0
     while (pp == 0):
         wdef = VWord() # absorb "def"
+        global pgn
         pgn = VWord()
         print('pgf...' + pgn )
         if (pgn == ''):
            raw_input("error pgn blank ctl-c to abort")
         #endif
         if (pgn == '@eofeof'):
-           paw_input('unexpected end of file  ctl-c to abort')
+           raw_input('unexpected end of file  ctl-c to abort')
         #endif
         sec['pgn'] = pgn #27
         if (pgn.upper() == '@ENDEND'):
@@ -159,8 +169,9 @@ def clauses(ffo):
         if (op == ';'):
             d = -1 # break
         else:
+            global pgn,cn
             cn = VWord()
-            print ('....cn =(' + cn + ")")
+            print ('....pgn-cn =(' + pgn + '-' + cn  + ")")
             bop = VWord()
             sec['cl2'] = ''
             # add your call to paragraph
@@ -189,7 +200,8 @@ def verbs():
     vv = 0
     while (vv == 0):
         vn = VWord()
-        print('........vn=(' + vn + ")")
+        global pgn,cn
+        print('.....pgn-cn-vn=(' + pgn + '-' + cn + '-' + vn + ")")
         if (vn == "."):
             nop = "<removed code see notes =a=>"
             vv = -1 #break
@@ -197,13 +209,21 @@ def verbs():
             # test for quoted string
             if (sec['sy']['ftype'] == "Q"):
                 print("verbs() - quoted string")
-                sec['cl2'] = sec['cl2'] + sec['hcl2v0'].replace('%vn%',vn)
+                j = sec['hcl2v0']
+                j = j.replace('%vn%',vn)
+                j = j.replace('%pgn%',pgn)
+                j = j.replace('%cn%',cn)
+                sec['cl2'] = sec['cl2'] + j
             elif (vn[0:2] == '=='): #stream match token
                 print ('verbs() ==token')
                 rv = vn[2:]
                 vna = 'EQ' + sec['sy']['SQSQ'].SQin(rv)
                 # add call to cl2 via hcl2vn0
-                sec['cl2'] = sec['cl2'] + sec['hcl2vn0'].replace('%vn%',vn)
+                j = sec['hcl2vn0']
+                j = j.replace('%vn%',vn)
+                j = j.replace('%pgn%',pgn)
+                j = j.replace('%cn%',cn)
+                sec['cl2'] = sec['cl2'] + j
             #endif
                 # add uniquely to external rtn table and code base
                 vanl = -2 # prep
@@ -230,20 +250,24 @@ def verbs():
             elif (vn[0:2] == '<<'): #get and store token
                 print('test type <<  vn=(' + vn + ")")
                 rv = vn[2:-2]
+                print('rv=(' + rv + ')')
                 vna = 'M' + sec['sy']['SQSQ'].SQin(rv)
+                print('vna=(' + vna + ')')
                 # add code if not exists
                 vanl = -2 # setup
                 try:
-                    vnal = sec['M'][vn].__len__()
+                    vnal = sec['M'][vna].__len__()
                 except:
-                    vanl = -1
+                    vanl = 1 # add to code
                 finally:
                    nop = -1
-                if (0 < vanl):
+                print('final vanl=(' + vanl.__str__() + ')')
+                if (vanl < 0):
                     nop = -1
                     print('test vanl nop')
                 else:
                     #add
+                    print ('adding')
                     vnal = sec['M'][vn] = vn # remember
                     # add your name to the symbol table
                     ax =sec['hx3M'].replace('%vn%',vn)
@@ -255,7 +279,11 @@ def verbs():
                     print('njx =((' + njx + "))")
                     sec['streamRtns'] = sec['streamRtns'] + njx
             else:
-                sec['cl2'] = sec['cl2'] + sec['hcl2vn0'].replace('%vn%',vn)
+                j = sec['hcl2vn0']
+                j = j.replace('%vn%',vn)
+                j = j.replace('%cn%',cn)
+                j = j.replace('%pgn%',pgn)
+                sec['cl2'] = sec['cl2'] + j
                 sec['manifest'][vn] = vn # add verb to manifest 
             #endif
         #endif
@@ -271,10 +299,12 @@ def getline():
 
 def prepSec():
     global sec
+    import time 
+    j = time.asctime()
     # sec['sy'] = {}
     sec['hx0'] = """
 #file """ + sec['outfile'] + """
-#generated for """ + sec['input'] + """ \n
+#generated for """ + sec['input'] + " at " + j + """ \n
 # usage 
 # import xx
 # xx.main(startpoint)
@@ -335,10 +365,20 @@ def dots(p):
     p['sy']['push'](p['OK'])
 #end dots
 
+def dotsy(p):
+    # callable reveal symbol table
+    m = p['sy'].keys()
+    print('sy:(' + m.__str__() +')')
+    p['sy']['push'](p['OK'])
+#end dotsy
+
 def doti(p):
     # not callable reveal datastack
     print('dat:' + p['dat'].__str__()+'TOS')
 #end doti
+def exitp(p):
+    exit()
+#end exitp
 
 def datPop():
     global p
@@ -422,11 +462,14 @@ def main(startpoint,trace='off'):
     p['r'] = [] # r stack
     p['l'] = {} # lib table
     p['sy'] = {} # symbol table
+    p['sy']['exit'] = exitp
     p['sy']['pop'] = datPop
     p['sy']['push'] = datPush
     p['sy']['dump'] = dump
     p['sy']['.s'] = dots
-    p['sy']['.si'] = doti
+    p['sy']['.sy'] = dotsy
+    p['sy']['.si'] = doti  # uncallable debug/trace only
+    p['sy']['logg'] = logg # uncallable debug/trace only
     prepSy()
     p['OK'] = 'pOK'
     p['NOK'] = 'pNOK'
@@ -508,7 +551,7 @@ def %pgn%_%cln%():
 """
     sec['hcl2v0'] = """
     r = p['sy']['pop']()
-    logg('processing text -- %vn% -- ') 
+    logg('for %pgn%-%cn% processing text -- %vn% -- ')
     if (r == p['OK']):
         logg('push text %vn% ')
         datPush("%vn%")
@@ -521,7 +564,7 @@ def %pgn%_%cln%():
 """
     sec['hcl2vn0'] = """
     r = p['sy']['pop']()
-    logg('processing verb ( %vn% ) ')
+    logg('for %pgn%-%cn% processing verb ( %vn% ) ')
     if (r == p['OK']):
         logg('call %vn% ')
         p['sy']['%vn%'](p)

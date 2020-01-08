@@ -1,0 +1,50 @@
+/* filename goldfish01.basii 
+pja 01-08-2020
+
+*/
+goldfish01.py /* output filename */
+def admin :-
+[[ 1 ]] initGF 
+        /* create table */
+        /* write 
+        rec id=1 , type=conclusion , "is it a goldfish" */
+        closeDB
+        .
+;
+def GFcold :- /* (first-statement,,) */
+[[ 1 ]] initGF
+        /* write rec id=1 , type=conclusion , pop() */ 
+        closeDB
+        .
+;
+def GFMain :- 
+[[ 1 ]] initGF "1" "i" ! GF2 ?? .
+;
+
+def GF2 :-
+[[ 1 ]] "i" @  ==0 . /* while i not 0 */
+[[ 2 ]]  readi fan-on-i-type tail. .
+;
+def fan-on-i-type :-
+[[ 1 ]] read-i-type ... .
+[[ 2 ]] dup ==question drop doQuestion  .
+[[ 3 ]] dup ==conclusion drop doConclusion ?? .
+[[ 4 ]] " error on fan-on-i-type " cat msg exit .
+;
+def doQuestion :-
+[[ 1 ]] display-question
+        "True" ask ... .
+[[ 2 ]] dup ==yes drop "2" "i" @ * "i" ! .
+[[ 3 ]] ==no "2" "i" @ *  "1" + "i" ! .
+;
+def doConclusion :-
+[[ 1 ]] display-conclusion
+        "was i right (yes/no)/ begin again (again) / quit" 
+        ask ... .
+[[ 2 ]] dup ==quit drop "0" "i" ! .
+[[ 3 ]] dup ==yes drop "0" "i" ! .
+
+
+
+
+@endend @endend 

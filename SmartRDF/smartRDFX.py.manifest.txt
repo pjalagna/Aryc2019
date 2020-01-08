@@ -6,7 +6,6 @@ getObject:P
 tail.
 RDFMain2:P
 getObject
-abort
 getSubject:P
 complexObject:P
 !
@@ -14,14 +13,16 @@ act1:P
 initIOI
 RDFMain
 fpword
-dup
+msg
 ...
 complexSubject
+dup
 ask
 complexObject
 complexSubject:P
 SQX
 act1
+drop
 RDFMain2
 SQWrite
 RDFMain:P

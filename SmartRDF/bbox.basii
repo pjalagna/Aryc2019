@@ -1,0 +1,22 @@
+/* 
+filename bbox.basii 
+pja 01-08-2020 
+
+interactive basii
+--w/o input of new def's 
+*/
+bbox.py
+def bmain :-
+[[ 1 ]] ">?" ask dup ==off exit .
+[[ 2 ]] b2 tail. .
+;
+def b2 :-
+[[ 1 ]] dup ==push drop "-----txt" ask . /* left on stack */
+[[ 2 ]] dup ==pop drop msg .
+[[ 3 ]] .X .
+;
+
+@endend @endend
+
+
+

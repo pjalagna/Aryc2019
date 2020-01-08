@@ -284,11 +284,11 @@ def RDFMain2_3():
     datPush(p['OK'])
 
     r = p['sy']['pop']()
-    logg('processing text -- error at main  -- ') 
+    logg('processing text -- not RDF header  -- ') 
     if (r == p['OK']):
-        logg('push text error at main  ')
-        datPush("error at main ")
-        logg('after error at main  ')
+        logg('push text not RDF header  ')
+        datPush("not RDF header ")
+        logg('after not RDF header  ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -296,11 +296,11 @@ def RDFMain2_3():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing verb ( abort ) ')
+    logg('processing verb ( msg ) ')
     if (r == p['OK']):
-        logg('call abort ')
-        p['sy']['abort'](p)
-        logg('after abort')
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -410,6 +410,19 @@ def getSubject_2():
         logg('call ==( ')
         p['sy']['==('](p)
         logg('after ==(')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( drop ) ')
+    if (r == p['OK']):
+        logg('call drop ')
+        p['sy']['drop'](p)
+        logg('after drop')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -552,11 +565,11 @@ def complexSubject_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- subject1 -- ') 
+    logg('processing text -- ssubject -- ') 
     if (r == p['OK']):
-        logg('push text subject1 ')
-        datPush("subject1")
-        logg('after subject1 ')
+        logg('push text ssubject ')
+        datPush("ssubject")
+        logg('after ssubject ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -612,11 +625,11 @@ def complexSubject_2():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- predicate1 -- ') 
+    logg('processing text -- spredicate -- ') 
     if (r == p['OK']):
-        logg('push text predicate1 ')
-        datPush("predicate1")
-        logg('after predicate1 ')
+        logg('push text spredicate ')
+        datPush("spredicate")
+        logg('after spredicate ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -672,11 +685,11 @@ def complexSubject_3():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- object1 -- ') 
+    logg('processing text -- sobject -- ') 
     if (r == p['OK']):
-        logg('push text object1 ')
-        datPush("object1")
-        logg('after object1 ')
+        logg('push text sobject ')
+        datPush("sobject")
+        logg('after sobject ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -806,6 +819,19 @@ def getObject_2():
     #endif
 
     r = p['sy']['pop']()
+    logg('processing verb ( drop ) ')
+    if (r == p['OK']):
+        logg('call drop ')
+        p['sy']['drop'](p)
+        logg('after drop')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
     logg('processing verb ( complexObject ) ')
     if (r == p['OK']):
         logg('call complexObject ')
@@ -854,11 +880,11 @@ def getObject_3():
     datPush(p['OK'])
 
     r = p['sy']['pop']()
-    logg('processing text -- Object -- ') 
+    logg('processing text -- object -- ') 
     if (r == p['OK']):
-        logg('push text Object ')
-        datPush("Object")
-        logg('after Object ')
+        logg('push text object ')
+        datPush("object")
+        logg('after object ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -940,11 +966,11 @@ def complexObject_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- subject2 -- ') 
+    logg('processing text -- osubject -- ') 
     if (r == p['OK']):
-        logg('push text subject2 ')
-        datPush("subject2")
-        logg('after subject2 ')
+        logg('push text osubject ')
+        datPush("osubject")
+        logg('after osubject ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -1000,11 +1026,11 @@ def complexObject_2():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- predicate2 -- ') 
+    logg('processing text -- opredicate -- ') 
     if (r == p['OK']):
-        logg('push text predicate2 ')
-        datPush("predicate2")
-        logg('after predicate2 ')
+        logg('push text opredicate ')
+        datPush("opredicate")
+        logg('after opredicate ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -1060,11 +1086,11 @@ def complexObject_3():
     #endif
 
     r = p['sy']['pop']()
-    logg('processing text -- object2 -- ') 
+    logg('processing text -- oobject -- ') 
     if (r == p['OK']):
-        logg('push text object2 ')
-        datPush("object2")
-        logg('after object2 ')
+        logg('push text oobject ')
+        datPush("oobject")
+        logg('after oobject ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -1239,11 +1265,11 @@ def initIOI_3():
     datPush(p['OK'])
 
     r = p['sy']['pop']()
-    logg('processing text -- create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); -- ') 
+    logg('processing text -- create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); -- ') 
     if (r == p['OK']):
-        logg('push text create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
-        datPush("create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);")
-        logg('after create table if not exists RDFTuple ( ix int primary key, subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
+        logg('push text create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
+        datPush("create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);")
+        logg('after create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject); ')
         datPush(p['OK'])
     else:
         logg('verb skipped')
@@ -1306,10 +1332,47 @@ def initIOI (x):
     #wend
 #end initIOI
 
-def act1_subject():
+def act1_1():
     global p
-    logg('act1_subject')
+    logg('act1_1')
     datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('processing text -- 0 -- ') 
+    if (r == p['OK']):
+        logg('push text 0 ')
+        datPush("0")
+        logg('after 0 ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing text -- subject -- ') 
+    if (r == p['OK']):
+        logg('push text subject ')
+        datPush("subject")
+        logg('after subject ')
+        datPush(p['OK'])
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
 
     r = p['sy']['pop']()
     logg('processing text -- subject -- ') 
@@ -1978,8 +2041,8 @@ def act1_subject():
     #endif
 
     #final
-    logg('final act1_subject')
-#end act1_subject
+    logg('final act1_1')
+#end act1_1
 
 def act1 (x):
     global p
@@ -1992,9 +2055,9 @@ def act1 (x):
             nop = -1 # false test to set up elif chain
 
         elif (act1Ctl == 1):
-            logg('call act1_subject')
-            act1_subject()
-            logg('after call act1_subject')
+            logg('call act1_1')
+            act1_1()
+            logg('after call act1_1')
             # test and adjust for new spoke
             act1Ctl = chk(act1Ctl)
 

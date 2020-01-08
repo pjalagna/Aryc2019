@@ -1,0 +1,11 @@
+.X
+b2:P
+tail.
+drop
+msg
+bmain
+ask
+exit
+b2
+bmain:P
+dup

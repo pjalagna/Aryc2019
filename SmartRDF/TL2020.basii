@@ -1,0 +1,60 @@
+/* filename TL2020.basii */
+TL2020X.py /* output filename */
+
+def TLMain :- /* start */
+/* pja 01-05-2020 
+test with bpx1.basii
+*/
+[[ 1 ]] "script fileName" ask  dup "sfn" ! initTL TL1 .
+;
+def initTL :-
+[[ 1 ]] /* filename on stack */ "fioiP" takeV 
+           "bpx.db" "SQV" takeV  read .
+;
+
+def read :-
+/* stop to read stack */
+[[ 1 ]] .s ">?" ask drop . ;
+
+def TL1 :-
+[[ 1 ]] fpword ... .
+[[ 2 ]]  dup ==create drop 
+        fpword ==tuple <<TupleName>> fpword ==(( 
+        keyset 
+        actCreTL1  read tail. .
+[[ 3 ]] dup ==set drop
+       <<tupleName>> <<elementName>>  
+       fpword ==of [keysetValues] === <<value>> read .
+[[ 4 ]] ==get <<tupleName>> <<elementName>>  of [keysetValues] read .
+[[ 5 ]] ==process <<pn>> cnset read .
+;
+
+def keyset :-
+/* optional */
+[[ 1 ]] fpword "keyset1" msg read ... .
+[[ 2 ]] dup ==) drop /* tag set to follow */ "keyset2" msg read .
+[[ 3 ]] dup ==)) drop /* end of set /* "keyset3" msg read .
+[[ 4 ]]  ==,  /* continue set /* "keyset4" msg read .
+[[ 5 ]] . /* optional */
+;
+
+def actCreTL1 :-
+[[ 1 ]] "actCreTL1" msg read .
+;
+
+def cnset :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ==[[ drop <<cn>> ==]] 1 vn ! verbset tail. .
+[[ 3 ]] dup ==; drop /*write rec pn,cn++,vn=1,vt=;,lit='' */ .
+[[ 4 ]] ==@endend closeDB .
+;
+
+def verbset :-
+[[ 1 ]] <<vt>> ... .
+[[ 2 ]] "verbset2" msg read . 
+/* 2- if type = Q then vt = 'lit' ; write rec ; vn++ */ 
+[[ 3 ]] "verbset3" msg read .  /* if vt == . */ 
+[[ 4 ]] "verbset4" msg read .  /* elsewise */ 
+;
+
+@endend @endend @endend
