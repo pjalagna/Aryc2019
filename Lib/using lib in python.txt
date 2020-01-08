@@ -10,6 +10,16 @@ Change dir back
 -- doesn't work if imports are needed after load
 ---- ex. basiiHelper imports SQSQ during main()
 
-Tried sys.path.append(libdir)
-Not sure of outcome - needs more testing
+
+
+import os
+M = os.getcwd() # my path
+os.chdir('../Lib') 
+D = os.getcwd() # lib path 
+import sys
+sys.path.append(D)
+os.chdir(M) # back into my own directory
+
+
+
  */

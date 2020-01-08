@@ -1,4 +1,13 @@
-# file name SQClass.py version 1-30-2013
+# file name SQClass.py version 6-2-2017
+#SQClearQ("bq1")
+#SQget('tick','tick.C')
+#SQgetWhere('b',"bid", "b.cold='on'") 
+#SQWriteListQ('bq1',m1)
+#SQgetIn('bb','b.child','b.parent','bq1')
+#SQMoveListQ(m2,'bq2')
+#SQMoveQ("bq1","bq3")
+#SQWriteT('tick','tick.C','TRule1')
+
 # need to incorporate the meta table sqlite_master perhaps "SQmeta {type} {name}"
 # CREATE TABLE sqlite_master(
 #  type text,
@@ -14,6 +23,9 @@
 #                 c) no column can contain a comma
 class SQC:
     """ DAO type class for i/f with sqlite databases """
+    def version(self):
+        print("6-2-2017")
+    #end version
     def __init__(self,dbna):
         """ connect and remember name """
         import sqlite3
@@ -21,6 +33,36 @@ class SQC:
         self.cursor = self.dh.cursor()
         self.dbna = dbna
     # end def init
+    def SQget(self,T,C):
+        """ 
+        pja - 6-2-2017 began
+        completed?
+        
+        read on t.c 
+            returns:
+            1- nof() if len(0)
+            2- string if only 1 result
+            3- simple list if more than 1 result 
+test as 
+import SQClass
+db = SQClass.SQC('berta1.db')
+j1 = db.SQget('tick','c') # one result
+j2 = db.SQGet('tick','*') # multi
+j3 = db.SQGet('nop','any') # error
+        """
+        sq = "select " + C + ' from ' + T + ' ;'
+        print('sq=' + sq)
+        m = self.SQReadAll(sq)
+        if (len(m[0]) == 1):
+            ans = m[0][0]
+        else:
+            print(len(m[0]))
+            print('mstr=' + m.__str__() )
+            ans = '??'
+        #endif
+        return(ans)
+    #end SQget
+        
     def SQClose(self):
         self.cursor.close()
         self.dh.close

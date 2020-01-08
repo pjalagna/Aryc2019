@@ -1,12 +1,26 @@
-# file fioiClass.py
+""" file fioiClass.py
 # fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
 # == tested
 # fpword, fpback
+pja 12-27-2019 added code to fwhite
+pja 12-26-2019 redid this header block
+# pja 3-04-2017 tested fpword
 # pja 9-24-12 edits to stop till, tillor, ctill on eof
 # ------------ edits to clip targetCH to targetCH[0]
 # pja 10-17-2012 changed print to #rint
 # pja 1-4-13 added getAlpha getNums getAnum
 # pja 2-27-13 added type to fpword to transmit "Q" for quoted string "S" for simple string
+
+comment code so far
+        elif (m=='/'): # comment check
+                mm = self.fioi()
+                if (mm == '*'): # yes comment
+                    mmx = self.fioi()
+                    while (mmx != '*'):
+                        mmx = self.fioi()
+                    #end while
+                #endif
+"""
 class fio():
     def __init__(self,fNa):
         self.fh = open(fNa,'r')
@@ -71,6 +85,34 @@ class fio():
                 c = 0 # stay in loop
             elif (m == '\n'):
                 c = 0 # stay in loop
+            elif (m=='/'): # comment check t1
+                mm = self.fioi()
+                print('t1 mm=('+mm+')')
+                if (mm == '*'): # yes comment t2
+                    c2 = 0 
+                    while (c2==0):
+                        mmx = self.fioi()
+                        print('t2 mmx=('+mmx+')')
+                        while (mmx != '*'): # w3
+                            mmx = self.fioi()
+                            print('w3 mmx=('+mmx+')')
+                        #wend w3
+                        mv = self.fioi()
+                        if (mv=='/'): # t3
+                            print('t3 mv=('+mv+')')
+                            # not sure self.fioi() # move one 
+                            c2=-1 # break wc2
+                            c=0 # keep looping after comment
+                        else:
+                            print('t3 else')
+                            c2=0
+                            c=0
+                        #endif t3
+                    #wend c2
+                else: # t2
+                    print('t2 else')
+                    c=1 # break
+                #endif t2
             else:
                 c = -1
             # endif

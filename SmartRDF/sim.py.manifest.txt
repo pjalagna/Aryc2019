@@ -1,3 +1,0 @@
-smain
-.s
-smain:P
