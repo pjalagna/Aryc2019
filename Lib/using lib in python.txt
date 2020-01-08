@@ -1,0 +1,15 @@
+/* 
+filename using lib in python
+pja 01-08-2020
+
+
+First thoughts
+Change dir to lib
+Do import
+Change dir back
+-- doesn't work if imports are needed after load
+---- ex. basiiHelper imports SQSQ during main()
+
+Tried sys.path.append(libdir)
+Not sure of outcome - needs more testing
+ */
