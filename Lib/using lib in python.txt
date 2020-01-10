@@ -1,17 +1,8 @@
 /* 
 filename using lib in python
-pja 01-08-2020
+01-09-2020
 
-
-First thoughts
-Change dir to lib
-Do import
-Change dir back
--- doesn't work if imports are needed after load
----- ex. basiiHelper imports SQSQ during main()
-
-
-
+a file useLib.py contains the following code:
 import os
 M = os.getcwd() # my path
 os.chdir('../Lib') 
@@ -20,6 +11,13 @@ import sys
 sys.path.append(D)
 os.chdir(M) # back into my own directory
 
+usage 
+add useLib.pyc to your projects local directory 
 
+for each run:
+import useLib
+import from local directory or from peer "Lib" directory
+
+i might even create a useULib for user libraries
 
  */
