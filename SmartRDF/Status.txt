@@ -1,0 +1,9 @@
+file status.txt
+(-) process flow
+(-) tuples
+(-) basii code
+(-) each start tested
+(-) database investigated
+(-) package loaded remotely
+(-) user manual
+(-) Operations guide
