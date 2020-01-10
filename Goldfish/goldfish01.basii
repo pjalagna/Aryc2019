@@ -1,50 +1,101 @@
 /* filename goldfish01.basii 
-pja 01-08-2020
+pja 01-09-2020
 
 */
 goldfish01.py /* output filename */
+def initGF :-
+[[ 1 ]] "GF.db" "SQV" takeV .
+;
+
 def admin :-
 [[ 1 ]] initGF 
-        /* create table */
-        /* write 
-        rec id=1 , type=conclusion , "is it a goldfish" */
-        closeDB
+        " this action will destroy all data (continue) or (exit) " 
+        ask "adminans" ! ... .
+[[ 2 ]]  "adminans" @ ==continue
+         /* drop table */
+         "drop table if exists 'GF' ;" SQX 
+        /* create table GF */
+        "create table GF ( ix , type, txt , primary key(ix) );" SQX
+        "1" "conclusion" "is it a goldfish" writeRec 
+        SQClose
         .
+[[ 3 ]] exit .
 ;
-def GFcold :- /* (first-statement,,) */
+
+def GFcold :- /* (,,) */
 [[ 1 ]] initGF
+        "final statement" ask "finalS" ! 
         /* write rec id=1 , type=conclusion , pop() */ 
-        closeDB
+        "1" "conclusion" "finalS" @ writeRec 
+        SQClose
         .
 ;
 def GFMain :- 
-[[ 1 ]] initGF "1" "i" ! GF2 ?? .
+[[ 1 ]] initGF "1" "i" ! GF2 SQClose .
 ;
 
 def GF2 :-
 [[ 1 ]] "i" @  ==0 . /* while i not 0 */
-[[ 2 ]]  readi fan-on-i-type tail. .
+[[ 2 ]]  fanOnIType tail. .
 ;
-def fan-on-i-type :-
-[[ 1 ]] read-i-type ... .
+def fanOnIType :-
+[[ 1 ]] itype ... .
 [[ 2 ]] dup ==question drop doQuestion  .
-[[ 3 ]] dup ==conclusion drop doConclusion ?? .
-[[ 4 ]] " error on fan-on-i-type " cat msg exit .
+[[ 3 ]] dup ==conclusion drop doConclusion .
+[[ 4 ]] " error on fanOnIType " swap cat msg exit .
 ;
 def doQuestion :-
-[[ 1 ]] display-question
-        "True" ask ... .
+[[ 1 ]] itxt msg /* display question */
+        "True (yes/no)" ask ... .
 [[ 2 ]] dup ==yes drop "2" "i" @ * "i" ! .
-[[ 3 ]] ==no "2" "i" @ *  "1" + "i" ! .
+[[ 3 ]] dup ==no drop "2" "i" @ *  "1" + "i" ! .
+[[ 4 ]] " error at doQuestion " swap cat msg exit .
 ;
 def doConclusion :-
-[[ 1 ]] display-conclusion
-        "was i right (yes/no)/ begin again (again) / quit" 
+[[ 1 ]] itxt msg /* display conclusion */
+        "was i right (yes/no)/ begin again (again) / (quit)" 
         ask ... .
 [[ 2 ]] dup ==quit drop "0" "i" ! .
-[[ 3 ]] dup ==yes drop "0" "i" ! .
+[[ 3 ]] dup ==yes drop "?" ask drop /* wait to read */  "1" "i" ! .
+[[ 4 ]] dup ==again drop "1" "i" ! .
+[[ 5 ]] dup ==no drop 
+        " what is the correct answer " ask "correct" ! 
+        "what true/false question should i ask to tell the difference so that your answer is true" ask "TrueAns" ! 
+        "i" @ "2" * "truepos" ! 
+        "i" @ "2" *  "1" + "falsepos" !
+        /* write rec ix=truepos , type=conclusion , txt=correct */
+        "truepos" @ "Conclusion" "correct" @ writeRec 
+         "falsepos" @ "conclusioin" itxt writeRec 
+         /* rewrite current i to question */
+         "i" @ "Question" "TrueAns" @ writeRec 
+         "1" "i" ! /* begin again */ .
+[[ 6 ]] " error at doConclusion " swap cat msg exit .
+;
 
+def itxt :-
+/* gets txt from GF[i] */
+[[ 1 ]] "select txt from GF where ix='" "i" @ cat "';" cat SQRead .
+;
+def itype :-
+/* gets txt from GF[i] */
+[[ 1 ]] "select type from GF where ix='" "i" @ cat "';" cat SQRead .
+;
 
-
+def writeRec :-
+/* write or overwrite record GF((ix) type,txt)) */
+[[ 1 ]] 
+/* (ix,type,txt,,) */
+"tmp-txt" ! /* txt */
+"tmp-type" ! /* type */
+"tmp-ix" ! /* ix */
+/* create sql  */
+"INSERT OR REPLACE INTO table(ix,type,txt) VALUES("
+"'" cat "tmp-ix" @ cat "'" cat "," cats 
+"'" cat "tmp-type" @ cat "'" cat "," cats 
+"'" cat "tmp-txt" @ cat "'" cat /* last one no comma */ 
+");" cats 
+dup msg "?" ask 
+SQX .
+;
 
 @endend @endend 

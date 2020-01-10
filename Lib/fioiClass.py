@@ -2,6 +2,7 @@
 # fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
 # == tested
 # fpword, fpback
+pja 01-09-2020 added ' pickup in fpword
 pja 12-27-2019 added code to fwhite
 pja 12-26-2019 redid this header block
 # pja 3-04-2017 tested fpword
@@ -207,6 +208,11 @@ class fio():
             w1 = self.fioi() # burn the \q
             wd = self.fctill('"')
             x = self.fioi() # burn the end \q
+        elif (j == "'"):
+            ty = "Q"
+            w1 = self.fioi() # burn the \tick
+            wd = self.fctill("'")
+            x = self.fioi() # burn the end \tick
         else:
             ty = "S"
             wd = self.fctillor([' ','\n'])

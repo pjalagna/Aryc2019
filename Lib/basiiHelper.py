@@ -1,7 +1,12 @@
 #file basiiHelper.py
 """history
---N add time of compile use time.asctime()
+error-- logg clips ' in statements bad for sql
+error-- template pickup of statements clips ' bad for sql 
+error-- runaway on unended comment (ie no *+/ ) --fioi
 Q- add <<codeFile>> pickup
+N- announce version on import
+pja 01-09-2020 split logg on text pickup
+-------------- added %3q% to hclv0 template and replace in call
 pja 01-08-2020 added .sy verb
 pja 01-06-2020 added logg to p['sy']
 -------------- added compile time 
@@ -213,6 +218,7 @@ def verbs():
                 j = j.replace('%vn%',vn)
                 j = j.replace('%pgn%',pgn)
                 j = j.replace('%cn%',cn)
+                j = j.replace('%3q%','"""')
                 sec['cl2'] = sec['cl2'] + j
             elif (vn[0:2] == '=='): #stream match token
                 print ('verbs() ==token')
@@ -551,14 +557,15 @@ def %pgn%_%cln%():
 """
     sec['hcl2v0'] = """
     r = p['sy']['pop']()
-    logg('for %pgn%-%cn% processing text -- %vn% -- ')
+    logg('for %pgn%-%cn% processing text ')
+    logg(%3q%%vn%%3q%)
     if (r == p['OK']):
-        logg('push text %vn% ')
+        logg('push text ' + %3q%%vn%%3q%)
         datPush("%vn%")
-        logg('after %vn% ')
+        logg('after ' + %3q%%vn%%3q% )
         datPush(p['OK'])
     else:
-        logg('verb skipped')
+        logg('text skipped')
         p['sy']['push'](r) # pass nok to next
     #endif
 """
