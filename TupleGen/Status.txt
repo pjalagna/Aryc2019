@@ -13,5 +13,10 @@ file status.txt for TupleGen
 (-) each start tested
 (-) database tested
 (-) package loaded remotely
+(-) ddl table can be used by different project
+(-) service screen can be used by different project
 (-) user manual
 (-) operations guide
+-- (-) installation guide
+-- (-) admin guide
+
