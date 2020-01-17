@@ -7,7 +7,6 @@
 # xx.main(startpoint)
 # xx.start(trace)
 
- 
 def bmain_1():
     global p
     logg('bmain_1')

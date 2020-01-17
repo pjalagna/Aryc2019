@@ -3,8 +3,9 @@
 error-- logg clips ' in statements bad for sql
 error-- template pickup of statements clips ' bad for sql 
 error-- runaway on unended comment (ie no *+/ ) --fioi
-Q- add <<codeFile>> pickup
+Q- add <<codeFile>> pickup == NO use vector files
 N- announce version on import
+pja 01-10-2020 removed "<<" verb code
 pja 01-09-2020 split logg on text pickup
 -------------- added %3q% to hclv0 template and replace in call
 pja 01-08-2020 added .sy verb
@@ -252,37 +253,6 @@ def verbs():
                     njx = njx.replace('%rv%',rv) # na of ==na
                     njx = njx.replace('%vna%',vna) # EQ_OP of ==(
                     njx = njx.replace('%vn%',vn) # ==, of ==,
-                    sec['streamRtns'] = sec['streamRtns'] + njx
-            elif (vn[0:2] == '<<'): #get and store token
-                print('test type <<  vn=(' + vn + ")")
-                rv = vn[2:-2]
-                print('rv=(' + rv + ')')
-                vna = 'M' + sec['sy']['SQSQ'].SQin(rv)
-                print('vna=(' + vna + ')')
-                # add code if not exists
-                vanl = -2 # setup
-                try:
-                    vnal = sec['M'][vna].__len__()
-                except:
-                    vanl = 1 # add to code
-                finally:
-                   nop = -1
-                print('final vanl=(' + vanl.__str__() + ')')
-                if (vanl < 0):
-                    nop = -1
-                    print('test vanl nop')
-                else:
-                    #add
-                    print ('adding')
-                    vnal = sec['M'][vn] = vn # remember
-                    # add your name to the symbol table
-                    ax =sec['hx3M'].replace('%vn%',vn)
-                    ax =ax.replace('%vna%',vna)
-                    sec['mx3'] = sec['mx3'] + ax
-                    njx = sec['hclM'] # template
-                    njx = njx.replace('%rv%',rv)
-                    njx = njx.replace('%vn%',vn)
-                    print('njx =((' + njx + "))")
                     sec['streamRtns'] = sec['streamRtns'] + njx
             else:
                 j = sec['hcl2vn0']

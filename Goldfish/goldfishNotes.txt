@@ -1,0 +1,7 @@
+1981 — Gerald Dejong introduces the concept of Explanation Based Learning (EBL),
+Earley parser - LR(n) see earley3.py on GitHub
+
+
+Abstract Syntax tree vs parse tree
+(Includes values)    vs (rules of execution ie BNF)
+
