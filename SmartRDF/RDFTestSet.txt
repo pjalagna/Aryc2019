@@ -1,0 +1,17 @@
+/*
+file RDFTestSet.txt
+pja 01-24-2020
+*/
+RDF
+Thing has display ;
+Predicate gets show ;
+Predicate gets does ;
+Event gets ( subject = display ) ;
+Event gets ( predicate = show  ) ;
+Event does action.showObject ;
+Action gets showObject ;
+
+Display show thing ;
+
+
+/RDF

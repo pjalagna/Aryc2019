@@ -1,0 +1,43 @@
+/*
+file RDFPlus.txt
+pja 01-21-2020
+*/
+if (a==3) then {set} m = 5 else {set} m = 7 ;
+into RDF
+note: using my rule that subject and predicate must exist 
+note2: initially "thing" exits as subject; "has","gets" exists as predicate; "predicate" "gets" <<object>> enters object into predicate
+note3: functions <<name>>() are assumed to have code.
+
+thing has if
+thing has then
+thing has else
+predicate gets rule
+
+if has condition // meta template
+if has then // meta template
+if has else // meta template
+
+predicate  gets instanceOf 
+(instanceOf rule 1:) function (subject reverse() Tsubject)) // not recursive
+(instanceOf rule 2:) function (object reverse() Tobject)) // not recursive
+// search database for match return (true OR false)
+(instanceOf rule 3:) function (test = (RDF search() (Tsubject predicate Tobject) ))
+(instanceOf rule 4:) function ((j <- true) iff (test returns() ok))
+(instanceOf rule 5:) function ( abort() iff (j not-eq ok))
+(instanceOf rule 6:) function (RDF record() (subject predicate object))
+
+thisIf instanceOf if // identify the instance
+thisThen instanceOf then // identify the instance
+thisElse instanceOf else // identify the instance
+
+thisIf has thisCondition // we can verify the relationship back to the meta template with rules on "instanceOf" and "has"
+:: the "has" is verified if the instance when replaced by its class.parent will produce a registered RDF statement.
+eg thisIf replaced by "if" , thisCondition replaced by condition yields "if has condition" which is valid.
+
+thisCondition = (a == 3)
+
+if has then
+then = (m <- 5)
+
+if has else
+else = (m <- 7)

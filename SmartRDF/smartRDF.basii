@@ -1,52 +1,52 @@
-/* after use clear all vars
-pja 01-04-2020 editing act1
--------------- clearing sql problems
--------------- added drops after ==( tests
-pja 01-02-2020 editing actCase
-pja 12-29-2019 editing act1
-pja 12-28-2019 changed wword to fpword
-               dup before ==token 
-pja 12-27-2019 added comments
-pja 12-1-2019 orig
+/* 
+file smartRDF.basii
+pja 01-24-2020 begin again
 
 basii protocol output-filename [ def paragraph :- [ [[ clause-number ]] [ verbs till period ] ] till ; ] till @endend
+
+architecture:
+lists
+- thing
+-- registered name of RDF subject and object nodes
+- event
+-- named list of events that execute an action 
+-- ((eventName ) basiiParagraphName )) 
+--- ex. event.cold -> RDFMain
+--- ex event.InsertPredicate -> insert object into predicate list
+- action
+-- basii library of codesets
+-- ((paragraphName) basiiCode ))
+--- ex. RDFMain -> RDFMain: [[ 1 ]] ... ;
+- predicate
+-- registered name of RDF predicate - eg verbs relating nodes
+- watch
+-- set of patterns that if found will trigger an event
+--- subject="predicate" predicate="gets" -> event.InsertPredicate
+- state
+-- transformation set of event states recorded into variable current_state
+--- cold -> entry -> verify -> watch -onOK-> entry
+
+RDF protocol:
+RDF
+[ subject predicate object ; ]
+/RDF
+subject :
+- event
+-- if predicate is "gets" then object will be added to event-list
+--- via watch event action
+- action
+- predicate
+- watch
+- state
+- *
+- "["parent"]" {["[" nextparent "]"]}
+- "[[" topmost parent "]]"
+- type.name
+- label
+
 */
+
 smartRDFX.py
-
-def RDFMain :-
-[[ 1 ]]  "script file" ask dup "scriptF" ! initIOI  RDFMain2 . 
-;
-
-def RDFMain2 :-
-[[ 1 ]] fpword ... .
-[[ 2 ]] ==RDF getSubject 
-        fpword "predicate" ! getObject act1 tail. .
-[[ 3 ]] "not RDF header " msg .
-;
-
-def getSubject :-
-[[ 1 ]] fpword ... .
-[[ 2 ]] dup ==( drop complexSubject fpword ==)  .
-[[ 3 ]] "subject" !  .
-;
-
-def complexSubject :-
-[[ 1 ]] fpword "ssubject" ! ... .
-[[ 2 ]] fpword "spredicate" ! ... .
-[[ 3 ]] fpword "sobject" !  .
-;
-
-def getObject :-
-[[ 1 ]] fpword ... .
-[[ 2 ]] dup ==( drop complexObject fpword ==)  .
-[[ 3 ]] "object" !  .
-;
-
-def complexObject :-
-[[ 1 ]] fpword "osubject" ! ... .
-[[ 2 ]] fpword "opredicate" ! ... .
-[[ 3 ]] fpword "oobject" !  .
-;
 
 def initIOI :- 
 /* sets up fioiClass vectors 
@@ -56,6 +56,54 @@ g: filename on datastack
 [[ 2 ]] "RDF.db" "SQV" takeV ... . /* database */
 [[ 3 ]] "create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);" SQX .
 ;
+
+def RDFMain :-
+[[ 1 ]]  "script file" ask dup "scriptF" ! initIOI  RDFMain2 . 
+;
+
+def RDFMain2 :-
+/* "RDF" RDFMain3 "/RDF" */
+[[ 1 ]] fpword ... .
+[[ 2 ]] ==RDF RDFMain3 fpword ==/RDF actRDFMain2 .
+[[ 3 ]] "error at RDFMain2 " abort .
+;
+RDFmain3 :-
+/* getsubject getpredicate getobject */
+[[ 1 ]] getsubject /* getpredicate getobject */ verify .
+[[ 2 ]] "error at RDFMain3" abort .
+;
+getsubject :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ==event "subject" ! .
+[[ 3 ]] dup ==action "subject" ! .
+[[ 4 ]] dup ==predicate "subject" ! .
+[[ 5 ]] dup ==watch "subject" ! .
+[[ 6 ]] dup ==state "subject" ! .
+[[ 7 ]]dup ==* "subject" ! .
+[[ 8 ]] c1 ... .
+[[ 9 ]] dup ==[ getsubject9a .
+[[ 10 ]] dup ==[[ getsubject10a .
+[[ 11 ]] drop '.' has getsubject11a . 
+[[ 12 ]]  "subject" ! .
+[[ 13 ]] "error at getsubject" abort .
+;
+
+getsubjecy9a :-
+/* parent "]" {["[" nextparent "]"]} */
+[[ 1 ]] "getsubjecy9a " msg dump . ;
+
+getsubject10a :-
+/*  topmost parent "]]" */
+[[ 1 ]] "getsubjecy10a " msg dump . ;
+
+getsubject11a 
+/* type.name */
+[[ 1 ]] "getsubjecy11a " msg dump . ;
+
+verify :-
+/* ready to record */
+[[ 1 ]] "verify " msg dump . ;
+
 def act1 :- 
 [[ 1 ]] 
 /* save a complete tuple */

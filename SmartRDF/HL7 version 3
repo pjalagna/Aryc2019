@@ -1,0 +1,6 @@
+    I'm ready to rescind my statement about HL7 version 3 being partly unimplementable. But I would like you to understand why. The original intent of HL7 version three was not only to be an ontology -the data store of medical entities- like HL7 version 2 was (and still is). But version 3 was designed to be an object oriented ontology to: 
+a) be able to be the storer and performer of executables to enact the rules, limits and constraints of those entities and the protocols (use-cases) and messages on those entities; 
+AND 
+b) to also monitor, measure and if necessary change the environment around it. 
+    Nobody had a clear path into that and so I made the statement I made. 
+    However, now that I have done some research into current database platforms I find that there are changes significant enough to make me retract my earlier statement. MongoDb, for example, can execute ECMA (AKA JavaScript) from within its own platform. that coupled with JQuery, strongly moves it away from a simple ontological database.
