@@ -1,5 +1,6 @@
 # file name SQV.py 
 """
+pja 01-30-2020 added help stmts
 pja 1-3-2020
 SQV - vector usage 
 p['sy']['SQC'](dbname,,)
@@ -31,22 +32,23 @@ def main(p):
     # pop dbfilename
     fn = p['sy']['pop']()
     p['sy']['SQC'] = SQClass.SQC(fn)
-    p['sy']['SQget'] = sqgetp
-    #(c,tl,,result)
-    p['sy']["SQClose"] = sqclosep
-    #(,,)
-    p['sy']['SQX'] = sqxp
-    #(stmt,,)
-    p['sy']['SQRead1'] = sqread1p
-    #(sql,,dt)
-    p['sy']['SQReadFirst'] = sqreadfirstp
-    #(sql,,dt)
-    p['sy']['SQReadNext'] = sqreadnextp
-    # (,,dt)
-    p['sy']['SQReadAll'] = sqreadallp
-    #(sql,,dt)
-    p['sy']['SQWrite'] = sqwritep
-    # (0,[cv],,)
+    p['help']['SQC'] = "SQClass.SQC(fn)"
+    p['sy']['SQget'] = sqgetp #(c,tl,,result)
+    p['help']['SQget'] = "sqgetp #(c,tl,,result)"
+    p['sy']["SQClose"] = sqclosep #(,,)
+    p['help']["SQClose"] = "sqclosep #(,,)"
+    p['sy']['SQX'] = sqxp  #(stmt,,)
+    p['help']['SQX'] = "sqxp  #(stmt,,)"
+    p['sy']['SQRead1'] = sqread1p #(sql,,dt)
+    p['help']['SQRead1'] = "sqread1p #(sql,,dt)"
+    p['sy']['SQReadFirst'] = sqreadfirstp #(sql,,dt)
+    p['help']['SQReadFirst'] = "sqreadfirstp #(sql,,dt)"
+    p['sy']['SQReadNext'] = sqreadnextp # (,,dt)
+    p['help']['SQReadNext'] = "sqreadnextp # (,,dt)"
+    p['sy']['SQReadAll'] = sqreadallp #(sql,,dt)
+    p['help']['SQReadAll'] = "sqreadallp #(sql,,dt)"
+    p['sy']['SQWrite'] = sqwritep # (0,[cv],,)
+    p['help']['SQWrite'] = "sqwritep # (0,[cv],,)"
     return(p)
 #end main
 def sqwritep(p):

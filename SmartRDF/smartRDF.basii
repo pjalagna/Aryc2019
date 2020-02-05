@@ -1,138 +1,100 @@
 /* 
 file smartRDF.basii
+pja 01-31-2020 new rules
+[[1]]s=* pred=has ob; 
+          resolve(ob) ; RDF['thing'][ob] # add obj to thing list
+[[2]] s <>* & thing[s] exists pred=has ob ; 
+          resolve(ob) RDF['thing'][ob] , RDF[s][ob]
+[[3]]s='predicate' pred='gets' ob 
+          RDF['predicate'][pred]
+[[4]] s<>*,"predicate" & thing[s] exists pred<>"has","gets","is"
+          resolve(ob) , RDF[s][p][ob] RDF['thing'][ob]
+pja 01-30-2020
+entry sets up tuple
+rules are applied all elements of tuple are exposed in NDS
+
 pja 01-24-2020 begin again
+subject syntax
+[{name1.}]name2{"[" [{name3.}] name4 "]"}
+SPO (thing has name1 ) produces 
+- RDF["thing"]["has"]["name1"]
+- RDF["name1"]["parent"]["thing"]
+SPO(name1 has name2) produces
+- RDF["thing"]["has"]["name2"]
+- RDF["name1"]["has"]["name2"]
+- RDF["name2"]["parent"]["name1"]
+SPO(name2 instance name4) produces
+- RDF["name2"]["instance"]["name4"]
+- RDF["thing"]["has"]["name4"]
+SPO(name3 has name4)
+- RDF["name3"]["has"]["name4"]
+- RDF["name4"]["parent"]["name3"]
 
-basii protocol output-filename [ def paragraph :- [ [[ clause-number ]] [ verbs till period ] ] till ; ] till @endend
+kitty has fortunata is marie has Cathy has joe is bigJoe has joe is LittleJoe; joe has dualCit [ USA , italy ]
 
-architecture:
-lists
-- thing
--- registered name of RDF subject and object nodes
-- event
--- named list of events that execute an action 
--- ((eventName ) basiiParagraphName )) 
---- ex. event.cold -> RDFMain
---- ex event.InsertPredicate -> insert object into predicate list
-- action
--- basii library of codesets
--- ((paragraphName) basiiCode ))
---- ex. RDFMain -> RDFMain: [[ 1 ]] ... ;
-- predicate
--- registered name of RDF predicate - eg verbs relating nodes
-- watch
--- set of patterns that if found will trigger an event
---- subject="predicate" predicate="gets" -> event.InsertPredicate
-- state
--- transformation set of event states recorded into variable current_state
---- cold -> entry -> verify -> watch -onOK-> entry
+- RDF["thing"]["has"]["kitty"]
+- RDF["kitty"]["parent"]["thing"]
+kitty has fortunata
+- RDF["kitty"]["has"]["fortunata"]
+- RDF["thing"]["has"]["fortunata"]
+- RDF["fortunata"]["parent"]["kitty"]
 
-RDF protocol:
-RDF
-[ subject predicate object ; ]
-/RDF
-subject :
-- event
--- if predicate is "gets" then object will be added to event-list
---- via watch event action
-- action
-- predicate
-- watch
-- state
-- *
-- "["parent"]" {["[" nextparent "]"]}
-- "[[" topmost parent "]]"
-- type.name
-- label
+fortunata is marie
+- RDF["fortunata"]["is"]["marie"]
+- RDF["thing"]["has"]["marie"]
 
+marie has Cathy
+Cathy has joe
+joe is bigJoe
+bigJoe has joe
+joe is LittleJoe
+joe has dualCit
+joe has dualCit [ USA
+joe has dualCit [ italy
 */
 
-smartRDFX.py
-
-def initIOI :- 
-/* sets up fioiClass vectors 
-g: filename on datastack 
-*/ 
-[[ 1 ]] "fioiP" takeV ... . /* file parser */
-[[ 2 ]] "RDF.db" "SQV" takeV ... . /* database */
-[[ 3 ]] "create table if not exists RDFTuple ( subject , predicate, object, ssubject, spredicate, sobject, osubject, opredicate, oobject);" SQX .
+def Rmain :-
+[[ 1 ]] initRDF getSubject getPredicate getObject r2 e @ 0 = tail. .
+;
+def initRDF :-
+[[ 1 ]] "arV" takeV dr0 "RDF" ! 
+ch0 '' "thing" "thing" "RDF" @ drvx /* RDF['thing']['thing'] ='' */ 
+"RDF" !
+ch0 '' "has" "predicate" "RDF" @ drvx 
+/* RDF['predicate']['has'] ='' */ 
+"RDF" !
+ch0 '' "gets" "predicate" "RDF" @ drvx 
+/* RDF['predicate']['gets'] ='' */ 
+"RDF" !
 ;
 
-def RDFMain :-
-[[ 1 ]]  "script file" ask dup "scriptF" ! initIOI  RDFMain2 . 
+def getSubject :-
+[[ 1 ]] "subject " ask "subject" ! .
 ;
-
-def RDFMain2 :-
-/* "RDF" RDFMain3 "/RDF" */
-[[ 1 ]] fpword ... .
-[[ 2 ]] ==RDF RDFMain3 fpword ==/RDF actRDFMain2 .
-[[ 3 ]] "error at RDFMain2 " abort .
+def getPredicate :-
+[[ 1 ]] "predicate " ask "predicate" ! .
 ;
-RDFmain3 :-
-/* getsubject getpredicate getobject */
-[[ 1 ]] getsubject /* getpredicate getobject */ verify .
-[[ 2 ]] "error at RDFMain3" abort .
+def getObject :-
+[[ 1 ]] "object " ask "object" ! .
 ;
-getsubject :-
-[[ 1 ]] fpword ... .
-[[ 2 ]] dup ==event "subject" ! .
-[[ 3 ]] dup ==action "subject" ! .
-[[ 4 ]] dup ==predicate "subject" ! .
-[[ 5 ]] dup ==watch "subject" ! .
-[[ 6 ]] dup ==state "subject" ! .
-[[ 7 ]]dup ==* "subject" ! .
-[[ 8 ]] c1 ... .
-[[ 9 ]] dup ==[ getsubject9a .
-[[ 10 ]] dup ==[[ getsubject10a .
-[[ 11 ]] drop '.' has getsubject11a . 
-[[ 12 ]]  "subject" ! .
-[[ 13 ]] "error at getsubject" abort .
+def r2 :-
+/* ((s=*,s="predicate" , pred="gets" pred="has" , pred="is , t[s] exists")) */
+[[ 1 ]] "0" "s=Star" ! "subject" @ "*" = "1" "s=Star" ! ... . 
+[[ 2 ]] "0" "s=pred" ! "subject" @ "predicate" = "1" "s=pred" ! ... . 
+[[ 3 ]]  "0" "p=gets" ! "predicate" @ "gets" = "1" "p=gets" ! ... . 
+[[ 4 ]] "0" "p=has" ! "predicate" @ "has" = "1" "p=has" ! ... . 
+[[ 5 ]] "0" "p=is" ! "predicate" @ "is" = "1" "p=is" ! ... . 
+[[ 6 ]] "0" "p=gets" ! tsExists "1" "p=gets" ! ... .
+[[ 7 ]] r3 .
 ;
+def r3 :-
+/* apply the rules */
+[[ 1 ]] /* s=* and pred=has -> resolv(ob) RDF['thing'][obj] ='' */
+        "s=Star" @ "1" = "p-has" @ "1" = 
+def tsExists :-
+/* (na,,) ok/nok */
+[[ 1 ]] "thing" "RDF" @ dr? dr? drop . /* ok */
+; /* else fail */
 
-getsubjecy9a :-
-/* parent "]" {["[" nextparent "]"]} */
-[[ 1 ]] "getsubjecy9a " msg dump . ;
-
-getsubject10a :-
-/*  topmost parent "]]" */
-[[ 1 ]] "getsubjecy10a " msg dump . ;
-
-getsubject11a 
-/* type.name */
-[[ 1 ]] "getsubjecy11a " msg dump . ;
-
-verify :-
-/* ready to record */
-[[ 1 ]] "verify " msg dump . ;
-
-def act1 :- 
-[[ 1 ]] 
-/* save a complete tuple */
-/* cv format */
-"0"
-"subject" @ "subject" 
-"predicate" @ "predicate" 
-"object" @ "object" 
-"ssubject" @ "ssubject" 
-"spredicate" @ "spredicate" 
-"sobject" @ "sobject" 
-"osubject" @ "osubject" 
-"opredicate" @ "opredicate" 
-"oobject" @ "oobject" 
-"RDFTuple" /* table name */
-SQWrite
-
-/* clear */
-"" "subject" !
-"" "predicate" !
-"" "object" !
-"" "ssubject" !
-"" "spredicate" !
-"" "sobject" !
-"" "osubject" !
-"" "opredicate" !
-"" "oobject" !
-.
-;
-  
 @endend @endend
 

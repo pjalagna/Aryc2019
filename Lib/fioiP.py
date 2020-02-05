@@ -1,5 +1,6 @@
 # file fioiP.py
 """
+pja 01-30-2020 added help entries
 pja 01-02-2020 added fioo
 pja 12-28-2019 edited fpword ! command added ok to stack
 pja 12-27-2019 edited main for datastack pickup of filename
@@ -31,10 +32,14 @@ def main(p):
     import fioiClass
     PFN = p['sy']['pop']() # file name on stack
     p['sy']['fioC'] = fioiClass.fio(PFN)
+    p['help']['fioC'] = "fioiClass.fio(PFN)"
     # need facades for all class bound verbs
     p['sy']['fioi'] = fioiP
+    p['help']['fioi'] = "(,,c(iox)) from file PFN"
     p['sy']['fioo'] = fiooP
+    p['help']['fioo'] = "(,,) PFN iox is decremented"
     p['sy']['fpword'] = fpwordP
+    p['help']['fpword'] = "(,,word) from PFN at iox"
     return (p)
 #end main
 def fioiP(p):

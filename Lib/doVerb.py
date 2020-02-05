@@ -1,5 +1,7 @@
 """
 #file doVerb.py
+pja 01-31-2020 added ch0 verb
+pja 01-30-2020 added word verb 
 pja 01-08-2020 added inp verb
 -------------- added .X verb
 pja 12-29-2019 edited att==@ to return '' on nos
@@ -15,7 +17,10 @@ pja 12-27-2019 redid this header block
 def init(p):
     # load symbol table with all preset verbs
     #       symbol   verb
+    p['help']={} #set up help array
+    p['sy']['help?'] = helphook
     p['sy']['dumpNDS'] = ndsOut
+    p['sy']['verbs'] = vocab
     p['sy']['takeV'] = takeV
     p['sy']['msg'] = msg
     p['sy']['='] = eq
@@ -33,6 +38,7 @@ def init(p):
     p['sy']['...'] = elipsis
     p['sy']['cat'] = cat
     p['sy']['cats'] = cats
+    p['sy']['word'] = wword
     p['sy']['len'] = length
     p['sy']['+'] = mplus
     p['sy']['-'] = mminus
@@ -49,8 +55,96 @@ def init(p):
     p['sy']['find'] = find
     p['sy']['split'] = split
     p['sy']['.X'] = dox
+    p['help']['help?'] = "(name,,) displays help about name"
+    p['help']['dumpNDS'] = "displays NDS"
+    p['help']['verbs'] = "(,,) lists current verbs alphabetically "
+    p['help']['takeV'] = "({options},name,,) imports V files"
+    p['help']['msg'] = "(txt,,) displays txt"
+    p['help']['='] = "(op1,op2,,) sets ok if op1=op2"
+    p['help']['<>'] = "(op1,op2,,) sets ok if op1 != op2"
+    p['help']['!'] = "(v,name,,) stores into NDS [name] = v "
+    p['help']['@'] = "(name,,v) retrives v from NDS[name]"
+    p['help']['depth'] = "(,,c) count of elements in data stack"
+    p['help']['ask'] = "(txt,,ans) enquires of keyboard "
+    p['help']['inp'] = "(,,ans) input from keyboard"
+    p['help']['tail.'] = "tail recursion at specified paragraph"
+    p['help']['drop'] = "(m,,) removes curent TOS of data stack"
+    p['help']['swap'] = "(a,b,,a,b) reverses 2 topmost elements"
+    p['help']['dup'] = "(a,,a,a) duplicates"
+    p['help']['roll'] = "(a,b,c,,c,b,a)"
+    p['help']['...'] = " continues to next clause"
+    p['help']['cat'] = "(a,b,,ab) concatenate "
+    p['help']['cats'] = "(a,b,,a b) concatenate with space"
+    p['help']['word'] = "(txt,,rest,w) splits txt at space "
+    p['help']['len'] = "length of TOS onto TOS"
+    p['help']['+'] = "(a,b,,a+b) addition"
+    p['help']['-'] = "(a,b,,a-b) subtraction"
+    p['help']['/'] = "(a,b,,a/b) subtraction"
+    p['help']['*'] = "(a,b,,a*b) subtraction"
+    p['help']['**'] = "(a,b,,a**b) power"
+    p['help']['-**'] = "(16,2,,4) inverse root"
+    p['help']['mod'] = "(a,b,,a mod b) modulous"
+    p['help']['++'] = "(a,,a+1) increment"
+    p['help']['--'] = "(a,,a-1) decrement"
+    p['help']['@++'] = "(a,,) contents of NDS[a] incremented"
+    p['help']['@--'] = "(a,,) contents of NDS[a] decremented"
+    p['help']['@0'] = "(addr,,) NDS[addr] = 0 "
+    p['help']['find'] = "(needle,haystack,,position/-1) "
+    p['help']['split'] = "(haystack,needle,,first,middle,last)"
+    p['help']['.X'] = "(name,,) executes verb named "
+    p['sy']['ch0'] = chzero
+    p['help']['ch0'] = "(,,x0) charicter 0 to data stack"
     return(p)
 #end init
+def chzero(p):
+    p['sy']['push'](chr(0))
+    p['sy']['push'](p['OK'])
+#end help?
+def helphook(p):
+    na = p['sy']['pop']()
+    print(p['help'][na])
+    p['sy']['push'](p['OK'])
+#end help?
+def vocab(p):
+    m = p['sy'].keys()
+    m.sort()
+    mm = m.__str__()
+    nn = mm.replace(',','\n')
+    print('=== verbs ===')
+    print(nn)
+    print('=== end verbs ===')
+    p['sy']['push'](p['OK'])
+#end vocab
+def wword(p): # (s,,rest,w)
+    if (p['v']['trace'] == 'on'):
+        print('wword')
+    #endif
+    sm = p['sy']['pop']()
+    ww = ''
+    try:
+        bo = sm.index(' ')
+        #print('word found space')
+        fo = 0
+        ww = sm[:bo]
+        #print('word ww=(' + ww +')')
+        rest = sm[bo:]
+        rest = rest.lstrip(' ')
+    except:
+        ww = sm
+        rest = ''
+    finally:
+        nop = 1
+    #end try
+    p['sy']['push'](rest)
+    if (ww != ''):
+        p['sy']['push'](ww)
+    #endif 
+    p['sy']['push'](p['OK'])
+#end wword
+    
+        
+        
+    
 def ndsOut(p):
     if (p['v']['trace'] == 'on'):
         print('ndsOut')

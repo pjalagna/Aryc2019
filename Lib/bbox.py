@@ -2,10 +2,11 @@
 #file bbox.py
 #generated for bbox.basii at Wed Jan  8 10:26:47 2020 
 
-# usage 
-# import xx
-# xx.main(startpoint)
-# xx.start(trace)
+"""# usage 
+import bbox
+bbox.main('bmain')
+bbox.start()
+"""
 
 def bmain_1():
     global p

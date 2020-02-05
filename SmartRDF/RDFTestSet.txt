@@ -1,17 +1,35 @@
 /*
 file RDFTestSet.txt
+Pja 02-01-2020 amended for smartRDF example
 pja 01-24-2020
 */
-RDF
-Thing has display ;
-Predicate gets show ;
-Predicate gets does ;
-Event gets ( subject = display ) ;
-Event gets ( predicate = show  ) ;
-Event does action.showObject ;
-Action gets showObject ;
-
-Display show thing ;
-
-
-/RDF
+/* RDF */
+/* database has tables */
+Thing has DB1
+DB1 has Cust
+DB1 has Orders
+DB1 has OrderLine
+DB1 has Part
+/* tables has columns */
+Cust has CustCode
+Cust has CustName
+Cust has CustState
+Cust hasKey CustCode
+Orders has OID
+Orders has CustCode
+Orders has Price
+Orders has OrderDate
+Orders hasKey OID
+Part has PartName
+Part has Price
+Part has Description
+Part hasKey PartName
+OrderLine has OID
+OrderLine has Part
+OrderLine has qtyOrdered
+OrderLine has totalPrice
+State has StateCode
+State has StateName
+OrderLine hasKey OID
+OrderLine hasKey Part
+/* /RDF */

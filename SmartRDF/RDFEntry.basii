@@ -1,0 +1,103 @@
+/* file RDFEntry.basii
+pja 02-04-2020
+*/
+
+RDFEntry.py
+def RDFEntry :-
+/* manual entry to stage */
+[[ 1 ]] initRDF clearAll "?>" ask setSStr getSubject getPredicate getObject writeTuple tail. .
+;
+def getSubject :-
+[[ 1 ]] getToken ... . /* get a token */
+[[ 2 ]] token ==( complexSubject . /* the token is a "(" - we have a complex subject */
+[[ 3 ]] token "subject" save . /* save the token in the meta tag "subject" */
+;
+def complexSubject :-
+[[ 1 ]] getToken token "s-subject" save
+         getToken token "s-predicate" save
+         getToken token "s-object" save
+         getToken token drop . /* absorb the trailing ")" */
+;
+/* -- predicate -- */
+def getPredicate :-
+[[ 1 ]] getToken  ... . /* get a token */
+[[ 2 ]] token ==( complexPredicate . /* the token is a "(" - we have a complex predicate */
+[[ 3 ]]  token "predicate" save . /* save the token in the meta tag "predicate" */
+;
+def complexPredicate :-
+[[ 1 ]] getToken token "p-subject" save
+         getToken token "p-predicate" save
+         getToken token "p-object" save
+         getToken token drop . /* absorb the trailing ")" */
+;
+/* -- object -- */
+def getObject :-
+[[ 1 ]] getToken ... . /* get a token */
+[[ 2 ]] token ==( complexObject . /* the token is a "(" - we have a complex object */
+[[ 3 ]]  token "object" save . /* save the token in the meta tag "predicate" */
+;
+def complexObject :-
+[[ 1 ]] getToken token "o-subject" save
+         getToken token "o-predicate" save
+         getToken token "o-object" save
+         getToken token drop . /* absorb the trailing ")" */
+;
+def writeTuple :-
+/* writes and clear meta names */
+[[ 1 ]] gennx "ID" !
+        "Update stage ( ID = '" "ID" @ cat "'" cats
+       ", subject = '" "subject" @ cat "'" cats
+", s-subject = '" "s-subject" @ cat "'" cats
+", s-predicate = '" "s-predicate" @ cat "'" cats
+", s-object = '" "s-object" @ cat "'" cats
+", predicate = '" "predicate" @ cat "'" cats
+", p-subject = '" "p-subject" @ cat "'" cats
+", p-predicate = '" "p-predicate" @ cat "'" cats
+", p-object = '" "p-object" @ cat "'" cats
+", object = '" "object" @ cat "'" cats
+", o-subject = '" "o-subject" @ cat "'" cats
+", o-predicate = '" "o-predicate" @ cat "'" cats
+", o-object = '" "o-object" @ cat "'" cats
+") ; " cats
+.s clearAll .
+;
+
+/* help routines */
+def save :-
+[[ 1 ]] ! .
+;
+
+def getToken :-
+[[ 1 ]] Sword "token" ! .
+;
+
+def token :-
+[[ 1 ]] "1" "token" @ ar@ .
+;
+
+def clearAll :-
+/*  clear all vars */
+[[ 1 ]]
+" " "subject" !
+" " "predicate" !
+" " "object" !
+" " "s-subject" !
+" " "s-predicate" !
+" " "s-object" !
+" " "p-subject" !
+" " "p-predicate" !
+" " "p-object" !
+" " "o-subject" !
+" " "o-predicate" !
+" " "o-object" !
+.
+;
+def initRDF :-
+/* word , db */
+[[ 1 ]] "RDF" "SQV" takeV 
+        "SioV" takeV 
+        "arV" takeV .  
+;
+
+
+@endend @endend @endend
