@@ -1,4 +1,5 @@
 /* file RDFEntry.basii
+pja 02-05-2020 added wait 
 pja 02-04-2020
 */
 
@@ -33,15 +34,19 @@ def complexPredicate :-
 /* -- object -- */
 def getObject :-
 [[ 1 ]] getToken ... . /* get a token */
-[[ 2 ]] token ==( complexObject . /* the token is a "(" - we have a complex object */
-[[ 3 ]]  token "object" save . /* save the token in the meta tag "predicate" */
+/* the token is a "(" - we have a complex object */
+[[ 2 ]] token ==( complexObject . 
+/* save the token in the meta tag "predicate" */
+[[ 3 ]]  token "object" save . 
 ;
+
 def complexObject :-
 [[ 1 ]] getToken token "o-subject" save
          getToken token "o-predicate" save
          getToken token "o-object" save
          getToken token drop . /* absorb the trailing ")" */
 ;
+
 def writeTuple :-
 /* writes and clear meta names */
 [[ 1 ]] gennx "ID" !
@@ -59,10 +64,15 @@ def writeTuple :-
 ", o-predicate = '" "o-predicate" @ cat "'" cats
 ", o-object = '" "o-object" @ cat "'" cats
 ") ; " cats
-.s clearAll .
+wait clearAll .
 ;
 
 /* help routines */
+def wait :-
+/* dump with a pause to read */
+[[ 1 ]] .s crlf msg dumpNDS crlf msg "read" ask drop .
+;
+
 def save :-
 [[ 1 ]] ! .
 ;
@@ -72,29 +82,29 @@ def getToken :-
 ;
 
 def token :-
-[[ 1 ]] "1" "token" @ ar@ .
+[[ 1 ]] "1""token" @ ar@ .
 ;
 
 def clearAll :-
 /*  clear all vars */
 [[ 1 ]]
-" " "subject" !
-" " "predicate" !
-" " "object" !
-" " "s-subject" !
-" " "s-predicate" !
-" " "s-object" !
-" " "p-subject" !
-" " "p-predicate" !
-" " "p-object" !
-" " "o-subject" !
-" " "o-predicate" !
-" " "o-object" !
+"" "subject" !
+"" "predicate" !
+"" "object" !
+"" "s-subject" !
+"" "s-predicate" !
+"" "s-object" !
+"" "p-subject" !
+"" "p-predicate" !
+"" "p-object" !
+"" "o-subject" !
+"" "o-predicate" !
+"" "o-object" !
 .
 ;
 def initRDF :-
 /* word , db */
-[[ 1 ]] "RDF" "SQV" takeV 
+[[ 1 ]] "RDF""SQV" takeV 
         "SioV" takeV 
         "arV" takeV .  
 ;

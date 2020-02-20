@@ -1,5 +1,5 @@
-# file name heapV.py 
-"""
+m= """
+# file name heapV.py
 pja 1-30-2020
 heap rtns for basii with help entries
 
@@ -9,7 +9,8 @@ heap rtns for basii with help entries
 # (,,) hx removes current slots from heap
 # (v,#,,) h! writes v to heap[h[0]-#]
 # (#,,v) h@ reads heap[h[0]-#]
-
+"""
+"""
 test as 
 import bbox
 bbox.main('bmain')
@@ -32,7 +33,9 @@ h@
 fn = p['sy']['pop']()
 p['sy']['push'](p['OK'])
 """
-def main(p):
+def main(p,m):
+    p['package']['heapV'] = ''
+    p['help']['heapV'] = m
 	p['sy']['.h'] = doth # .h dump heap to display
 	p['help']['.h'] = "doth # .h dump heap to display"
 	p['sy']['h^'] = hup # (#,,) h^ allots # slots to heap

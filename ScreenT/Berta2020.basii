@@ -1,0 +1,53 @@
+/*
+file Berta.basii
+pja 02-15-2020
+
+*/
+b2020.py
+def BertaStart :-
+[[ 1 ]] BertaInit setPage fini .
+;
+def BertaInit :-
+[[ 1 ]] "ScreenV" takeV 
+"tempNDSV" takeV
+.
+;
+
+def setPage :-
+[[ 1 ]] sc0
+"red exit to exit" "1" "1" scL
+"bundle" "2" "1" scL
+"bundle" "3" "1" scE
+"Rule" "3" "2" scL
+"Rule" "4" "2" scE
+"Threshold" "3" "3" scL
+"Threshold" "4" "3" scE
+"Action" "3" "4" scL
+"Action" "4" "4" scE
+"test" "6" "1" scL
+"test" "7" "1" scE
+"Line1" "8" "1" scL "line1" "8" "2" "100" scEx
+"Line2" "9" "1" scL "line2" "9" "2" "100" scEx
+"Line3" "10" "1" scL "line3" "10" "2" "100" scEx
+"Line4" "11" "1" scL "line4" "11" "2" "100" scEx
+"Line5" "12" "1" scL "line5" "12" "2" "100" scEx
+"Line6" "13" "1" scL "line6" "13" "2" "100" scEx
+"Line7" "14" "1" scL "line7" "14" "2" "100" scEx
+"Line8" "15" "1" scL "line8" "15" "2" "100" scEx
+"Line9" "16" "1" scL "line9" "16" "2" "100" scEx
+scGo .
+;
+
+def fini :-
+/* write to tempNDS */
+[[ 1 ]] t0 fini2 .
+;
+
+def fini2 :-
+/* write to tempNDS till ch0 */
+[[ 1 ]] dup ch0 = drop .t "??" ask .
+[[ 2 ]] t! tail. .
+;
+
+
+@endend @endend @endend

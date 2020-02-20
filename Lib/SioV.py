@@ -1,4 +1,4 @@
-"""
+m="""
 file SioV.py
 pja 02-04-2020
 
@@ -17,13 +17,16 @@ Sctill(self,targetCH):
 Sctillor(self,targetCHS):
 Sword(self):
 Spback(self,struct):
-
+"""
+"""
 
 tn = p['sy']['pop']()
 p['sy']['push']( str )
 p['sy']['push'](p['OK']) 
 """
-def main(p):
+def main(p,m):
+    p['package']['SioV'] = ''
+    p['help']['SioV'] = m
     import SioiClass
     p['sy']['SIO'] = SioiClass.Sio()
     p['sy']['Sioi']= Sioi 

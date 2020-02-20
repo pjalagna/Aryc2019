@@ -1,5 +1,6 @@
+m = """
 # file name SQV.py 
-"""
+SQLite interface for basii
 pja 01-30-2020 added help stmts
 pja 1-3-2020
 SQV - vector usage 
@@ -11,7 +12,8 @@ p['sy']['SQRead1'](sql,,dt)
 p['sy']['SQReadFirst'](sql,,dt)
 p['sy']['SQReadNext'](,,)
 p['sy']['SQReadAll'](sql,,dt
-
+"""
+"""
 test as 
 import smartRDFX
 smartRDFX.main('RDFMain')
@@ -27,7 +29,9 @@ p['sy']['.si'](p)
 
 
 """
-def main(p):
+def main(p,m):
+    p['package']['SQV'] = ''
+    p['help']['SQV'] = m
     import SQClass
     # pop dbfilename
     fn = p['sy']['pop']()

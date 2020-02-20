@@ -1,14 +1,13 @@
-"""
+m = """
 file arV.py
 pja 01-31-2020 added drvx verb 
 pja 01-26-2020
 array functions for basii
 
-
-
-
 """
-def main(p):
+def main(p,m=m):
+    p['package']['arV'] = ''
+    p['help']['arV'] = m
     p['sy']['ar!']= arBang #(val,index,[],,[])
     p['help']['ar!']= "arBang #(val,index,[],,[])"
     p['sy']['ar@']= arAt #(index,[],,val)

@@ -9,7 +9,8 @@ rat # r@ (,,vr) r[0] to dat p['r'][0]
 rbang # r! (s,,) dat to r[0]
 rin # r< append to r (v,,) p['r'].append(v)
 rout # r> pop from r (,,r[0] with destroy ) p['r'].pop()
-
+"""
+"""
 test as 
 import bbox
 bbox.main('bmain')
@@ -23,7 +24,9 @@ takeV
 fn = p['sy']['pop']()
 p['sy']['push'](p['OK'])
 """
-def main(p):
+def main(p,m):
+    p['package']['rV'] = ''
+    p['help']['rV'] = m
 	p['sy']['r0'] = rzero # ready/reset r register
 	p['help']['r0'] = "rzero # ready/reset r register"
 	p['sy']['.r'] = dotr # (,,) display r register contents

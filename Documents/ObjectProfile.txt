@@ -1,0 +1,11 @@
+"""
+file ObjectProfile.txt
+pja 02-18-2020
+
+profile for objects that have elements (like screens, devices etc)
+
+'object'--<//O-name//-A-<"object" <== callbox
+-A-<"element"--<//name//---<("value",//c//)
+-A--<"rtn"--<//r-name//-B-<"parameters"[#]--<("name","value",//c//)
+-B-<"call" <== callbox
+"""

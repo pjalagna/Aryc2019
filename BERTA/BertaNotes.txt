@@ -1,4 +1,8 @@
 file BertaNotes.txt
+Pja 02-15-2020 format of screens
+B:bundle R:rule T:<number> E:<name> OP:<operator> VS:<name> W:<weight> TR:<threshold> A+:[bundle names] A-:[bundle names] AB:<action name> AF:<action name> 
+
+
 pja 8/17/2019 changed name to be dateless (was notes2017)
 - sequencing in berta
 -- suppose we want to have a,b entered and then develop xa = a**2 + 2ab + b**2

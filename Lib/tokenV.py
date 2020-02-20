@@ -13,8 +13,9 @@ getToken == fpword
 token    == put curent token on d-stack
 putback  == reset fiox before current token; erase p['token'][#] record
 
-    assumes fioi vectors are installed EG install fioi first
-
+    assumes fioi vectors are installed EG install fioV first
+"""
+"""
 test as 
 test file contents:
 one two three
@@ -47,7 +48,9 @@ push and pop
 stmt = p['sy']['pop']()
 p['sy']['push'](p['OK'])
 """
-def main(p):
+def main(p,m):
+    p['package']['tokenV'] = ''
+    p['help']['tokenV'] = m
     p['token'] = [] // record hold
     p['token'][0] = 0
     

@@ -32,4 +32,13 @@ State has StateCode
 State has StateName
 OrderLine hasKey OID
 OrderLine hasKey Part
+/* domain tables */
+CustID as 1
+CustID as 2
+CustID as 3
+/* fact table */
+(factID as 1) has (custID as 1)
+(factID as 1) has (custState as NJ)
+/* serialized fact table */
+
 /* /RDF */

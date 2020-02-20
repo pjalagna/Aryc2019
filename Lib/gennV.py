@@ -1,10 +1,12 @@
-"""
+m="""
 file genn.py
 create uid
 pja 01-10-2020
 use with takeV verb in basii
 """
-def main(p):
+def main(p,m):
+    p['package']['gennV'] = ''
+    p['help']['gennV'] = m
     p['sy']['genx'] = genx
     return(p)
 #end main

@@ -1,5 +1,25 @@
 /* 
 file smartRDF.basii
+pja 02-16-2020 new rules
+-- on entry
+--- if old to thing list save name on collision-list
+--- format [[1]] subject OR (s-subject , s-predicate , s-object )
+---- [[2]] predicate OR (p-subject , p-predicate , p-object )
+---- [[3]] object OR (o-subject , o-predicate , o-object )
+--- all subjects and objects follow collision rule
+
+-- after process is to enter into thing-list dangling subjects (new things)
+-- after process is to enter into predicate dangling predicates
+-- after process is to disambiguate collisions by provenance 
+
+tests as table has (value with value2)
+
+b has (bundle1 with device1)
+br has (bundle1 with Rule1)
+Rule has Rule1
+Rule1[Threshold] is 65
+rt has (Rule1[1] with testD1)
+
 pja 01-31-2020 new rules
 [[1]]s=* pred=has ob; 
           resolve(ob) ; RDF['thing'][ob] # add obj to thing list
@@ -52,49 +72,94 @@ joe has dualCit
 joe has dualCit [ USA
 joe has dualCit [ italy
 */
-
+s2020.py
 def Rmain :-
-[[ 1 ]] initRDF getSubject getPredicate getObject r2 e @ 0 = tail. .
+[[ 1 ]] initRDF Rmain2 .
 ;
+
+def Rmain2 :- 
+[[ 1 ]] t0 getSubject "subject" @ "done" = wait .
+[[ 2 ]] getPredicate  getObject  /* r2 e @ 0 = */ tail.   .
+;
+
 def initRDF :-
-[[ 1 ]] "arV" takeV dr0 "RDF" ! 
-ch0 '' "thing" "thing" "RDF" @ drvx /* RDF['thing']['thing'] ='' */ 
-"RDF" !
-ch0 '' "has" "predicate" "RDF" @ drvx 
-/* RDF['predicate']['has'] ='' */ 
+[[ 1 ]] "tempNDSV" takeV 
+"arV" takeV dr0 "RDF" ! 
+/* set up RDF array RDF['thing'] */
+ch0 '' "thing" "thing" "RDF" @ drvx /* RDF['thing']['thing'] ='' */
+"RDF" ! 
+/* set up RDF array RDF['predicate'] */
+ch0 '' "has" "predicate" "RDF" @ drvx  /* RDF['predicate']['has'] ='' */ 
 "RDF" !
 ch0 '' "gets" "predicate" "RDF" @ drvx 
 /* RDF['predicate']['gets'] ='' */ 
 "RDF" !
+/* set up RDF array RDF['collision'] */
+ch0 '' "" "collision" "RDF" @ drvx  "RDF" !
+/* set up RDF array RDF['statement'] */
+ch0 '' "" "statement" "RDF" @ drvx  "RDF" !
+.
 ;
 
 def getSubject :-
-[[ 1 ]] "subject " ask "subject" ! .
+[[ 1 ]] "subject " ask "tsubject" t! ... .
+/* process subject "(" s-.. ")" */
+[[ 2 ]] "tsubject" t@ word "(" = complexSubject .
+[[ 3 ]] "tsubject" t@ "subject" ! 
+.
 ;
+def complexSubject :-
+[[ 1 ]] word "s-subject" t!
+word "s-predicate" t!
+word "s-object" t!
+drop
+/* add complex to RDF */
+ch0 "" "tsubject" t@ "thing" "RDF" @ drvx "RDF" !
+.
+;
+/* predicate */
 def getPredicate :-
-[[ 1 ]] "predicate " ask "predicate" ! .
+[[ 1 ]] "predicate " ask "tpredicate" t! ... .
+/* process predicate "(" s-.. ")" */
+[[ 2 ]] "tpredicate" t@ word "(" = complexPredicate .
+[[ 3 ]] "tpredicate" t@ "predicate" ! 
+.
 ;
+def complexPredicate :-
+[[ 1 ]] word "p-subject" t!
+word "p-predicate" t!
+word "p-object" t!
+drop
+/* add complex to RDF */
+ch0 "" "tpredicate" t@ "predicate" "RDF" @ drvx "RDF" !
+.
+;
+/* object */
 def getObject :-
-[[ 1 ]] "object " ask "object" ! .
+[[ 1 ]] "Object " ask "tObject" t! ... .
+/* process Object "(" s-.. ")" */
+[[ 2 ]] "tObject" t@ word "(" = complexObject .
+[[ 3 ]] "tObject" t@ "Object" ! wait
+.
 ;
-def r2 :-
-/* ((s=*,s="predicate" , pred="gets" pred="has" , pred="is , t[s] exists")) */
-[[ 1 ]] "0" "s=Star" ! "subject" @ "*" = "1" "s=Star" ! ... . 
-[[ 2 ]] "0" "s=pred" ! "subject" @ "predicate" = "1" "s=pred" ! ... . 
-[[ 3 ]]  "0" "p=gets" ! "predicate" @ "gets" = "1" "p=gets" ! ... . 
-[[ 4 ]] "0" "p=has" ! "predicate" @ "has" = "1" "p=has" ! ... . 
-[[ 5 ]] "0" "p=is" ! "predicate" @ "is" = "1" "p=is" ! ... . 
-[[ 6 ]] "0" "p=gets" ! tsExists "1" "p=gets" ! ... .
-[[ 7 ]] r3 .
-;
-def r3 :-
-/* apply the rules */
-[[ 1 ]] /* s=* and pred=has -> resolv(ob) RDF['thing'][obj] ='' */
-        "s=Star" @ "1" = "p-has" @ "1" = 
-def tsExists :-
-/* (na,,) ok/nok */
-[[ 1 ]] "thing" "RDF" @ dr? dr? drop . /* ok */
-; /* else fail */
 
-@endend @endend
+def complexObject :-
+[[ 1 ]] word "o-subject" t!
+word "o-predicate" t!
+word "o-object" t!
+drop
+/* add complex to RDF */
+ch0 "" "tpredicate" t@ "thing" "RDF" @ drvx "RDF" !
+wait
+.
+;
+
+def wait :-
+[[ 1 ]] .t dumpNDS .s "??" ask .
+;
+
+/* -- */
+
+
+@endend @endend @endend
 

@@ -1,5 +1,9 @@
-"""
+m = """
 #file doVerb.py
+pja 02-18-2020 added p['object'] see objectProfile.txt
+pja 02-15-2020 edited packages
+pja 02-10-2020 added package and packages verbs
+pja 02-05-2020 added crlf verb
 pja 01-31-2020 added ch0 verb
 pja 01-30-2020 added word verb 
 pja 01-08-2020 added inp verb
@@ -14,10 +18,34 @@ pja 12-27-2019 redid this header block
 # pja 2/10/2018 - added ask
 # pja 2/8/2018
 """
-def init(p):
+"""
+def drops(p)
+    if (p['v']['trace'] == 'on'):
+        print('drops')
+    #endif
+    p['sy']['depth'](p)
+    x = p['sy']['pop']() #ok
+    m = = p['sy']['pop']() # 
+    for z in range(m):
+        x = p['sy']['pop']()
+    #endfor
+    p['sy']['push'](p['OK'])
+#
+    
+    
+    
+"""
+def init(p,m=m):
     # load symbol table with all preset verbs
     #       symbol   verb
+    p['object'] = {} # set up object profile see ObjectProfile.txt
     p['help']={} #set up help array
+    p['package']={} #set up package array
+    p['package']['doVerb'] = m
+    p['sy']['packages'] = packages
+    p['help']['packages'] = "(,,) displays installed packages "
+    p['sy']['package'] = package
+    p['help']['packages'] = "(name,,) displays installed packages help"
     p['sy']['help?'] = helphook
     p['sy']['dumpNDS'] = ndsOut
     p['sy']['verbs'] = vocab
@@ -32,6 +60,7 @@ def init(p):
     p['sy']['inp'] = inp
     p['sy']['tail.'] = tail
     p['sy']['drop'] = drop
+    p['sy']['drops'] = drops
     p['sy']['swap'] = swap
     p['sy']['dup'] = dup
     p['sy']['roll'] = roll
@@ -69,6 +98,7 @@ def init(p):
     p['help']['inp'] = "(,,ans) input from keyboard"
     p['help']['tail.'] = "tail recursion at specified paragraph"
     p['help']['drop'] = "(m,,) removes curent TOS of data stack"
+    p['help']['drops'] = "([m],,) removes ALL data on stack"
     p['help']['swap'] = "(a,b,,a,b) reverses 2 topmost elements"
     p['help']['dup'] = "(a,,a,a) duplicates"
     p['help']['roll'] = "(a,b,c,,c,b,a)"
@@ -94,8 +124,44 @@ def init(p):
     p['help']['.X'] = "(name,,) executes verb named "
     p['sy']['ch0'] = chzero
     p['help']['ch0'] = "(,,x0) charicter 0 to data stack"
+    p['sy']['crlf'] = crlf
+    p['help']['crlf'] = "(,,crlf) adds newline to stack"
     return(p)
 #end init
+def drops(p):
+    if (p['v']['trace'] == 'on'):
+        print('drops')
+    #endif
+    p['sy']['depth'](p)
+    x = p['sy']['pop']() #ok
+    m = int(p['sy']['pop']()) # 
+    for z in range(m):
+        x = p['sy']['pop']()
+    #endfor
+    p['sy']['push'](p['OK'])
+#
+
+def package(p):
+    na = p['sy']['pop']()
+    print(p['help'][na])
+    p['sy']['push'](p['OK'])
+#end help?
+def packages(p):
+    m = p['package'].keys()
+    m.sort()
+    mm = m.__str__()
+    nn = mm.replace(',','\n')
+    print('=== packages ===')
+    print(nn)
+    print('=== end packages ===')
+    p['sy']['push'](p['OK'])
+#end vocab
+def crlf(p):
+    ans = """
+"""
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
 def chzero(p):
     p['sy']['push'](chr(0))
     p['sy']['push'](p['OK'])
@@ -468,6 +534,7 @@ def drop(p):
     p['sy']['push'](p['OK'])
 #end drop
 
+    
 def elipsis(p):
     """ AKA fail """
     if (p['v']['trace'] == 'on'):

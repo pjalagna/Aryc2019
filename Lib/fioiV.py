@@ -1,5 +1,5 @@
-# file fioiP.py
-"""
+m = """
+# file fioiV.py
 pja 01-30-2020 added help entries
 pja 01-02-2020 added fioo
 pja 12-28-2019 edited fpword ! command added ok to stack
@@ -25,7 +25,9 @@ fctill,
 ftillor
 """
 # fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
-def main(p):
+def main(p,m):
+    p['package']['fioiV'] = ''
+    p['help']['fioiV'] = m
     """ p is architecture array """
     # set up class in sy-fioC using filename on datastack
     # all Pverbs come off class
