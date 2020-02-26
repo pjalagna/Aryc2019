@@ -1,0 +1,43 @@
+"""
+file ObjectProfile.txt
+Pja 02-21-2020
+pja 02-18-2020
+
+profile for objects that have elements (like screens, devices etc)
+'Object'--<pagkageName <== callbox
+'object'--<//O-name//-A-<"object" <== callbox
+-A-<"element"--<//name//---<("value",//c//)
+-A--<"routines"--<//r-name//-B-<"parameters"[#]--<("name","value",//c//)
+-A--<"returns"[]--<e-name
+-A--<"revCall"--<//elementName//=O-name /* lookback for object name */
+-B-<"call" <== callbox
+"""
+# usage
+p = {}
+import Tkinter
+p['object'] = {}
+p['object']['revCall'] = {}
+p['object']['Tkinter']=Tkinter # callbox
+
+p['object']['screen'] = {}
+p['object']['screen']['element'] = {}
+p['object']['screen']['returns'] = {}
+
+p['object']['screen']['object']= p['object']['Tkinter'].Tk # callbox
+
+# per element
+p['object']['screen']['element']['label1'] = {}
+
+p['object']['screen']['element']['label1']['name'] = 'Label1'
+p['object']['screen']['element']['label1']['value']= p['object']['screen']['object']().stringVar()
+p['object']['screen']['element']['label1']['call'] = p['object']['screen']['object']().Label()
+p['object']['screen']['element']['label1']['bind'] = {}
+p['object']['screen']['element']['label1']['bind']['grid']=
+= p['object']['screen']['element']['label1']['call'].grid(row=5,column=12)
+p['object']['screen']['returns']['Label1'] = '' # return list
+p['object']['revCall']['Label1'] = 'screen'
+
+
+
+
+

@@ -1,0 +1,4 @@
+file business-task-diagrams.txt
+pja 01-01-1990
+- business task diagrams (use case action diagrams)
+-- [actor =(data)=> class =(data)=> signal/behavior (EBNF+)]

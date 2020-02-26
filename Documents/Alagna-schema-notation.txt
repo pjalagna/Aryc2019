@@ -1,0 +1,7 @@
+file Alagna-schema-notation.txt
+(Alagna schema notation)
+key 
+- "{" - "}" is optional
+- ,+ repeats comma seperated
+
+(( key{[domain,+]},+ {)tag{[domain,+]},+} ))
