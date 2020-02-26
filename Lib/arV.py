@@ -3,6 +3,8 @@ file arV.py
 pja 01-31-2020 added drvx verb 
 pja 01-26-2020
 array functions for basii
+ar! ar@ ar0 ar#
+dr! dr@ dr0 dr# drK dr? dr+ drvx
 
 """
 def main(p,m=m):
@@ -29,7 +31,7 @@ def main(p,m=m):
     p['sy']['dr?'] = drHook # ({},[keys])
     p['help']['dr?'] = "(t,{},,{ans}) {}[t] subset if ok else blank "
     p['sy']['dr+'] = drPlus # ({},[keys])
-    p['help']['dr?'] = "({b},{a},,) updates dr{a} with {b} "
+    p['help']['dr+'] = "({b},{a},,) updates dr{a} with {b} "
     p['sy']['drvx'] = drvx 
     p['help']['drvx'] = "(ch0,val,[names],array,,) for multi depth arrays max depth 6 "
     return(p)

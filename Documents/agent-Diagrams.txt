@@ -1,0 +1,10 @@
+file agent-Diagrams.txt
+pja 01-01-1990
+- agent diagrams (petri nets)
+-- [ ({data})agent(poll,process,(outputList))[==({data})==>agent] ]
+
+where:
+data is persistant
+poll & process's are defined in EBNF+
+outputList is data whose domain is agent names
+secondarily ((outputList,agentName) domain)) is a list of data allowed to be passed to a specific agent

@@ -1,0 +1,12 @@
+file data-specifications-&-formats.txt
+pja 01-01-1990
+(Alagna schema notation) reprinted here
+(( key{[domain,+]},+ {)tag{[domain,+]},+} ))
+
+- data dictionary
+-- ((columnName)desc,size,type,{domain*}))
+--- {domain} for reference tables
+-- ((tableName) desc ))
+-- ((relationshipName) reason, tableName1, tableName2 ))
+-- DDL
+--- database-<table a)-<column b)-<keys

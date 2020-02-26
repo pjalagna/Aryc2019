@@ -1,0 +1,7 @@
+file screen-diagrams.txt
+pja 01-01-1990
+
+- screen diagrams
+-- ScreenName [line [elementProfile]] {screenProfile}
+- screen spider diagram
+--- [(data)==>screen-<button/exit==(data)==>screen]

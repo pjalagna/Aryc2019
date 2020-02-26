@@ -1,0 +1,3 @@
+file Alagna-schema-notation.txt
+(Alagna schema notation)
+(( key{[domain,+]},+ {)tag{[domain,+]},+} ))

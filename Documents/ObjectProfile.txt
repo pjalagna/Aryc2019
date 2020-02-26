@@ -1,11 +1,13 @@
 """
 file ObjectProfile.txt
+Pja 02-21-2020
 pja 02-18-2020
 
 profile for objects that have elements (like screens, devices etc)
-
+'Object'--<pagkageName <== callbox
 'object'--<//O-name//-A-<"object" <== callbox
 -A-<"element"--<//name//---<("value",//c//)
--A--<"rtn"--<//r-name//-B-<"parameters"[#]--<("name","value",//c//)
+-A--<"routines"--<//r-name//-B-<"parameters"[#]--<("name","value",//c//)
+-A--<"returns"[]--<e-name
 -B-<"call" <== callbox
 """
