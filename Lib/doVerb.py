@@ -1,5 +1,6 @@
 m = """
 #file doVerb.py
+pja 03-09-2020 added verb?
 pja 03-06-2020 added c1 , woB , isnum?, Q?, T?, <Lt >Gt DT
 ---- fixed wword BUT won't take comments
 pja 02-18-2020 added p['object'] see objectProfile.txt
@@ -87,6 +88,8 @@ def init(p,m=m):
     p['sy']['split'] = split
     p['sy']['.X'] = dox
     p['help']['help?'] = "(name,,) displays help about name"
+    p['sy']['verb?'] = verbHook
+    p['help']['verb?'] = "(name,,) ok if names exists as verb nok if not"
     p['help']['dumpNDS'] = "displays NDS"
     p['help']['verbs'] = "(,,) lists current verbs alphabetically "
     p['help']['takeV'] = "({options},name,,) imports V files"
@@ -249,6 +252,19 @@ def helphook(p):
     print(p['help'][na])
     p['sy']['push'](p['OK'])
 #end help?
+def verbHook(p):
+    # (n,,) ok nok if exists
+    na = p['sy']['pop']()
+    m = p['sy'].keys()
+    try:
+        ans = m.index(na)
+        p['sy']['push'](p['OK'])
+    except:
+        p['sy']['push'](p['NOK'])
+    finally:
+        nop = 1
+    #
+#
 def vocab(p):
     m = p['sy'].keys()
     m.sort()
