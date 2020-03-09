@@ -1,0 +1,20 @@
+file bugBox.txt
+
+------------fix doVerb wword 
+need doVerb wword comment skip
+
+add exists test for takeV
+-- might need forceTake (new instance of class?)
+add escape for help? - fails on nof
+need SQSQV
+fix heapV.py
+------------fix gennV.py
+------------need DT (,,ascTime)
+reverse arV ([],index,,ans) 
+-- ar0 (,,[])
+-- ar@ ([],index,,ans) 
+-- ar! ([a],[],index,,[a] at index)
+-- ar+ (v,[],,[v] appended)
+------------allow empty cmd in bbox
+
+

@@ -1,0 +1,14 @@
+seek TCVR from TCVRDao.php
+8421
+0 — => [t] == tables in database 
+1 r => [t] == tables using r (side-car, etc)
+2 v => [c] ** == no conflict w/ meta 
+4 c => [v] == domain of c
+6 cv => [r] == indexes where c=v
+8 t => [r] == indexes of t
+9 tr => [c] == structure of t at r
+12 tc => [r] ** == no conflict w/ meta
+13 tcr => v == value of c at r in t
+14 tcv => [r] == indexes where c=v in t
+15 tcvr => tcvr/0 == existence test
+

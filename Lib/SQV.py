@@ -29,7 +29,7 @@ p['sy']['.si'](p)
 
 
 """
-def main(p,m):
+def main(p,m=m):
     p['package']['SQV'] = ''
     p['help']['SQV'] = m
     import SQClass

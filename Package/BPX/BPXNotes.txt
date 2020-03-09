@@ -1,0 +1,7 @@
+file BPXNotes.txt
+pja 03/05/2020
+
+
+bpx0 create new sqlite bpx table
+bpxGet(bn,cn,vn)==> bn,cn,vn,vt,lit
+bpxSet(bn,cn,vn,vt,lit='')

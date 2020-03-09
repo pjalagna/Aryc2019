@@ -1,5 +1,6 @@
 /* 
 filename bbox.basii 
+pja 03-06-2020 amended b2
 pja 01-08-2020 
 
 interactive basii
@@ -7,13 +8,22 @@ interactive basii
 */
 bbox.py
 def bmain :-
-[[ 1 ]] ">?" ask dup ==off exit .
+[[ 1 ]] ">?" ask dup ==quit drop "bbox done" msg .
 [[ 2 ]] b2 tail. .
 ;
+def Ver :-
+[[ 1 ]]   "bbox version 3.6.20" msg .
+;
+
 def b2 :-
-[[ 1 ]] dup ==push drop "-----txt" ask . /* left on stack */
-[[ 2 ]] dup ==pop drop msg .
-[[ 3 ]] .X .
+[[ 1 ]] dup len ==0 drop . 
+[[ 2 ]] dup c1 Q? woB .
+[[ 3 ]] dup c1 T? woB .
+[[ 4 ]] dup isnum? /* leave on stack */ . 
+[[ 5 ]] dup ==push drop "-----txt" ask . /* left on stack */
+[[ 6 ]] dup ==pop drop msg . 
+[[ 7 ]] .X .
+[[ 8 ]] "failed" msg .
 ;
 
 @endend @endend

@@ -1,0 +1,278 @@
+m = """
+ file tcvrDAO.py.notes converted from tcvrDAO.php
+ pja 03-05-2020 converted from tcvrDAO.php
+ pja 11-23-2019 added user
+ pja 4-24-2016 added seekTCVR, clearTCVR
+ pja 2-15-2015 decoded output of read
+ pja 12-14-2014 blanked echo and print for production
+ pja 11-17-2014 cloned from ixxMS original
+ fns:
+-x == internal
+-createTCVR
+-createIX
+TCVR+ open TCVR table
+TCVR0 clearTCVR
+TCVROpen
+TCVR! writeTCVR
+-readTCVR
+TCVR@ seekTCVR
+-getIX
+
+"""
+# needs
+# SQV
+
+def main(p):
+    """
+    vector map
+    """
+    p['package']['TCVR'] = ''
+    p['help']['TCVR'] = m
+    p['sy']['TCVR+'] = TCVRPlus
+    p['help']['TCVR+'] = "open TCVR table "
+    p['sy']['TCVR0'] = TCVR0
+    p['help']['TCVR0'] = "clear TCVR table "
+    p['sy']['TCVR!'] = writeTCVRV
+    p['help']['TCVR!'] = "TCVR! (T,R,C,V,,) "
+    p['sy']['TCVR@'] = seekTCVRV
+    p['help']['TCVR@'] = "TCVR@ (T,R,C,V,,ans) array or string"
+    p['sy']['TCVR?'] = TCVRHook
+    p['help']['TCVR?'] = "TCVR? (T,R,C,V,,count) depth of answer"
+    return(p)
+# end main
+
+"""
+useful rtns
+tn = p['sy']['pop']()
+p['sy']['push'](p['OK'])
+
+"""
+"""
+internals 
+"""
+def  CreateTCVR(Tdbh,TTname): 
+    /* begin */
+    Tstmt = 'create table if not exists ' + TTname + '( IXX numeric(12),   U varchar(1000), T varchar(1000) , C varchar(1000), V varchar(10000), R varchar(1000) , primary key (IXX) ) ;' ;
+        executeDB(Tdbh, Tstmt);
+/* end */ # 
+
+
+def  CreateIX(Tdbh):
+    /* begin */
+    Ts2 = 'create table if not exists IXX ( v varchar(1), IX numeric, primary key( v ));' ;# constant key v = 'v'
+    executeDB(Tdbh,Ts2);
+    # set ix to 0
+    Ts3 = "insert into IXX values ( 'v' , 0 ) ; " ;
+    executeDB(Tdbh,Ts3);
+    /* end */ #
+
+def  clearTCVR(Tdbh) 
+   /* begin */
+    Tsq = "Truncate TABLE TCVR ;";
+    executeDB(Tdbh,Tsq);
+/* end */ # end clearTCVR 
+
+def  writeTCVR( Tdbh,  TT , TC , TV , TR ) 
+   /* begin */
+   include_once 'llogg.php';
+    # write to TCVR table; returns num rows written 0 = error
+# removed ixxx parameter 
+# removed tname parameter - fixed at TCVR
+    Tt = SQin(TT); # protect elements
+    Tc = SQin(TC); 
+    Tv = SQin(TV);
+    Tr = SQin(TR); 
+    # see if this exists y-delete befor write;  no-write
+    Tans2 = 'select * from TCVR ' 
+    Tans2 += " where T = '" + Tt + "'"
+    Tans2 += " and C = '" + Tc + "'"
+    Tans2 += " and R = '" + Tr + "';"
+    
+    Tans = readDB(Tdbh, Tans2);
+
+logg("<br/> and count " + count(Tans) + ")" );
+    if (count(Tans) == 0)
+       /* begin */
+        Tixx = getIX(Tdbh);
+        Tic = "insert into TCVR  values (";
+        Tic += "'" + Tixx + "',";
+        Tic += "'" + Tt + "',";
+        Tic += "'" + Tc + "',";
+        Tic += "'" + Tv + "',";
+        Tic += "'" + Tr + "' );";
+        logg("<br />writeTCVR ic=(" + Tic + ")" );
+        writeDB(Tdbh, Tic);
+       /* end */ else    /* begin */ # delete and add
+        Tic = "delete from TCVR  where";
+        Tic += "T = '" + Tt + "',";
+        Tic += "and C = '" + Tc + "',";
+        Tic += "and R = '" + Tr + "' ;";
+        logg("<br />delete ic=(" + Tic + ")" );
+        executeDB(Tdbh,Tic);
+        Tixx = getIX(Tdbh);
+        Tic = "insert into TCVR  values (";
+        Tic += "'" + Tixx + "',";
+        Tic += "'" + Tt + "',";
+        Tic += "'" + Tc + "',";
+        Tic += "'" + Tv + "',";
+        Tic += "'" + Tr + "' );";
+        logg("<br />writeTCVR ic=(" + Tic + ")" );
+        writeDB(Tdbh, Tic);
+       /* end *#/ endif
+   /* end */
+
+def  readTCVR(Tdbh, TTname , Ttag, TT,TC,TV,TR) 
+   /* begin */
+    include_once 'llogg.php';
+    # read according to values 
+     # returns array [row#][ColName]=val
+    Tsq = " Select " + Ttag + " from " + TTname + " ";
+    Twh = " where ";
+    if ( TT != "" )    /* begin */
+        Tsq = Tsq + Twh + " T = '" + SQin(TT) + "' ";
+        Twh = " and ";
+       /* end */ #endif
+    if ( TC != "")    /* begin */
+       Tsq = Tsq + Twh + " C = '" + SQin(TC) + "' ";
+       Twh = " and ";
+       /* end */
+    if ( TV != "")    /* begin */
+       Tsq = Tsq + Twh + " V = '" + SQin(TV) + "' ";
+       Twh = " and ";
+       /* end */
+    if ( TR != "")    /* begin */
+       Tsq = Tsq + Twh + " R = '" + SQin(TR) + "' ";
+       Twh = " and ";
+       /* end */
+    Tsq = Tsq + " ; ";
+    Tsm2 = readDB(Tdbh,Tsq);
+    Tsm2 = SQout(Tsm2); # decode output
+    logg("<br /> sq = (" + Tsq + ") <br />" );
+    # Tsm2 <- result array
+    return(Tsm2); # return set w/o conversion use converter on each element
+   /* end */ # end readTCVR
+
+def  seekTCVR(Tdbh, TU, TT,TC,TV,TR) 
+   /* begin */
+    include_once 'llogg.php';
+    # PJA original 4-24-2016
+    # fixed on table named = TCVR
+    # read according to values seek pattern
+     # returns array [row#][ColName]=val
+     # determine seek pattern TCVR and protect input
+     Tsp = 0;
+     if ( TT != "" )    /* begin */
+       Tsp = Tsp + 8;
+       TT = SQin(TT);
+       /* end */ #endif
+    if ( TC != "" )    /* begin */
+       Tsp = Tsp + 4;
+       TC = SQin(TC);
+       /* end */ #endif
+    if ( TV != "" )    /* begin */
+       Tsp = Tsp + 2;
+       TV = SQin(TV);
+       /* end */ #endif
+    if ( TR != "" )    /* begin */
+       Tsp = Tsp + 1;
+       TR = SQin(TR);
+       /* end */ #endif
+    # develope select by pattern
+    /*
+    search
+TCVR
+8421
+0 — => [t] == tables in database 
+1 r => [t] == tables using r (side-car, etc)
+2 v => [c] ** == no conflict w/ meta 
+4 c => [v] == domain of c
+6 cv => [r] == indexes where c=v
+8 t => [r] == indexes of t
+9 tr => [c] == structure of t at r
+12 tc => [r] ** == no conflict w/ meta
+13 tcr => v == value of c at r in t
+14 tcv => [r] == indexes where c=v in t
+15 tcvr => tcvr/0 == existence test
+    */
+    switch(Tsp)    /* begin */
+        case 0:
+            # 0 — => [t] == tables in database 
+            Tsq = 'select distinct(T) from TCVR;'; 
+            break;
+        case 1:
+            # 1 r => [t] == tables using r (side-car, etc)
+            Tsq = "select distinct(T) from TCVR where R ='" + TR ."' ;"; 
+            break;
+        case 2: # 2 v => [c] ** == no conflict w/ meta == where used
+            Tsq = "select distinct(C) from TCVR where V ='" + TV + "' ;";
+            break;
+        case 4: #  c => [v] == domain of c
+            Tsq = "select distinct(V) from TCVR where C = '" + TC + "' ;";
+            break;
+        case 6: # cv => [r] == indexes where c=v
+            Tsq = "select distinct(R) from TCVR where C = '" + TC ."' and  V = '" + TV ."'  ; ";
+            break;
+        case 8: #  t => [r] == indexes of t
+            Tsq = "select distinct(R) from TCVR where T = '" + TT + "' ;";
+            break;
+        case 9: #  tr => [c] == structure of t at r
+            Tsq = "select distinct(C) from TCVR where T = '" + TT + "' and R = '" + TR + "' ;";
+            break;
+        case 12: #  tc => [r] ** == no conflict w/ meta where used
+             Tsq = "select distinct(R) from TCVR where T = '" + TT + "' and C = '" + TC + "' ;";
+            break;
+        case 13: # tcr => v == value of c at r in t
+            Tsq = "select V from TCVR where T = '" + TT + "' and C = '" + TC + "' and R = '" + TR + "' ;";
+            break;
+        case 14: # tcv => [r] == indexes where c=v in t
+            Tsq = "select distinct(R) from TCVR where T = '" + TT + "' and C = '" + TC + "' and V = '" + TV + "' ;";
+            break;
+        case 15: # tcvr => 1/0 == existence test
+            Tsq = "select count(*) from TCVR where T = '" + TT + "' and C = '" + TC + "' and V = '" + TV + "' and R = '" + TR + "' ;"; 
+            break;
+       /* end */ # end switch
+    
+    Tsm2 = readDB(Tdbh,Tsq);
+    Tsm2 = SQout(Tsm2); # decode output
+    logg("<br /> sq = (" + Tsq + ") <br />" );
+    # Tsm2 <- result array
+    return(Tsm2); # return set 
+   /* end */ # end seekTCVR
+
+def  getIX(Tdbh)    /* begin */
+    include_once 'llogg.php';
+    # updates ixx.ix returns burned number
+    # get ixx.ix
+    # use dao
+    Tsql = "select ix from IXX where v = 'v' ;" ;
+    Tixx = readDB(Tdbh,Tsql);
+    #echo('<br /> ixx ');
+    loggr(Tixx);
+    #echo('<br /> --ixx ');
+    Tixxx = Tixx[0]['ix'];
+    
+
+    # add 1
+    Tix3 = Tixxx + 1;
+    # write ixx.ix
+    Tq1 = "UPDATE IXX SET  v = 'v' , ix = " + Tix3 +  "  where v = 'v' ; ";
+    writeDB(Tdbh,Tq1);
+    return(Tixx[0]['ix']);
+   /* end */
+
+/*
+test as
+include 'ixxMS.PHP';
+include 'dbc.php';
+Tdbh = openDB(Tdbna,Tuna,Tpwd) ;
+Tixxx = getIX(Tdbh);
+TU = 'PJA';
+TT = 'testT';
+TR = 'R1';
+TC = 'C1'; TV = 'V1';
+writeTCVR( Tdbh, Tixxx , TU , TT , TC , TV , TR );
+closeDB(Tdbh);
+*/
+
+
+?>

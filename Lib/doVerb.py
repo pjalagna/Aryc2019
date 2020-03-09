@@ -1,5 +1,7 @@
 m = """
 #file doVerb.py
+pja 03-06-2020 added c1 , woB , isnum?, Q?, T?, <Lt >Gt DT
+---- fixed wword BUT won't take comments
 pja 02-18-2020 added p['object'] see objectProfile.txt
 pja 02-15-2020 edited packages
 pja 02-10-2020 added package and packages verbs
@@ -126,8 +128,84 @@ def init(p,m=m):
     p['help']['ch0'] = "(,,x0) charicter 0 to data stack"
     p['sy']['crlf'] = crlf
     p['help']['crlf'] = "(,,crlf) adds newline to stack"
+    p['sy']['c1'] = c1
+    p['help']['c1'] = "(word,,first) extracts first charicter from word"
+    p['sy']['woB'] = woB
+    p['help']['woB'] = "(QuotedWord,,word) removes quotes "
+    p['sy']['isnum?'] = isnumHook
+    p['help']['isnum?'] = "(x,,) fails if x not digits"
+    p['sy']['Q?'] = QHook
+    p['help']['Q?'] = "(x,,) fails if x not double quote charicter"
+    p['sy']['T?'] = THook
+    p['help']['T?'] = "(x,,) fails if x not single quote charicter"
+    p['sy']['<'] = LT
+    p['help']['<'] = "(a,b,,) a < b test fails if not"
+    p['sy']['>'] = GT
+    p['help']['>'] = "(a,b,,) a > b test fails if not"
+    p['sy']['DT'] = DT
+    p['help']['DT'] = "DT (,,timeStamp) "
     return(p)
 #end init
+def DT(p):
+    import time
+    p['sy']['push'](time.asctime())
+    p['sy']['push'](p['OK'])
+#
+def LT(p):
+    b = p['sy']['pop']()
+    a = p['sy']['pop']()
+    if (a < b ):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#
+def GT(p):
+    b = p['sy']['pop']()
+    a = p['sy']['pop']()
+    if (a > b ):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#
+    
+def QHook(p):
+    x = p['sy']['pop']()
+    if (x == '"'):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#
+def THook(p):
+    x = p['sy']['pop']()
+    if (x == "'"):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+# 
+def isnumHook(p):
+    x = p['sy']['pop']()
+    if (x.isdigit() == True):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#
+def woB(p):
+    x = p['sy']['pop']()
+    ans = x[1:-1]
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
+def c1(p):
+    x = p['sy']['pop']()
+    ans = x[0]
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
 def drops(p):
     if (p['v']['trace'] == 'on'):
         print('drops')
@@ -185,31 +263,57 @@ def wword(p): # (s,,rest,w)
     if (p['v']['trace'] == 'on'):
         print('wword')
     #endif
-    sm = p['sy']['pop']()
-    ww = ''
+    f = p['sy']['pop']()
+    local = f
+    local = local.rstrip()
+    local = local.lstrip()
+    local = local + ' '
     try:
-        bo = sm.index(' ')
-        #print('word found space')
-        fo = 0
-        ww = sm[:bo]
-        #print('word ww=(' + ww +')')
-        rest = sm[bo:]
-        rest = rest.lstrip(' ')
+        sp = local.index(' ')
     except:
-        ww = sm
-        rest = ''
+        sp = len(local)+1
     finally:
         nop = 1
-    #end try
+    #
+    try:
+        sq = local.index('"')
+    except:
+        sq = len(local)+1
+    finally:
+        nop = 1
+    #
+    try:
+        st = local.index("'")
+    except:
+        st = len(local)+1
+    finally:
+        nop = 1
+    #
+    fo = 0
+    mm = min(sp,sq,st)
+    if (sp == mm):
+       bo = sp
+       wd = local[fo:bo]
+       rest = local[bo:-1]
+    #
+    if (sq == mm):
+       fo = 1
+       bo = local.index('"',sq+1)
+       wd = '"' + local[fo:bo] + '"'
+       rest = local[bo+1:-1]
+    #
+    if (st == mm):
+       fo = 1
+       bo = local.index("'",st+1)
+       wd = "'" + local[fo:bo] + "'"
+       rest = local[bo+1:-1]
+    #
+    wd = wd.rstrip()
+    wd = wd.lstrip()
     p['sy']['push'](rest)
-    if (ww != ''):
-        p['sy']['push'](ww)
-    #endif 
+    p['sy']['push'](wd)
     p['sy']['push'](p['OK'])
 #end wword
-    
-        
-        
     
 def ndsOut(p):
     if (p['v']['trace'] == 'on'):
