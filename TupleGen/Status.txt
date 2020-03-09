@@ -1,0 +1,22 @@
+file status.txt for TupleGen
+(-) use cases
+-- (-) entering a tuple to a repository to save
+-- (-) generating a create table from a tuple repository w/ forign key stmts
+---- (-) generating LOV statements 
+-- (-) generating a service screen from a tuple
+(-) language format
+-- so far 
+---- tuple :- (( keys ) tags )) ;
+---- keys :-  name {from tuple.name} {[ values,+ ]} 
+---- tags :- name {from tuple.name} {[ values,+ ]} 
+(-) basii code
+(-) each start tested
+(-) database tested
+(-) package loaded remotely
+(-) ddl table can be used by different project
+(-) service screen can be used by different project
+(-) user manual
+(-) operations guide
+-- (-) installation guide
+-- (-) admin guide
+

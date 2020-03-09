@@ -1,5 +1,8 @@
 file status.txt
 (-) process flow
+-- (-) RDF entry 
+-- (-) predicate entry
+-- (-) action/trigger entry
 (-) tuples
 (-) basii code
 (-) each start tested
