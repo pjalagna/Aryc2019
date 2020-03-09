@@ -1,6 +1,15 @@
 File BPX-records.txt
 Pja 10-29-2019
 
-T: BPX((paragraphName, ClauseNumber, VerbNumber) VerbName , LitString)
+T: BPX((PN, CN, VN) VT , Para1)
+PN = paragraphName, 
+CN = ClauseNumber, 
+VN = VerbNumber) 
+VT = VerbType , 
+Para1 = Parameter1 
 
 Each record contains a single Basii element 
+
+for VerbName = lit/num para1 is the string/number
+for VerbName = "//" para1 is the paragraph name
+

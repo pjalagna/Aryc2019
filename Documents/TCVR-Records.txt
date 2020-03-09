@@ -1,1 +1,35 @@
-1
+file TCVR records
+Paul Alagna
+
+T: DS((ix) T,C,V,R)
+
+simple database system
+V datapoints are held along three dimensions C,T and R
+and TCR is unique
+analogis to T=Tables, R=ReferenceIndex == Keys, C=Column and V=values.
+
+also analogis are:
+records: seek(TR)=>[C] : all attached C in T @ R
+domains: seek(C)=>[V] : all values of V
+records of value seek(TCV)=>[R] : all keys where C=V in T
+
+operators:
+Write (DS,ix, T,C,V,R)
+seek(DS,{T},{C},{V},{R}) to yield:
+null => [t] all T in data set DS (the dominion)
+T => [R] all Reference points in T
+TC => [R] all reference points of C in T
+TCV => [R] all reference points R where C = V in T
+       IE all records where Name = Paul_Alagna
+TR => [C] the record collection/structure of T @ R
+TRC => V the one and only value V of C in T @ R
+C => [V] the domain of values V that C can hold
+R => [T] all the Tables that use R as their reference 
+     EG side-car tables
+
+
+2 other operations will operate on the Venn set
+AND([R1],[R2])=> [Rx] all common [r]
+AnotB([R1],[R2])=> [Rx] all uncommon of [R1]
+- reversing AnotB([R2],[R1]) reveals uncommon of [R2]
+
