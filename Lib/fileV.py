@@ -16,7 +16,7 @@ tn = p['sy']['pop']()
 p['sy']['push']( str )
 p['sy']['push'](p['OK']) 
 """
-def main(p,m):
+def main(p,m=m):
     p['package']['fileV'] = ''
     p['help']['fileV'] = m
     p['sy']['f@']= fat

@@ -1,0 +1,134 @@
+/* filename tableG.basii 
+pja 3-27-2020 orig
+
+format 
+a) T: <<name>> (( keys ,+ {) tags ,+} )) ;
+b) endend
+keys/tags 
+a) <colName> {from <ftable>.<fcol> } {[[ vals ,+]]}
+b) UID
+
+ex T: cust (( UID ) Cname, contactID from Contact.ID)) ;
+*/
+TableG.py /* output filename */
+
+def TGmain :- /* start */
+/* pja 01-05-2020 
+test with bbox.basii
+*/
+[[ 1 ]] "script fileName" ask  dup "sfn" ! 
+        // initTG // TG1 
+        // read
+        .
+;
+def initTG :-
+[[ 1 ]] /* filename on stack */ "fioiV" takeV 
+           "bpx.db" "SQV" takeV  .
+;
+
+def read :-
+/* stop to read stack */
+[[ 1 ]] .s ">?" ask drop . ;
+
+def TG1 :-
+[[ 1 ]] fpword "m1" ! ... .
+[[ 2 ]] "m1" @ "T:" // TG2 tail. .
+[[ 3 ]] "m1" @ "endend" // finalTG .
+[[ 4 ]] tail. .
+;
+
+def TG2 :-
+[[ 1 ]] 'e' 0 ! fpword "tname" ! fpword "((" = 
+        "kc" 0 ! // keys "tc" 0 ! // tags 
+        'e' 2 ! fpword "))" = 
+        'e' 3 ! fpword ";" = // creTable .
+[[ 2 ]] 'e' @ 0 = "expected ((" msg abort .
+[[ 3 ]] 'e' @ 2 = "expected ))" msg abort .
+[[ 4 ]] 'e' @ 3 = "expected ;" msg abort .
+;
+def keys :-
+/* a) <colName> {from <ftable> <fcol> } {[[ vals ,+]]}
+b) UID
+*/
+[[ 1 ]] fpword 'kv' ! ... .
+[[ 2 ]] 'kv' @ 'UID' = 
+        'key' 'kc' @++ cat dup 'ckc' ! ! .
+[[ 3 ]] 'kv' @
+        'key' 'kc' @++ cat dup 'ckc' ! ! 
+        // kfromop  
+        0 'valc' ! // kvalsop 
+        // kcommaPlus .
+;
+def kfromop :-
+[[ 1 ]] fpword 'kv1' ! ... .
+[[ 2 ]] 'kv1' @ 'from' = 
+        fpword /* ftable */ 'ftkey' 'ckc' @ cat ! 
+        fpword /* fcol */ 'fckey' 'ckc' @ cat ! .
+[[ 3 ]] /* not from */ fback .
+;
+def kvalsop :-
+/* {[[ vals ,+]]} */ 
+[[ 1 ]] fpword 'kva1' ! ... .
+[[ 2 ]] 'kva1' @ '[[' = // kvalsop2 .
+[[ 3 ]] fback .
+;
+def kvalsop2 :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ']]' = fback . 
+[[ 3 ]] /* val on stack */ 
+        'v-' 'ckc' @ cat '-' cat 'valc' @++ cat !
+        // kvalComaPlus .
+;
+def kvalComaPlus :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ',' = // kvalsop2 .
+[[ 3 ]] fback .
+;
+
+def tags :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup = ")" // Tags2 .
+[[ 3 ]] fback .
+;
+
+def Tags2 :-
+/* a) <colName> {from <ftable> <fcol> } {[[ vals ,+]]}
+b) UID
+*/
+[[ 1 ]] fpword 'Tagv' ! ... .
+[[ 2 ]] 'Tagv' @ 'UID' = 
+        'Tagey' 'tc' @++ cat dup 'cTagc' ! ! .
+[[ 3 ]] 'Tagv' @
+        'Tagey' 'tc' @++ cat dup 'cTagc' ! ! 
+        // Tagfromop  
+        0 'valc' ! // Tagvalsop 
+        // TagcommaPlus .
+;
+def Tagfromop :-
+[[ 1 ]] fpword 'Tagv1' ! ... .
+[[ 2 ]] 'Tagv1' @ 'from' = 
+        fpword /* ftable */ 'ftTagey' 'cTagc' @ cat ! 
+        fpword /* fcol */ 'fcTagey' 'cTagc' @ cat ! .
+[[ 3 ]] /* not from */ fback .
+;
+def Tagvalsop :-
+/* {[[ vals ,+]]} */ 
+[[ 1 ]] fpword 'Tagva1' ! ... .
+[[ 2 ]] 'Tagva1' @ '[[' = // Tagvalsop2 .
+[[ 3 ]] fback .
+;
+def Tagvalsop2 :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ']]' = fback . 
+[[ 3 ]] /* val on stacTag */ 
+        'v-' 'cTagc' @ cat '-' cat 'valc' @++ cat !
+        // TagvalComaPlus .
+;
+def TagvalComaPlus :-
+[[ 1 ]] fpword ... .
+[[ 2 ]] dup ',' = // Tagvalsop2 .
+[[ 3 ]] fback .
+;
+
+
+@endend @endend @endend

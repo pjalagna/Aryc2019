@@ -25,7 +25,7 @@ fctill,
 ftillor
 """
 # fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
-def main(p,m):
+def main(p,m=m):
     p['package']['fioiV'] = ''
     p['help']['fioiV'] = m
     """ p is architecture array """
@@ -42,8 +42,32 @@ def main(p,m):
     p['help']['fioo'] = "(,,) PFN iox is decremented"
     p['sy']['fpword'] = fpwordP
     p['help']['fpword'] = "(,,word) from PFN at iox"
+    p['sy']['ftlc'] = ftlP
+    p['help']['ftlc'] = "fctl file-till-char (CHX,,stringTillCHX) from PFN at iox"
+    #fioxSet(self,pos)
+    p['sy']['fback'] = fback
+    p['help']['fback'] = "fback (,,) resets iox from last pword at iox"
     return (p)
 #end main
+def fback(p):
+    #get pos from NDS
+    p['sy']['push']('FPWSP')
+    p['sy']['@'](p)
+    p['sy']['pop']()
+    pos = p['sy']['pop']()
+    posi = int(pos)
+    p['sy']['fioC'].fioxSet(posi)
+    #push ok
+    p['sy']['push'](p['OK'])
+#end ftlP
+def ftlP(p):
+    #get target
+    targetCH = p['sy']['pop']()
+    ans = p['sy']['fioC'].fctill(targetCH)
+    p['sy']['push'](ans)
+    #push ok
+    p['sy']['push'](p['OK'])
+#end ftlP
 def fioiP(p):
     ans = p['sy']['fioC'].fioi()
     # push ans

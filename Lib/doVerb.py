@@ -1,5 +1,6 @@
 m = """
 #file doVerb.py
+pja 03-27-2020 fixed @++
 pja 03-09-2020 added verb?
 pja 03-06-2020 added c1 , woB , isnum?, Q?, T?, <Lt >Gt DT
 ---- fixed wword BUT won't take comments
@@ -147,6 +148,8 @@ def init(p,m=m):
     p['help']['>'] = "(a,b,,) a > b test fails if not"
     p['sy']['DT'] = DT
     p['help']['DT'] = "DT (,,timeStamp) "
+    p['sy']['cut'] = cut
+    p['help']['cut'] = "cut string at pos (haystack,pos,,front,middle,last) "
     return(p)
 #end init
 def DT(p):
@@ -397,6 +400,23 @@ def find(p):
     p['sy']['push'](sp)
     p['sy']['push'](p['OK'])
 #end find
+def cut(p):
+    if (p['v']['trace'] == 'on'):
+        print('cut')
+    #endif
+    # (haystack,pos,,front,middle,last)
+    poss = p['sy']['pop']()
+    pos = int(poss)
+    haystack = p['sy']['pop']()
+    front = haystack[:pos]
+    middle = haystack[pos]
+    last = haystack[pos+1:]
+    p['sy']['push'](front)
+    p['sy']['push'](middle)
+    p['sy']['push'](last)
+    p['sy']['push'](p['OK'])
+#end cut
+    
 def split(p):
     if (p['v']['trace'] == 'on'):
         print('split')
@@ -448,17 +468,23 @@ def mattplusplus(p):
     if (p['v']['trace'] == 'on'):
         print('@++')
     #endif
-    # (add,) --> () v(addr) is ++
-    p['sy']['dup']
-    p['sy']['@'] 
-    m2 = p['sy']['pop']() # get val
-    n2 = int(m2)
-    n1 = 1
-    n3 = n1 + n2
-    s3 = n3.__str__()
-    p['sy']['push'](s3) # (addr,val )
-    p['sy']['swap']     # val,addr
-    p['sy']['!']
+    # (add,,c++) --> () v(addr) is ++
+    # dup dup @ 1 + swap ! @
+    p['sy']['dup'](p)
+    p['sy']['pop']()
+    p['sy']['dup'](p)
+    p['sy']['pop']()
+    p['sy']['@'] (p)
+    p['sy']['pop']()
+    p['sy']['push']('1')
+    p['sy']['+'] (p)
+    p['sy']['pop']()
+    p['sy']['swap'] (p)
+    p['sy']['pop']()
+    p['sy']['!'] (p)
+    p['sy']['pop']()
+    p['sy']['@'] (p)
+    p['sy']['pop']()
     p['sy']['push'](p['OK'])
 #end mattplusplus
     

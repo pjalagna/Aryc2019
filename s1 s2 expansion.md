@@ -1,8 +1,15 @@
 file Q1Q2Expansion
+pja 3/17/2020 need to add payload vs volume 
+
 queue expansion systems  
 
 overview
-- web sites can be overloaded and will stall. the way in which they stall is the same as queues. and queues stall when they become full (volume blocked) or when they become attacked by too many inputs race blocked). web services/sites can be divided into 2 types:
+- web sites can be overloaded and will stall. the way in which they fail is the same as when queues fail. and queues fail when they:
+1- become full (volume blocked) OR 
+2- when they become attacked by too many inputs (race blocked). OR
+3- the amount of data from any one input blocks the throughput. (payload blocked	)
+
+web services/sites can be divided into 2 types:
  Q1- those that are entries into the system (front pages/entry) OR internal services 
  Q2 services that output out of the system (EG to the user).
 
