@@ -2,7 +2,12 @@ file bugBox.txt
 
 ------------fix doVerb wword 
 need doVerb wword comment skip
+<<<<<<< HEAD
 ------------------verb? exists test
+=======
+doverb verb?(n,,) ok/nok if verb exists
+
+>>>>>>> origin/master
 add exists test for takeV
 -- might need forceTake (new instance of class?)
 add escape for help? - fails on nof
