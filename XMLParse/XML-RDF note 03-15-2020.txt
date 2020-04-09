@@ -1,0 +1,160 @@
+Paul Alagna 
+XML-RDF note 
+pja 03-24-2020
+problems
+1- storage of xml
+-- in python arrays
+--- name1 = {} ; name1[name2]=name3 
+    will NOT allow homonyms at the same level IE same named peers
+--- joining of RDF strings
+--- joining in stream
+---- given stream = '..parent1..parent2..parent3..element4=>value5
+----- at this point (ie the point of discovery)
+      what is the procedure to develop the array?
+      - make a queue x2 = chain.split('..')
+      -- get via queue x4 = x2.pop(0)
+      -- get via queue x5 = x2.pop(0)
+      -- main = node({},x4,{})
+         t = main[x4]
+         node(t,x5,{})
+         
+         
+
+def node(name1,name2,name3):
+    # if name 1 is not dictionary make it one
+    m = name1.__class__
+    s = m.__str__(name1.__str__())
+    if ( s.__len__() == 0 ): # 1
+        name1 = {}
+    else:
+        if (s[1] != "{"): #2
+            name1 = {}
+        #endif2
+    #endif 1
+    name1[name2]=name3
+    return(name1)
+#
+
+        
+stream = '..parent1..parent2..parent3..element4=>value5'
+x2 = stream.split('..')  
+x4 = x2.pop(0)
+x5 = x2.pop(0)
+main = node({},x4,{})
+t = main[x4]
+node(t,x5,{})
+cc = 1
+while (cc==1):     #loop1# follow
+    x4 = x5
+    x5 = x2.pop(0)
+    # test x5 if e=>val process 
+    
+    try:
+        mo = x5.index('=>')
+        j = 1
+    except:
+        j = -1
+    finally:
+        nop = 1
+    #end try
+
+    if (j == -1):
+        t = t[x4]
+        node(t,x5,{})
+    else:
+        raw_input("?")
+    #endif
+    
+#loop-1
+
+
+
+ 
+
+node4 = node({},'aa',node({},'bb','cc'))
+gives {'aa': {'bb': 'cc'}}
+need to join nodes so that
+node7['aa']['bb']['cc'] = 12
+node7['aa']['bb']['dd'] = 13
+gives {'aa': {'bb': {'cc': 12, 'dd': 13}}}
+node8 = node({},'a8',{})
+node9 = node(node8['a8'],'b8',12)
+node9 = node(node8['a8'],'c8',13)
+gives in node8:  {'a8': {'c8': 13, 'b8': 12}}
+node10 = node(node9,'jj',{})
+gives in node8: {'a8': {'c8': 13, 'b8': 12, 'jj': {}}}
+
+
+
+pja 03-15-2020
+In dissecting a StratML example, to replicate it into an RDF graph, i found that the chain of meta tags that appeared to have the same syntactical provenance did not reflect the logical relationships (peerage) of the elements.
+Some elements were peers and some were not. the hierarchy nor the provenance provided enough information to discern which items were peer related (IE of the same chain) and which items were not.
+for instance:
+[StrategicPlan=>StrategicPlanCore=>Goal] appears more than 700 times.
+
+As a data purest this upsets me to no end.
+
+my discussion follows.
+
+key 
+leads to  is tokenized as =>
+
+equality set of chains:
+given 2 chains
+1=>2=>3 ; 1=>2=>3
+OR these 2
+customer=>order; customer=>order
+these chains are considered equal if and only if each named node in each chain is [equal in every way]*1 to its counterpart on the other chain.
+
+[equal in every way]*1: given a profile of an element (attributes, values, formats, position in syntax, etc.) these elements are equal if they have the same profile. in data science we call this profile the elements signature.
+
+peer chain:
+given 2 chains
+1=>2=>3=>4 ; 1=>2=>3=>5
+4 and 5 are peers if and only if nodes 1,2,3 form an equality set of chains.
+
+there are exceptions 
+for example:
+customer=>order=>lineItem=>part=corn;
+customer=>order=>lineItem=>part=rice;
+the parts(corn and rice) are peers if and only if 
+the customer in both chains is the same customer AND
+the order in both chains is the same.
+Oddly the lineItem does not have to be the same (and would not, in the same order, be the same).
+In data science elements like "lineItem" are considered constructs to sequence or differentiate elements under a common "key". they offer no further business intelligence. for instance, that corn is at lineItem 1 offers no additional business knowledge about the order or the customer.
+
+Homonym chains:
+given 2 chains
+1=>2=>3=>4 ; 1=>2=>3=>5
+if any of the preceding nodes (1 or 2 or 3) do not equal there counterpart (their equally named node) then node 4 and 5 reside in different chains confused by the homonym.
+
+there are NO exceptions 
+customer=>order=>lineItem=>part=corn;
+customer=>order=>lineItem=>part=rice;
+if the customer is different then both chains are different.
+if the order is different then both chains are different.
+
+
+meta-blocks:
+fragments of chains can be peers or independent.
+take for example the fragment [lineItem=>part]
+in an equivalent chain fragment [customer=>order] each succeeding fragment (in accordance with the syntax) are peers.
+
+so i conclude that
+Given 2 sequences by name alone (meta trails) one can not differentiate peer chains from homonym chains. Because it is the meta trails alone that provide the syntax [the grammatical format] then that format (in this case XML) has to provide a means to disambiguate peer chains from homonym chains.I will further state that these are business decisions to be made.
+
+my solution is to in all cases have the elements KRI* follow the element meta name during parsing*2.
+customer-John344-order-12/12/2020-*-lineItem-1-part-part1=corn;
+customer-Bill-order-12/12/2020-*-lineItem-1-part-part10=rice;
+
+the "-*-" signifies that element lineItem is a construct.
+
+parsing*2 - this could be accomplished in several ways:
+1) adding an attribute to the element <customer KRI='John344'> OR
+2) following the element name with its KRI
+<customer>
+<KRI>John344</KRI>
+<order><KRI>12/12/2020</KRI>
+
+KRI*: the Knowledge Reference Identifier should be a unique identifier that points to a profile of this node.  
+the data purest in me has always thought that the attributes of an element ARE its signature. So I prefer solution 1. 

@@ -1,0 +1,101 @@
+/*
+file bbox.notes.txt
+pja 3/29/2020
+*/
+def strfence :-
+/* (str,frontMark,backMark,,midstr,rest) 
+heap 3    2          1              4
+*/
+[[ 1 ]] 4 h^
+1 h! 2 h! 3 h! 
+dup 2 h@ find cut
+dup 1 h@ find cut
+4 h! 
+swap drop swap drop
+4 h@
+hx .
+;
+::- insert doverb.py:init 4 {{
+p['sy']['pick'] = pick 
+}}
+::- insert doverb.py:init 4 {{
+p['help']['pick'] = "pick (#,,v) gets stack #th item; 0/1 = dup "
+}}
+
+::- insert doverb.py:codespace 0 {{
+def pick(p): 
+    # (#,,v) reaches into stack for #th item 0/1 
+    a = []
+    ct = p['sy']['pop']()
+    ct = int(ct)
+    if(ct==0):
+        ct = 1
+    #endif
+    for cx in range(ct):
+       a.append(p['sy']['pop']())
+    #
+    b = a[a.__len__()-1]
+    for cx in range(a.__len__()):
+        p['sy']['push'](a.pop()) 
+    #
+    p['sy']['push'](b)
+    p['sy']['push'](p['OK'])
+#
+}}
+
+
+    p['sy']['.r'] = dotR
+    p['help']['.r'] = ".r (,,) display r stack "
+def dotR(p):
+    print("R:" + p['r'].__str__() + 'EOS')
+    p['sy']['push'](p['OK'])
+#end dotR
+
+    p['sy']['R!'] = rpush
+    p['help']['R!'] = "R! (str,,) queues to R stack "
+def rpush(p):
+    a = p['sy']['pop']()
+    p['r'].append(a)
+    p['sy']['push'](p['OK'])
+#end rpush
+
+    p['sy']['R1@'] = rword
+    p['help']['R1@'] = "R1@ (,,word) from R0 stack "
+def rword(p):
+    # (,,word from r)
+    p['sy']['R@'](p)
+    p['sy']['pop']()
+    p['sy'['push'](' ')
+    p['sy']['find'](p)
+    p['sy']['pop']()
+    p['sy']['cut'](p)
+    p['sy']['pop']()
+    p['sy']['R!'](p)
+    p['sy']['pop']()
+    p['sy']['pop']()
+    p['sy']['push'](p['OK'])
+#end rword
+
+    p['sy']['R@'] = ratt
+    p['help']['R@'] = "R1@ (,,str) from R0 stack "
+def ratt(p):
+    p['sy']['push'](p['r'].pop(0) ) # 'queue pop
+    p['sy']['push'](p['OK'])
+#end ratt
+
+    p['sy']['R#'] = rdepth
+    p['help']['R#'] = "R# (,,#) size of R0 stack "
+def rdepth(p):
+    # (,,#)
+    p['sy']['push'](p['r'].__len__())
+    p['sy']['push'](p['OK'])
+#end r#
+
+lib dict
+p['l']
+.lib dump
+print(p['l'])
+ok
+
+lib! (name,code,,)
+lib@ (name,,code)

@@ -1,5 +1,6 @@
 /* 
 filename bbox.basii 
+pja 3-29-2020 added {{ pickup }}
 pja 03-06-2020 amended b2
 pja 01-08-2020 
 
@@ -8,23 +9,31 @@ interactive basii
 */
 bbox.py
 def bmain :-
-[[ 1 ]] ">?" ask dup ==quit drop "bbox done" msg .
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
 [[ 2 ]] b2 tail. .
 ;
 def Ver :-
-[[ 1 ]]   "bbox version 3.6.20" msg .
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
 ;
 
 def b2 :-
-[[ 1 ]] dup len ==0 drop . 
-[[ 2 ]] dup c1 Q? woB .
-[[ 3 ]] dup c1 T? woB .
-[[ 4 ]] dup isnum? /* leave on stack */ . 
-[[ 5 ]] dup ==push drop "-----txt" ask . /* left on stack */
-[[ 6 ]] dup ==pop drop msg . 
-[[ 7 ]] .X .
-[[ 8 ]] "failed" msg .
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
 ;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
 
 @endend @endend
 

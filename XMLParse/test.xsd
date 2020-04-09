@@ -1,0 +1,57 @@
+<?schema satts="one"?>
+<!-- contact info -->
+<contacts>
+<element name="contact" id="abc">
+    <complex>
+        <sequence>
+            <element name="Fname" id="fnid" maxoccurs="1" type="string"/>
+            <element name="Lname" id="lnid" maxoccurs="1" type="string"/>
+            <element name="Phone" 
+                     id="pnid" minOccurs="0" maxoccurs="unbounded" type="string"/>
+        </sequence>
+    </complex>
+</element>
+<annotation>
+    <description> info </description>
+</annotation>
+</contacts>
+
+<element name='person' ref="contact" id="mno"/>
+
+<!-- vendor info -->
+<element name='vendor' id='Epqr'>
+    <complex>
+        <sequence>
+            <element name="mainContact" ref="person" id='vper'/>
+            <element name="secondContact" ref="person" id="vper2"/>
+        </sequence>
+    </complex>
+</element>
+
+<!-- supplier info -->
+<suppliers>
+<element name='supplier' id='Spqr'>
+    <complex>
+        <sequence>
+            <element name="mainContact" ref="person" id='sper'/>
+            <element name="secondContact" ref="person" id="sper2"/>
+        </sequence>
+    </complex>
+</element>
+<annotation>
+    <description> info </description>
+</annotation>
+</suppliers>
+
+<element name=begin id="BBB">
+    <complex>
+        <sequence>
+            <element ref="vendor" id="bbven" minoccurs=0/>
+            <element ref="supplier" id="bbsu" minoccurs=0/>
+        </sequence>
+    </complex>
+</element>
+</schema>
+
+
+

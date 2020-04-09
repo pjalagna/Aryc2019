@@ -1,7 +1,6 @@
 """ file fioiClass.py
-# fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
-# == tested
-# fpword, fpback
+pja 04-07-2020 edits to fwhite added \r
+-------------- added f2tkn
 pja 01-09-2020 added ' pickup in fpword
 pja 12-27-2019 added code to fwhite
 pja 12-26-2019 redid this header block
@@ -11,6 +10,8 @@ pja 12-26-2019 redid this header block
 # pja 10-17-2012 changed print to #rint
 # pja 1-4-13 added getAlpha getNums getAnum
 # pja 2-27-13 added type to fpword to transmit "Q" for quoted string "S" for simple string
+# fioi , fioo , get/set iox, flookup , fwhite, ftill,  fctill, ftillor
+# fpword, fpback
 
 comment code so far
         elif (m=='/'): # comment check
@@ -21,6 +22,13 @@ comment code so far
                         mmx = self.fioi()
                     #end while
                 #endif
+"""
+"""
+test as
+import fioiClass
+s = fioiClass.fio('test.txt')
+s.fioxGet() #etc
+
 """
 class fio():
     def __init__(self,fNa):
@@ -85,6 +93,8 @@ class fio():
             elif (m == chr(8)):
                 c = 0 # stay in loop
             elif (m == '\n'):
+                c = 0 # stay in loop
+            elif (m == '\r'):
                 c = 0 # stay in loop
             elif (m=='/'): # comment check t1
                 mm = self.fioi()
@@ -233,9 +243,9 @@ class fio():
         ioxOld = self.fioxGet()
         ans = ''
         # the first token must be Alpha
-	aZ = 'qwertyuiopajklzxcvbnmdsfgh_QWERTYUIOPAJKLZXCVBNMDSFGH'
-	t = self.fioi()
-	try:
+        aZ = 'qwertyuiopajklzxcvbnmdsfgh_QWERTYUIOPAJKLZXCVBNMDSFGH'
+        t = self.fioi()
+        try:
             m = aZ.index(t)
             ans = t
             a1 = 1
@@ -261,7 +271,7 @@ class fio():
             self.fioxSet(ioxOld)
             ans = ''
         #endif
-	
+    
         return(ans)
     #end Alpha
     def fgetNum(self):
@@ -269,9 +279,9 @@ class fio():
         ioxOld = self.fioxGet()
         ans = ''
         # the first token must be Alpha
-	aZ = '0123456789.'
-	t = self.fioi()
-	try:
+        aZ = '0123456789.'
+        t = self.fioi()
+        try:
             m = aZ.index(t)
             ans = t
             a1 = 1
@@ -297,7 +307,7 @@ class fio():
             self.fioxSet(ioxOld)
             ans = ''
         #endif
-	
+    
         return(ans)
     #end fgetNum
     def fgetANum(self):
@@ -305,9 +315,9 @@ class fio():
         ioxOld = self.fioxGet()
         ans = ''
         # the first token must be Alpha
-	aZ = '0123456789.qwertyuiopajklzxcvbnmdsfgh_QWERTYUIOPAJKLZXCVBNMDSFGH'
-	t = self.fioi()
-	try:
+        aZ = '0123456789.qwertyuiopajklzxcvbnmdsfgh_QWERTYUIOPAJKLZXCVBNMDSFGH'
+        t = self.fioi()
+        try:
             m = aZ.index(t)
             ans = t
             a1 = 1
@@ -333,8 +343,72 @@ class fio():
             self.fioxSet(ioxOld)
             ans = ''
         #endif
-	
+    
         return(ans)
     #end fgetANum
-        
+    def f2tkn(self,tkn,sw=0):
+        # slide to token/eof if sw<>0 return collection
+        cmax = len(tkn)
+        col = '' # collector for sw<>0
+        ct1 = 0
+        fo = self.fioxGet()
+        while (ct1==0):
+            if (sw == 0):
+                p = self.ftill(tkn[0])
+            else:
+                col = col + self.fctill(tkn[0])
+                p = 0
+            #endif
+            if (p==0):
+                cxx = -1
+                ct2 = 0
+                #match all
+                while (ct2==0):
+                    cxx = cxx + 1
+                    if (cxx == cmax):
+                        ct2 = -1 # everybody matched
+                    else:
+                        j = self.fioi()
+                        if (sw <> 0):
+                            col = col + j
+                        #
+                        if (j == '@eofeof'):
+                            ct1 = -2 #break 1st loop
+                        #
+                        if (j <> tkn[cxx]):
+                            ct2 = -2 #non match
+                        #
+                    #
+                #wend
+                if (ct2 == -1):
+                    ct1 = 1 # good break
+                    ansd = 'ok'
+                    if (sw <> 0):
+                       ans = col
+                    else:
+                        ans = ''
+                    #
+                #endif
+            #endif p==0
+        #wend
+        if (ct1 == 1): #good ending
+            if (sw <> 0):
+                ans = col
+            else:
+                ans = ''
+            #
+            anss = 'ok'
+        #endif
+        else: 
+            self.fioxSet(fo)
+            ans = ''
+            anss = "nok"
+        #
+        return(ans,anss)
+    #end f2tkn
+            
+            
+            
+                 
+       
 # end class

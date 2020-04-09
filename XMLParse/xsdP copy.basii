@@ -1,0 +1,97 @@
+/* 
+file xsdP.basii
+xsd parser
+pja 03-31-2020
+
+needs white space cleaner
+*/
+xsd.py
+def xsdVersion :- [[ 1 ]] 'version 3.31.xx,c' msg . ;
+
+def xsdmain :-
+[[ 1 ]] xsdInit xsda xsdFinal .
+;
+def xsdInit :-
+[[ 1 ]] 'xsd file name' ask dup 'xsdfn' xsdbang 
+        'fioiV' takeV 
+        'arV' takeV
+        ar0 'parents' xsdbang 
+        .
+;
+def xsdbang :-
+[[ 1 ]] /* v,a,, */ 
+       swap dup msg 
+       dup '@eofeof' <> 
+       ' into ' msg 
+       swap dup msg ! .
+[[ 2 ]] 'detected end of file' msg dumpNDS .s 'wait' ask exit .
+;
+  
+def xsda :-
+[[ 1 ]] fwhite fioi 'cx' xsdbang  xsda2 tail. .
+;
+def xsda2 :-
+[[ 1 ]] 'cx' @ '<' = xsdb .
+[[ 2 ]] 'cx' @ '@eofeof' = xsdFinal exit .
+[[ 3 ]] .
+;
+
+def xsdb :-
+[[ 1 ]]  fwhite fioi 'cx' xsdbang  ... .
+[[ 2 ]] 'cx' @ "?" = tillComment .
+[[ 3 ]] 'cx' @ "!" = tillComment .
+[[ 4 ]] ' />' fctillor xsdd .
+;
+
+def xsdd :-
+[[ 1 ]] ioi 'cx' xsdbang ... .
+[[ 2 ]] 'cx' @ '/' = xsdd3 .
+[[ 3 ]] 'en' ! xsdd2 .
+;
+def xsdd3 :-
+[[ 1 ]] checkName unstackParent .
+[[ 2 ]] xsdStop .
+;
+def xsdStop :-
+[[ 1 ]] dumpNDS .s 'wait' ask exit .
+;
+
+def xsdd2 :-
+[[ 1 ]] fioi 'cx' xsdbang ... .
+[[ 2 ]] 'cx' @ ' ' = 
+         ' />' fctillor dup '=' find cut 
+         writeAtt tail. .
+[[ 3 ]] 'cx' @ '/' = fioi detectID .
+[[ 4 ]] 'cx' @ '>' = stackParents detectID .
+;
+def writeAtt :-
+[[ 1 ]] 'vx' xsdbang  drop 'ax' xsdbang 
+        'vx' @ 'en' @ "$" cat 'ax' @ cat xsdbang  .
+;
+def  stackParents :-
+[[ 1 ]] 'en' @ 'parents' @ dup ar# swap ar! 
+        'parents' xsdbang  xsdc2 .
+;
+
+def tillComment :-
+[[ 1 ]] ">" ftlc fioi drops .
+;
+def detectID :-
+/* if en$id, Id, name,Name set en$$id else use en */
+[[ 1 ]] 'en' @ "$" cat 'id' cat @ '' <>
+        'en' @ "$" cat 'id' cat @
+        'en' @ "$$id" cat xsdbang .
+[[ 2 ]] 'en' @ "$" cat 'Id' cat @ '' <>
+        'en' @ "$" cat 'Id' cat @
+        'en' @ "$$id" cat xsdbang .
+[[ 3 ]] 'en' @ "$" cat 'name' cat @ '' <>
+        'en' @ "$" cat 'name' cat @
+        'en' @ "$$id" cat xsdbang .
+[[ 4 ]] 'en' @ "$" cat 'Name' cat @ '' <>
+        'en' @ "$" cat 'Name' cat @
+        'en' @ "$$id" cat xsdbang .
+[[ 5 ]] 'en' @ 'en' @ "$$id" cat xsdbang .
+;
+
+
+@endend @endend @endend

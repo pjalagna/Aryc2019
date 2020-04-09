@@ -1,0 +1,55 @@
+search engine for xml - notes
+// phase 1 capture into array
+// PHP xml to json to array
+//-// see phase1 below
+// phase 2 build matrix from hierarchy(s)
+//-// resolve subsections 
+//-// resolve FK's 
+// phase 3 reporting 
+//-// List of meta-tags
+//-// List of formal-meta-tags
+//-// spider diagrams
+
+//=============================================
+//phase1
+<?php
+// stratml part 1    
+// test $url = https://stratml.us/carmel/iso/UC4SwStyle.xml 
+// $arx = XmlToJson->parse($url);
+// stratml part 2    
+// test url = ??
+class XmlToJson {
+    public function Parse ($url) {
+        $fileContents= file_get_contents($url);
+        $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+        $fileContents = trim(str_replace('"', "'", $fileContents));
+        $simpleXml = simplexml_load_string($fileContents);
+        $json = json_encode($simpleXml);
+
+        return $json;
+    }
+}
+?>
+
+<?PHP
+function Parse ($url) {
+        $fileContents= file_get_contents($url);
+        $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+        $fileContents = trim(str_replace('"', "'", $fileContents));
+        $simpleXml = simplexml_load_string($fileContents);
+        $json = json_encode($simpleXml);
+
+        return $json;
+}
+$url = https://stratml.us/carmel/iso/UC4SwStyle.xml ;
+$arx = XmlToJson->parse($url);
+var_dump($arx);
+?>
+
+or
+$xml = simplexml_load_string($xml_string);
+$json = json_encode($xml);
+$array = json_decode($json,TRUE);
+//=============================================
+// notes
+//-// http://space.ximdex.net/stratml-portal/ // portal from owen

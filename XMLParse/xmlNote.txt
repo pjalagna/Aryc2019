@@ -1,0 +1,80 @@
+"""# https://docs.python.org/2/library/xml.etree.elementtree.html#module-xml.etree.ElementTree
+
+xmlFile = 'StratML.xsd'
+import xml.etree.ElementTree as ET
+tree = ET.parse(xmlFile)
+root = tree.getroot()
+
+root = ET.fromstring(country_data_as_string)
+
+root.tag
+root.attrib
+
+for child in root:
+    print child.tag, child.attrib
+    
+    
+ root[0][1].text
+ 
+ Element.findall() finds only elements with a tag which are direct children of the current element. Element.find() finds the first child with a particular tag, and Element.text accesses the element’s text content. Element.get() accesses the element’s attributes:
+"""
+import xml.etree.ElementTree as ET
+global alp,rec,rix
+alp = 'abcdefghij'
+rec = []
+rix =0
+rec.append('')
+
+def init03():
+	global alp,rec,rix,root
+	xmlFile = 'StratML.xsd'
+	
+	tree = ET.parse(xmlFile)
+	root = tree.getroot()
+#
+
+def dig(m,sp,sig):
+    global alp,rec,rix
+    for x in range(len(m)):
+        try:
+            print(alp[x+1]+sig)
+            print(sp*2 + m[x].__str__())
+            print(sp*2 + 'att:(' + m[x].attrib.__str__()+')')
+            print(sp*2 + 'text:(' + m[x].text.__str__()+ ')')
+            rec[rix] = rec[rix] + "[1]" + m[x].__str__() + '[2]' + m[x].attrib.__str__() + "[3]" + m[x].text.__str__() + "[4]"
+            dig(m[x],sp*2,alp[x]+sig)
+            if (sig == ''):
+                rix = rix +1
+                rec.append('')
+                raw_input('wait')
+            #endif
+        except:
+            nop = 1
+        finally:
+            nop = 1
+        #
+    #end for
+#
+
+# POP
+# fence (strin,fm,bm,,contents)
+# fence+ (strin,foff,fm,bm,,contents)
+def fence(strin,fmark,bmark,foff=0):
+    try:
+        fo = strin.index(fmark,foff)
+        fo = fo+len(fmark)
+    except:
+        fo = 0
+    finally:
+        nop = 1
+    #
+    try:
+        bo = strin.index(bmark,fo)
+    except:
+        bo = len(strin)
+    finally:
+        nop = 1
+    #
+    ans = strin[fo:bo]
+    return(fo,ans)
+#

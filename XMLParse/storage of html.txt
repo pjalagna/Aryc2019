@@ -1,0 +1,33 @@
+the objective is storage of html.
+i started with a data schema that would allow elements to have Homonymicaly named elements as children:
+
+element -[parent]-< elementMatrix >-[child]- element
+elementMatrix ((parentElement,connectionID), childElement))
+
+this isn't enough
+storage by name is not enough. names are reused, multiply used.
+in RDF each element is one of the "things" we track. if we only hold the name then we have assumed that ALL relationships on this name are valid. and thats not true. What i needed was a unique indicator along with the name that would create a node whose connections were valid.
+
+one of the constants i have found in parsing xml is the pickup position. during the parsing whenever an element was found it was given a number. 
+{{x}}
+rater than 
+{{t}}
+
+but these numbers (the pickup position) have no business meaning. Also the pickup position can change as elements are added to the report so can not be used as a consistant identifier.
+
+
+ 
+
+TCVR
+element Name <<val>> chainID
+
+
+
+
+
+
+
+
+
+
+

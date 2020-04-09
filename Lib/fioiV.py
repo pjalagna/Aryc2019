@@ -1,5 +1,7 @@
 m = """
 # file fioiV.py
+pja 04-07-2020 fiox@
+pja 03-31-2020 added fctillor, fwhite
 pja 01-30-2020 added help entries
 pja 01-02-2020 added fioo
 pja 12-28-2019 edited fpword ! command added ok to stack
@@ -36,6 +38,7 @@ def main(p,m=m):
     p['sy']['fioC'] = fioiClass.fio(PFN)
     p['help']['fioC'] = "fioiClass.fio(PFN)"
     # need facades for all class bound verbs
+    # fioiV:main 4  # sections mark
     p['sy']['fioi'] = fioiP
     p['help']['fioi'] = "(,,c(iox)) from file PFN"
     p['sy']['fioo'] = fiooP
@@ -46,9 +49,39 @@ def main(p,m=m):
     p['help']['ftlc'] = "fctl file-till-char (CHX,,stringTillCHX) from PFN at iox"
     #fioxSet(self,pos)
     p['sy']['fback'] = fback
-    p['help']['fback'] = "fback (,,) resets iox from last pword at iox"
+    p['help']['fback'] = "fback (,,) resets fiox from last pword at fiox"
+    p['sy']['fctillor'] = Vfctillor
+    p['help']['fctillor'] = "(stringOfTargets,,) collects till one of target"
+    p['sy']['fwhite'] = Vwhite
+    p['help']['fwhite'] = "(,,) skips space line tabs and comments in file"
+    p['sy']['f0'] = fzero
+    p['help']['f0'] = "(,,) rewind file"
+    p['sy']['fiox@'] = fioxAt
+    p['help']['fiox@'] = "(,,fiox) get current file position"
     return (p)
 #end main
+# fioiV:codespace 0 # sections mark
+def fioxAt(p):
+    ans = p['sy']['fioC'].fioxGet()
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
+def fzero(p):
+    p['sy']['fioC'].fioxSet(0)
+    p['sy']['push'](p['OK'])
+#
+
+def Vwhite(p):
+    p['sy']['fioC'].fwhite()
+    p['sy']['push'](p['OK'])
+#
+def Vfctillor(p):
+    target = p['sy']['pop']()
+    ans = p['sy']['fioC'].fctillor(target)
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
+    
 def fback(p):
     #get pos from NDS
     p['sy']['push']('FPWSP')

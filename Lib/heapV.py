@@ -33,22 +33,22 @@ h@
 fn = p['sy']['pop']()
 p['sy']['push'](p['OK'])
 """
-def main(p,m):
+def main(p,m=m):
     p['package']['heapV'] = ''
     p['help']['heapV'] = m
-	p['sy']['.h'] = doth # .h dump heap to display
-	p['help']['.h'] = "doth # .h dump heap to display"
-	p['sy']['h^'] = hup # (#,,) h^ allots # slots to heap
-	p['help']['h^'] = "hup # (#,,) h^ allots # slots to heap"
-	p['sy']['hx'] = hx # (,,) hx removes current slots from heap
-	p['help']['hx'] = "hx # (,,) hx removes current slots from heap"
-	p['sy']['h!'] = hbang # (v,#,,) h! writes v to heap[h[0]-#]
-	p['help']['h!'] = "hbang # (v,#,,) h! writes v to heap[h[0]-#]"
-	p['sy']['h@'] = hat # (#,,v) h@ reads heap[h[0]-#]
-	p['help']['h@'] = "hat # (#,,v) h@ reads heap[h[0]-#]"
-	p['sy']['heapInit'] = heapInit # heapInit - ready/reset heap
-	p['help']['heapInit'] = "heapInit # heapInit - ready/reset heap"
-	return(p)
+    p['sy']['.h'] = doth # .h dump heap to display
+    p['help']['.h'] = "doth # .h dump heap to display"
+    p['sy']['h^'] = hup # (#,,) h^ allots # slots to heap
+    p['help']['h^'] = "hup # (#,,) h^ allots # slots to heap"
+    p['sy']['hx'] = hx # (,,) hx removes current slots from heap
+    p['help']['hx'] = "hx # (,,) hx removes current slots from heap"
+    p['sy']['h!'] = hbang # (v,#,,) h! writes v to heap[h[0]-#]
+    p['help']['h!'] = "hbang # (v,#,,) h! writes v to heap[h[0]-#]"
+    p['sy']['h@'] = hat # (#,,v) h@ reads heap[h[0]-#]
+    p['help']['h@'] = "hat # (#,,v) h@ reads heap[h[0]-#]"
+    p['sy']['heapInit'] = heapInit # heapInit - ready/reset heap
+    p['help']['heapInit'] = "heapInit # heapInit - ready/reset heap"
+    return(p)
 #end main
 def doth(p):
     print('==heap==')

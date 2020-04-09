@@ -1,5 +1,14 @@
+# prefix: ##- postfix: -##
+##- template doVerb.init
+##- (4) p['sy']['%sym%'] = vector
+##- (4) p['help']['%sym%'] = "%desc%" -##
+##- template doVerb.py:codespace 
+##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 04-07-2020 added cx
+pja 03-30-2020 added @?, cleaned dumpNDS
+pja 03-29-2020 set up for sections
 pja 03-27-2020 fixed @++
 pja 03-09-2020 added verb?
 pja 03-06-2020 added c1 , woB , isnum?, Q?, T?, <Lt >Gt DT
@@ -21,24 +30,23 @@ pja 12-27-2019 redid this header block
 # -------- str:  cat, cats, len find split 
 # pja 2/10/2018 - added ask
 # pja 2/8/2018
-"""
-"""
-def drops(p)
-    if (p['v']['trace'] == 'on'):
-        print('drops')
-    #endif
-    p['sy']['depth'](p)
-    x = p['sy']['pop']() #ok
-    m = = p['sy']['pop']() # 
-    for z in range(m):
-        x = p['sy']['pop']()
-    #endfor
+needs pick (#,,#th_item)
+def pick(p):
+    a=[]
+    ctr = p['sy']['pop']()
+    for x in range(ctr):
+        a.append(p['sy']['pop']())
+    #
+    jj = a[len(a)-1]
+    p['sy']['push'](jj)
+    for x in range(ctr):
+        p['sy']['push'](a.pop(0))
+    #
     p['sy']['push'](p['OK'])
 #
-    
-    
-    
+
 """
+
 def init(p,m=m):
     # load symbol table with all preset verbs
     #       symbol   verb
@@ -148,10 +156,89 @@ def init(p,m=m):
     p['help']['>'] = "(a,b,,) a > b test fails if not"
     p['sy']['DT'] = DT
     p['help']['DT'] = "DT (,,timeStamp) "
+    ##- doverb.py:init 4 -##
     p['sy']['cut'] = cut
     p['help']['cut'] = "cut string at pos (haystack,pos,,front,middle,last) "
+    p['sy']['@?'] = atHook
+    p['help']['@?'] = "(target,,0,nds names that contain target) "
+    p['sy']['replace'] = SReplace
+    p['help']['replace'] = "(haystack,needle,repStr,,replacedString) "
+    p['sy']['pick'] = pick
+    p['help']['pick'] = "(#,,#thItem) "
+    p['sy']['cx'] = cx
+    p['help']['cx'] = "cx (str,#,,str[#th] or nok ) "
     return(p)
 #end init
+##- doverb.py:codespace -##
+def cx(p):
+    # str,#,,str[#]or nok
+    cc = p['sy']['pop']()
+    cc = int(cc)
+    strin = p['sy']['pop']()
+    try:
+        ans = strin[cc]
+        anso = 'ok'
+    except:
+        anso = 'nok'
+    finally:
+        nop = 1
+    #
+    if (anso == 'ok'):
+        p['sy']['push'](ans)
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #
+#
+    
+def pick(p):
+    a=[]
+    ctr = p['sy']['pop']()
+    ctr = int(ctr)
+    for x in range(ctr):
+        a.append(p['sy']['pop']())
+    #
+    jj = a[len(a)-1]
+    p['sy']['push'](jj)
+    for x in range(ctr):
+        p['sy']['push'](a.pop(0))
+    #
+    p['sy']['push'](p['OK'])
+#
+
+def SReplace(p):
+   repl = p['sy']['pop']()
+   need = p['sy']['pop']()
+   hays = p['sy']['pop']()
+   ans = hays.replace(need,repl)
+   p['sy']['push'](ans)
+   p['sy']['push'](p['OK'])
+#
+def atHook(p):
+    if (p['v']['trace'] == 'on'):
+        print('@?')
+    #endif
+    tgt = p['sy']['pop']()
+    m = p['v'].keys()
+    m.sort()
+    # push zero marker
+    p['sy']['ch0'](p)
+    p['sy']['pop']()
+    for mx in m:
+        try:
+            d = mx.index(tgt)
+            if (d==0):
+                p['sy']['push'](mx)
+            #endif
+        except:
+            nop = 1
+        finally:
+            nop = 1
+        #end try
+    #endfor
+    p['sy']['push'](p['OK'])
+#
+
 def DT(p):
     import time
     p['sy']['push'](time.asctime())
@@ -339,7 +426,11 @@ def ndsOut(p):
         print('ndsOut')
     #endif
     print('begin nds dump \n')
-    print(p['v'])
+    m = p['v'].keys()
+    m.sort()
+    for j in m:
+        print(j+'=(' + p['v'][j].__str__() + ')')
+    #endfor
     print('\n end nds dump \n')
     p['sy']['push'](p['OK'])
 # end ndsOut

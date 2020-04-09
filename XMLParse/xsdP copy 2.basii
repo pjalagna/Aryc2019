@@ -1,0 +1,230 @@
+/* 
+file xsdP.basii
+xsd parser
+pja 4-1-2020 rewrite
+pja 03-31-2020
+*/
+
+xsd.py
+def xsdVersion :- [[ 1 ]] 'version 4.1.xx,a' msg . ;
+
+def xsdmain :-
+[[ 1 ]] xsdInit .
+;
+def xsdInit :-
+[[ 1 ]] 'xsd file name' ask dup 'xsdfn' ! 
+        'fioiV' takeV 
+        'arV' takeV
+        ar0 'parents' ! 
+        .
+;
+/* == */
+ 
+def xsda :-
+[[ 1 ]] 
+fwhite
+"<"
+ftlc
+drop
+fioi
+drop
+">"
+ftlc
+fioi
+drop
+'cx'
+!
+xsda2 tail. .
+[[ 2 ]]
+xsdFinal .
+;
+
+def xsda2 :-
+/* !, ? , en , en/ , att , att/ */
+[[ 1 ]] 'cx' @ c1 '!' = . /* drop comments */
+[[ 2 ]] 'cx' @ c1 '?' = . /* drop comments */
+[[ 3 ]] xsdb .
+;
+def xsdb :-
+[[ 1 ]]
+0 'ctl' !
+/* if space ctl = 1 */
+'cx'
+@
+' '
+find
+0
+1
+-
+=
+1
+'ctl'
+!
+ ... .
+[[ 2 ]]
+/* if space ctl = 1 */
+'cx'
+@
+'/'
+find
+0
+1
+-
+=
+2
+'ctl'
+@
++
+'ctl'
+!
+... .
+[[ 3 ]]
+'ctl'
+@
+3
+=
+/* no atts no slash */
+/* set id = cx */
+/* push into parent val,name {} dr! */
+'cx'
+@
+'parent'
+dup
+@
+dr!
+'parent'
+!
+/* val,index,[] ar! */
+/* write thing */
+'cx'
+@
+'thing'
+@
+len
+'thing'
+@
+ar!
+.
+[[ 4 ]]
+/* atts no slash */
+'ctl'
+@
+2
+=
+/* save en to en */
+'cx'
+@
+dup
+' '
+find
+cut
+'at1'
+!
+drop
+'en'
+!
+/* att loop */
+'at1'
+@
+dup
+' '
+find
+cut
+'at1'
+!
+drop
+'attx'
+!
+'attx'
+@
+dup
+'='
+find
+cut
+woB
+'vx'
+!
+drop
+'ax'
+!
+/* write att rec */
+'vx'
+@
+'en'
+@
+"$"
+cat
+'ax'
+@
+cat
+!
+/* >>att loop */
+
+
+
+
+
+=====
+def xx :-
+[[ 1 ]]  
+fwhite
+fioi
+'cx'
+!  ... .
+[[ 2 ]] 'cx' @ "?" = tillComment .
+[[ 3 ]] 'cx' @ "!" = tillComment .
+[[ 4 ]] ' />' fctillor xsdd .
+;
+
+def xsdd :-
+[[ 1 ]] ioi 'cx' ! ... .
+[[ 2 ]] 'cx' @ '/' = xsdd3 .
+[[ 3 ]] 'en' ! xsdd2 .
+;
+def xsdd3 :-
+[[ 1 ]] checkName unstackParent .
+[[ 2 ]] xsdStop .
+;
+def xsdStop :-
+[[ 1 ]] dumpNDS .s 'wait' ask exit .
+;
+
+def xsdd2 :-
+[[ 1 ]] fioi 'cx' ! ... .
+[[ 2 ]] 'cx' @ ' ' = 
+         ' />' fctillor dup '=' find cut 
+         writeAtt tail. .
+[[ 3 ]] 'cx' @ '/' = fioi detectID .
+[[ 4 ]] 'cx' @ '>' = stackParents detectID .
+;
+def writeAtt :-
+[[ 1 ]] 'vx' !  drop 'ax' ! 
+        'vx' @ 'en' @ "$" cat 'ax' @ cat !  .
+;
+def  stackParents :-
+[[ 1 ]] 'en' @ 'parents' @ dup ar# swap ar! 
+        'parents' !  xsdc2 .
+;
+
+def tillComment :-
+[[ 1 ]] ">" ftlc fioi drops .
+;
+def detectID :-
+/* if en$id, Id, name,Name set en$$id else use en */
+[[ 1 ]] 'en' @ "$" cat 'id' cat @ '' <>
+        'en' @ "$" cat 'id' cat @
+        'en' @ "$$id" cat ! .
+[[ 2 ]] 'en' @ "$" cat 'Id' cat @ '' <>
+        'en' @ "$" cat 'Id' cat @
+        'en' @ "$$id" cat ! .
+[[ 3 ]] 'en' @ "$" cat 'name' cat @ '' <>
+        'en' @ "$" cat 'name' cat @
+        'en' @ "$$id" cat ! .
+[[ 4 ]] 'en' @ "$" cat 'Name' cat @ '' <>
+        'en' @ "$" cat 'Name' cat @
+        'en' @ "$$id" cat ! .
+[[ 5 ]] 'en' @ 'en' @ "$$id" cat ! .
+;
+
+
+@endend @endend @endend
