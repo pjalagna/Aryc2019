@@ -6,6 +6,7 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 04-09-2020 added .r,r#,r<,r>
 pja 04-07-2020 added cx
 pja 03-30-2020 added @?, cleaned dumpNDS
 pja 03-29-2020 set up for sections
@@ -167,9 +168,18 @@ def init(p,m=m):
     p['help']['pick'] = "(#,,#thItem) "
     p['sy']['cx'] = cx
     p['help']['cx'] = "cx (str,#,,str[#th] or nok ) "
+    p['sy']['r<'] = rin
+    p['help']['r<'] = "r< (str,,) into r stack"
+    p['sy']['r>'] = rout
+    p['help']['r>'] = "r< (,,str) from r stack or nok"
+    p['sy']['r#'] = rpound
+    p['help']['r#'] = "r# (,,str) depth of r stack"
+    p['sy']['.r'] = rdump
+    p['help']['.r'] = ".r (,,) dump of r stack"
+
     return(p)
 #end init
-##- doverb.py:codespace -##
+##- doverb.py:codespace 0 -##
 def cx(p):
     # str,#,,str[#]or nok
     cc = p['sy']['pop']()
@@ -190,7 +200,38 @@ def cx(p):
         p['sy']['push'](p['NOK'])
     #
 #
+def rdump(p):
+    print(p['r'].__str__())
+    p['sy']['push'](p['OK'])
+#
+def rpound(p):
+    ans = len(p['r']).__str__()
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+# 
+def rout(p):
+    try:
+        ans = p['r'].pop()
+        ert = 1 # ok
+    except:
+        ert = -1
+    finally:
+        nop = 1
+    #
+    if (ert == 1):
+        p['sy']['push'](ans)
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#rout
     
+def rin(p):
+    #(str,,)
+    str = p['sy']['pop']()
+    p['r'].append(str)
+    p['sy']['push'](p['OK'])
+#    
 def pick(p):
     a=[]
     ctr = p['sy']['pop']()

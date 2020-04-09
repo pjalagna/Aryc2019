@@ -1,1 +1,17 @@
+"""
+file sections1.txt
   # prefix: ##- postfix: -##  ##- template pja.txt:codespace  ##- (0) %code% -## ##- pja.txt:codespace -## 
+"""
+sections(startFile)
+-- open startfile
+get command
+-- word cmd ! ... .
+-- 'cmd' @ 'done' .
+-- commandFan 'rep' @ 0 = tail. .
+-- .
+;
+
+command fan
+-- ::insert -> doInsert 0 'rep' ! .
+-- ::create -> doCreate 0 'rep' ! .
+-- ::include -> doInclude 0 'rep' ! .
