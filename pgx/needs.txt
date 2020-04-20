@@ -1,0 +1,33 @@
+needs.txt
+doverb 
+-- incl fence 
+
+{{
+cmd = pop
+try pop k = p[ok] except k = p[nok] 
+}}
+
+(?) build tools in pgx
+--(?) pgf0 (name,,) l@ r! . ;
+--(?) pfg1 :- rwd '[[' = rwd 'cn' ! rwd "]]" = . ;
+--(?) 
+def verbFan :- 
+[[ 1 ]] rwd 'vt' ... .
+[[ 2 ]] 'vt' @ "." = vtdot '.' 'pgstatus' ! .
+[[ 3 ]] 'vt' @ ";" = vtsemi ';' 'pgstatus' ! .
+[[ 4 ]] 'vt' @ "..." = vtelips '...' 'pgstatus' ! .
+[[ 5 ]] 'vt' @ "tail." = vttail 'tail.' 'pgstatus' ! .
+[[ 6 ]] 'vt' @ "//" = vtcall  '//' 'pgstatus' ! .
+[[ 7 ]] 'vt' @ len ==0 'ok' 'pgstatus' ! . 
+[[ 8 ]] 'vt' @  c1 Q? 'vt' @ woB 'ok' 'pgstatus' ! .
+[[ 9 ]] 'vt' @  c1 T? 'vt' @ woB .
+[[ 10 ]] 'vt' @ isnum? 'vt' @  'ok' 'pgstatus' ! .   
+[[ 11 ]] seeX .
+;
+def seeX :-
+[[ 1 ]] 'vt' @ protected .X .
+;
+
+(?) build loops in pgx
+--(?) 
+

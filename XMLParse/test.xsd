@@ -1,4 +1,4 @@
-<?schema satts="one"?>
+<?schema satts="one" monk='TV show'?>
 <!-- contact info -->
 <contacts>
 <element name="contact" id="abc">

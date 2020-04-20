@@ -1,0 +1,10 @@
+lido org
+xsd
+http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd
+
+http://schemas.opengis.net/gml/3.1.1/base/gml.xsd
+
+https://www.w3.org/2001/XMLSchema
+
+https://www.w3.org/TR/xmlschema11-1/
+

@@ -1,0 +1,103 @@
+/* 
+file xsdP3.basii
+xsd parser
+pja 4-10-2020
+pja 4-8-2020 rewrite
+pja 4-1-2020 rewrite
+pja 03-31-2020
+*/
+
+xsd.py
+def xsdVersion :- [[ 1 ]] 'version 4-10-20..1810' msg . ;
+
+def xsdmain :-
+[[ 1 ]] xsdVersion xsdInit p1 .
+;
+
+def xsdInit :-
+[[ 1 ]] 'xsdInit begin' msg
+'xsd file name' ask dup 'xsdfn' ! 
+        'fileV' takeV 
+        'arV' takeV
+        /* set parent */
+        "0" 'parentIX' !
+        ar0 'parents' !
+        ' ' parentPlus 
+        "0" 'epos' ! /* pickup position */ 
+        'open' 'xmode' ! 
+        .
+;
+def p1 :-
+[[ 1 ]]
+'p1 begin' msg 
+"xsdfn" @ f@ dup "xsdfc" !
+"<" clipt p2 .
+;
+def p2 :-
+[[ 1 ]]
+'p2 begin' msg 
+'xsdfc' @ p2a .
+;
+
+def p2a :-
+/* (str,,) [xrest,xline] */
+[[ 1 ]]
+'p2a begin' msg 
+dup ">" find cut 
+'xrest' ! drop 'xline' ! .
+;
+
+
+/* help files */
+def clipt :-
+/* (str,token,,) [xfo,xf,xm,xl] */
+[[ 1 ]] 'clipt begin' msg 
+"2" pick swap find dup "1" - 'xfo' !
+        cut 'xl' ! 'xm' ! 'xf' ! .
+;
+
+def parentPlus :-
+/* appends to parent (str,,) [parents,parentIX] */
+[[ 1 ]]
+'parents plus begin' msg 
+'parentIX' @ "parents" @ ar! 
+'parents' ! 
+'parentIX' dup @ "1" + swap ! .
+; 
+
+def abort :-
+[[ 1 ]] dumpNDS .s 'aborting' msg "0" quit .
+;
+
+/* bbox code */
+
+
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 2 ]] b2 tail. .
+;
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
+;
+
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
+
+
+@endend @endend @endend

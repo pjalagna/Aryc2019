@@ -1,0 +1,176 @@
+arcE.py
+/* from https://www.w3.org/People/Bos/meta-bnf 
+arcElt         ::= '<' arcName fromAttr toAttr attr* '>' content '</' arcName '>'
+arcName        ::= Qname
+fromAttr       ::= 'xarc:from="' locator '"'
+toAttr         ::= 'xarc:to="' locator '"'
+Qname          ::= [ NSprefix ':' ] name
+name           ::= (any legal XML name symbol)
+NSprefix       ::= (any legal XML namespace prefix)
+content        ::= (any well formed XML content)
+locator        ::= URI | "#" XPTR-reference
+XPTR-reference ::= string, interpreted per [XPointer]
+attr           ::= (any legal XML attribute)
+
+*/
+def aVersion :-
+[[ 1 ]] 'version0413-2012' msg . ;
+def arcElt :- 
+[[ 1 ]] "def arcElt :-" msg
+'0' "e" ! xioi '<' = 
+        '1' 'e' ! arcName 
+        '2' 'e' ! OpAttrS 
+        '3' 'e' ! xioi '>' =
+        '4' 'e' ! content 
+        '5' 'e' ! xxioi '</' = 
+        '6' 'e' ! EQarcName 
+        '7' 'e' ! xioi '>' = .
+[[ 2 ]] 'e' @ 'format failure' cats msg .
+;
+def EQarcName :-
+[[ 1 ]] "def EQarcName :-" msg
+'1' 'e' ! Xlabel '2' 'e' ! 'name' @ = .
+[[ 2 ]] 'e' @ '1' = 'EQarcName expected Xlabel' abort .
+[[ 3 ]] 'e' @ '2' = 'EQarcName expected same Qname' abort .
+;
+
+def xioi :-
+[[ 1 ]] 
+'xpos=(' 'xfpos' @ cat ")" cat msg 
+'cxfn' @ 'xfpos' @ cut 
+drop swap drop
+c1 'xfpos' @++ drop dup
+'ans=(' swap  cat ")" cat msg 
+. 
+;
+
+def xxioi :-
+[[ 1 ]] xioi xioi cat .
+;
+
+def xioo :-
+[[ 1 ]] 'xfpos' @-- drop .
+;
+
+def arcName :- 
+[[ 1 ]] "def arcName :- " msg
+Qname .
+;
+
+def Qname :- 
+[[ 1 ]] "def Qname :- " msg
+OpNSprefix xioi ':' = name .
+[[ 2 ]] "NSprefix" @ 'name' ! .
+[[ 3 ]] 'Qname expected Xlabel' abort
+;
+
+def name :- 
+[[ 1 ]] "def name :-" msg
+Xlabel 'cstr' @ 'name' ! .
+[[ 2 ]] 'name expected Xlabel' abort .
+;
+
+def OpNSprefix :- 
+[[ 1 ]] "def OpNSprefix :- " msg
+Xlabel "NSprefix" ! .
+[[ 2 ]] . /* optional */
+;
+
+def content :- 
+[[ 1 ]] "def content :-" msg
+'' 'cst' ! collectTillLT  'collect' ! .
+;
+
+def collectTillLT :-
+[[ 1 ]] "def collectTillLT :-" msg
+xioi 'cstx' ! ... .
+[[ 2 ]] 'cstx' @ "<" = contentFinal .
+[[ 3 ]] 'cst' @ 'cstx' @ cat 'cst' ! tail. .
+;
+
+def OpAttrS :- 
+[[ 1 ]] "def OpAttrS :- " msg
+'0' 'attctr' ! OpAttrS1 .
+;
+
+def OpAttrS1 :- 
+[[ 1 ]] "def OpAttrS1 :-" msg
+xioi ' ' = Xlabel 'attname' ! xioi "=" qstring storeAtt tail. .
+[[ 2 ]] . /* optional */
+;
+def qstring :-
+[[ 1 ]] xioi Q? woB .
+[[ 2 ]] xioi T? woB .
+[[ 3 ]] 'expected quoted string' abort .
+;
+def storeAtt :-
+/* (val,,) */
+[[ 1 ]] 
+'attname' @ ':' cat 'attctr' @ cat ! .
+;
+
+def Xlabel :-
+/* collect till " ",:,/,>,= */
+[[ 1 ]] '' 'cstr' ! 'xfpos' @ 'lfo' ! Xlabel2 .
+;
+def Xlabel2 :-
+[[ 1 ]] xioi 'lx' ! ... .
+[[ 2 ]] 'lx' @ ' ' = XlabelFinal .
+[[ 3 ]] 'lx' @ ':' = XlabelFinal .
+[[ 4 ]] 'lx' @ '/' = XlabelFinal .
+[[ 5 ]] 'lx' @ '>' = XlabelFinal .
+[[ 6 ]] 'lx' @ '=' = XlabelFinal .
+[[ 7 ]] 'cstr' @ 'lx' @ cat 'cstr' ! tail. .
+;
+
+def XlabelFinal :-
+[[ 1 ]] 'csrt' @ len "0" <> xioo 'csrt' @ .
+[[ 2 ]] 'lfo' @ 'xfpos' ! ... .
+; 
+
+def xbegin :-
+[[ 1 ]]  aVersion  'fileV' takeV 
+   'xsd file name' ask dup 'xfn' !
+    f@ dup 'cxfn' ! '<' find 'xfpos' !
+    arcElt .
+;
+
+def abort :-
+[[ 1 ]] 'abort' msg dumpNDS .s '??' ask exit .
+;
+
+/* bbox */
+
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 2 ]] b2 tail. .
+;
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
+;
+
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
+@endend @endend @endend 
+
+
+import useLib
+import arcE
+arcE.main('bmain') 
+arcE.start()     

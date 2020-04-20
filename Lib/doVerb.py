@@ -6,6 +6,9 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 04-12-2020 added .l,l@,l!,.l? and rwd
+-------------- added loadCode w/ code + :: + name
+-------------- added protected
 pja 04-09-2020 added .r,r#,r<,r>
 pja 04-07-2020 added cx
 pja 03-30-2020 added @?, cleaned dumpNDS
@@ -31,20 +34,6 @@ pja 12-27-2019 redid this header block
 # -------- str:  cat, cats, len find split 
 # pja 2/10/2018 - added ask
 # pja 2/8/2018
-needs pick (#,,#th_item)
-def pick(p):
-    a=[]
-    ctr = p['sy']['pop']()
-    for x in range(ctr):
-        a.append(p['sy']['pop']())
-    #
-    jj = a[len(a)-1]
-    p['sy']['push'](jj)
-    for x in range(ctr):
-        p['sy']['push'](a.pop(0))
-    #
-    p['sy']['push'](p['OK'])
-#
 
 """
 
@@ -176,10 +165,133 @@ def init(p,m=m):
     p['help']['r#'] = "r# (,,str) depth of r stack"
     p['sy']['.r'] = rdump
     p['help']['.r'] = ".r (,,) dump of r stack"
-
+    p['sy']['.l'] = dotl
+    p['help']['.l'] = ".l (,,) dump of lib "
+    p['sy']['.l?'] = dotlhook
+    p['help']['.l?'] = ".l? (,,) list of lib names "
+    p['sy']['l!'] = lbang
+    p['help']['l!'] = "l! (code,name,,) enters code to lib "
+    p['sy']['l@'] = latt
+    p['help']['l@'] = "l@ (name,,code) get code from lib  can fail"
+    p['sy']['loadCode'] = lloadCode
+    p['help']['loadCode'] = " (basiiCode,,) into Lib"
+    p['sy']['rwd'] = rwd
+    p['help']['rwd'] = "rwd (,,word of r)"
+    p['sy']['protected'] = protected
+    p['help']['protected'] = "protected (cmd,,) system safe ok/nok"
     return(p)
 #end init
 ##- doverb.py:codespace 0 -##
+def protected(p):
+    # (cmd,,) ok/nok
+    cmd = p['sy']['pop']()
+    try:
+        p['sy'][cmd](p)
+        ss = 0
+    except:
+        ss = -1
+    finally:
+        nop = 1
+    #
+    if (ss == 0):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #
+#
+    
+def lloadCode(p):
+    # 
+    p['sy']['push']('def')
+    p['sy']['push'](';')
+    p['sy']['push']('0')
+    p['sy']['fence'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['drop'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['word'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('pgna')
+    p['sy']['!'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['word'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['drop'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('; :: ')
+    p['sy']['cats'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('pgna')
+    p['sy']['@'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['cats'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('code')
+    p['sy']['!'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('code')
+    p['sy']['@'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push']('pgna')
+    p['sy']['@'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['l!'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push'](p['OK'])
+#
+    
+    
+    
+    
+def rwd(p):
+    # r> word swap r< .
+    p['sy']['r>'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['word'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['swap'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['r<'](p)
+    okb = p['sy']['pop']() # ok rtn
+    p['sy']['push'](p['OK'])
+#
+
+def latt(p):
+    #popname try(ans=p['l'][name]) ok pushans pushok. else push nok.
+    name = p['sy']['pop']()
+    try:
+        ans=p['l'][name]
+        ss = 0
+    except:
+        ss = -1
+    finally:
+        nop = 1
+    #
+    if (ss == 0):
+        p['sy']['push'](ans)
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #
+#
+def lbang(p):
+    #popcode,popname p['l'][name] = code, ok
+    name = p['sy']['pop']()
+    code = p['sy']['pop']()
+    p['l'][name] = code
+    p['sy']['push'](p['OK'])  
+#
+def dotl(p):
+    #.l = print(p['l'].__str__()), ok
+    print(p['l'].__str__())
+    p['sy']['push'](p['OK'])
+#
+def dotlhook(p):
+    #.l? = print(p['l'].keys()__str__()), ok
+    print(p['l'].keys().__str__())
+    p['sy']['push'](p['OK'])
+#
+
 def cx(p):
     # str,#,,str[#]or nok
     cc = p['sy']['pop']()
@@ -571,29 +683,40 @@ def mattzero(p):
         print('@--')
     #endif
     # (add,) --> () v(addr) is v-1
-    p['sy']['dup']
-    p['sy']['@'] 
+    p['sy']['dup'](p)
+    p['sy']['pop']() # ok rtn
+    p['sy']['@'](p)
+    p['sy']['pop']() # ok rtn
     s3 = "0"
     p['sy']['push'](s3) # (addr,val )
-    p['sy']['swap']     # val,addr
-    p['sy']['!']
+    p['sy']['swap'](p)     # val,addr
+    p['sy']['pop']() # ok rtn
+    p['sy']['!'](p)
+    p['sy']['pop']() # ok rtn
     p['sy']['push'](p['OK'])
 #end mattzero
+
 def mattminusminus(p):
     if (p['v']['trace'] == 'on'):
         print('@--')
     #endif
     # (add,) --> () v(addr) is v-1
-    p['sy']['dup']
-    p['sy']['@'] 
+    # dup @ (n3) swap ! (n3)
+    p['sy']['dup'](p)
+    p['sy']['pop']() # ok rtn)
+    p['sy']['@'](p)
+    p['sy']['pop']() # ok rtn 
     m2 = p['sy']['pop']() # get val
     n2 = int(m2)
     n1 = 1
-    n3 = n1 - n2
+    n3 = n2 - n1
     s3 = n3.__str__()
-    p['sy']['push'](s3) # (addr,val )
-    p['sy']['swap']     # val,addr
-    p['sy']['!']
+    p['sy']['push'](s3) # (val )
+    p['sy']['swap'](p)     # val,addr
+    p['sy']['pop']() # ok rtn
+    p['sy']['!'](p)
+    p['sy']['pop']() # ok rtn
+    p['sy']['push'](s3) # (val )
     p['sy']['push'](p['OK'])
 #end mattminusminus
 def mattplusplus(p):
@@ -870,11 +993,11 @@ def att(p):
     #endif
     ad = p['sy']['pop']()
     try:
-    	p['sy']['push'](p['v'][ad])
+        p['sy']['push'](p['v'][ad])
     except:
-    	p['sy']['push']('')
+        p['sy']['push']('')
     finally:
-    	p['sy']['push'](p['OK'])
+        p['sy']['push'](p['OK'])
     #end try
 #end att
 def eq(p):

@@ -1,0 +1,109 @@
+/* file pgxNotes.txt
+pja 4-13-2020 plus bbox
+
+*/
+pgx.py
+def PGVersion :-
+[[ 1 ]] 'pga-04-13-2020' msg .
+;
+def pgmain :-
+[[ 1 ]] PGVersion pgf0 loop1 .
+;
+
+def loop1 :-
+[[ 1 ]] 'SWloop1' @ 'more' = '' 'SWloop1' ! tail. .
+[[ 2 ]] 'SWloop1' @ 'exit' = .
+[[ 3 ]] clausefail pgf1 cmdfan tail. .
+;
+
+def pgf1 :-
+[[ 1 ]] rwd 'vt' ! .
+;
+
+
+def cmdfan :- 
+[[ 1 ]] 'vt' @ '.' = vtdot .
+[[ 2 ]] 'vt' @ ';' = vtsemi .
+[[ 3 ]] 'vt' @ 'tail.' = vttail .
+[[ 4 ]] 'vt' @ '//' = vtcall .
+[[ 5 ]] 'vt' @ '...' = vtelips .
+[[ 6 ]] 'vt' @ c1 Q? 'vt' @ woB .
+[[ 6 ]] 'vt' @ c1 T? 'vt' @ woB .
+[[ 20 ]] dox .
+
+def vtelips :-
+[[ 1 ]] clausefail 'more' 'SWloop1' ! .
+;
+
+def vtcall :-
+[[ 1 ]] rwd dup 'pgna' @ l@ r<
+        'more' 'SWloop1' ! .
+;
+
+def vttail :-
+/* code on r> is code ::name */
+[[ 1 ]] r>  dup '::' find cut swap drop swap drop l@ r<
+        'more' 'SWloop1' ! .
+;
+
+def vtdot :-
+[[ 1 ]]'r>' protected 'more' 'SWloop1' ! .
+[[ 2 ]] OK 'exit' 'SWloop1' ! .
+; 
+def  vtsemi :-
+[[ 1 ]]'r>' protected NOK 'more' 'SWloop1' ! .
+[[ 2 ]] NOK 'exit' 'SWloop1' ! .
+;
+
+def dox :-
+[[ 1 ]]'.X' protected /* ok */ 'more' 'SWloop1' ! .
+[[ 2 ]] clausefail 'more' 'SWloop1' ! .
+;
+
+def clausefail :-
+[[ 1 ]] rwd 'cf' ! ... .
+[[ 2 ]] 'cf' @ '[[' = getcfn 'more' 'SWloop1' ! .
+[[ 3 ]] 'cf' @ ';' = ';' r> cats r< 'more' 'SWloop1' ! .
+[[ 4 ]] tail. .
+;
+
+def getcfn :-
+[[ 1 ]] rwd 'cfn' ! rwd drop .
+;
+
+def pgf0 :-
+/* (name,,) */
+[[ 1 ]] l@ r< .
+;
+/* -- bbox -- */
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 2 ]] b2 tail. .
+;
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
+;
+
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
+
+@endend @endend @endend
+
+
+

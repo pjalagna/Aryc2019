@@ -1,251 +1,342 @@
 /* 
 file xsdP.basii
 xsd parser
+pja 4-16-2020 rewrite see graphml
 pja 4-8-2020 rewrite
 pja 4-1-2020 rewrite
 pja 03-31-2020
 */
+xsdP.py
+def xbegin :-
+[[ 1 ]] xsdVersion xsdInit "L1" step . ;
 
-xsd.py
-def xsdVersion :- [[ 1 ]] 'version 4.8.xx,a' msg . ;
+def L1 :-
+[[ 1 ]] 
+/* protected slide to < */
+'p1' protected xioi "L1a1" step .
+;
 
-def xsdmain :-
-[[ 1 ]] xsdInit .
+def p1 :-
+/* stops on the < */
+[[ 1 ]] xioi "<" = xioo . 
+[[ 2 ]] tail. .
+;
+def L1a1 :-
+[[ 1 ]] xioi 'dl1.1' ! "fan1" step .
+;
+
+def fan1 :-
+[[ 1 ]] 'dl1.1' @ "?" = "fan2" step 
+         "schemaChk" step xioi /* ? */ drop
+         "lastChk" step .
+[[ 2 ]] 'dl1.1'  @ "!" = xioi drop "procBang" step 
+         xioi /* ! */ drop
+         "lastChk" step .
+[[ 3 ]] 'dl1.1'  @ "/" = "fan4" step .
+[[ 4 ]] /* otherwise */
+        "ParseNodeName" step 
+        "ParseAttributes" step
+        "fan30" step
+        "Garbage" step
+        .
+;
+def schemaChk :-
+[[ 1 ]] "dcfan2" @ "schema" =
+        "schema" "parentPlus" step
+        "parseAttributes" step 
+        "writeRecords" step
+        .
+[[ 2 ]] . /* optional */
+;
+
+def parseAttributes :-
+/* optional space attna=quotedValue */
+[[ 1 ]] xioi 'dpa' ! ... .
+[[ 2 ]] 'dpa' @ ' ' =
+        "getattributeName" step /* to attName */
+        "getAttributeValue" step /* to attributeValue */
+        "AttributeValue" @ "attName" @ 
+        'attList' @ dr! 'attList' ! 
+        tail. .
+[[ 3 ]] xioo .
+;
+
+def getAttributeValue :-
+/* = ; quoted string */
+[[ 1 ]] xioi dup 'gas' ! '=' =
+        '' "AttributeValue" !
+        '' 'dgav2' !
+        GAV2 .
+[[ 2 ]] 'expectd = after attribute name got ('  'gas' @ cat
+        ') instead' cat
+        ' at ' cat 'xpos' @ cat "abort" step .
+;
+def GAV2 :-
+[[ 1 ]]  xioi 'dgav2' ! ... .
+[[ 2 ]]  'dgav2' @ Q? "GAVtillQ" step .
+[[ 3 ]]  'dgav2' @ T? "GAVtillT" step .
+[[ 4 ]] 'expected quoted string after =  got ('
+        'dgav2' @ cat 
+        ') instead. ' cat
+        ' at ' cat 'xpos' @ cat "abort" step .
+;
+def GAVtillQ :-
+/* stops on end quote */
+[[ 1 ]]  xioi 'dgav2' ! ... .
+[[ 2 ]]  'dgav2' @ Q? .
+[[ 3 ]] "AttributeValue" @ 'dgav2' @  cat
+        "AttributeValue" ! tail. .
+;
+def GAVtillT :-
+[[ 1 ]]  xioi 'dgav2' ! ... .
+[[ 2 ]]  'dgav2' @ T?  .
+[[ 3 ]] "AttributeValue" @ 'dgav2' @  cat
+        "AttributeValue" ! tail. .
+;
+
+def getattributeName :-
+[[ 1 ]] '' 'attName' ! '' 'atc' !
+        "GAN2" step 
+        'attName' @ 'garbageIn' step
+        .
+;
+def GAN2 :-
+/* parse to = */
+[[ 1 ]] xioi 'atc' ! ... .
+[[ 2 ]] 'atc' @ '=' =  xioo .
+[[ 5 ]] 'attName' @ 'atc' @ cat
+        'attName' ! tail. .
+;
+
+def fan30 :-
+[[ 1 ]] xioi 'dfan30' ! ... .
+/* fan 30 */
+[[ 2 ]] 'dfan30' @ '/' = 
+        "ParentPlus" step
+        "writeRecords" step
+        "ParentPop" step
+        "lastChk" step
+        .
+[[ 3 ]] 'dfan30' @ '>' = 
+        "fctillLT2XN3" step
+        "XN3Fan" step .
+[[ 4 ]] 'expected / or > after </name at (' 'xpos' @ cat ')' cat "abort" step .
+;
+def fctillLT2XN3 :-
+/* collect till < but not < */
+[[ 1 ]] '' 'XN3' ! '' 'dxn3' !
+"fctillLT2XN3a" step .
+;
+def fctillLT2XN3a :-
+[[ 1 ]] xioi 'dxn3' ! ... .
+[[ 2 ]] 'dxn3' @ "<" = xioo .
+[[ 3 ]] 'XN3' @ 'dxn3' @ cat 
+        'XN3' ! tail. .
+;
+def XN3Fan :-
+/* trim white from XN3 */
+[[ 1 ]] 'XN3' @ white 'XN3' !
+/* XN3 white fan */
+[[ 2 ]] 'XN3' @ len "0" = .
+[[ 3 ]] 'XN3' @ 'NodeValue' !
+        'NodeValue' @ 'garbageIn' step
+        "parentPlus" step
+        "writeRecords" step .
+;
+
+def procBang :-
+/* Xtill ! stop on ! */
+[[ 1 ]] xioi ... .
+[[ 2 ]] '!' = .
+[[ 3 ]] tail. .
+;
+
+def fan2 :-
+/* Xctillor space,?,> */
+[[ 1 ]] '' 'dcfan2' ! "fan2a" step .
+;
+def fan2a :-
+[[ 1 ]] xioi 'dcfan2a' ! ... .
+[[ 2 ]] 'dcfan2a' @ ' ' = xioo .
+[[ 3 ]] 'dcfan2a' @ '?' = xioo .
+[[ 4 ]] 'dcfan2a' @ '>' = xioo .
+[[ 5 ]]  'dcfan2' @ 'dcfan2a' @ cat 'dcfan2' ! tail. .
+;
+def ParseNodeName :-
+[[ 1 ]] "Xlabel" step ... .
+[[ 2 ]] xioi 'dpnn' ! ... .
+/* fan3 */
+[[ 3 ]] 'dpnn' @ ':' =
+        'XN1' @ 'XMNLS' !
+        "Xlabel" step 'XN1' @ 'Xna' !
+        "Xna" @ "garbageIn" step
+        'XMNLS' @ "garbageIn" step
+        "PickupPosition" @++
+        "PickupPosition" @ 
+        "NodePosition" ! .
+[[ 4 ]] 'XN1' @ "Xna" !
+        "Xna" @ 'garbageIn' step
+        "PickupPosition" @++
+        "PickupPosition" @ 
+        "NodePosition" ! .
+;
+
+
+        
+def fan4 :-
+/* at </ na does na = last parent */
+[[ 1 ]] "ParseNodeName" step /* to Xna */
+/* fan4 */
+[[ 2 ]] 'Xna' @ 'parent' @ ar# ar@ = 
+       "parentPop" step 
+       "lastChk" step 
+       .
+[[ 3 ]] .
+;
+
+def lastChk :-
+[[ 1 ]] xioi 'dlastc' ! ... .
+/* fanlast */
+[[ 2 ]] 'dlastc' @ ">" = .
+[[ 3 ]] 'expected > got ' 'dlastc' @ cat ' instead at position (' cat 'xpos' @ cat ')' cat "abort" step .
 ;
 
 def xsdInit :-
 [[ 1 ]] 'xsd file name' ask dup 'xsdfn' ! 
-        'fioiV' takeV 
-        'arV' takeV
+        'fileV' takeV 
+        "xdb.db" "SQV" takeV
+        "TRCV" takeV
+        "gennV" takeV
+        "arV" takeV
+        'xsdfn' @ f@ 'cxsdfn' !
+        TRCV0 TRCV+
+        "0" 'xfpos' ! /* parse position */
+        "0" 'pu' ! /* pickup position */
+        /* set garbage collection list */
+        ar0 "GCL" !
+        "0" 'GCLix' !
         /* set parent */
         ar0 'parents' !
-        '' parentPlus 
-        0 'epos' ! /* pickup position */ 
-        'open' 'xmode' ! 
+        "0" 'parentIX' !
+        '' "parentPlus" step
+        /* set attribute list */
+        dr0 'attList' !
+        "0" 'epos' ! /* pickup position */  
         .
 ;
-/* == */
+def parentPlus :-
+/* (na,,) */
+[[ 1 ]] 'parentIX' @ 'parents' @ ar! 'parents' !
+        'parentIX' @++ drop .
+;
+
+
 def abort :-
-[[ 1 ]] dumpNDS .s 0 quit .
+[[ 1 ]] msg dumpNDS .s "0" quit .
 ;
 
-def xmodeSW :-
-[[ 1 ]] 'xmode' @ 'open' = xopen .
-[[ 2 ]] abort .
+def Xlabel :-
+/* collect till " ",:,/,>,= */
+[[ 1 ]] '' 'cstr' ! 'xfpos' @ 'lfo' ! "Xlabel2" step  .
 ;
-def xopen :-
-[[ 1 ]] '<' 1 fc2tkn 
 
+def Xlabel2 :-
+/* collect till " ",:,/,>,= */
+[[ 1 ]] xioi 'lx' ! ... .
+[[ 2 ]] 'lx' @ ' ' = "XlabelFinal" step .
+[[ 3 ]] 'lx' @ ':' = "XlabelFinal" step .
+[[ 4 ]] 'lx' @ '/' = "XlabelFinal" step .
+[[ 5 ]] 'lx' @ '>' = "XlabelFinal" step .
+[[ 6 ]] 'lx' @ '=' = "XlabelFinal" step .
+[[ 7 ]] 'cstr' @ 'lx' @ cat 'cstr' ! tail. .
+;
 
+def XlabelFinal :-
+[[ 1 ]] 'cstr' @ len "0" <> xioo 'csrt' @ .
+[[ 2 ]] 'lfo' @ 'xfpos' ! ... .
+; 
 
+/* xioo,xioi,xxio1 */
 
-
-/* == */
-def xsda :-
+def xioi :-
 [[ 1 ]] 
-fwhite
-"<"
-ftlc
-drop
-fioi
-drop
-">"
-ftlc
-fioi
-drop
-'cx'
-!
-xsda2 tail. .
-[[ 2 ]]
-xsdFinal .
+'xpos=(' 'xfpos' @ cat ")" cat msg 
+'cxsdfn' @ 'xfpos' @ cut 
+drop swap drop
+c1 'xfpos' @++ drop dup
+'ans=(' swap  cat ")" cat msg 
+. 
+;
+def garbageIn :-
+/* add name to garbage (na,,) GCL,GCLix */
+[[ 1 ]] 'GCLix' @ 'GCL' @ ar! 'GCL' ! 
+        'GCLix' @++ drop .
 ;
 
-def xsda2 :-
-/* !, ? , en , en/ , att , att/ */
-[[ 1 ]] 'cx' @ c1 '!' = . /* drop comments */
-[[ 2 ]] 'cx' @ c1 '?' = . /* drop comments */
-[[ 3 ]] xsdb .
-;
-def xsdb :-
-[[ 1 ]]
-0 'ctl' !
-/* if space ctl = 1 */
-'cx'
-@
-' '
-find
-0
-1
--
-=
-1
-'ctl'
-!
- ... .
-[[ 2 ]]
-/* if space ctl = 1 */
-'cx'
-@
-'/'
-find
-0
-1
--
-=
-2
-'ctl'
-@
-+
-'ctl'
-!
-... .
-[[ 3 ]]
-'ctl'
-@
-3
-=
-/* no atts no slash */
-/* set id = cx */
-/* push into parent val,name {} dr! */
-'cx'
-@
-'parent'
-dup
-@
-dr!
-'parent'
-!
-/* val,index,[] ar! */
-/* write thing */
-'cx'
-@
-'thing'
-@
-len
-'thing'
-@
-ar!
-.
-[[ 4 ]]
-/* atts no slash */
-'ctl'
-@
-2
-=
-/* save en to en */
-'cx'
-@
-dup
-' '
-find
-cut
-'at1'
-!
-drop
-'en'
-!
-/* att loop */
-'at1'
-@
-dup
-' '
-find
-cut
-'at1'
-!
-drop
-'attx'
-!
-'attx'
-@
-dup
-'='
-find
-cut
-woB
-'vx'
-!
-drop
-'ax'
-!
-/* write att rec */
-'vx'
-@
-'en'
-@
-"$"
-cat
-'ax'
-@
-cat
-!
-/* >>att loop */
-
-
-
-
-
-=====
-def xx :-
-[[ 1 ]]  
-fwhite
-fioi
-'cx'
-!  ... .
-[[ 2 ]] 'cx' @ "?" = tillComment .
-[[ 3 ]] 'cx' @ "!" = tillComment .
-[[ 4 ]] ' />' fctillor xsdd .
+def xxioi :-
+[[ 1 ]] xioi xioi cat .
 ;
 
-def xsdd :-
-[[ 1 ]] ioi 'cx' ! ... .
-[[ 2 ]] 'cx' @ '/' = xsdd3 .
-[[ 3 ]] 'en' ! xsdd2 .
-;
-def xsdd3 :-
-[[ 1 ]] checkName unstackParent .
-[[ 2 ]] xsdStop .
-;
-def xsdStop :-
-[[ 1 ]] dumpNDS .s 'wait' ask exit .
+def xioo :-
+[[ 1 ]] 'xfpos' @-- drop .
 ;
 
-def xsdd2 :-
-[[ 1 ]] fioi 'cx' ! ... .
-[[ 2 ]] 'cx' @ ' ' = 
-         ' />' fctillor dup '=' find cut 
-         writeAtt tail. .
-[[ 3 ]] 'cx' @ '/' = fioi detectID .
-[[ 4 ]] 'cx' @ '>' = stackParents detectID .
+def step :-
+/* (na,,) null=go else bmain */
+[[ 1 ]] 'sta' ! "step " "sta" @ cat  "- null" cat ask 'stx' ! ... .
+[[ 2 ]] 'stx' @ len "0" = 'sta' @ .X .
+[[ 3 ]] bmain .
 ;
-def writeAtt :-
-[[ 1 ]] 'vx' !  drop 'ax' ! 
-        'vx' @ 'en' @ "$" cat 'ax' @ cat !  .
-;
-def  stackParents :-
-[[ 1 ]] 'en' @ 'parents' @ dup ar# swap ar! 
-        'parents' !  xsdc2 .
+def writeRecords :-
+[[ 1 ]] 'stump for now' msg 
+/* writeRDF parents{} last,last-1
+writeProfile na-[attList]
+*/
+.s dumpNDS '??' ask .
 ;
 
-def tillComment :-
-[[ 1 ]] ">" ftlc fioi drops .
+/* bbox */
+
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 2 ]] b2 tail. .
 ;
-def detectID :-
-/* if en$id, Id, name,Name set en$$id else use en */
-[[ 1 ]] 'en' @ "$" cat 'id' cat @ '' <>
-        'en' @ "$" cat 'id' cat @
-        'en' @ "$$id" cat ! .
-[[ 2 ]] 'en' @ "$" cat 'Id' cat @ '' <>
-        'en' @ "$" cat 'Id' cat @
-        'en' @ "$$id" cat ! .
-[[ 3 ]] 'en' @ "$" cat 'name' cat @ '' <>
-        'en' @ "$" cat 'name' cat @
-        'en' @ "$$id" cat ! .
-[[ 4 ]] 'en' @ "$" cat 'Name' cat @ '' <>
-        'en' @ "$" cat 'Name' cat @
-        'en' @ "$$id" cat ! .
-[[ 5 ]] 'en' @ 'en' @ "$$id" cat ! .
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
 ;
 
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
+/* version */
+def xsdVersion :-
+[[ 1 ]] 'xsd Version 2020-04-17-2010' msg .
+;
+
+@endend @endend @endend 
+import useLib
+import basiiHelper
+basiiHelper.main('xsdP.basii')
+
+import useLib
+import xsdP
+xsdP.main('bmain') 
+xsdP.start()      
+xbegin
 
 @endend @endend @endend
