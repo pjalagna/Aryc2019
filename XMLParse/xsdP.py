@@ -1,6 +1,6 @@
 
 #file xsdP.py
-#generated for xsdP.basii at Fri Apr 17 20:12:57 2020 
+#generated for xsdP.basii at Mon Apr 20 20:29:49 2020 
 
 # usage 
 # import xx
@@ -6726,6 +6726,45 @@ def xsdInit_1():
 
     r = p['sy']['pop']()
     logg('for xsdInit-1 processing text ')
+    logg("""heapV""")
+    if (r == p['OK']):
+        logg('push text ' + """heapV""")
+        datPush("heapV")
+        logg('after ' + """heapV""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for xsdInit-1 processing verb ( takeV ) ')
+    if (r == p['OK']):
+        logg('call takeV ')
+        p['sy']['takeV'](p)
+        logg('after takeV')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for xsdInit-1 processing verb ( heapInit ) ')
+    if (r == p['OK']):
+        logg('call heapInit ')
+        p['sy']['heapInit'](p)
+        logg('after heapInit')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for xsdInit-1 processing text ')
     logg("""fileV""")
     if (r == p['OK']):
         logg('push text ' + """fileV""")
@@ -6933,11 +6972,11 @@ def xsdInit_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for xsdInit-1 processing verb ( TRCV0 ) ')
+    logg('for xsdInit-1 processing verb ( TRCV+ ) ')
     if (r == p['OK']):
-        logg('call TRCV0 ')
-        p['sy']['TRCV0'](p)
-        logg('after TRCV0')
+        logg('call TRCV+ ')
+        p['sy']['TRCV+'](p)
+        logg('after TRCV+')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -6946,11 +6985,11 @@ def xsdInit_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for xsdInit-1 processing verb ( TRCV+ ) ')
+    logg('for xsdInit-1 processing verb ( TRCV0 ) ')
     if (r == p['OK']):
-        logg('call TRCV+ ')
-        p['sy']['TRCV+'](p)
-        logg('after TRCV+')
+        logg('call TRCV0 ')
+        p['sy']['TRCV0'](p)
+        logg('after TRCV0')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -9675,11 +9714,11 @@ def writeRecords_1():
 
     r = p['sy']['pop']()
     logg('for writeRecords-1 processing text ')
-    logg("""stump for now""")
+    logg("""RDFWrite""")
     if (r == p['OK']):
-        logg('push text ' + """stump for now""")
-        datPush("stump for now")
-        logg('after ' + """stump for now""" )
+        logg('push text ' + """RDFWrite""")
+        datPush("RDFWrite")
+        logg('after ' + """RDFWrite""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -9687,37 +9726,11 @@ def writeRecords_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for writeRecords-1 processing verb ( msg ) ')
+    logg('for writeRecords-1 processing verb ( step ) ')
     if (r == p['OK']):
-        logg('call msg ')
-        p['sy']['msg'](p)
-        logg('after msg')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
-    logg('for writeRecords-1 processing verb ( .s ) ')
-    if (r == p['OK']):
-        logg('call .s ')
-        p['sy']['.s'](p)
-        logg('after .s')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
-    logg('for writeRecords-1 processing verb ( dumpNDS ) ')
-    if (r == p['OK']):
-        logg('call dumpNDS ')
-        p['sy']['dumpNDS'](p)
-        logg('after dumpNDS')
+        logg('call step ')
+        p['sy']['step'](p)
+        logg('after step')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -9727,11 +9740,11 @@ def writeRecords_1():
 
     r = p['sy']['pop']()
     logg('for writeRecords-1 processing text ')
-    logg("""??""")
+    logg("""writeProfile""")
     if (r == p['OK']):
-        logg('push text ' + """??""")
-        datPush("??")
-        logg('after ' + """??""" )
+        logg('push text ' + """writeProfile""")
+        datPush("writeProfile")
+        logg('after ' + """writeProfile""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -9739,11 +9752,11 @@ def writeRecords_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for writeRecords-1 processing verb ( ask ) ')
+    logg('for writeRecords-1 processing verb ( step ) ')
     if (r == p['OK']):
-        logg('call ask ')
-        p['sy']['ask'](p)
-        logg('after ask')
+        logg('call step ')
+        p['sy']['step'](p)
+        logg('after step')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -9779,6 +9792,1320 @@ def writeRecords (x):
         #endif
     #wend
 #end writeRecords
+
+def writeProfile_1():
+    global p
+    logg('writeProfile_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""6""")
+    if (r == p['OK']):
+        logg('push text ' + """6""")
+        datPush("6")
+        logg('after ' + """6""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h^ ) ')
+    if (r == p['OK']):
+        logg('call h^ ')
+        p['sy']['h^'](p)
+        logg('after h^')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""0""")
+    if (r == p['OK']):
+        logg('push text ' + """0""")
+        datPush("0")
+        logg('after ' + """0""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""dcfan2""")
+    if (r == p['OK']):
+        logg('push text ' + """dcfan2""")
+        datPush("dcfan2")
+        logg('after ' + """dcfan2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""5""")
+    if (r == p['OK']):
+        logg('push text ' + """5""")
+        datPush("5")
+        logg('after ' + """5""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""attList""")
+    if (r == p['OK']):
+        logg('push text ' + """attList""")
+        datPush("attList")
+        logg('after ' + """attList""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( drK ) ')
+    if (r == p['OK']):
+        logg('call drK ')
+        p['sy']['drK'](p)
+        logg('after drK')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( len ) ')
+    if (r == p['OK']):
+        logg('call len ')
+        p['sy']['len'](p)
+        logg('after len')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""6""")
+    if (r == p['OK']):
+        logg('push text ' + """6""")
+        datPush("6")
+        logg('after ' + """6""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing text ')
+    logg("""perProfile""")
+    if (r == p['OK']):
+        logg('push text ' + """perProfile""")
+        datPush("perProfile")
+        logg('after ' + """perProfile""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( step ) ')
+    if (r == p['OK']):
+        logg('call step ')
+        p['sy']['step'](p)
+        logg('after step')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for writeProfile-1 processing verb ( hx ) ')
+    if (r == p['OK']):
+        logg('call hx ')
+        p['sy']['hx'](p)
+        logg('after hx')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final writeProfile_1')
+#end writeProfile_1
+
+def writeProfile (x):
+    global p
+    logg('begin writeProfile')
+    ## point of umbrella
+    writeProfileCtl = 1 # starting spoke
+    while writeProfileCtl != 0:
+        logg('loop writeProfileCtl = ' + writeProfileCtl.__str__())
+        if (writeProfileCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (writeProfileCtl == 1):
+            logg('call writeProfile_1')
+            writeProfile_1()
+            logg('after call writeProfile_1')
+            # test and adjust for new spoke
+            writeProfileCtl = chk(writeProfileCtl)
+
+        else:
+            #final
+            logg('final writeProfile')    
+            writeProfileCtl = 0 # break
+        #endif
+    #wend
+#end writeProfile
+
+def perProfile_1():
+    global p
+    logg('perProfile_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( ix ) ')
+    if (r == p['OK']):
+        logg('call ix ')
+        p['sy']['ix'](p)
+        logg('after ix')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""6""")
+    if (r == p['OK']):
+        logg('push text ' + """6""")
+        datPush("6")
+        logg('after ' + """6""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( <> ) ')
+    if (r == p['OK']):
+        logg('call <> ')
+        p['sy']['<>'](p)
+        logg('after <>')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( ar@ ) ')
+    if (r == p['OK']):
+        logg('call ar@ ')
+        p['sy']['ar@'](p)
+        logg('after ar@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""3""")
+    if (r == p['OK']):
+        logg('push text ' + """3""")
+        datPush("3")
+        logg('after ' + """3""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( + ) ')
+    if (r == p['OK']):
+        logg('call + ')
+        p['sy']['+'](p)
+        logg('after +')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""3""")
+    if (r == p['OK']):
+        logg('push text ' + """3""")
+        datPush("3")
+        logg('after ' + """3""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""attList""")
+    if (r == p['OK']):
+        logg('push text ' + """attList""")
+        datPush("attList")
+        logg('after ' + """attList""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( dr@ ) ')
+    if (r == p['OK']):
+        logg('call dr@ ')
+        p['sy']['dr@'](p)
+        logg('after dr@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""4""")
+    if (r == p['OK']):
+        logg('push text ' + """4""")
+        datPush("4")
+        logg('after ' + """4""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""profile""")
+    if (r == p['OK']):
+        logg('push text ' + """profile""")
+        datPush("profile")
+        logg('after ' + """profile""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""5""")
+    if (r == p['OK']):
+        logg('push text ' + """5""")
+        datPush("5")
+        logg('after ' + """5""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""3""")
+    if (r == p['OK']):
+        logg('push text ' + """3""")
+        datPush("3")
+        logg('after ' + """3""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing text ')
+    logg("""4""")
+    if (r == p['OK']):
+        logg('push text ' + """4""")
+        datPush("4")
+        logg('after ' + """4""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( TRCV! ) ')
+    if (r == p['OK']):
+        logg('call TRCV! ')
+        p['sy']['TRCV!'](p)
+        logg('after TRCV!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for perProfile-1 processing verb ( tail. ) ')
+    if (r == p['OK']):
+        logg('call tail. ')
+        p['sy']['tail.'](p)
+        logg('after tail.')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final perProfile_1')
+#end perProfile_1
+
+def perProfile_2():
+    global p
+    logg('perProfile_2')
+    datPush(p['OK'])
+
+    #final
+    logg('final perProfile_2')
+#end perProfile_2
+
+def perProfile (x):
+    global p
+    logg('begin perProfile')
+    ## point of umbrella
+    perProfileCtl = 1 # starting spoke
+    while perProfileCtl != 0:
+        logg('loop perProfileCtl = ' + perProfileCtl.__str__())
+        if (perProfileCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (perProfileCtl == 1):
+            logg('call perProfile_1')
+            perProfile_1()
+            logg('after call perProfile_1')
+            # test and adjust for new spoke
+            perProfileCtl = chk(perProfileCtl)
+
+        elif (perProfileCtl == 2):
+            logg('call perProfile_2')
+            perProfile_2()
+            logg('after call perProfile_2')
+            # test and adjust for new spoke
+            perProfileCtl = chk(perProfileCtl)
+
+        else:
+            #final
+            logg('final perProfile')    
+            perProfileCtl = 0 # break
+        #endif
+    #wend
+#end perProfile
+
+def RDFWrite_1():
+    global p
+    logg('RDFWrite_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h^ ) ')
+    if (r == p['OK']):
+        logg('call h^ ')
+        p['sy']['h^'](p)
+        logg('after h^')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""parents""")
+    if (r == p['OK']):
+        logg('push text ' + """parents""")
+        datPush("parents")
+        logg('after ' + """parents""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( len ) ')
+    if (r == p['OK']):
+        logg('call len ')
+        p['sy']['len'](p)
+        logg('after len')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( - ) ')
+    if (r == p['OK']):
+        logg('call - ')
+        p['sy']['-'](p)
+        logg('after -')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""parents""")
+    if (r == p['OK']):
+        logg('push text ' + """parents""")
+        datPush("parents")
+        logg('after ' + """parents""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( ar@ ) ')
+    if (r == p['OK']):
+        logg('call ar@ ')
+        p['sy']['ar@'](p)
+        logg('after ar@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""parents""")
+    if (r == p['OK']):
+        logg('push text ' + """parents""")
+        datPush("parents")
+        logg('after ' + """parents""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( len ) ')
+    if (r == p['OK']):
+        logg('call len ')
+        p['sy']['len'](p)
+        logg('after len')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( - ) ')
+    if (r == p['OK']):
+        logg('call - ')
+        p['sy']['-'](p)
+        logg('after -')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""parents""")
+    if (r == p['OK']):
+        logg('push text ' + """parents""")
+        datPush("parents")
+        logg('after ' + """parents""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( ar@ ) ')
+    if (r == p['OK']):
+        logg('call ar@ ')
+        p['sy']['ar@'](p)
+        logg('after ar@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h! ) ')
+    if (r == p['OK']):
+        logg('call h! ')
+        p['sy']['h!'](p)
+        logg('after h!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""RDF""")
+    if (r == p['OK']):
+        logg('push text ' + """RDF""")
+        datPush("RDF")
+        logg('after ' + """RDF""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""child""")
+    if (r == p['OK']):
+        logg('push text ' + """child""")
+        datPush("child")
+        logg('after ' + """child""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( TRCV! ) ')
+    if (r == p['OK']):
+        logg('call TRCV! ')
+        p['sy']['TRCV!'](p)
+        logg('after TRCV!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""RDF""")
+    if (r == p['OK']):
+        logg('push text ' + """RDF""")
+        datPush("RDF")
+        logg('after ' + """RDF""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""1""")
+    if (r == p['OK']):
+        logg('push text ' + """1""")
+        datPush("1")
+        logg('after ' + """1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""parent""")
+    if (r == p['OK']):
+        logg('push text ' + """parent""")
+        datPush("parent")
+        logg('after ' + """parent""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing text ')
+    logg("""2""")
+    if (r == p['OK']):
+        logg('push text ' + """2""")
+        datPush("2")
+        logg('after ' + """2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( h@ ) ')
+    if (r == p['OK']):
+        logg('call h@ ')
+        p['sy']['h@'](p)
+        logg('after h@')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( TRCV! ) ')
+    if (r == p['OK']):
+        logg('call TRCV! ')
+        p['sy']['TRCV!'](p)
+        logg('after TRCV!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for RDFWrite-1 processing verb ( hx ) ')
+    if (r == p['OK']):
+        logg('call hx ')
+        p['sy']['hx'](p)
+        logg('after hx')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final RDFWrite_1')
+#end RDFWrite_1
+
+def RDFWrite (x):
+    global p
+    logg('begin RDFWrite')
+    ## point of umbrella
+    RDFWriteCtl = 1 # starting spoke
+    while RDFWriteCtl != 0:
+        logg('loop RDFWriteCtl = ' + RDFWriteCtl.__str__())
+        if (RDFWriteCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (RDFWriteCtl == 1):
+            logg('call RDFWrite_1')
+            RDFWrite_1()
+            logg('after call RDFWrite_1')
+            # test and adjust for new spoke
+            RDFWriteCtl = chk(RDFWriteCtl)
+
+        else:
+            #final
+            logg('final RDFWrite')    
+            RDFWriteCtl = 0 # break
+        #endif
+    #wend
+#end RDFWrite
 
 def bmain_1():
     global p
@@ -10944,11 +12271,11 @@ def xsdVersion_1():
 
     r = p['sy']['pop']()
     logg('for xsdVersion-1 processing text ')
-    logg("""xsd Version 2020-04-17-2010""")
+    logg("""xsd Version 2020-04-2020-2025""")
     if (r == p['OK']):
-        logg('push text ' + """xsd Version 2020-04-17-2010""")
-        datPush("xsd Version 2020-04-17-2010")
-        logg('after ' + """xsd Version 2020-04-17-2010""" )
+        logg('push text ' + """xsd Version 2020-04-2020-2025""")
+        datPush("xsd Version 2020-04-2020-2025")
+        logg('after ' + """xsd Version 2020-04-2020-2025""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -11191,6 +12518,18 @@ def main(startpoint,trace='off'):
 
     # paragraph writeRecords
     p['sy']['writeRecords'] = writeRecords
+    #
+
+    # paragraph writeProfile
+    p['sy']['writeProfile'] = writeProfile
+    #
+
+    # paragraph perProfile
+    p['sy']['perProfile'] = perProfile
+    #
+
+    # paragraph RDFWrite
+    p['sy']['RDFWrite'] = RDFWrite
     #
 
     # paragraph bmain

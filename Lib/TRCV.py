@@ -1,5 +1,6 @@
 m = """
 file TRCV.py
+pja 04-20-2020 bad truncate statement
 pja 04-17-2020 edits
 pja 03-06-2020 dropped need for IXX table use genX
 -- added delete before write if TCVR existed
@@ -209,7 +210,8 @@ def TRCVWrite(p):
     p['sy']['pop']() # ok
     # test
     tst = p['sy']['pop']()
-    if (tst.__len__()!=0):
+    print('TRCVWrite tst len=('+ tst.__len__().__str__() + ')')
+    if (tst.__len__()!= 0):
         #if exists delete first DELETE FROM tableWHERE search_condition;
         Tans22 = "DELETE FROM TCVR "
         Tans22 += " where T = '" + T + "'"
@@ -227,6 +229,7 @@ def TRCVWrite(p):
         p['sy']['genX'](p)
         p['sy']['pop']()
         ix = p['sy']['pop']()
+        print("TRCVWrite ix=(" + ix + ")")
         Tic = "insert into TCVR  values ("
         Tic += "'" + ix + "',"
         Tic += "'" + T + "',"
@@ -243,7 +246,7 @@ def TRCVWrite(p):
 # end TRCVWrite
 
 def TRCV0(p):
-    p['sy']['push']("Truncate TABLE TCVR ;")
+    p['sy']['push']("Delete from TCVR ;")
     p['sy']['SQX'](p)
     p['sy']['pop']()
     p['sy']['push'](p['OK'])

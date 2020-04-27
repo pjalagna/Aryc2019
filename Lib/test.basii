@@ -1,0 +1,14 @@
+/* file test.basii
+pja 04-23-2020
+
+*/
+
+test.py
+def testMain :-
+[[ 1 ]] "this is one" msg ... .
+[[ 2 ]] tm2 .
+;
+def tm2 :-
+[[ 1 ]] "tm2 " msg .
+;
+@endend @endend @endend

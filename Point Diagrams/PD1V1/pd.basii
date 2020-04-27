@@ -1,0 +1,62 @@
+
+
+pd.py
+def pdc :-
+/* (script,,) builds lib */
+[[ 1 ]] "0" 'lisw' ! pdc2 .
+;
+
+def pdc2 :-
+[[ 1 ]] 'lisw' @ 0 <> .
+[[ 2 ]] word 'cn' ! ... .
+[[ 3 ]] ckcn ... .
+[[ 4 ]] 'cn' @ 'end' = .
+[[ 5 ]] pdc3 tail. .
+;
+
+def ckcn :-
+[[ 1 ]] 'cn' @ dup '.' find 'n2' ! drop 'n1' !
+        /* write nocell lib record [n1]no=n2 */
+        'n1' @ 'nocell' 'n2' @ lib!
+        'n2' @ 'cn' ! .
+[[ 2 ]] drop .
+;
+
+def pdc3 :-
+[[ 1 ]] word 'op' ! ... .
+[[ 2 ]] 'op' @ 'x' = .
+[[ 3 ]] 'op' @ '.' = .
+[[ 4 ]] 'op' @ 'end' = "-1" lisw' ! . /* break */
+[[ 5 ]] word drop word 'yescell' ! 
+        'cn' @ 'op' dup @ lib!
+        'cn' @ 'yescell' dup @ lib!
+        'cn' @ 'nocell' "-99" lib!
+        tail. .
+;
+/* -- bbox -- */
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 2 ]] b2 tail. .
+;
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
+;
+
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+@endend @endend @endend 

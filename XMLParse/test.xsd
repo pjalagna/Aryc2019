@@ -1,25 +1,25 @@
-<?schema satts="one" monk='TV show'?>
+<?schema name='employer-contacts' version='04/20/2020-1300'?>
 <!-- contact info -->
-<contacts>
+<contacts id=100>
 <element name="contact" id="abc">
     <complex>
         <sequence>
-            <element name="Fname" id="fnid" maxoccurs="1" type="string"/>
-            <element name="Lname" id="lnid" maxoccurs="1" type="string"/>
+            <element name="Fname" maxoccurs="1" type="string" id='ccf-1/>
+            <element name="Lname" id="ccl-1" maxoccurs="1" type="string"/>
             <element name="Phone" 
-                     id="pnid" minOccurs="0" maxoccurs="unbounded" type="string"/>
+                     id="cce-1" minOccurs="0" maxoccurs="unbounded" type="string"/>
         </sequence>
     </complex>
 </element>
-<annotation>
-    <description> info </description>
+<annotation id='an-c>
+    <description id='ccad'> info </description>
 </annotation>
 </contacts>
 
 <element name='person' ref="contact" id="mno"/>
 
 <!-- vendor info -->
-<element name='vendor' id='Epqr'>
+<element name='vendor' id='v'>
     <complex>
         <sequence>
             <element name="mainContact" ref="person" id='vper'/>
@@ -38,8 +38,8 @@
         </sequence>
     </complex>
 </element>
-<annotation>
-    <description> info </description>
+<annotation id='sa'>
+    <description id='sad'> info </description>
 </annotation>
 </suppliers>
 

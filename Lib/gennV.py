@@ -1,6 +1,7 @@
 m= """
 file genn.py
 create uid
+pja 04-20-2020 changed time.time to asctime + clock
 pja 01-10-2020
 use with takeV verb in basii
 """
@@ -24,7 +25,8 @@ def main( p , v=m ):
 #end main
 def genX(p):
     import time
-    j = "X" + time.time().__str__()
+    j = "X" + time.asctime() + time.clock().__str__() 
+    j = j.replace(' ',"X")
     # push j
     p['sy']['push'](j)
     # push ok

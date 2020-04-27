@@ -1,14 +1,95 @@
-/* 
-file xsdP.basii
+{{
+file xsdP.PD
 xsd parser
+pja 04-20-2020 testing
+-------- added RDFWrite
 pja 4-16-2020 rewrite see graphml
 pja 4-8-2020 rewrite
 pja 4-1-2020 rewrite
 pja 03-31-2020
-*/
-xsdP.py
-def xbegin :-
-[[ 1 ]] xsdVersion xsdInit "L1" step . ;
+
+2 - xbegin
+100 - xioi
+300 - xioo
+1000 - version
+2000 - 'xsdInit
+3000 - parentPlus
+
+debug at 10000
+}} 
+drop
+'pd2020V'
+takeV
+PDInit
+l0
+{{
+"xbegin" drop
+2 [[ call/1000/3 ]] ->
+3 [[ call/2000/4 ]] --> 4 .
+4 [[ ]] -> -99 .
+
+1000 [[  
+'xsd Version 2020-04-2020-2025' msg endcall  ]] .
+
+2000 [[
+'xsdInit' drop
+'xsd file name' ask dup 'xsdfn' ! 
+'heapV' takeV heapInit
+'fileV' takeV 
+"xdb.db" "SQV" takeV
+"TRCV" takeV
+"gennV" takeV
+"arV" takeV 
+'xsdfn' @ f@ 'cxsdfn' !
+TRCV+ TRCV0
+"0" 'xfpos' ! 
+"/* parse position */" drop
+"0" 'pu' ! 
+"/* pickup position */" drop
+"/* set garbage collection list */" drop
+ar0 "GCL" ! "0" 'GCLix' !
+"/* set parent */" drop
+ar0 'parents' !
+"0" 'parentIX' ! ]] -> 2010 . 
+2010 [[ '' call/3000/2020 ]] -->
+2020 [[
+"/* set attribute list */" drop
+dr0 'attList' !
+"0" 'epos' ! 
+"/* pickup position */ " drop
+endcall 
+]] .
+
+3000 [[
+"parentsPlus - 3000" drop
+'parentIX' @ 'parents' @ ar! 'parents' !
+'parentIX' @++ drop 
+endcall
+]] .
+
+100 [[
+"xioi" drop
+'xpos=(' 'xfpos' @ cat ")" cat msg 
+'cxsdfn' @ 'xfpos' @ cut 
+drop swap drop
+c1 'xfpos' @++ drop dup
+'ans=(' swap  cat ")" cat msg 
+endcall ]] .
+
+300 [[
+'xioo' drop
+'xfpos' @-- drop .
+endcall
+]] .
+
+end
+}}
+PDC
+xxxxxxxxxxx
+
+def xbegin :- [[ 2 ]] 
+xsdVersion xsdInit 
+"L1" step . ;
 
 def L1 :-
 [[ 1 ]] 
@@ -18,9 +99,16 @@ def L1 :-
 
 def p1 :-
 /* stops on the < */
-[[ 1 ]] xioi "<" = xioo . 
+[[ 200 ]] xioi 'mp1' ! ... .
+[[ 2 ]] 'mp1' @ "<" = xioo . 
 [[ 2 ]] tail. .
 ;
+200 [[ call/xioi/201 ]] --> 
+201 [[ 'mp1' ! ]] -> 
+202 [[ "<" = call/xioo/203 ]] . 
+203 [[ endcall ]] .             
+201.205 [[ ]] -> 200 . 
+
 def L1a1 :-
 [[ 1 ]] xioi 'dl1.1' ! "fan1" step .
 ;
@@ -201,29 +289,8 @@ def lastChk :-
 [[ 3 ]] 'expected > got ' 'dlastc' @ cat ' instead at position (' cat 'xpos' @ cat ')' cat "abort" step .
 ;
 
-def xsdInit :-
-[[ 1 ]] 'xsd file name' ask dup 'xsdfn' ! 
-        'fileV' takeV 
-        "xdb.db" "SQV" takeV
-        "TRCV" takeV
-        "gennV" takeV
-        "arV" takeV
-        'xsdfn' @ f@ 'cxsdfn' !
-        TRCV0 TRCV+
-        "0" 'xfpos' ! /* parse position */
-        "0" 'pu' ! /* pickup position */
-        /* set garbage collection list */
-        ar0 "GCL" !
-        "0" 'GCLix' !
-        /* set parent */
-        ar0 'parents' !
-        "0" 'parentIX' !
-        '' "parentPlus" step
-        /* set attribute list */
-        dr0 'attList' !
-        "0" 'epos' ! /* pickup position */  
-        .
-;
+def xsdInit :-[[ 2000 ]] ;
+
 def parentPlus :-
 /* (na,,) */
 [[ 1 ]] 'parentIX' @ 'parents' @ ar! 'parents' !
@@ -259,7 +326,7 @@ def XlabelFinal :-
 /* xioo,xioi,xxio1 */
 
 def xioi :-
-[[ 1 ]] 
+[[ 100 ]] 
 'xpos=(' 'xfpos' @ cat ")" cat msg 
 'cxsdfn' @ 'xfpos' @ cut 
 drop swap drop
@@ -288,50 +355,51 @@ def step :-
 [[ 3 ]] bmain .
 ;
 def writeRecords :-
-[[ 1 ]] 'stump for now' msg 
-/* writeRDF parents{} last,last-1
-writeProfile na-[attList]
-*/
-.s dumpNDS '??' ask .
+[[ 1 ]]  "RDFWrite" step 
+       "writeProfile" step
+       .
 ;
 
-/* bbox */
-
-def bmain :-
-[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
-[[ 2 ]] b2 tail. .
-;
-def Ver :-
-[[ 1 ]]   "bbox version 3.29b.XX" msg .
-;
-
-def b2 :-
-[[ 1 ]] 'bb' @ len ==0 . 
-[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
-[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
-[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
-[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
-[[ 6 ]] 'bb' @  ==pop msg . 
-[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
-[[ 8 ]] 'bb' @  .X .
-[[ 9 ]] "failed" msg .
+def writeProfile :-
+[[ 1 ]] "6" h^ 
+       /* [1-ix 2-atlist 3-atn 4-atv 5-en 6-max] */
+       "0" "1" h!
+       "dcfan2" @ "5" h!
+       "attList" @ drK "2" h!
+       "2" h@ len "6" h! 
+       "perProfile" step hx .
 ;
 
-def bcollect :- 
-[[ 1 ]] '&' ask ... .
-[[ 2 ]] dup '}}' = drop  .
-[[ 3 ]] cats tail. .
+def perProfile :-
+[[ 1 ]] "1" h@ ix "6" h@ <> 
+     "2" h@ ar@ "3" h!
+     "1" h@ "1" + "1" h! 
+     "3" h@ "attList" @  dr@ "4" h!
+     /* TRCV record */
+     'profile' "5" h@ "3" h@ "4" h@ TRCV!
+     tail. .
+[[ 2 ]] .
+;
+
+def RDFWrite :-
+[[ 1 ]] "2" h^
+    'parents' @ len "1" -
+    'parents'@ ar@ /* last parent */
+    "1" h! /* stored in h1 */
+    'parents' @ len "2" -
+    'parents' @ ar@ /* last-1 */
+    "2" h! /* stored in h2 */
+    /* build TRCV records */
+    'RDF' "2" h@ 'child' "1" h@ 
+    TRCV!
+    'RDF' "1" h@ 'parent' "2" h@ TRCV!
+hx .
 ;
 
 /* version */
-def xsdVersion :-
-[[ 1 ]] 'xsd Version 2020-04-17-2010' msg .
-;
 
-@endend @endend @endend 
-import useLib
-import basiiHelper
-basiiHelper.main('xsdP.basii')
+@endend @endend @endend
+ 
 
 import useLib
 import xsdP

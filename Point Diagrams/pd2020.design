@@ -1,0 +1,70 @@
+/* file pd2020.design
+pja 4-24-2020
+{{
+    2 [[ "test one" msg ]] . end 
+}}
+'script'
+!
+
+*/
+ cell  "[["  op  Sp+  "]]"  {'x', -->  {yescell,'x'}}
+cell.cell2 set cell['nocell']=cell2
+
+def pdc20a :-
+[[ 1 ]] 'script' @ dup "0" ' \r\t' tillNor 
+         cut 'script' ! 
+        'cell' !  drop .
+;
+def pdc20b :-
+[[ 1 ]] 'script' @ word drop 'script' ! /* [[ */
+        '1' 'seq' !
+        .
+;
+def pdc20b2 :-
+[[ 1 ]] 'script' @ word 'cex' ! 'script' ! ... .
+[[ 2 ]] 'cex' @ 'x' = 'is x' msg .
+[[ 3 ]] 'not x' msg .
+;
+
+def pdc20c :-
+[[ 1 ]] 'script' @  word 'cop' ! 'script' ! ... .
+[[ 2 ]] 'cop' @ ']]' = .
+[[ 3 ]] /* cell,seq,val,, */ 
+        'cell' @ 'seq' @++ 'cop' @
+        setop tail. .
+;
+
+
+p['l'][cell]['op'][seq]=op getop(cell,#,,val)
+p['l'][cell]['yescell']=n  getn(cell,name)
+p['l'][cell]['nocell']=n
+
+initop (cell,,)
+cell,'op',{} lib!
+
+setop(cell,seq,val,,)
+5 h^ 1-cell, 2-seq, 3-val 4-{op} 5-{x+}
+lib@ (cell,'op') -> 4 h!
+v,n,{} dr! -> {x+} 5 h!
+ (1cell,'op',5 h@) lib!
+hx
+
+getop(cell,seq,,val)
+3 h^ # 1-cell 2-seq 3-lib@ 
+2 h! -seq
+1 h! -cell
+ (1cell,'op') lib@ -> 3 h!
+ #drAt #(name,{},,val)
+2seq 3@ dr@ -> val
+hx
+
+
+
+
+
+
+
+
+
+
+

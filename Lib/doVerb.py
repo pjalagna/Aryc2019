@@ -6,6 +6,10 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 04-25-2020 added l0 clear lib
+pja 04-23-2020 added tillNor, lib@, lib!
+-------------- "find" fails if needle not found
+pja 04-21-2020 added tillor
 pja 04-12-2020 added .l,l@,l!,.l? and rwd
 -------------- added loadCode w/ code + :: + name
 -------------- added protected
@@ -179,9 +183,144 @@ def init(p,m=m):
     p['help']['rwd'] = "rwd (,,word of r)"
     p['sy']['protected'] = protected
     p['help']['protected'] = "protected (cmd,,) system safe ok/nok"
+    p['sy']['tillor'] = tillor
+    p['help']['tillor'] = "(str,ctr,strList,,ctr') till in list ok/nok"
+    p['sy']['tillNor'] = tillNor
+    p['help']['tillNor'] = "(str,ctrName,strList,,str') till not in list ok/nok"
+    p['sy']['lib@'] = libatt
+    p['help']['lib@'] = '(r,c,,v) from lib ok/nok'
+    p['sy']['lib!'] = libbang
+    p['help']['lib!'] = '(r,c,v,,) into lib'
+    p['sy']['l0'] = libzero
+    p['help']['l0'] = 'reset lib'
+    p['sy']['slice'] = slice
+    p['help']['slice'] = '(bo,fo,str,,str[fo:bo])'
     return(p)
 #end init
 ##- doverb.py:codespace 0 -##
+def slice(p):
+    #'(bo,fo,str,,str[fo:bo])'
+    str = p['sy']['pop']()
+    fo = p['sy']['pop']()
+    bo = p['sy']['pop']()
+    fo = int(fo)
+    bo = int(bo)
+    try:
+        ans = str[fo:bo]
+        p['sy']['push'](ans)
+        p['sy']['push'](p['OK'])
+    except:
+        p['sy']['push'](p['NOK'])
+    finally:
+        nop = 1
+    #
+#
+def libzero(p):
+    # clear lib
+    p['l'] = {}
+    p['sy']['push'](p['OK'])
+#
+def libbang(p): # (r,c,v,,)
+    v = p['sy']['pop']()
+    c = p['sy']['pop']()
+    r = p['sy']['pop']()
+    try:
+        x = p['l'][r]
+    except:
+        p['l'][r]={}
+    finally:
+        nop = 0
+    #
+    try:
+        x = p['l'][r][c]
+        p['l'][r][c] = v
+    except:
+        p['l'][r][c]=v
+    finally:
+        nop = 1
+    #
+    p['sy']['push'](p['OK'])
+#
+def libatt(p):
+    c = p['sy']['pop']()
+    r = p['sy']['pop']()
+    try:
+        ans = p['l'][r][c]
+        p['sy']['push'](ans)
+        p['sy']['push'](p['OK'])
+    except:
+        p['sy']['push'](p['NOK'])
+    finally:
+        nop =0
+    #
+# end lib@
+def tillor(p):
+    #rint('needs work')
+    #"(workStr,ctr,strList,,ctr')  ok/nok"
+    strList = p['sy']['pop']()
+    ctr = p['sy']['pop']()
+    workStr = p['sy']['pop']()
+    # -- 
+    ctr = int(ctr) -1
+    ctrStart = ctr
+    if (ctr < len(workStr)):
+        sw = 0
+        while(sw == 0):
+            ctr=ctr+1
+            sw = 0
+            #rint("work[ctr]=(" + workStr[ctr] + ")")
+            for m in range(strList.__len__()):
+                j = workStr[ctr]
+                #rint("l-sl[m]=(" + strList[m] + ")")
+                if (j == strList[m]):
+                    sw = 1 #break
+                #endif
+                #rint("l-sw=(" + sw.__str__() + ")")
+            #endfor
+            #rint("sw=(" + sw.__str__() + ")")
+        #wend
+        p['sy']['push'](ctr)
+        p['sy']['push'](p['OK'])
+        # return(ctr) # test
+    else:
+        #push nok
+        p['sy']['push'](p['NOK'])
+#end tillor
+def tillNor(p):
+    #rint('needs work')
+    #"(workStr,ctr,strList,,ctr')  ok/nok"
+    strList = p['sy']['pop']()
+    ctr = p['sy']['pop']()
+    workStr = p['sy']['pop']()
+    # -- 
+    ctr = int(ctr) -1
+    if (ctr < len(workStr)):
+        sw = 0
+        while(sw == 0):
+            ctr=ctr+1
+            sw = 0
+            #rint("work[ctr]=(" + workStr[ctr] + ")")
+            k = 0
+            for m in range(strList.__len__()):
+                j = workStr[ctr]
+                #rint("l-sl[m]=(" + strList[m] + ")")
+                if (j <> strList[m]):
+                    k = k+1
+                #endif
+                #rint("l-sw=(" + sw.__str__() + ")")
+            #endfor
+            if (k == len(strList)):
+                sw = 1 #break
+            #endif
+            #rint("sw=(" + sw.__str__() + ")")
+        #wend
+        p['sy']['push'](ctr)
+        p['sy']['push'](p['OK'])
+        # return(ctr) # test
+    else:
+        #push nok
+        p['sy']['push'](p['NOK'])
+#end tillNor
 def protected(p):
     # (cmd,,) ok/nok
     cmd = p['sy']['pop']()
@@ -641,8 +780,12 @@ def find(p):
     haystack = p['sy']['pop']()
     pos = haystack.find(needle)
     sp = pos.__str__()
-    p['sy']['push'](sp)
-    p['sy']['push'](p['OK'])
+    if (pos <> -1):
+        p['sy']['push'](sp)
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
 #end find
 def cut(p):
     if (p['v']['trace'] == 'on'):

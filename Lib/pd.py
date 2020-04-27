@@ -1,11 +1,1303 @@
 
-#file bbox.py
-#generated for bbox.basii at Sun Mar 29 18:03:40 2020 
+#file pd.py
+#generated for pd.basii at Thu Apr 23 11:35:29 2020 
 
 # usage 
 # import xx
 # xx.main(startpoint)
 # xx.start(trace)
+
+ 
+def pdc_1():
+    global p
+    logg('pdc_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc-1 processing text ')
+    logg("""0""")
+    if (r == p['OK']):
+        logg('push text ' + """0""")
+        datPush("0")
+        logg('after ' + """0""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc-1 processing text ')
+    logg("""lisw""")
+    if (r == p['OK']):
+        logg('push text ' + """lisw""")
+        datPush("lisw")
+        logg('after ' + """lisw""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc-1 processing verb ( pdc2 ) ')
+    if (r == p['OK']):
+        logg('call pdc2 ')
+        p['sy']['pdc2'](p)
+        logg('after pdc2')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc_1')
+#end pdc_1
+
+def pdc (x):
+    global p
+    logg('begin pdc')
+    ## point of umbrella
+    pdcCtl = 1 # starting spoke
+    while pdcCtl != 0:
+        logg('loop pdcCtl = ' + pdcCtl.__str__())
+        if (pdcCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (pdcCtl == 1):
+            logg('call pdc_1')
+            pdc_1()
+            logg('after call pdc_1')
+            # test and adjust for new spoke
+            pdcCtl = chk(pdcCtl)
+
+        else:
+            #final
+            logg('final pdc')    
+            pdcCtl = 0 # break
+        #endif
+    #wend
+#end pdc
+
+def pdc2_1():
+    global p
+    logg('pdc2_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc2-1 processing text ')
+    logg("""lisw""")
+    if (r == p['OK']):
+        logg('push text ' + """lisw""")
+        datPush("lisw")
+        logg('after ' + """lisw""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-1 processing text ')
+    logg("""0""")
+    if (r == p['OK']):
+        logg('push text ' + """0""")
+        datPush("0")
+        logg('after ' + """0""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-1 processing verb ( <> ) ')
+    if (r == p['OK']):
+        logg('call <> ')
+        p['sy']['<>'](p)
+        logg('after <>')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc2_1')
+#end pdc2_1
+
+def pdc2_2():
+    global p
+    logg('pdc2_2')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc2-2 processing verb ( word ) ')
+    if (r == p['OK']):
+        logg('call word ')
+        p['sy']['word'](p)
+        logg('after word')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-2 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-2 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-2 processing verb ( ... ) ')
+    if (r == p['OK']):
+        logg('call ... ')
+        p['sy']['...'](p)
+        logg('after ...')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc2_2')
+#end pdc2_2
+
+def pdc2_3():
+    global p
+    logg('pdc2_3')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc2-3 processing verb ( ckcn ) ')
+    if (r == p['OK']):
+        logg('call ckcn ')
+        p['sy']['ckcn'](p)
+        logg('after ckcn')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-3 processing verb ( ... ) ')
+    if (r == p['OK']):
+        logg('call ... ')
+        p['sy']['...'](p)
+        logg('after ...')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc2_3')
+#end pdc2_3
+
+def pdc2_4():
+    global p
+    logg('pdc2_4')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc2-4 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-4 processing text ')
+    logg("""end""")
+    if (r == p['OK']):
+        logg('push text ' + """end""")
+        datPush("end")
+        logg('after ' + """end""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-4 processing verb ( = ) ')
+    if (r == p['OK']):
+        logg('call = ')
+        p['sy']['='](p)
+        logg('after =')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc2_4')
+#end pdc2_4
+
+def pdc2_5():
+    global p
+    logg('pdc2_5')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc2-5 processing verb ( pdc3 ) ')
+    if (r == p['OK']):
+        logg('call pdc3 ')
+        p['sy']['pdc3'](p)
+        logg('after pdc3')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc2-5 processing verb ( tail. ) ')
+    if (r == p['OK']):
+        logg('call tail. ')
+        p['sy']['tail.'](p)
+        logg('after tail.')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc2_5')
+#end pdc2_5
+
+def pdc2 (x):
+    global p
+    logg('begin pdc2')
+    ## point of umbrella
+    pdc2Ctl = 1 # starting spoke
+    while pdc2Ctl != 0:
+        logg('loop pdc2Ctl = ' + pdc2Ctl.__str__())
+        if (pdc2Ctl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (pdc2Ctl == 1):
+            logg('call pdc2_1')
+            pdc2_1()
+            logg('after call pdc2_1')
+            # test and adjust for new spoke
+            pdc2Ctl = chk(pdc2Ctl)
+
+        elif (pdc2Ctl == 2):
+            logg('call pdc2_2')
+            pdc2_2()
+            logg('after call pdc2_2')
+            # test and adjust for new spoke
+            pdc2Ctl = chk(pdc2Ctl)
+
+        elif (pdc2Ctl == 3):
+            logg('call pdc2_3')
+            pdc2_3()
+            logg('after call pdc2_3')
+            # test and adjust for new spoke
+            pdc2Ctl = chk(pdc2Ctl)
+
+        elif (pdc2Ctl == 4):
+            logg('call pdc2_4')
+            pdc2_4()
+            logg('after call pdc2_4')
+            # test and adjust for new spoke
+            pdc2Ctl = chk(pdc2Ctl)
+
+        elif (pdc2Ctl == 5):
+            logg('call pdc2_5')
+            pdc2_5()
+            logg('after call pdc2_5')
+            # test and adjust for new spoke
+            pdc2Ctl = chk(pdc2Ctl)
+
+        else:
+            #final
+            logg('final pdc2')    
+            pdc2Ctl = 0 # break
+        #endif
+    #wend
+#end pdc2
+
+def ckcn_1():
+    global p
+    logg('ckcn_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( dup ) ')
+    if (r == p['OK']):
+        logg('call dup ')
+        p['sy']['dup'](p)
+        logg('after dup')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg(""":""")
+    if (r == p['OK']):
+        logg('push text ' + """:""")
+        datPush(":")
+        logg('after ' + """:""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( find ) ')
+    if (r == p['OK']):
+        logg('call find ')
+        p['sy']['find'](p)
+        logg('after find')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""n2""")
+    if (r == p['OK']):
+        logg('push text ' + """n2""")
+        datPush("n2")
+        logg('after ' + """n2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( drop ) ')
+    if (r == p['OK']):
+        logg('call drop ')
+        p['sy']['drop'](p)
+        logg('after drop')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""n1""")
+    if (r == p['OK']):
+        logg('push text ' + """n1""")
+        datPush("n1")
+        logg('after ' + """n1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""n1""")
+    if (r == p['OK']):
+        logg('push text ' + """n1""")
+        datPush("n1")
+        logg('after ' + """n1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""nocell""")
+    if (r == p['OK']):
+        logg('push text ' + """nocell""")
+        datPush("nocell")
+        logg('after ' + """nocell""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""n2""")
+    if (r == p['OK']):
+        logg('push text ' + """n2""")
+        datPush("n2")
+        logg('after ' + """n2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( lib! ) ')
+    if (r == p['OK']):
+        logg('call lib! ')
+        p['sy']['lib!'](p)
+        logg('after lib!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""n2""")
+    if (r == p['OK']):
+        logg('push text ' + """n2""")
+        datPush("n2")
+        logg('after ' + """n2""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for ckcn-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final ckcn_1')
+#end ckcn_1
+
+def ckcn_2():
+    global p
+    logg('ckcn_2')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for ckcn-2 processing verb ( drop ) ')
+    if (r == p['OK']):
+        logg('call drop ')
+        p['sy']['drop'](p)
+        logg('after drop')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final ckcn_2')
+#end ckcn_2
+
+def ckcn (x):
+    global p
+    logg('begin ckcn')
+    ## point of umbrella
+    ckcnCtl = 1 # starting spoke
+    while ckcnCtl != 0:
+        logg('loop ckcnCtl = ' + ckcnCtl.__str__())
+        if (ckcnCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (ckcnCtl == 1):
+            logg('call ckcn_1')
+            ckcn_1()
+            logg('after call ckcn_1')
+            # test and adjust for new spoke
+            ckcnCtl = chk(ckcnCtl)
+
+        elif (ckcnCtl == 2):
+            logg('call ckcn_2')
+            ckcn_2()
+            logg('after call ckcn_2')
+            # test and adjust for new spoke
+            ckcnCtl = chk(ckcnCtl)
+
+        else:
+            #final
+            logg('final ckcn')    
+            ckcnCtl = 0 # break
+        #endif
+    #wend
+#end ckcn
+
+def pdc3_1():
+    global p
+    logg('pdc3_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc3-1 processing verb ( word ) ')
+    if (r == p['OK']):
+        logg('call word ')
+        p['sy']['word'](p)
+        logg('after word')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-1 processing text ')
+    logg("""op""")
+    if (r == p['OK']):
+        logg('push text ' + """op""")
+        datPush("op")
+        logg('after ' + """op""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-1 processing verb ( ... ) ')
+    if (r == p['OK']):
+        logg('call ... ')
+        p['sy']['...'](p)
+        logg('after ...')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc3_1')
+#end pdc3_1
+
+def pdc3_2():
+    global p
+    logg('pdc3_2')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc3-2 processing text ')
+    logg("""op""")
+    if (r == p['OK']):
+        logg('push text ' + """op""")
+        datPush("op")
+        logg('after ' + """op""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-2 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-2 processing text ')
+    logg("""x""")
+    if (r == p['OK']):
+        logg('push text ' + """x""")
+        datPush("x")
+        logg('after ' + """x""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-2 processing verb ( = ) ')
+    if (r == p['OK']):
+        logg('call = ')
+        p['sy']['='](p)
+        logg('after =')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc3_2')
+#end pdc3_2
+
+def pdc3_3():
+    global p
+    logg('pdc3_3')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing text ')
+    logg("""op""")
+    if (r == p['OK']):
+        logg('push text ' + """op""")
+        datPush("op")
+        logg('after ' + """op""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing text ')
+    logg("""end""")
+    if (r == p['OK']):
+        logg('push text ' + """end""")
+        datPush("end")
+        logg('after ' + """end""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing verb ( = ) ')
+    if (r == p['OK']):
+        logg('call = ')
+        p['sy']['='](p)
+        logg('after =')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing text ')
+    logg("""-1""")
+    if (r == p['OK']):
+        logg('push text ' + """-1""")
+        datPush("-1")
+        logg('after ' + """-1""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing text ')
+    logg("""lisw""")
+    if (r == p['OK']):
+        logg('push text ' + """lisw""")
+        datPush("lisw")
+        logg('after ' + """lisw""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-3 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc3_3')
+#end pdc3_3
+
+def pdc3_4():
+    global p
+    logg('pdc3_4')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( word ) ')
+    if (r == p['OK']):
+        logg('call word ')
+        p['sy']['word'](p)
+        logg('after word')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( drop ) ')
+    if (r == p['OK']):
+        logg('call drop ')
+        p['sy']['drop'](p)
+        logg('after drop')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( word ) ')
+    if (r == p['OK']):
+        logg('call word ')
+        p['sy']['word'](p)
+        logg('after word')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""yescell""")
+    if (r == p['OK']):
+        logg('push text ' + """yescell""")
+        datPush("yescell")
+        logg('after ' + """yescell""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""op""")
+    if (r == p['OK']):
+        logg('push text ' + """op""")
+        datPush("op")
+        logg('after ' + """op""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( dup ) ')
+    if (r == p['OK']):
+        logg('call dup ')
+        p['sy']['dup'](p)
+        logg('after dup')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( lib! ) ')
+    if (r == p['OK']):
+        logg('call lib! ')
+        p['sy']['lib!'](p)
+        logg('after lib!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""yescell""")
+    if (r == p['OK']):
+        logg('push text ' + """yescell""")
+        datPush("yescell")
+        logg('after ' + """yescell""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( dup ) ')
+    if (r == p['OK']):
+        logg('call dup ')
+        p['sy']['dup'](p)
+        logg('after dup')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( lib! ) ')
+    if (r == p['OK']):
+        logg('call lib! ')
+        p['sy']['lib!'](p)
+        logg('after lib!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""cellNo""")
+    if (r == p['OK']):
+        logg('push text ' + """cellNo""")
+        datPush("cellNo")
+        logg('after ' + """cellNo""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""nocell""")
+    if (r == p['OK']):
+        logg('push text ' + """nocell""")
+        datPush("nocell")
+        logg('after ' + """nocell""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing text ')
+    logg("""-99""")
+    if (r == p['OK']):
+        logg('push text ' + """-99""")
+        datPush("-99")
+        logg('after ' + """-99""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( lib! ) ')
+    if (r == p['OK']):
+        logg('call lib! ')
+        p['sy']['lib!'](p)
+        logg('after lib!')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for pdc3-4 processing verb ( tail. ) ')
+    if (r == p['OK']):
+        logg('call tail. ')
+        p['sy']['tail.'](p)
+        logg('after tail.')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final pdc3_4')
+#end pdc3_4
+
+def pdc3 (x):
+    global p
+    logg('begin pdc3')
+    ## point of umbrella
+    pdc3Ctl = 1 # starting spoke
+    while pdc3Ctl != 0:
+        logg('loop pdc3Ctl = ' + pdc3Ctl.__str__())
+        if (pdc3Ctl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (pdc3Ctl == 1):
+            logg('call pdc3_1')
+            pdc3_1()
+            logg('after call pdc3_1')
+            # test and adjust for new spoke
+            pdc3Ctl = chk(pdc3Ctl)
+
+        elif (pdc3Ctl == 2):
+            logg('call pdc3_2')
+            pdc3_2()
+            logg('after call pdc3_2')
+            # test and adjust for new spoke
+            pdc3Ctl = chk(pdc3Ctl)
+
+        elif (pdc3Ctl == 3):
+            logg('call pdc3_3')
+            pdc3_3()
+            logg('after call pdc3_3')
+            # test and adjust for new spoke
+            pdc3Ctl = chk(pdc3Ctl)
+
+        elif (pdc3Ctl == 4):
+            logg('call pdc3_4')
+            pdc3_4()
+            logg('after call pdc3_4')
+            # test and adjust for new spoke
+            pdc3Ctl = chk(pdc3Ctl)
+
+        else:
+            #final
+            logg('final pdc3')    
+            pdc3Ctl = 0 # break
+        #endif
+    #wend
+#end pdc3
 
 def bmain_1():
     global p
@@ -1219,6 +2511,22 @@ def main(startpoint,trace='off'):
     prepSy()
     p['OK'] = 'pOK'
     p['NOK'] = 'pNOK'
+
+    # paragraph pdc
+    p['sy']['pdc'] = pdc
+    #
+
+    # paragraph pdc2
+    p['sy']['pdc2'] = pdc2
+    #
+
+    # paragraph ckcn
+    p['sy']['ckcn'] = ckcn
+    #
+
+    # paragraph pdc3
+    p['sy']['pdc3'] = pdc3
+    #
 
     # paragraph bmain
     p['sy']['bmain'] = bmain
