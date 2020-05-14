@@ -1,0 +1,21 @@
+k1 = mxml['first']['KRI'].keys()[0]
+k2 = mxml[k1]['cnx'].keys()[0]
+k3 = mxsd[k2][mxsd[k2].keys()[0]].keys()[0]
+
+'first' "KRI" - kri
+"parentKRI" pki - kri
+<atn> <atv> - kri
+<atv> <atn> - kri
+"NAME" <atn> - kri
+"NAME" <atv> - kri
+"pickup" # - kri
+"ATN" (<atn>=<atv>) - kri
+"ATV" (<atv>=<atn>) - kri
+
+kri <atn> - <atv>
+kri <atv> - <atn>
+kri parentKRI - pki
+kri "parentPickup" - ppu
+kri 'pickup' - pu
+kri 'FILE' - filename
+kri 'elementHoldPU' pu of element parent of complexType

@@ -1,0 +1,25 @@
+<schema xmlns:basii>
+<class Name='hello'>
+    <classBody>
+        <data Name='firstName'/>
+        <signal Name='init'>
+            <basii:paragraph Name='hello1'>
+                <basii:clauses>
+                    <basii:clause Name='1'>
+                        <basii:verb type="basii:literal" value='Hello '/>
+                        <basii:verb type="basii:literal" value='first name'/>
+                        <basii:verb operator='ask'/>
+                        <basii:verb operator='!' dataPoint='firstName'/>
+                        <basii:verb operator='cat'/>
+                        <!-- display -->
+                        <basii:verb operator='pop'/>    
+                    <basii:clauseName>1<basii:clauseName>
+                    </basii:clause>
+                </basii:clauses>
+            <basii:paragraphName>hello1</basii:paragraphName>
+            </basii:paragraph>
+        <signalName>init</signalName>
+        </signal>
+    </classBody>
+<className>hello</className>
+</schema>

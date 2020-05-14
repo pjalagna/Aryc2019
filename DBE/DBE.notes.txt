@@ -1,0 +1,43 @@
+file DBE.notes.txt
+pja 05/12/2020
+
+
+crud flag    + aux flag               + CVFlag
+====================================================
+help /''     +                        +
+create       + table                  + name
+capture      + rid                    +
+read / seek  + structure/table/
+               record/col/keys        + name/[{limits}[c=v]]
+update       + dups/not/add breaker   + name/[{limits}[c=v]]
+delete       + table/record/col       + name/[{limits}[c=v]]
+DONE
+
+DBE(crudFlag,auxFlag='',CVFlag='')
+    crudFlag fan
+        help
+        ''
+        create known
+        capture known
+        read
+        -- structure known
+        -- table known
+        -- record 
+        -- col 
+        -- keys
+        seek
+        -- structure
+        -- table
+        -- record
+        -- col
+        -- keys
+        update
+        -- dups
+        -- no
+        -- add
+        delete
+        -- table
+        -- record
+        -- col
+        DONE
+

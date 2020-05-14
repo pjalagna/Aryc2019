@@ -1,0 +1,16 @@
+super language for meta names
+-human approach 
+--per meta name
+--- pick a superName from list by description
+---- register transfer parameters
+---- TRCV ('transfer',<dbName>2Super,<myMetaName>,<superMetaName> )
+---- TRCV ('transfer',Super2<dbName>,<superMetaName>,<myMetaName> )
+---/
+-human assist approach
+--per meta name
+--- create candidate list from word/phrase popularity
+popularity(super meta data descriptions, my meta data descriptions)
+---- if previous runs have been done only the new meta names will produce candidates.
+----- special note: xml's created by the same xsd will inherit the same meta name and meta name description. 
+--- record TRCV
+--/

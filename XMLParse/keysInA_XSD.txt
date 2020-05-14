@@ -1,0 +1,43 @@
+file: keysInA_XSD.txt
+
+If we placed an identifier on every element in an XSD we would then expose 5 different types of identifiers.
+
+1- For those elements that have input-type** the annotation-description chain defines the meaning of this element as does the SKOS code**. 
+
+2- For those elements that are named (in any namespace**) "complexType" their parent identifier is a group-identifier.
+
+3- For those elements that are choices under a complexType-sequence chain:
+3a -  their identifier is a SKOS identifier. Also...
+3a1.a - if they have an input-type the identifier is also a data-switch** value of the group-identifier. 
+AND
+3a1.b it's sequence-order is the order-identifier** of the sequence.
+
+4- non of the above. for elements that have no input-type, are not tagged as "complexType" or are under a complextype-sequence chain their identifier is a provenance-identifier**.
+
+5- for all of the above. the Knowledge resource identifier (KRI) is developed to uniquely identify each element no matter what type. the best KRI can be developed from the identifier if stated or the index, name or tag name if unique. as a default the placement (pickup) order is unique (albiet temporary from version to version) and could therefor serve as a temporary place-marker KRI.
+
+definitions
+
+input-type**: 
+	A type of string,number,date,etc. I.E. those that define an input and a storage.
+
+the SKOS or definition identifier**. 
+	SKOS codes are those codes that are used to transfer meaning of information. as are the annotation-description chain under the element. I therefore consider them the same. for more on SKOS see link- https://www.w3.org/TR/2008/WD-skos-reference-20080829/skos.html
+
+definitions:
+
+in any namespace**: 
+	the "element", "complexType", "sequence" and "choice" tag names operate the same way in all XMLNS namespaces which makes any namespace on them a superfluous lollypop anyway.
+
+data-switch**: in data science if an element is subordinate to another element their is a defining variable to determine the type of subordinate it is. in the case of XSD's that variable name is unknown but its values are identified by this group of identifiers. I contend that the identifier of the master element (that element that precedes the "complexType" element) IS that variable name.
+
+order-identifier**: 
+	one of the things not explicitly recorded in XML is that all of the elements under a sequence element are in a strict order. I therefor captured that order of presence in the XSD as the "sequence-order" and add it to the attributes of the element.
+
+provenance-identifier**: 
+	we all use short cuts in naming things. you know me as "Paul" but when confronted with another "Paul" you will need to cure your ambiguity by expanding your formalism. in data science this expansion of formalism is performed by recording the provenance of the element. I.E. recording (in strict order) the parents of this element (usually held in a me-dad-grandpa... order). Just recording the switch points and end-points of our element's ancestry is not enough to prevent ambiguity. so each element that contributes to THIS element adds to this element's ancestry (provenance). 
+
+a sixth type of identifier comes from the XML.
+	During the recording/parsing of an XML report we might discover a peer element. Some elements are allowed to occur more than once in the XML report. for example two or more phone numbers for a customer. these peers are NOT identified uniquely in the XSD or the XML so a 6th type of identifier is needed - the Peer-Order-Identifier. During the capture/parsing of the XML this identifier is discovered and added to the attributes of the XML element.
+
+Paul Alagna

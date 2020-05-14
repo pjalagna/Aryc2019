@@ -1,0 +1,24 @@
+executable programs in a stream
+Paul Alagna
+
+
+Implementing executable programs in a stream has failed before. the most notable was created by Alonzo Church and Alan Turing in 1948.  They envisioned a program as a series of instructions written on punched paper tape that was read once and executed once. IE in a stream. Their failing came from several factors.
+
+1-streams don't go backwards part1
+One factor was the fact that once a tape moved it couldn't be revisited. (ie the stream is parsed once). that is the fate of XML files, but not of XSD files. XSD files are parsed once into a repository database. that repository is a collection of segments that can be searched at will and has the ability to "call" other segments (via "ref=" or "type=") OR even call other XSD file segments via (xmlns: tags)
+
+2-streams don't go backwards part2 (loops)
+Another shortcoming of a stream is that it can't loop.
+- Turing answered this by allowing multiple tape readers and the creation of a tape loop. Now, with 1948 in hindsight, XSD's have call procedures and maxoccurs='unbounded' and can be recursive - problem solved
+
+3-streams don't go backwards part3 (variables)
+- Turing & Church understood the concept of a dequeue. they just couldn't implement one easily . Fixed (constant) data was usable but variables that changed - awkward in a stream. With the advent of addressable memory the problems of variables in streams kind of died out. Till we get to non-writable reports like XML and XSD. The solution,today, is to use a named data store (NDS). the online world of the internet uses "cookies", the BASII (Business Actualization Scripts {for} Intelligent Information) architecture uses an array (named appropriately) NDS, a heap (named appropriately) HEAP, and a data stack (not so appropriately named) DAS. Moreover data these days is held with a profile. That a variable "todaysDate" is in DATE format is not enough. was that year-month-day? day-month-year? days since June 7 1954? (the day Alan Turing died). Is that array named? positional? ordered? none of the above?
+
+4-streams don't have directives
+- exception: are compiler directives
+- exception: are browser directives
+XML is a stream - directives must come first and there are no formal operations in XML to handle them except to skip stream segments.  BUT all of this disappears with a searchable XSD, a named data store and parameterized functions.
+
+
+
+            

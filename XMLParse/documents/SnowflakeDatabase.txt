@@ -1,0 +1,50 @@
+Snowflake Database
+file: SnowflakeDatabase.txt
+Paul Alagna  4/8/2020
+
+	A Snowflake database is in essence a JSON (Jason) data record searchable as a database.
+
+In general, all databases consist of dominions, domains, records, and values.
+Where:
+- dominions are the areas of interest - the set of domains.
+- Domains are named set of values. 
+- Records are the set of domain names with values that are scanned at the same time. These domain names come from the dominion but in aggregate do not have to be the complete dominion. 
+
+	Also included in every database is the key. These keys are unique identifiers that are established for every record scan. In a snowflake database these keys are called the knowledge resource indicator or KRI for short.
+	
+	A snowflake database (like a Jason data set) is in a hierarchical format. What makes a snowflake database unique is the positioning of its segments. 
+	
+	Snowflake database segments are: 
+1- "ATN" domainName Value :: an attribute segment. analogous to a column name and it's value.
+2- "ATV" Value domainName :: a reverse ATN.
+3- "KRI" kriValue
+4- the 'ds' segment consisting of a unique value for every duplicate*.
+
+	A Snowflake database in its smallest configuration consists of attribute segments and KRI segments in the following format:
+a-ATN;KRI;ds
+b-ATV;KRI;ds
+c-KRI;ATN;ds
+d-KRI;ATV;ds
+Duplicates are only considered for the complete configuration.
+
+	It's called a snowflake because all attributes lead to the  KRI and the KRI leads to it's attributes. no SQL required
+
+	Because all KRI's must be unique a UID segment is usually incorporated into the simple snowflake database for testing of the uniqueness of the KRI.
+e- "UID" value
+
+	All snowflake databases can produce a data warehouse.
+where: 
+- "ATN" is followed by the dominion.
+- "ATN"[DomainName] is followed by its domain value set. E.G. the domain tables.
+- "KRI" kriValue "ATN" will display the fact record.
+
+	internally a snowflake database can be kept in a 6 index (Python dictionary) array E.G.
+- [ATN][DomainName][Value][KRI][kri][ds] OR
+- [KRI][kri][ATN][DomainName][Value][ds] ..etc
+	
+	Snowflake databases can be added to.
+for example in XML/XSD parsing: parent KRI's are required for operational uses. As are sequence numbers, peer order numbers and KRI:SEQ, and KRI:PEER segments. 
+
+	A few pages of code and a full size database!
+	
+Paul.

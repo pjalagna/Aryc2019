@@ -1,0 +1,32 @@
+<!--
+file OOP.xsd
+pja 5/12/2020
+
+untested
+-->
+
+OO classes
+<class Name=''>
+    <classes ref='classBody' maxoccurs='unbounded'/>
+<className>Name</className>
+</class>
+
+<classBody>
+   [<inherits className=''/> 0:m]
+   [<data name='' ref=''/> 0:m]
+   <signal Name='' internalFlag=''>
+       <sequence>
+           <formula ref=''>
+               <parameter name='' type='string'/>    
+                   value
+                </parameter>
+           </formula>
+       </sequence>
+    <signalName>Name</signalName>
+</classBody>
+
+<object Name='' class='' extendsFlag=''>
+  ==classBody
+<objectName>Name</objectName>
+</object>
+

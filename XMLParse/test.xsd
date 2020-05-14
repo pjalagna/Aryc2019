@@ -1,57 +1,69 @@
-<?schema name='employer-contacts' version='04/20/2020-1300'?>
+<!--
+file test.xsd
+pja 5/4/2020 
+
+-->
+
+<schema name='employer-contacts' version='04/20/2020-1300'>
 <!-- contact info -->
-<contacts id=100>
-<element name="contact" id="abc">
-    <complex>
+<contacts identifier="100">
+<element name="contact" identifier="abc">
+    <complexType>
         <sequence>
-            <element name="Fname" maxoccurs="1" type="string" id='ccf-1/>
-            <element name="Lname" id="ccl-1" maxoccurs="1" type="string"/>
-            <element name="Phone" 
-                     id="cce-1" minOccurs="0" maxoccurs="unbounded" type="string"/>
+            <element name="Fname" maxoccurs="1" type="string" identifier='ccf-1'/>
+            <element name="Lname" identifier="ccl-1" maxoccurs="1" type="string"/>
+            <element name="Phone" identifier="cce-1" minOccurs="0" maxoccurs="unbounded" type="string"/>
         </sequence>
-    </complex>
+    </complexType>
 </element>
-<annotation id='an-c>
-    <description id='ccad'> info </description>
+<annotation identifier='an-c'>
+    <description identifier='ccad'> info </description>
 </annotation>
 </contacts>
 
-<element name='person' ref="contact" id="mno"/>
+<element test='ox' name='person' ref="contact" identifier="mno"/>
 
 <!-- vendor info -->
-<element name='vendor' id='v'>
-    <complex>
+<element name='vendor' identifier='v'>
+    <complexType>
         <sequence>
-            <element name="mainContact" ref="person" id='vper'/>
-            <element name="secondContact" ref="person" id="vper2"/>
+            <element name="mainContact" ref="person" identifier='vper'/>
+            <element name="secondContact" ref="person" identifier="vper2"/>
         </sequence>
-    </complex>
+    </complexType>
 </element>
 
 <!-- supplier info -->
 <suppliers>
-<element name='supplier' id='Spqr'>
-    <complex>
+<element name='supplier' identifier='Spqr'>
+    <annotation>
+        <documentation>
+        supplier: an entity (person, company or government) that delivers a good or service to you.
+        </documentation>
+    </annotation>
+    <complexType>
         <sequence>
-            <element name="mainContact" ref="person" id='sper'/>
-            <element name="secondContact" ref="person" id="sper2"/>
+            <element name="mainContact" ref="person" identifier='sper'/>
+            <element name="secondContact" ref="person" identifier="sper2"/>
         </sequence>
-    </complex>
+    </complexType>
 </element>
-<annotation id='sa'>
-    <description id='sad'> info </description>
+<annotation identifier='sa'>
+    <description identifier='sad'> info2 </description>
 </annotation>
 </suppliers>
 
-<element name=begin id="BBB">
-    <complex>
+<element name="begin" identifier="BBB">
+    <annotation>
+        <documentation>
+        begin: the place we start vendors then suppliers
+        </documentation>
+    </annotation>
+    <complexType>
         <sequence>
-            <element ref="vendor" id="bbven" minoccurs=0/>
-            <element ref="supplier" id="bbsu" minoccurs=0/>
+            <element ref="vendor" identifier="bbven" minoccurs="0"/>
+            <element ref="supplier" identifier="bbsu" minoccurs="0"/>
         </sequence>
-    </complex>
+    </complexType>
 </element>
 </schema>
-
-
-

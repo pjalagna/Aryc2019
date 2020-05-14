@@ -1,0 +1,82 @@
+<!-- 
+file BASII.xsd
+pja 5/12/2020
+
+-->
+<schema>
+<element Name='BASII'>
+    <annotation>
+        <documentation>
+        </documentation>
+    </annotation>
+    <complexType>
+        <sequence>
+            <paragraphs ref='paragraph' minoccurs='0' maxoccurs='unbounded'/>
+        </sequence>
+    </complexType>
+<elementName>BASII</elementName>
+</element>
+
+<element Name='paragraph'>
+    <annotation>
+        <documentation>
+        </documentation>
+    </annotation>
+    <complexType>
+        <sequence>
+            <clauses ref='clause' minoccurs='0' maxoccurs='unbounded'/>
+        </sequence>
+        <element Name='semi' type="string" fixed=';'/>
+    </complexType>
+<elementName>paragraph</elementName>
+</element>
+
+<element Name='clause'>
+    <annotation>
+        <documentation>
+        </documentation>
+    </annotation>
+    <complexType>
+        <sequence>
+            <verbs ref='verb' minoccurs='0' maxoccurs='unbounded'>
+        </sequence>
+        <element Name='period' type="string" fixed='.'/>
+    </complexType>
+<elementName>clause</elementName>
+</element>
+
+<element Name='verb'>
+    <annotation>
+        <documentation>
+        </documentation>
+    </annotation>
+    <complexType>
+        <choose>
+            <call operator='//' ref="paragraphName" maxoccurs='1'/>
+            <verbcall ref="verbName" maxoccurs='1'/>
+            <literal ref="literal" maxoccurs='1'/>
+        </choose>
+    </complexType>
+<elementName>clause</elementName>
+
+</element>
+<element Name="paragraphName" type='string'/>
+<element Name="verbName" type='string'/>
+<element Name="literal">
+    <complexType>
+        <choose>
+            <sequence>
+                <element Name="singleQuote" type='string' fixed="'" maxoccurs=1/>
+                <element Name='text' type='string' maxoccurs=1/>
+                <element Name="singleQuote" type='string' fixed="'" maxoccurs=1/>
+            </sequence>
+            <sequence>
+                <element Name="DoubleQuote" type='string' fixed='"' maxoccurs=1/>
+                <element Name='text' type='string' maxoccurs=1/>
+                <element Name="DoubleQuote" type='string' fixed='"' maxoccurs=1/>
+            </sequence>
+        </choose>
+    </complexType>
+    <elementName>literal</elementName>
+</element>
+</schema>

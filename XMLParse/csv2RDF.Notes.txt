@@ -1,0 +1,60 @@
+"""
+file csv2.py
+pja 5/7/2020 
+
+convert csv files into 3-point snowflake arrays 
+
+test as
+
+import useLib
+import csv2
+csv2.main()
+
+"""
+
+
+import spoRtns
+
+def main():
+	fn = raw_input('csv filename? ')
+	fh = open(fn,'r')
+	l1 = fh.readline()
+	ca1 = l1.split(',')
+	# best KRI in ca1
+	KRID = bestKRI(ca1)
+	ri = 0 # row number
+	cx = 1
+	while (cx == 1 ):
+		print('')
+		r1 = fh.readline()
+		if (r1 == ''):
+			cx = -1
+		else:
+			r11 = r1.split(',')
+			kri = 'KRI:' + ca1[KRID] + ':' + r11[KRID]
+			ri = ri +1
+			spoPlus("ROW",ri.__str__(),kri)
+			spoPlus("ATN", "(" + 'row::'+ri.__str__()+")" ,kri )
+			spoPlus(kri, "ATN", "(" + 'row::'+ri.__str__()+")" )
+			s = 0
+			for m in r11:
+				m = m.rstrip(' \t\r\n')
+				m = m.lstrip(' \t\r\n')
+				if (m <> ''):
+					spoPlus("NAME" , m , kri )  
+					spoPlus(ca1[s],m,kri)
+					spoPlus(m,ca1[s],kri)
+					spoPlus(kri,ca1[s],m)
+					spoPlus(kri,"ATN", "(" + ca1[s] + "::" +m +")")
+					print('KRI:' + ca1[KRID] + ':' + r11[KRID] + ' row' + ri.__str__() + ' ' + ca1[s] + ' ' + m)
+				#endif m
+				s = s + 1
+			#
+		#endif r1
+	#wend
+
+	fh.close()
+#end main
+
+
+

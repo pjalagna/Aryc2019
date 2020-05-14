@@ -1,0 +1,51 @@
+Basii references
+Macro Language
+
+CLI
+
+P code
+https://en.wikipedia.org/wiki/P-code_machine
+
+LALR(n)
+
+Let’s Build A Simple Interpreter. 
+
+minol
+https://brhfl.com/categories/esoteric-language/
+
+Embedding languages
+
+
+M. Abrash, D. Illowsky, "Roll your own minilanguages with mini-interpreters", Dr. Dobb's Journal 14 (9) (Sep 1989) 52–72.
+
+A. V. Aho, B. W. Kerninghan, P. J. Weinberger, The AWK programming language, Addison-Wesley, 1988.
+
+B. Beckman, "A Scheme for little languages in interactive graphics", Software, Practice & Experience 21 (1991) 187–207.
+
+J. Bentley, "Programming pearls: little languages", Communications of the ACM 29 (1986) 711–721.
+
+J. Bentley, More programming pearls, Addison-Wesley, 1988.
+
+D. Betz, "Embedded languages", Byte 13 #12 (Nov 1988) 409–416.
+
+D. Betz, "Your own tiny object-oriented language", Dr. Dobb's Journal 16 (9) (Sep 1991) 26–33.
+
+T. Budd, A Little Smalltalk, Addison-Wesley, 1987.
+
+R. Clark, S. Koehler, The UCSD Pascal handbook: a reference and guidebook for programmers, Prentice-Hall, 1982.
+
+M. Cowlishaw, The REXX programming language, Prentice-Hall, 1990.
+
+N. Franks, "Adding an extension language to your software", Dr. Dobb's Journal 16 (9) (Sep 1991) 34–43.
+
+A. Goldberg, D. Robson, Smalltalk-80: the language and its implementation, Addison-Wesley, 1983.
+
+J. R. Levine, T. Mason, D. Brown, Lex & Yacc, O'Reilly and Associates, 1992.
+
+M. Richards, C. Whitby-Strevens, BCPL: the language and its compiler, Cambridge University Press, 1980.
+
+B. Ryan, "Scripts unbounded", Byte 15 (8) (Aug 1990) 235–240.
+
+R. Valdés, "Little languages, big questions", Dr. Dobb's Journal 16 (9) (Sep 1991) 16–25.
+
+

@@ -1,6 +1,8 @@
 {{
 file xsdP.PD
 xsd parser
+pja 4-29-2020 rewrite using cut parsing methods
+--- ie "<" till ">"
 pja 04-20-2020 testing
 -------- added RDFWrite
 pja 4-16-2020 rewrite see graphml
@@ -8,55 +10,108 @@ pja 4-8-2020 rewrite
 pja 4-1-2020 rewrite
 pja 03-31-2020
 
-2 - xbegin
-100 - xioi
-300 - xioo
-1000 - version
-2000 - 'xsdInit
-3000 - parentPlus
-
 debug at 10000
 }} 
 drop
+import useLib
+import bbox
+bbox.main('bmain')
+bbox.start()
+
 'pd2020V'
 takeV
 PDInit
-l0
+lib0
 {{
-"xbegin" drop
+comment [[ init ]] .
 2 [[ call/1000/3 ]] ->
 3 [[ call/2000/4 ]] --> 4 .
-4 [[ ]] -> -99 .
+comment [[ 4 begin ]] .
+4 [[ 
+'cxsdfn' @ 'script' ! ]] -> 20 .
+20 [[
+'script' @
+dup "<" find cut
+dup ">" find cut
+'script' !
+cat cat 'r0' !
+'f1' !
+'r0' @ '1' cx 'rx' !
+]] --> 21 .
+comment [[ 21 rx fan ]] .
+21 [[ 'rx' @ '?' = ]] -> 30 .
+21.22 [[ 'rx' @ '!' = ]] -> 40 .
+22.23 [[ 'rx' @ '/' = ]] -> 50 .
+23.24 [[ 'rx otherwise' msg .s dumpNDS ]] .
 
+comment [[ ? get tagName ]] .
+''
+'cellna'
+!
+''
+'atname'
+!
+''
+'atVal'
+!
+'<?na1 at1="val1" at2="val2"?>'
+'r0'
+!
+
+{{
+35 [[ 'r0' @ dup ' ' find cut 'r0' ! drop 'r1' ! 'r1' @ len "2" 'r1' @ slice 'cellna' ! ]] --> 300 .
+10000 [[ 'error' msg .s dumpNDS "??" ask endcall ]] .
+35.36 [[ call/10000/-99 ]] .
+300 [[ '300' msg
+'r0' @ dup ' ' find cut 'r0' ! drop 'r2' ! ]] -> 301 .
+301 [[ '301' msg 'r2' @ dup '=' find '301a' msg cut 'r3' ! drop 'atname' ! ]] -> 302 .
+302 [[ '302' msg 'r3' @ c1 Q? 'r3' @ woB 'atVal' ! ]] -> 303 .
+303 [[ '303' msg call/400/300 ]] .
+400 [[ 'atVal' @ 'atname' @ 'atList' @ dr! 'atList' ! endcall ]] .
+2 [[ dr0 'atList' ! ]] .
+300.3000 [[ '3000' msg call/10000/-99 ]] .
+301.3010 [[ '3010' msg call/10000/-99 ]] . 
+302.3020 [[ '3020' msg call/10000/-99 ]] .
+303.3030 [[ '3030' msg call/10000/-99 ]] .
+end
+}}
+
+
+
+30 [[ '30' msg 'r0' @ dup ' ' find cut .s '3' pick 
+'cellname' ! 'cellname' @ len "2" 'cellname' @ slice 'cellname' !
+'r0' ! drop drop ]] -> 36 .
+30.31 [[ '31' msg .s ]] .
+
+comment [[ get att ?> ]] .
+36 [[ '36' msg 'r0' @ dup ' ' find cut 'r0' !  drop 'r2' ! ]]  -> 300 .
+36.37 [[ '37' msg .s ]] .
+300 [[ '300' msg 'r2' @ dup '=' find cut  
+dup len "1" - "1" "3" pick slice
+'attval' ! drop drop 'attName' !
+'attVal' @ 'attName' @ 'attList' @ dr! 'attList' !
+]] --> 36 .
+300.305 [[ '305 attDone' msg .s ]] .
+
+
+
+
+comment [[ tools ]] .
 1000 [[  
-'xsd Version 2020-04-2020-2025' msg endcall  ]] .
+'xsd Version 2020-04-30 6:55' msg endcall  ]] .
 
 2000 [[
-'xsdInit' drop
-'xsd file name' ask dup 'xsdfn' ! 
-'heapV' takeV heapInit
-'fileV' takeV 
+'xsdInit' drop 'xsd file name' ask 'xsdfn' ! 
+'heapV' takeV heapInit 'fileV' takeV 
 "xdb.db" "SQV" takeV
-"TRCV" takeV
-"gennV" takeV
-"arV" takeV 
-'xsdfn' @ f@ 'cxsdfn' !
-TRCV+ TRCV0
-"0" 'xfpos' ! 
-"/* parse position */" drop
-"0" 'pu' ! 
-"/* pickup position */" drop
-"/* set garbage collection list */" drop
+"TRCV" takeV "gennV" takeV "arV" takeV 
+'xsdfn' @ f@ 'cxsdfn' ! TRCV+ TRCV0
+"0" 'xfpos' !  "0" 'pu' ! 
 ar0 "GCL" ! "0" 'GCLix' !
-"/* set parent */" drop
-ar0 'parents' !
-"0" 'parentIX' ! ]] -> 2010 . 
+ar0 'parents' ! "0" 'parentIX' ! ]] -> 
 2010 [[ '' call/3000/2020 ]] -->
 2020 [[
-"/* set attribute list */" drop
-dr0 'attList' !
-"0" 'epos' ! 
-"/* pickup position */ " drop
+dr0 'attList' ! "0" 'epos' ! 
 endcall 
 ]] .
 
@@ -70,17 +125,20 @@ endcall
 100 [[
 "xioi" drop
 'xpos=(' 'xfpos' @ cat ")" cat msg 
-'cxsdfn' @ 'xfpos' @ cut 
-drop swap drop
-c1 'xfpos' @++ drop dup
-'ans=(' swap  cat ")" cat msg 
+'cxsdfn' @ 'xfpos' @ cx dup msg 
+ 'xfpos' @++ drop 
 endcall ]] .
 
-300 [[
-'xioo' drop
-'xfpos' @-- drop .
+101 [[ call/100/-99 ]] .
+
+200 [[
+'xfpos' @-- drop 
 endcall
 ]] .
+201 [[ call/200/-99 ]] .
+
+210 [[ call/100/220 ]] -> 220 [[ "<" = ]] --> 221 [[ endcall ]] .
+220.230 [[ ]] -> 210 .
 
 end
 }}
@@ -402,9 +460,9 @@ hx .
  
 
 import useLib
-import xsdP
-xsdP.main('bmain') 
-xsdP.start()      
-xbegin
+import bbox
+bbox.main('bmain') 
+bbox.start()      
+
 
 @endend @endend @endend

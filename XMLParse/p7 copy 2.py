@@ -1,12 +1,5 @@
 """
 file p7.py xsd/xml parse
-pja 5/13/2020 captured atx,ax w/o xmlns for skos 
----- prepu to string
----- main takes filename
----- previous vs parent
----- commented out spoPlus(---
-pja 5/12/2020 changed KRI to KRID -why KRI when you can KR-ID
-pja 5/10/2020 added id types for xsd
 pja 5/7/2020 p7.main return spo
 pja 5/5/2020 rewrite
 pja 5/4/2020 added spo structures
@@ -14,8 +7,7 @@ pja 5/3/2020
 
 import useLib
 import p7
-sp1,mxml = p7.main('test.xml')
-sp2,mxsd = p7.main('test.xsd')
+box = p7.main()
 
 1-get < to > to r1 ; pu++ 
 if eof?
@@ -26,27 +18,19 @@ if eof?
 --</ => 4
 --other  => 5
 
-4 </tag>
-getname[2:-1]
-previous,pre,atn PU,pu
-pickup, pu,atn,pu,pu
+4
+getname[1:-1] 
 =sequence?
---y sequenceMode=0 
-----popParent popPU 
-----masterPKI='',masterPU=''
-----=>1
+--y sequenceMode=0 popParent popPU 
+elementHold='',elementHoldPU=''
+=> 1
 =choice?
---y chooseMode=0 
-----popParent popPU 
-----masterPKI='',masterPU=''
-----=> 1
-==other?
-// endchain
--- popParent popPU => 1
--- => 1
+--y chooseMode=0 popParent popPU 
+elementHold='',elementHoldPU=''
+=> 1
+--n popParent popPU => 1
 
-
-5 <tag{SP atn=atv}lx2(*>,/>)
+5
 has space - has = as d60
 00 <x> getname[1:-1] to cnx 
 -- pushParent(cnx) => 100
@@ -55,124 +39,81 @@ has space - has = as d60
 11 getnaSP pushParent pushPU => 100
 
 100 
---if tag = "element" 
+--if tag = element 
 --- getattr  get2< 
---- KRID
-** element input types lookup added to getattr
-
+--- KRI
 --- sequenceMode=1? or choiceMode=1
-------y 
---------seq++ attr+[seq] 
---------attr+[masterPKI] 
---------spo => 1000
-------n spo => 1000
+----y seq++ attr=seq attr-hold 
+-----spo => 1000
+----n spo => 1000
+
 -if tag = complexType 
--- attr+[masterPKI]=perentkri attr[masterPU]=parentPU  
+-- attr=holdParent attr=holdPU  
 -- if d60=00 => 1000
 -- if d60=11 getattr  get< 
--- KRID spo => 1000
+-- KRI spo => 1000
 
 -if tag = sequence 
--- attr+[masterPKI] 
--- attr+[masterPU]
--- seq=0 
+-- attr=holdParent attr=holdPU 
+-- seq=1 
 -- sequenceMode=1
----getattr()  
----spoAttr()
----=> 1000
+-- if d60=00 => 1000
+-- if 11 getattr  get< KRI spo => 1000
 
 - if tag = choice
--- attr+[masterPKI] attr+[masterPU]
+-- attr=holdParent attr=holdPU 
 -- seq=1 
 -- ChooseMode=1
----getattr()  
----spoAttr()
----=> 1000
+
+-- if d60=00 => 1000
+-- if 11 getattr  get< KRI spo => 1000
 
 -if tag= other
--- getattr  get2< KRID
+-- getattr  get2< KRI
 -- spo => 1000
 
 1000 last 2 l2x
-lx2--=/> popParent popPU 
---------endchain()
---------=> 1
-----*>  => 1
-
-(X)endchain
-------- record end of provenance chain as 
-snowflakeRtns.ProfilePlus(
----------"ENDCHAIN" last parent kri,PROVENANCE,chain
-
-my parent kri 
-==parentPU[len(parentPU)-1]
+---/> popParent popPU => 1
+----*> => 1
 
 
--------"ENDCHAIN" last parent kri,"NAME",elementName
-
-elementName = cnx
-
--------"ENDCHAIN" last parent kri,"masterPKI",masterPKI
--------"masterPKI",masterPKI,"ENDCHAIN" last parent kri,
-#
-
-
-attr+ note 
----- element has type of input?
-------y attr+[SKOSKRID]=kri
-------n skip
-input types (strip mxlns) cdata,string
-
-
-((first,KRID)) => kri
+((first,KRI)) => kri
 ((NAME,<atn>)) => kri
 ((NAME,<atv>) => kri
-((parentKRID,<pki> ))=> kri
+((parentKRI,<pki> ))=> kri
 ((pickup,<#>)) => kri
 ((ATN,<(atn=atv)> => kri
 ((ATV,<(atv=atn)> => kri
 ((kri) ATN)) => <(atn=atv)> 
 ((kri) ATV) <(atv=atn)> ))
-((kri) parentKRID ) pki ))
+((kri) parentKRI ) pki ))
 ((kri) FILE ) filename ))
 ((kri,<atn>)) => <atv>
-(("ENDCHAIN" last parent kri)) => "masterPKI",masterPKI
-(("ENDCHAIN" last parent kri)) => "NAME",elementName
-(("ENDCHAIN" last parent kri)) => PROVENANCE,chain
-(("masterPKI",masterPKI,)) => "ENDCHAIN" last parent kri,
-
-support
-((UID,kri))
-#
 
 notes
-"endchain" sigma(mykri) "endname:krid" myname mykrid
--- for endchain xml->xsd.kri "endname:krid" documentation 
------> krid of documentation
-
 need 6 point array for snowflake database (see SnowflakeDatabase.txt)
 segments
 ATN atn atv
 ATV atv atn
-KRID kri
+KRI kri
 UID value ** no dups
 
 PARENTCNX pcnx CHILDCNX cnx
 CNX,cnx,'parentCNX' pcnx
-parentKRID parentkri KRID:SEQ kri seq
-parentKRID parentkri KRID:PEER kri peer
+PARENTKRI parentkri KRI:SEQ kri seq
+PARENTKRI parentkri KRI:PEER kri peer
 FIRST kri
-KRIDCONCORDIA pkri chain:: ** no dups for every pkri in chain
+KRICONCORDIA pkri chain:: ** no dups for every pkri in chain
 
 
 
 
 notes
 (X) uri:name process on element,sequence,choice,complexType
-(X)follow parentKRID
+(X)follow parentKRI
 (X)trim cnx,atn,atv
-(X) cnxftsw spo('first',"KRID",kri)
-(X)on complexType add hold parentPU in masterPU
+(X) cnxftsw spo('first',"KRI",kri)
+(X)on complexType add hold parentPU in elementHoldPU
 (X) seq numbers on sequence or xsd:sequence
 
 
@@ -185,8 +126,8 @@ import SnowflakeRtns
 global snowflakeRtns
 snowflakeRtns = SnowflakeRtns
 
-def main(fn):
-    xInit(fn)
+def main():
+    xInit()
     global ctl
     ctl = 1
     while (0 < ctl):
@@ -208,15 +149,15 @@ def main(fn):
     #wend
     return(getspo(),snowflakeRtns.getProAr())
 #
-def xInit(fn):
-    global s,pu,fsz,ftsw,cnxftsw,sequenceMode,chooseMode,masterPKI,masterPU,seq,snowflakeRtns,parentPU,previousPU
-    previousPU = 0
+def xInit():
+    global s,pu,fsz,ftsw,cnxftsw,sequenceMode,chooseMode,elementHold,elementHoldPU,seq,snowflakeRtns,parentPU
     snowflakeRtns.ProfileInit()
     seq = 0
-    masterPKI=0
-    masterPU = 0
+    elementHold=0
+    elementHoldPU = 0
     sequenceMode = 0
     chooseMode = 0
+    fn = raw_input('xsd file name? ')
     import fioiClass
     s = fioiClass.fio(fn)
     #filesize to fsz
@@ -232,7 +173,7 @@ def xInit(fn):
     attrInit()
     ftsw=0
     spoInit()
-    parentKRID = ''
+    parentKRI = ''
 #
 def rets():
     global s
@@ -241,7 +182,7 @@ def rets():
 
 def ctl1():
     #trim to <rx--> fan on rx
-    global s,m,r0,r1,rx,pu,l2x,fsz,ftsw,parent,attr,previousPU
+    global s,m,r0,r1,rx,pu,l2x,fsz,ftsw,parent,attr
     attr = {} #blank 
     r1 = ''
     r0 = ''
@@ -257,18 +198,10 @@ def ctl1():
     else:
         s.fwhite()
         m=s.f2tkn('>',1)
-        previousPU = pu
-        attr['previousPU'] = pu
         pu = pu +1
         attr['pickup'] = pu.__str__()
-        #previous,pre,atn PU,pu
-        snowflakeRtns.ProfilePlus('previousPU', previousPU.__str__(),'ATN','pickup',pu.__str__())
-        #pickup, pu,atn,pu,pu
-        snowflakeRtns.ProfilePlus('PICKUP', pu.__str__(),"ATN",'previousPU',previousPU.__str__())
         r0 = m[0]
         print("ctl1 r0=(" + r0.__str__() + ")")
-        print("ctl1 current PU" + pu.__str__() + ")")
-        print("ctl1 previousPU" + previousPU.__str__() + ")")
         l2x = r0[-2:] # last 2
         print(r0.__str__())
         try:
@@ -294,10 +227,9 @@ def ctl1():
     return(ctl)
 #ctl1
 
-def ctl4(): # </tag>
-    global r0,parent,parentPU,sequenceMode,chooseMode,pu,previousPU
+def ctl4(): # </name>
+    global r0,parent,parentPU,sequenceMode,chooseMode
     name = r0[2:-1] #</name>
-    #trim
     name = name.rstrip(' \t\r\n')
     name = name.lstrip(' \t\r\n')
     #strip xmlns
@@ -310,19 +242,16 @@ def ctl4(): # </tag>
     if (name.upper() == "SEQUENCE"):
         sequenceMode = 0
         seq = 0
-        endchain() #ctl4 </ cnx = sequence
         parent.pop()
         parentPU.pop()
         ctl = 1
     elif (name.upper() == "CHOICE"):
         chooseMode = 0
         seq = 0
-        endchain() #clt4 </ cnx = choice
         parent.pop()
         parentPU.pop()
         ctl = 1
     else:
-        endchain() #ctl4 </ cnx = other
         parent.pop()
         parentPU.pop()
         ctl = 1
@@ -347,7 +276,6 @@ def ctl5(): #<name{atr}|/>,>
         parent.append(cnx)
         parentPU.append(pu)
         attr['cnx'] = cnx
-        attr['pickup'] = pu
         ctl = 100
     elif (d60 ==3):
         cnx = r0[1:a1]
@@ -355,7 +283,6 @@ def ctl5(): #<name{atr}|/>,>
         parent.append(cnx)
         attr['cnx'] = cnx
         parentPU.append(pu)
-        attr['pickup'] = pu
         ctl = 100
     else:
         raw_input('ctl1 error d60=' + d60.__str__() + '=')
@@ -366,7 +293,7 @@ def ctl5(): #<name{atr}|/>,>
         
 #
 def ctl100():
-    global cnx,tnx,sequenceMode,chooseMode,masterPKI,masterPU,seq
+    global cnx,tnx,sequenceMode,chooseMode,elementHold,elementHoldPU,seq
     #scrub xmlns
     s100 = cnx.find(':')
     if (s100 <> -1):
@@ -376,18 +303,18 @@ def ctl100():
     #endif
     print('ctl100 tnx=('+ tnx.upper() +')')
     if (tnx.upper() == 'ELEMENT'):
-        #if element has input type attr+[skos]
+        
         if (sequenceMode==1):
-            attr['masterPKI'] = masterPKI
-            attr['masterPU'] = masterPU
+            attr['elementHold'] = elementHold
+            attr['elementHoldPU'] = elementHoldPU
             seq = seq+1
             attr['seq'] = seq
             getAttr()
             spoAttr()
             ctl = 1000
         elif (chooseMode == 1):
-            attr['masterPKI'] =masterPKI
-            attr['masterPU'] = masterPU
+            attr['elementHold'] =elementHold
+            attr['elementHoldPU'] = elementHoldPU
             seq = seq+1
             attr['seq'] = seq
             getAttr()
@@ -399,23 +326,22 @@ def ctl100():
             ctl = 1000
         #endif
     elif (tnx.upper() == 'COMPLEXTYPE'):
-        masterPU = parentPU[len(parentPU)-2]
-        masterPKI = getKRID4PU(masterPU)
-        
+        elementHold = parent[len(parent)-2]
+        elementHoldPU = parentPU[len(parentPU)-2]
         getAttr()
         spoAttr()
         ctl = 1000
     elif (tnx.upper() == 'SEQUENCE'):
-        attr['masterPKI'] = masterPKI
-        attr['elementPU'] = masterPU
+        attr['elementHold'] = elementHold
+        attr['elementPU'] = elementHoldPU
         seq = 0
         sequenceMode = 1
         getAttr()
         spoAttr()
         ctl = 1000
     elif (tnx.upper() == 'CHOICE'):
-        attr['masterPKI'] = masterPKI
-        attr['elementPU'] = masterPU
+        attr['elementHold'] = elementHold
+        attr['elementPU'] = elementHoldPU
         seq = 0
         chooseMode = 1
         getAttr()
@@ -432,7 +358,6 @@ def ctl100():
 def ctl1000():
     global l2x,parent,parentPU
     if (l2x == '/>'):
-        endchain() # ctl1000 l2x = />
         parent.pop()
         parentPU.pop()
         ctl = 1
@@ -442,30 +367,7 @@ def ctl1000():
     return(ctl)
 #end ctl1000
 """======="""
-def endchain():
-    global parentPU,cnx,masterPKI
-    # create provenance chain
-    parentchain = getParentchain()
-    #get lastparentkri
-    lastParentKRID = getKRID4PU(parentPU[len(parentPU)-1])
-    ElementName = cnx
-    #record
-    snowflakeRtns.ProfilePlus("ENDCHAIN", lastParentKRID,"PROVENANCE",parentchain)
-    snowflakeRtns.ProfilePlus("ENDCHAIN", lastParentKRID,"NAME",ElementName)
-    snowflakeRtns.ProfilePlus("ENDCHAIN", lastParentKRID,"masterPKI",masterPKI)
-    snowflakeRtns.ProfilePlus("masterPKI",  masterPKI,"ENDCHAIN" ,lastParentKRID)
-    parentchainAr = parentchain.split('!!')
-    print('dump parentchainAr')
-    for arx in range(len(parentchainAr)):
-        #"endchain" sigma(mykri) "endname:pu" myname mykrid
-        mypu = pu -1
-        snowflakeRtns.ProfilePlus('ENDCHAIN',parentchainAr[arx],"ENDNAME:PU",ElementName,mypu.__str__())
-    #endfor
-    print('end dump parentchainAr')
-#
 
-    
-    
 def getAttr():
     print('--getAttr')
     global s,attr,r1,l2x
@@ -533,12 +435,10 @@ def spoP():
     #add cnx to parents
     parentPlus(cnx)
     #parents spo
-    prepu = parent[len(parent)-2]
-    prepu = prepu.__str__()
-    ######spoPlus(parent[len(parent)-2],'childCNX',cnx)
-    snowflakeRtns.ProfilePlus("PARENTCNX",prepu,'childCNX',cnx)
-    ######spoPlus(cnx,'parentCNX',prepu)
-    snowflakeRtns.ProfilePlus("CNX",cnx,'parentCNX',prepu)
+    spoPlus(parent[len(parent)-2],'childCNX',cnx)
+    snowflakeRtns.ProfilePlus("PARENTCNX",parent[len(parent)-2],'childCNX',cnx)
+    spoPlus(cnx,'parentCNX',parent[len(parent)-2])
+    snowflakeRtns.ProfilePlus("CNX",cnx,'parentCNX',parent[len(parent)-2])
     # /> processing pop from last parent
     if (l2x == "/>"):
         parent.pop()
@@ -546,19 +446,17 @@ def spoP():
     #
     print("spoP l2x=(" + l2x.__str__() + ")")
     # pickup pos
-    ######spoPlus(cnx,'pickupCNX',pu.__str__())
+    spoPlus(cnx,'pickupCNX',pu.__str__())
     snowflakeRtns.ProfilePlus("CNX",cnx,'pickupCNX', pu.__str__())
 #
 def spoAttr():
-    global cnx,attr,pu,kri,parent,parentKRID,s,cnxftsw,snowflakeRtns,parentPU
+    global cnx,attr,pu,kri,parent,parentKRI,s,cnxftsw,snowflakeRtns,parentPU
     print('--spoAttr')
     #attributes spo
     #det best kri id,name,pickup as [kri]=(atna=atval)
-    prepu = parent[len(parent)-2]
-    prepu = prepu.__str__()
-    ######spoPlus(prepu,'childCNX',cnx)
+    spoPlus(parent[len(parent)-2],'childCNX',cnx)
     #snowflakeRtns.ProfilePlus("PARENTCNX",parent[len(parent)-2], 'childCNX', 'childCNX',cnx)
-    ######spoPlus(cnx,'parentCNX',prepu)
+    spoPlus(cnx,'parentCNX',parent[len(parent)-2])
     snowflakeRtns.ProfilePlus('CNX',cnx,'parentCNX', parent[len(parent)-2] )
     print('\ndump of attr')
     print(attr)
@@ -646,20 +544,6 @@ def spoAttr():
     #endtry
     try:
         if (look == 0):
-            if (cnx.upper() <> 'ELEMENT'): 
-                atn = 'cnx'
-                atv = cnx
-                look = 1
-            #endif
-        #endif
-    #endtry
-    except:
-        nop = 1
-    finally:
-        nop = 1
-    #endtry
-    try:
-        if (look == 0):
             jk = attr['pickup'] 
             atn = 'pickup'
             atv = attr['pickup']
@@ -670,7 +554,7 @@ def spoAttr():
         nop = 1
     #endtry
      
-    kri = "KRID(" + atn.__str__() +"):""(" + atv.__str__() +"):"
+    kri = "KRI(" + atn +"):""(" + atv +"):"
     #test for unique
     try:
         jk = snowflakeRtns.getPRec('UID',kri)
@@ -700,111 +584,69 @@ def spoAttr():
     #
     #spo kri
     if (cnxftsw == 0):
-        ######spoPlus('first',"KRID",kri)
+        spoPlus('first',"KRI",kri)
         snowflakeRtns.ProfilePlus('FIRST',kri)
         cnxftsw = 1
     #endif
-    # add KRID to atn profile
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATN","KRID",kri)
-    ######spoPlus("ATN","("+ "FILE" + '=' + s.fh.name + ")",kri)
-    prepu = parentPU[len(parentPU)-2]
-    prepu = prepu.__str__()
-    snowflakeRtns.ProfilePlus("ATN", "parentPU", prepu, "KRID",kri)
-    snowflakeRtns.ProfilePlus("ATV", prepu, "parentKRID", "KRID",kri)
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATV", prepu, "parentPU")
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATN", "parentPU", prepu)
+    spoPlus("ATN","("+ "FILE" + '=' + s.fh.name + ")",kri)
+    
+    snowflakeRtns.ProfilePlus("ATN", "PARENTKRI", parentPU[len(parentPU)-2], "KRI",kri)
+    snowflakeRtns.ProfilePlus("ATV", parentPU[len(parentPU)-2], "PARENTKRI", "KRI",kri)
+    snowflakeRtns.ProfilePlus("KRI",kri,"ATV", parentPU[len(parentPU)-2], "PARENTKRI")
+    snowflakeRtns.ProfilePlus("KRI",kri,"ATN", "PARENTKRI", parentPU[len(parentPU)-2])
     
     
-    snowflakeRtns.ProfilePlus("ATN", "FILE",s.fh.name, "KRID",kri)
-    snowflakeRtns.ProfilePlus("ATV",s.fh.name, "FILE", "KRID",kri)
-    ######spoPlus("ATV","("+ s.fh.name + '=' + "FILE" + ")",kri)
-    ######spoPlus(kri,"ATN","("+ "FILE" + '=' + s.fh.name + ")")
+    snowflakeRtns.ProfilePlus("ATN", "FILE",s.fh.name, "KRI",kri)
+    snowflakeRtns.ProfilePlus("ATV",s.fh.name, "FILE", "KRI",kri)
+    spoPlus("ATV","("+ s.fh.name + '=' + "FILE" + ")",kri)
+    spoPlus(kri,"ATN","("+ "FILE" + '=' + s.fh.name + ")")
     
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATN","FILE",s.fh.name)
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATV",s.fh.name,"FILE",)
-    ######spoPlus(kri,"ATV","("+ s.fh.name + '=' + "FILE" + ")")
-    puat = getParentKRID()
-
-    ######spoPlus(kri,'parentPickup',parentPU[len(parentPU)-2].__str__())
-    snowflakeRtns.ProfilePlus("KRID",kri,"ATN","parentKRID", puat)
-    snowflakeRtns.ProfilePlus("parentKRID",puat,"KRID:SEQ",kri,seq)
-    snowflakeRtns.ProfilePlus("parentKRID",puat,"KRID:PEER",kri,peer)
-    ######spoPlus('parentPickup',puat,kri) 
-    
+    snowflakeRtns.ProfilePlus("KRI",kri,"ATN","FILE",s.fh.name)
+    snowflakeRtns.ProfilePlus("KRI",kri,"ATV",s.fh.name,"FILE",)
+    spoPlus(kri,"ATV","("+ s.fh.name + '=' + "FILE" + ")")
+    #parentKRI
+    try:
+        puat = SnowflakeRtns.getPRec("ATN",'pickup',parentPU[len(parentPU)-2].__str__())
+    except:
+        puat = ''
+    finally:
+        nop = 1
+    #end try
+    puat = puat.__str__()
+    spoPlus(kri,'parentPickup',parentPU[len(parentPU)-2].__str__())
+    snowflakeRtns.ProfilePlus("KRI",kri,"ATN","PARENTKRI", puat)
+    snowflakeRtns.ProfilePlus("PARENTKRI",puat,"KRI:SEQ",kri,seq)
+    snowflakeRtns.ProfilePlus("PARENTKRI",puat,"KRI:PEER",kri,peer)
+    spoPlus('parentPickup',puat,kri) 
     
     
     for x in attr:
         atx = attr[x].__str__()
         ax = x.__str__()
         if (ax == "pickup"):
-            ######spoPlus('pickup',attr[x],kri)
-            snowflakeRtns.ProfilePlus( "PICKUP", atx, "KRID",kri)
+            spoPlus('pickup',attr[x],kri)
+            snowflakeRtns.ProfilePlus("PICKUP",attr[x],"KRI",kri)
         #
-        #capture all atx,ax w/o xmlns
-        atxs = atx.upper()
-        atxd = atxs.find(":")
-        if (atxd == -1 ):
-            nop =1
-        else:
-            atxs = atxs[atxd+1:]
-        #endif
-        axs = ax.upper()
-        axd = axs.find(":")
-        if (axd == -1 ):
-            nop =1
-        else:
-            axs = axs[atxd+1:]
-        #endif
-        # ax = tag , atx = value 
-        # axs= val w/o xmlns , atxs=w/o xmlns uppercase 
-        if (axs == "TYPE"):
-            if (atxs == "STRING"):
-                # skos kri , atn, ax,atx
-                snowflakeRtns.ProfilePlus("SKOSKRID",kri,"ATN",ax,atx)
-                snowflakeRtns.ProfilePlus("ATN",ax,atx,"SKOSKRID",kri)
-                # kri kri skosATN ax,atx
-                snowflakeRtns.ProfilePlus("KRID",kri,"SKOSATN",ax,atx)
-                snowflakeRtns.ProfilePlus("SKOSATN",ax,atx,"KRID",kri)
-            #
-        #
-        ######spoPlus('NAME',ax,kri)
-        ######spoPlus('NAME',atx,kri)
-        ######spoPlus(kri,ax,atx)
-        snowflakeRtns.ProfilePlus("KRID",kri,"ATN",ax,atx)
-        snowflakeRtns.ProfilePlus("KRID",kri,"ATV",atx,ax)
-        snowflakeRtns.ProfilePlus("ATN",ax,atx,"KRID",kri)
-        snowflakeRtns.ProfilePlus("ATV",atx,ax,"KRID",kri)
-        ######spoPlus(kri,atx,ax)
-        ######spoPlus("ATN","("+ ax + '=' + atx + ")",kri)
-        ######spoPlus("ATV","("+ atx + '=' + ax + ")",kri)
-        ######spoPlus(kri,"ATN","("+ ax + '=' + atx + ")")
-        ######spoPlus(kri,"ATV","("+ atx + '=' + ax + ")")
-        ######spoPlus(ax,atx,kri)
-        ######spoPlus(atx,ax,kri)
+        spoPlus('NAME',ax,kri)
+        spoPlus('NAME',atx,kri)
+        spoPlus(kri,ax,atx)
+        snowflakeRtns.ProfilePlus("KRI",kri,"ATN",ax,atx)
+        snowflakeRtns.ProfilePlus("KRI",kri,"ATV",atx,ax)
+        snowflakeRtns.ProfilePlus("ATN",ax,atx,"KRI",kri)
+        snowflakeRtns.ProfilePlus("ATV",atx,ax,"KRI",kri)
+        spoPlus(kri,atx,ax)
+        spoPlus("ATN","("+ ax + '=' + atx + ")",kri)
+        spoPlus("ATV","("+ atx + '=' + ax + ")",kri)
+        spoPlus(kri,"ATN","("+ ax + '=' + atx + ")")
+        spoPlus(kri,"ATV","("+ atx + '=' + ax + ")")
+        spoPlus(ax,atx,kri)
+        spoPlus(atx,ax,kri)
     #endfor
-    # concordia to kri
-    # chain of KRID
-    parentchain = getParentchain()
-    # per parent
-    sx = len(parentPU)-1
-    for s2 in range(sx):
-        s4 = getKRID4PU(parentPU[s2])
-        snowflakeRtns.ProfilePlus( 'PConcordia', s4, "CHAIN",parentchain)
-    #end for
-    # clear attr for next
-    attr = {} 
-    r1 = '' # clear
-#
-
-
-# support 
-def getParentchain():
-    global kri,parent,parentPU
     # make parent chain in me::dad::Gpa
     parentchain = kri
     sx = len(parentPU)-1
     for s1 in range(sx):
-        jj = SnowflakeRtns.getPRec('ATN','pickup',parentPU[sx-s1].__str__(),'KRID')
+        jj = SnowflakeRtns.getPRec('ATN','pickup',parentPU[sx-s1].__str__(),'KRI')
         try:
             jj = jj.keys()[0]
         except:
@@ -812,33 +654,29 @@ def getParentchain():
         finally:
             nop =1
         #endtry
-        print('getParentchain jj=(' + jj.__str__() + ')')
         parentchain = parentchain + '!!' + jj
-    return(parentchain)
+    #
+    # concordia to kri
+    for s2 in range(sx):
+        jj = SnowflakeRtns.getPRec('ATN','pickup',parentPU[sx-s2].__str__(),'KRI')
+        try:
+            jj = jj.keys()[0]
+        except:
+            jj = '0'
+        finally:
+            nop =1
+        #endtry
+        snowflakeRtns.ProfilePlus('PConcordia',jj, "CHAIN",parentchain)
+    #end for
+        
+    attr = {} 
+    r1 = '' # clear
 #
 
-def getKRID4PU(pu):
-    global parentPU
-    try:
-        puat = SnowflakeRtns.getPRec("ATN",'pickup',parentPU[len(parentPU)-2].__str__(),"KRID").keys()[0]
-    except:
-        puat = ''
-    finally:
-        nop = 1
-    #end try
-    puat = puat.__str__()
-    return(puat)
-#
 
-#
-def getParentKRID():
-    """ get kri from pickup# """
-    global parentPU
-    parpu = parentPU[len(parentPU)-2]
-    parpu = parpu.__str__()
-    puat = getKRID4PU(parpu)
-    return(puat)
-#
+# support 
+
+
 def parentInit():
     global parent,parentPU
     parent = []

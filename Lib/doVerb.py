@@ -6,6 +6,8 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 4-30-2020 fixed pick
+pja 4-28-2020 added lib#, changed l0 to lib0
 pja 04-25-2020 added l0 clear lib
 pja 04-23-2020 added tillNor, lib@, lib!
 -------------- "find" fails if needle not found
@@ -191,13 +193,19 @@ def init(p,m=m):
     p['help']['lib@'] = '(r,c,,v) from lib ok/nok'
     p['sy']['lib!'] = libbang
     p['help']['lib!'] = '(r,c,v,,) into lib'
-    p['sy']['l0'] = libzero
-    p['help']['l0'] = 'reset lib'
+    p['sy']['lib0'] = libzero
+    p['help']['lib0'] = 'reset lib'
+    p['sy']['lib#'] = libkeys
+    p['help']['lib#'] = 'list all cells'
     p['sy']['slice'] = slice
     p['help']['slice'] = '(bo,fo,str,,str[fo:bo])'
     return(p)
 #end init
 ##- doverb.py:codespace 0 -##
+def libkeys(p):
+    print(p['l'].keys())
+    p['sy']['push'](p['OK'])
+#
 def slice(p):
     #'(bo,fo,str,,str[fo:bo])'
     str = p['sy']['pop']()
@@ -491,10 +499,11 @@ def pick(p):
         a.append(p['sy']['pop']())
     #
     jj = a[len(a)-1]
-    p['sy']['push'](jj)
-    for x in range(ctr):
-        p['sy']['push'](a.pop(0))
+    for xx in range(ctr):
+        p['sy']['push'](a.pop())
     #
+    p['sy']['push'](jj)
+    
     p['sy']['push'](p['OK'])
 #
 
