@@ -1,0 +1,27 @@
+<!--
+file t1.xsd
+simple xsd
+pja 5/16/2020
+pja 5/4/2020 
+
+-->
+
+<schema name='xxschema' version='04/20/2020-1300'>
+  <annotation id="a-schema"><documentation id="d-schema">
+this is a simpler xtag xsd
+  </documentation>
+  </annotation>
+  <element name="tagx0" id="x0">
+    <annotation id="A-tagx0"><documentation id="D-tagx0">
+        this is the beginning tag
+    </documentation>
+    </annotation>
+    <complexType id="cx0">
+      <sequence id="sx0">
+        <element id="x0x1" ref='tagx1' minOccurs='0'/> 
+        <element id="x0x5" ref='tagx5' maxOccurs="unbounded"/> 
+      </sequence>
+    </complexType>
+    <elementname>tagx0</elementname>
+  </element>  
+</schema>

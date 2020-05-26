@@ -1,0 +1,18 @@
+white paper
+understanding the repository structure
+it has to hold 
+- named variables - ATN name value
+- complex named variables - DEN nsName localName value
+- record names - KRID value 
+- operation name - operationName value
+- 2 dimension arrays - TCVR t c v r
+- librarys - SCRIPT name text
+
+den nsName localName value => krid value
+den2 localName nsName value => krid value
+ATN name value => krid value
+KRID value => atn name value
+operationName value => operationName value
+TCVR t c v r 
+SCRIPT name text 
+UID value

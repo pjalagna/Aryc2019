@@ -217,3 +217,99 @@ def dispProAr(ar):
         #endfor typeval
     #endfor type
 #end dispProAr
+def DBrecord(uniquesw,v1,v2,v3='',v4='',v5='',v6=''):
+    """
+    write DBrecord (uniquesw,v1-v6) => ok/nok on unique
+    uniquesw 'replace' , 'both' , 'error=""'
+                                   error == return nok don't insert
+                          both == genx ds
+             replace == update
+    """
+#
+def DBInit(nsName):
+    global SFdb
+    import SQClass
+    import os
+    fp = os.getcwd()
+    # create repository name from nsName
+    dbFileName = fp + '/' + nsName + ".repos"
+    #filename exist?
+    if (os.path.exists(dbFileName) == True):
+        ## y 
+        SFdb = SQClass.SQC(dbFileName) # open
+    else: ## n create and create table
+        SFdb = SQClass.SQC(dbFileName) # create and open
+        cre = """
+ create table snowflake (
+ rid not null 
+ v1 not null,
+ v2 null,
+ v3 null,
+ v4 null,
+ v5 null,
+ v6 null,
+ primary key (rid)
+);
+    """
+        SFdb.SQX(cre)
+    #endif
+      
+#
+def DBSeek(v1,v2='',v3='',v4='',v5='',v6=''):
+    """
+    lots of options
+        thinking of stored scripts w/ parameters
+        no scriptname == select * from ??
+        OR follow array convention
+        UID value
+        ATN name value name value
+        KRID value ATN name value
+        name value name value
+        
+        atn name value krid kridv
+        v1 = 'atn' and v2<>'' and v3='' => domain of v2
+        v1 = 'atn' and v2<>'' and v3<>'' => keys of [v2]=v3
+        krid val atn '' dominion of krid
+    """
+    sq = 'select %a% from snowflake'
+#
+"""
+
+Notes convert to db
+
+import SQClass
+SFdb = SQClass.SQC(dbFileName)
+
+create table snowflake (
+ rid not null 
+ v1 null,
+ v2 null,
+ v3 null,
+ v4 null,
+ v5 null,
+ v6 null,
+ fileNa null,
+ ds  null,
+ primary key (rid)
+);
+
+create table UIQ (rix not null, promary key (rix));
+
+#use genx for index
+
+insert into snowflake 
+(v1,v2,v3,v4,v5) values
+( 'ATN', 'local' , 'Name','GRID','Jhh11');
+
+insert into snowflake 
+(v1,v2) values
+('GRID','answer');
+
+sqSN = 'select * from snowflake;'
+ans = db.SQReadAll(sqSN)
+
+
+
+
+
+"""

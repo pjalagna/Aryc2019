@@ -1,0 +1,137 @@
+file Krecords2BNF.txt
+pja 5/16/2020
+
+
+use test.xsd as example
+schema [Direct tagx0, min,max]
+tagx1,tagx2,tagx3,tagx4,tagx5
+
+tagx0 [CS, seq=1 tagx1, min,max],
+      [CS, seq=2 tagx5, min,max]
+      
+tagx1 [ref tagx2, min,max]
+
+tagx2 [seq=1, ref tagx3 ,min , max] 
+      [seq=2, ref tagx4 , min,max ]
+      
+tagx3 [string]
+
+tagx4 [string]
+
+tagx5 [seq=1 type tagx4 min=1,max] 
+      [seq=2 type tagx3 min=0,max]
++++++
+goal1 RDF
+*,*,firstKRID
+firstKRID,name,firstKRID[name]
+krid,direct,krid
+krid,types,krid
+krid,references,krid
+krid,CS,krid
+
+krid,(seq=x),krid
+krid,"min",min
+krid,"max",max
+
+goal2 BNF
+schema :-
+[[ 1 ]] tagx0 ... .
+etc
+;
+tagx0 :-
+[[ 1 ]] tagx1 ... .
+[[ 2 ]] tagx5 ... .
+;
+
+tagx5 :-
+[[ 1 ]] tagx4 ... . 
+[[ 2 ]] tagx3 ... .
+/* if tagx3 fails its min=0 so continue */
+[[ 3 ]] ... . 
+[[ 4 ]] .
+/* if tagx3 min=0  and end add [[4]] */
+;
+
+      
+      
+      
+G: PICKUP pu ATN PreviousPU ppu
+   PreviousPU ppu PICKUP pu
+   FIRST krid
+1-
+  
+spo (*,*,firstKRID)
+spo (firstKRID,KRIDof,atn[name])
+childList [PreviousPU ppu PICKUP]
+i = 0
+==>2
+
+
+2- perchild in childlist
+i++
+pxpu = childlist[i]
+==> 3
+
+3-
+// ref,type,cs fan 
+if krid[ref] <> '' ?
+-- true ==>4
+-- n skip
+endif krid[ref] <> '' ?
+
+if krid[type] <> '' ?
+-- true ==>5
+-- n skip
+endif krid[type] <> '' ?
+
+goto ==>6
+
+4- ref call
+
+5- type call? (if not list of data entries)
+
+6- walk
+iri = complexType?
+-- y prod1 = 'C'
+---- prod2 = "CSID{::C::id of complexType}"
+---- walk
+---- iri = 'sequence'?
+------ y prod1 += "S"
+-------- prod2 += "S::id of sequence}"
+--------- seq = 0 //7 
+------ n
+---- endif iri = 'sequence'?
+-- n ==>8
+endif iri = complexType?
+
+7 element pickup in sequence loop
+walk
+iri = element?
+-- y 
+---- spo (pxpu[krid],prod1,pu[krid])
+---- spo (pxpu[krid],prod2,pu[krid])
+---- spo (pxpu[krid],(seq=n),pu[krid])
+---- spo (pu[krid],min,pu[krid][min])
+---- spo (pu[krid],max,pu[krid][max])
+
+---- seq ++
+---- goto 7
+-- n iri =/sequence?
+------ y 
+--------- walk
+--------- iri =/complexType?
+----------- y
+------------- return()
+----------- n
+-------------- err stop
+--------- endif iri =/complexType?
+------ n
+---- endif iri =/sequence?
+endif iri = element?
+
+8- element after element prod=direct
+still has a seq order
+
+spo (pxpu[krid],prod,pu[krid])
+---- spo (pu[krid],min,pu[krid][min])
+---- spo (pu[krid],max,pu[krid][max])

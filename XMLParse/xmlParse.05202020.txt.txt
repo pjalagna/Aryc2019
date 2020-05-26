@@ -1,0 +1,116 @@
+xmlParse.05202020.txt
+
+
+(xmlRepository,xsdRepository,stratmlRepository)
+1-
+    mxml = xmlRepository
+    mxsd = xsdRepository
+    xmlKRID = mxml['FIRST'].keys()[0]
+    var1N = mxml['KRID'][xmlKRID]['ATN']['DeN'].keys()[0]
+    var2K = mxsd['ATN']['name'][var1N]['KRID'].keys()[0]
+    #myposition xsd
+    var2P = mxsd['KRID'][var2K]['ATN']['position'].keys()[0]
+    var3P = mxsd['previousPosition'][var2P]['ATN']['position'].keys()[0]
+    var3K = mxsd['POSITION'][var3P]['KRID'].keys()[0]
+    var3D = mxsd['KRID'][var3K]['ATN']['DeN'].keys()[0]
+    goto 2
+    
+2-  fan on var3D
+    #var3DM reduce w/o ns:
+    var3DM = var3D
+    v3t = var3D.find(":")# has ":"?
+    if (vt3 <> -1):
+        var3DM = var3D[v3t+1:]
+    #
+    if (var3DM == "complexType"):
+        #follow to first element
+        goto 3
+    else:
+        errorStop('var3DM =('+var3DM+')')
+    #
+#
+
+3- complexType
+    #get my pos
+    # find my child
+    t = PKDM(var3P)
+    var4P = t[0]
+    var4K = t[1]
+    var4D = t[2]
+    var4DM = t[3]
+    if var4DM == sequence => 4
+    if var4DM == choice ==> 5
+    else errorStop('var4DM =('+var4DM+')')
+   =====
+    
+#4- sequence after cType
+#get first element
+t = PKDM(var4P)
+var5P = t[0]
+var5K = t[1]
+var5D = t[2]
+var5DM = t[3]
+#dm = element => 5
+====
+5- process element
+min, max, ref, type,
+var5min = getKA(mxsd,var5K,'minOccurs')
+var5max = getKA(mxsd,var5K,'maxOccurs')
+var5ref = getKA(mxsd,var5K,'ref')
+var5type = getKA(mxsd,var5K,'type')
+if var5ref <> ''  => 6
+
+
+6 ref call
+rpush (var5P)
+rpush (var5min)
+rpush (var5max)
+var6R = var5ref
+# => 7
+   
+   
+#7 var6R 
+ref has xmlns <> 'xsd:'
+use xmlns as repository name and [:+] as name
+ie stratml['ATN']['name']['Name']['KRID'].keys()[0]
+   
+
+def DM4D(mark):
+    DM = mark
+    f = DM.find(":") 
+    if (f <> -1):
+        DM = mark[f+1:]
+    #endif
+    return(DM)
+#
+def PKDM(P):
+    var4P = mxsd['previousPosition'][P]['ATN']['position'].keys()[0]
+    var4K = mxsd['POSITION'][var4P]['KRID'].keys()[0]
+    var4D = mxsd['KRID'][var4K]['ATN']['DeN'].keys()[0]
+    var4DM = DM4D(var4D)
+    return(var4P,var4K,var4D,var4DM)
+#
+def getKA(mxsd,var5K,atx):
+    try:
+        ans = mxsd['KRID'][var5K]['ATN'][atx].keys()[0]
+    except:
+        ans = ''
+    finally:
+        nop = 1
+    #end try
+    return(ans)
+#
+def rinit():
+    global r
+    r = []
+#
+
+def rpush(val):
+    global r
+    r.append(val)
+#
+
+def rpop():
+    global r
+    return(r.pop())
+#

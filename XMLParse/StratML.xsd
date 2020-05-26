@@ -6,7 +6,6 @@
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core" targetNamespace="urn:ISO:std:iso:17469:tech:xsd:stratml_core" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
 
-
 <xsd:element name="Acronym" type="xsd:string" id="uuid-a21e6dc4-b67c-4120-b881-ce72882fc958">
 
 

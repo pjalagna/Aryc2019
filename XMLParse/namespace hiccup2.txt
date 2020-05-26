@@ -1,0 +1,42 @@
+namespace hiccup2
+
+<Paola> pls say how did you process the file- </
+
+I'm not sure what you meant by your question
+but it sounded to me like "how did you get to realize this?" So, I'll answer that one.
+
+Aside from the initial white space, the area of information for an XML / XSD document is the beginning brace character "<" up to but not including the next brace character "<"; inner split by a ">" token.
+
+IE <stuff1>stuff2|"<" this "area of information" is also known as a "fragment"
+
+The XSD standard has rules about what information items are contained in "stuff1" and "stuff2"
+
+In "stuff1" attributies are recorded in the format attributeName="attributeValue". If an attribute name is further split into: 
+namespaceName ":" localName then further processing is called for.
+
+The XSD standard for namespaces says that a secondary XSD of that namespace exists and that a workflow (XSD fragment) for the localName will exist.
+
+This is accomplished through 3 part mechanism:
+
+1-the namaspace XSD file is declared in the schema statement using the "xmlns:" prefix such as <schema xmlns:foo="http//foo---" (oddly without the .xsd ending )
+
+2- the namespace required is named in the attribute name AND/OR value. 
+like: <element xsd:ref="foo:Fullname"
+and 
+
+3- that an XSD record exists in the namespace XSD:
+IE <element name=localName-----..</element> existing in foo.xsd
+
+In the parsing of a StratML XSD I found that:
+
+The StratML.xsd calls for a stratml:Name and but the schema pointer "xmlns:stratml=" does NOT point to a valid URI.
+
+This is from the StratML.xsd itself
+xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core"
+
+After a little digging I made the assumption that the usage intended was to use the StratML.xsd as the secondary namespace XSD, in addition to being the guiding XSD for stratML XML reports.  Because the 
+<element name="Name" XSD fragment does exist in this very document, I can continue on. "I" can continue because I'm a human.
+
+Any automatic processes like the AIKR information extraction tools we are defining and building MUST follow the rules laid out by our standards and the standards we dictate. 
+
+Paul

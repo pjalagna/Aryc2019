@@ -1,0 +1,111 @@
+fx - phases
+f1 first data extraction into K records
+
+K records: repository records
+segments: 
+   KRID krid
+   ATN name value
+   ATV value name 
+   specialName value
+   segmentName:segmentName value1 value2
+
+comment attribute is mine
+CNX = Common Name of X==Transmission
+
+xsd:element*, string* : operational elements, attributes and even attribute values should NOT have xmlns prefixes. they operate in all namespaces the same way and namespaces confuse the parsing.
+
+scoop - a token of order 3 (ends with) created from the first token of order 1 (begins with) to be used as the end token to collect (scoop) the entire universe of the first token
+ 
+xml
+<Acronym>POTUS</Acronym>
+/xml
+f1- K: ATN CNX Acronym KRID pickup:12
+f1- K: KRID pickup:12 ATN value POTUS
+f2- K: KRID pickup:12 
+-- ATN SKOSID "uuid-a21e6dc4-b67c-4120-b881-ce72882fc958" 
+/* because xsd:element* name="Acronym" has "type"=string* */
+
+<xsd:element 
+   name="Acronym" 
+   type="xsd:string"
+    id="uuid-a21e6dc4-b67c-4120-b881-ce72882fc958">
+    <xsd:annotation>
+      <xsd:documentation source="documentation" xml:lang="EN">An abbreviation of a proper name, usually composed of the first letters of each word in the name.</xsd:documentation>
+    </xsd:annotation>
+<xsd:elementnameAcronym/> <!-- scoop -->
+</xsd:element>
+=====================================
+
+<xsd:element 
+  name="StrategicPlan"
+  id="uuid-63a6e34c-737d-4d24-955b-bbf72d8c1511">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element 
+          ref="stratml:Name"
+          comment=" ref is a call operator " 
+          id="uuid-eeb5b011-9843-4fa3-a280-1af6bb3477f4"
+          comment=" uses default minOccurs=1 maxOccurs=1"
+          />
+        <xsd:element ref="stratml:Description" id="uuid-8e497247-1d8b-4f09-8332-06d3666f1dae" minOccurs="0"/>
+        <xsd:element ref="stratml:OtherInformation" id="uuid-63f013cf-6bd3-4050-a4b3-0eaa33bea69a" minOccurs="0"/>
+        <xsd:element ref="stratml:StrategicPlanCore" id="uuid-314a1a55-714a-4b74-85da-4fc705457800"/>
+        <xsd:element ref="stratml:AdministrativeInformation" id="uuid-1453760d-6cf8-4916-8c45-862adde59002" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+<xsd:elementnameStrategicPlan/> <!-- scoop -->
+</xsd:element>
+
+xml
+<Submitter>
+  <GivenName>Owen</GivenName>
+  <Surname>Ambur</Surname>
+  <PhoneNumber/>
+  <EmailAddress>Owen.Ambur@verizon.net</EmailAddress>
+</Submitter>
+/xml
+
+<xsd:element name="Submitter" type="stratml:ContactInformationType" 
+comment="in some x-- documents this is a call by type"
+id="uuid-1dec258f-1656-4173-acfe-677c1cf24bf3">
+    <xsd:annotation>
+      <xsd:documentation source="documentation">The person submitting the plan in StratML format.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+    <xsd:element name="Surname" type="xsd:string" id="uuid-d48842b4-9324-4f71-9502-1a991b707b38">
+    <xsd:annotation>
+      <xsd:documentation source="documentation">The family name of the person submitting the plan.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  
+
+
+xml KRID ATN - example Fname 
+'previousPU': '14': '': '', 
+'seq': '': '': '', 
+'parentPU': '14': '': '', 
+'value': 'Carl': '': '', 
+'KRID': 'KRID(cnx):(Fname):::1589574062.71': '': '', 
+'pickup': '15': '': '', 'cnx': 'Fname': '': '', 
+'FILE': 'test.xml': '': '', 'peer': '': '': '', 
+'parentKRID': 'KRID(cnx):(vendor):::1589574062.7': '': ''
+
+xsd KRID ATN - - example Fname 
+'previousPU': '7': '': '', 
+'name': 'Fname': '': '', 
+'seq': '1': '': '', 
+'masterPKI': 'KRID(identifier):(abc):::1589574062.94': '': '', 
+'parentPU': '7': '': '', 
+'cnx': 'element': '': '', 
+'masterPU': '5': '': '', 
+'KRID': 'KRID(identifier):(ccf-1):::1589574063.03': '': '', 
+'maxoccurs': '1': '': '', 
+'pickup': '8': '': '', 
+'FILE': 'test.xsd': '': '', 
+'peer': '': '': '', 
+'identifier': 'ccf-1': '': '', 
+'type': 'string': '': '', 
+'parentKRID': 'KRID(cnx):(sequence):::1589574062.99': '': ''  
+
+    
+    

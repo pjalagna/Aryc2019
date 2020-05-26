@@ -1,4 +1,5 @@
 """ file fioiClass.py
+pja 5/17/2020 f2tkn fixed runaway
 pja 04-07-2020 edits to fwhite added \r
 -------------- added f2tkn
 pja 01-09-2020 added ' pickup in fpword
@@ -26,7 +27,7 @@ comment code so far
 """
 test as
 import fioiClass
-s = fioiClass.fio('test.txt')
+s = fioiClass.fio('test3.txt')
 s.fioxGet() #etc
 
 """
@@ -135,6 +136,7 @@ class fio():
         c = 1
         while (c==1):
             j = self.fioi()
+            #rint('ftill j=(' + j.__str__() +')')
             if (j.__str__() == targetCH[0]):
                 self.fioo() # put last back
                 c = 0
@@ -355,6 +357,10 @@ class fio():
         while (ct1==0):
             if (sw == 0):
                 p = self.ftill(tkn[0])
+                #rint('f2tkn p=('+ p.__str__() + ')')
+                if (p == -1):
+                    ct1 = -1
+                #endif
             else:
                 col = col + self.fctill(tkn[0])
                 p = 0

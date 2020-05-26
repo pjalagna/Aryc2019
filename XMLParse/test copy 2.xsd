@@ -1,0 +1,69 @@
+<!--
+file test.xsd
+pja 5/4/2020 
+
+-->
+
+<schema name='employer-contacts' version='04/20/2020-1300'>
+<!-- contact info -->
+<contacts identifier="100">
+<element name="contact" identifier="abc">
+    <complexType>
+        <sequence>
+            <element name="Fname" maxoccurs="1" type="string" identifier='ccf-1'/>
+            <element name="Lname" identifier="ccl-1" maxoccurs="1" type="string"/>
+            <element name="Phone" identifier="cce-1" minOccurs="0" maxoccurs="unbounded" type="string"/>
+        </sequence>
+    </complexType>
+</element>
+<annotation identifier='an-c'>
+    <description identifier='ccad'> info </description>
+</annotation>
+</contacts>
+
+<element test='ox' name='person' ref="contact" identifier="mno"/>
+
+<!-- vendor info -->
+<element name='vendor' identifier='v'>
+    <complexType>
+        <sequence>
+            <element name="mainContact" ref="person" identifier='vper'/>
+            <element name="secondContact" ref="person" identifier="vper2"/>
+        </sequence>
+    </complexType>
+</element>
+
+<!-- supplier info -->
+<suppliers>
+<element name='supplier' identifier='Spqr'>
+    <annotation>
+        <documentation>
+        supplier: an entity (person, company or government) that delivers a good or service to you.
+        </documentation>
+    </annotation>
+    <complexType>
+        <sequence>
+            <element name="mainContact" ref="person" identifier='sper'/>
+            <element name="secondContact" ref="person" identifier="sper2"/>
+        </sequence>
+    </complexType>
+</element>
+<annotation identifier='sa'>
+    <description identifier='sad'> info2 </description>
+</annotation>
+</suppliers>
+
+<element name="begin" identifier="BBB">
+    <annotation>
+        <documentation>
+        begin: the place we start vendors then suppliers
+        </documentation>
+    </annotation>
+    <complexType>
+        <sequence>
+            <element ref="vendor" identifier="bbven" minoccurs="0"/>
+            <element ref="supplier" identifier="bbsu" minoccurs="0"/>
+        </sequence>
+    </complexType>
+</element>
+</schema>

@@ -1,0 +1,45 @@
+parsing xml/xsd workflow 
+0- examine characters from character position 0 till "<" record character position at iox. set pickup index to 0
+1- clip a chunk at character position (iox). chunk is determined to be "<" position till the next "<" minus 1 (ie everything from "<" up to but not including the next "<") set pickup index to ++
+- if end of file exit
+2-isolate c1,c2 to l12
+3- fan on l12
+-- if <! record pickup,l12,previous pickup 
+; drop chunk ; goto 1
+-- if <? record position,l12,previous pickup 
+; drop chunk ; goto 1
+-- if </ record position,l12,previous pickup 
+; goto 4
+-- otherwise record position,l12,previous pickup 
+; goto 5
+
+5 - isolate end brace to split chunks
+find the ">" charicter within the chunk
+split into chunk1 (<-->) and chunk 2( > and on)
+- isolate the tag 
+if a space is found in chunk1
+then tag = [1:space-1] <tag$---
+if not the tag = [1:-1] ie <tag>,<tag/>
+- isolate attributes
+if a space is found in chunk 1
+then all attributes follow this format:
+space,attributeName,quotedValue
+- determine best KRID
+from the attributes determine the best identifier in the priority order
+id,name,tagname
+to that we add the parent stack (roughly the provenance) and the value of chunk2
+- remove namespace on tag
+namespace format is ns:localName
+set ltag to localName if namespace or to tag if no namespace
+- fan on ltag
+-- if ltag = 'element' goto 6
+-- if ltag = 'complexType' goto 7
+-- if ltag = 'sequence' goto 8
+-- if ltag = 'choice' goto 9
+-- otherwise record ltag,pickup,KRID 
+push pickup onto parent stack
+- are we in a sequence loop?
+-- if sequence mode is set
+--- record pickup,masterPickup,KRID
+
+

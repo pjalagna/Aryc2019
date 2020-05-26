@@ -1,69 +1,84 @@
 <!--
 file test.xsd
+pja 5/16/2020
 pja 5/4/2020 
 
 -->
 
-<schema name='employer-contacts' version='04/20/2020-1300'>
-<!-- contact info -->
-<contacts identifier="100">
-<element name="contact" identifier="abc">
-    <complexType>
-        <sequence>
-            <element name="Fname" maxoccurs="1" type="string" identifier='ccf-1'/>
-            <element name="Lname" identifier="ccl-1" maxoccurs="1" type="string"/>
-            <element name="Phone" identifier="cce-1" minOccurs="0" maxoccurs="unbounded" type="string"/>
-        </sequence>
+<schema name='xxschema' version='04/20/2020-1300'>
+  <annotation><documentation>
+this is a simpler xtag xsd
+  </documentation>
+  </annotation>
+  <element name="tagx0" id="x0">
+    <annotation><documentation>
+        this is the beginning tag
+    </documentation>
+    </annotation>
+    <complexType id="cx0">
+      <sequence id="sx0">
+        <element id="x0x1" ref='tagx1'/> 
+        <element id="x0x5" ref='tagx5' maxOccurs="unbounded"/> 
+      </sequence>
     </complexType>
-</element>
-<annotation identifier='an-c'>
-    <description identifier='ccad'> info </description>
-</annotation>
-</contacts>
-
-<element test='ox' name='person' ref="contact" identifier="mno"/>
-
-<!-- vendor info -->
-<element name='vendor' identifier='v'>
-    <complexType>
-        <sequence>
-            <element name="mainContact" ref="person" identifier='vper'/>
-            <element name="secondContact" ref="person" identifier="vper2"/>
-        </sequence>
-    </complexType>
-</element>
-
-<!-- supplier info -->
-<suppliers>
-<element name='supplier' identifier='Spqr'>
-    <annotation>
-        <documentation>
-        supplier: an entity (person, company or government) that delivers a good or service to you.
-        </documentation>
+    <elementname>tagx0</elementname>
+  </element>
+  
+  <element name="tagx1" id="x1">
+    <annotation><documentation>
+        tag1 -ref- tagx2
+    </documentation>
     </annotation>
     <complexType>
-        <sequence>
-            <element name="mainContact" ref="person" identifier='sper'/>
-            <element name="secondContact" ref="person" identifier="sper2"/>
-        </sequence>
+      <sequence>
+        <element id="x1x2" ref='tagx2' minOccurs="1" maxOccurs='5'/>  
+      </sequence>
     </complexType>
-</element>
-<annotation identifier='sa'>
-    <description identifier='sad'> info2 </description>
-</annotation>
-</suppliers>
-
-<element name="begin" identifier="BBB">
-    <annotation>
-        <documentation>
-        begin: the place we start vendors then suppliers
-        </documentation>
+    <elementname>tagx1</elementname>
+  </element>
+  
+  <element name="tagx2" id="x2">
+    <annotation><documentation>
+        this is the complex call of x3 x4
+    </documentation>
     </annotation>
-    <complexType>
-        <sequence>
-            <element ref="vendor" identifier="bbven" minoccurs="0"/>
-            <element ref="supplier" identifier="bbsu" minoccurs="0"/>
-        </sequence>
+    <complexType id="cx2">
+      <sequence id="sx2">
+        <element id="x2x3" ref='tagx3' minOccurs='0'/> 
+        <element id="x2x4" ref='tagx4'/> 
+      </sequence>
     </complexType>
-</element>
+    <elementname>tagx2</elementname>
+  </element>
+  
+  <element name="tagx3" id="x3" type='string'>
+    <annotation><documentation>
+        data entry type
+    </documentation>
+    </annotation>
+    <elementname>tagx3</elementname>
+  </element>
+  
+  <element name="tagx4" id="x4" type='string'>
+    <annotation><documentation>
+        data entry type
+    </documentation>
+    </annotation>
+    <elementname>tagx4</elementname>
+  </element>
+  
+  <element name="tagx5" id="x5">
+    <annotation><documentation>
+        this is the complex call of x4 x3 out of order of tagx2
+    </documentation>
+    </annotation>
+    <complexType id="cx5">
+      <sequence id="sx5">
+        <element id="x5x4" type='tagx4'/> 
+        <element id="x5x3" type='tagx3' minOccurs='0' maxOccurs="unbounded"/> 
+      </sequence>
+    </complexType>
+    <elementname>tagx5</elementname>
+  </element>
+  
 </schema>

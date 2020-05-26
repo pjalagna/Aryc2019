@@ -1,0 +1,39 @@
+namespace hiccup
+link https://docs.google.com/document/d/1p0FfZPOKfGTZ7mD8KD3k7KByJO7t9umgfQGI6kEXwIo/edit
+
+Paul Alagna - 5/20/2020
+
+Guys,
+
+Found a hiccup in my processing of the StratML XSD.
+It has to do with namespaces in an XSD
+
+The intention of namespaces is to alert the user that the meaning, format or usage of this particular word is now under the control of another XSD (the namespace's XSD)
+
+Two things have to happen here.
+
+1- in the schema statement the namespace name and namespace xsd need to be recorded EG xmlns:xsd="https://www.w3.org/2001/XMLSchema" OR
+xmlns:Lib="https://www.Lib.org/2001/LibSchema" OR
+"https://www.dublincore.org/schemas/xmls/simpledc20021212"
+(Except for "xml:" because there are ALWAYS exceptions). 
+
+This value "https://www.Lib.org/2001/LibSchema" points to an XSD file "https://www.Lib.org/2001/LibSchema.xsd"
+Please note that the final ".xsd" is by default unstated - because there are ALWAYS exceptions.
+
+2- The usage of that name must include that namespace 
+IE Lib:attribute="funnyYouShouldAsk" should trigger a translation into the "Lib" repository for "attribute"
+
+Well, the problem is that in StratML.xsd
+the schema definition does not point to an xsd file. 
+xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core" is NOT a file name.
+
+Therefore, the xmlns called "Stratml" doesn't point anywhere. so parsing "stratml:Name" has no referent.
+
+In your defense, you made the assumption that the "stratml" namespace was *this* namespace. So "stratml:Name" dips back in as name="Name" 
+which might help human readers but that's not how AIKR capability machines read. Those buggers want rules to follow. And besides it's now a violation of XSD standards.
+
+I'm fully prepared to create repositories for each namespace and process "stratml:Name" against a "stratml" repository. 
+
+Help
+
+Paul
