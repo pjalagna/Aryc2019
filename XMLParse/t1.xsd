@@ -23,5 +23,7 @@ this is a simpler xtag xsd
       </sequence>
     </complexType>
     <elementname>tagx0</elementname>
-  </element>  
+  </element>
+  <element name='tagx1' id='xidtagx1' type='string'/> 
+  <element name='tagx5' id='xidtagx5' type='number'/>  
 </schema>

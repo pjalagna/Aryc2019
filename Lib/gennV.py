@@ -18,6 +18,7 @@ p = gennV.main(p)
 
 """
 def main( p , v=m ):
+    """ vector init """
     p['package']['gennV'] = ''
     p['help']['gennV'] = v
     p['sy']['genX'] = genX
@@ -25,6 +26,7 @@ def main( p , v=m ):
     return(p)
 #end main
 def genX(p):
+    """ vector routine """
     import time
     j = "X" + time.asctime() + time.clock().__str__() 
     j = j.replace(' ',"X")
@@ -34,6 +36,7 @@ def genX(p):
     p['sy']['push'](p['OK'])
 #end genn
 def gennX():
+    """ simple function returns GUID from time """
     import time
     j = "X" + time.asctime() + time.clock().__str__() 
     j = j.replace(' ',"X")
