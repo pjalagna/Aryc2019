@@ -1,0 +1,17 @@
+file p7l.txt
+parse p7 logic flow
+
+0:
+i = 0
+white till "<" or eof
+- ="<"
+-- collect to r0 till next "<"-1 or eof
+---- pu++ // 1 .
+--- =eof error abort 'not expected eof after "<"'
+- =eof "done" exit.
+
+1:
+l1x = r01:2
+b = r0['>']
+l2x = r0['>'-1:'>']
+

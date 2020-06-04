@@ -1,0 +1,24 @@
+file ontology.notes.txt
+pja 5/29/2020
+pja 5/26/2020
+
+ontologyClass creates a portal for management of an ontology
+
+types of records
+VAR l ns name=l ns value
+ATN l ns name=l ns value=> l ns name=l ns value
+KRID <krid> => [ l ns name=l ns value]
+
+RDF subject predicate object
+RDF (subject predicate object) => ix
+THING name / (index)
+PREDICATE name / (index)
+
+BPX
+
+BERTA
+MOOSE
+BASII
+
+I contend that if all of the record types exist in one database to allow the collection of the values for each facet (taxonomy) of the object to be attached then this collection IS an ontology.
+

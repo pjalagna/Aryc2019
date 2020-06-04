@@ -1,6 +1,7 @@
 m= """
 file genn.py
 create uid
+pja 6/1/2020 added gennx simple routine for simple use
 pja 04-20-2020 changed time.time to asctime + clock
 pja 01-10-2020
 use with takeV verb in basii
@@ -32,3 +33,9 @@ def genX(p):
     # push ok
     p['sy']['push'](p['OK'])
 #end genn
+def gennX():
+    import time
+    j = "X" + time.asctime() + time.clock().__str__() 
+    j = j.replace(' ',"X")
+    return(j)
+#gennX
