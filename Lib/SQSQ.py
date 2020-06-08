@@ -1,6 +1,7 @@
 """
 file SQSQ.py
  
+pja 6/7/2020 added quote protection
 pja 12-26-2019 cloned from SQSQ.php
 
 test as
@@ -19,6 +20,10 @@ def SQin(ins) :
            ans  = 'zzz'
         if (x=='*') : 
            ans  = 'zsz'
+        if (x=='"') : 
+           ans  = 'zdqz'
+        if (x=="'") : 
+           ans  = 'zsqz'
         if (x=='^') : 
            ans  = 'zuz'
         if (x=='&') : 
@@ -75,6 +80,8 @@ def SQin(ins) :
 def SQout(ins) :
 	x = ins
 	x = x.replace('zsz','*')
+	x = x.replace('zsqz',"'")
+	x = x.replace('zdqz','"')
 	x = x.replace('zaz','&')
 	x = x.replace('zsz','*')
 	x = x.replace('zscoz',';')

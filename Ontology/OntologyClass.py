@@ -239,9 +239,9 @@ WHERE
         return(ans)
     #RDFSeek
     #ATN
-    def ATNWrite(self,name1,value1,name2,value2,flags=''):
+    def ATNWrite(self,name1,value1,name2,value2,refid,flags=''):
         """
-        ATNWrite(self,name1,value1,name2,value2,flags='')
+        ATNWrite(self,name1,value1,name2,value2,refid,flags='')
         """
         vix = timestamp()
         # reserve record
@@ -256,6 +256,7 @@ WHERE
         v2 = '%value1%',
         v3 = '%name2%',
         v4 = '%value2%',
+        v18 = '%refid%',
         v19 = '%flags%'
         WHERE
             VIX = '%vix%' ;
@@ -266,6 +267,7 @@ WHERE
         sqFact = sqFact.replace('%value1%',value1)
         sqFact = sqFact.replace('%name2%',name2)
         sqFact = sqFact.replace('%value2%',value2)
+        sqFact = sqFact.replace('%refid%',refid)
         sqFact = sqFact.replace('%flags%',flags)
         logg('ATNWrite sq=(' + sqFact + ')')
         self.db.SQX(sqFact)
@@ -296,7 +298,7 @@ WHERE
     #ATNSeek
     
     #Relate
-    def RELATEWrite(self, Name1, Value1, relateType,relateValue,Name2, Value2,flags=''):
+    def RELATEWrite(self, Name1, Value1, relateType,relateValue,Name2, Value2,refid,flags=''):
         """
         RELATEWrite(self, Name1, Value1, relateType,relateValue,Name2, Value2,flags='')
         """
@@ -315,6 +317,7 @@ WHERE
         v4 = '%relateValue%',
         v5 = '%Name2%',
         v6 = '%Value2%',
+        v18 = '%refid%',
         v19 = '%flags%'
         WHERE
             VIX = '%vix%' ;
@@ -324,10 +327,11 @@ WHERE
         sqFact = sqFact.replace('%Name1%',Name1)
         sqFact = sqFact.replace('%Value1%',Value1)
         sqFact = sqFact.replace('%relateType%',relateType)
-        sqFact = sqFact.replace('%relateValue',relateValue)
+        sqFact = sqFact.replace('%relateValue%',relateValue)
         sqFact = sqFact.replace('%Name2%',Name2)
         sqFact = sqFact.replace('%Value2%',Value2)
         sqFact = sqFact.replace('%flags%',flags)
+        sqFact = sqFact.replace('%refid%',refid)
         logg('ATNWrite sq=(' + sqFact + ')')
         self.db.SQX(sqFact)
     #RELATEWrite

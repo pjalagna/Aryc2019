@@ -1,0 +1,29 @@
+file partner.Notes.txt
+pja 6/7/2020
+
+general format:
+[[1]] "include "protocolFilename ;
+[[2]] "Protocol" protocolName* "::"
+     [[r1]] "include" ruleFilename ;
+     [[r2]] "rule" ruleName 
+         "((" condition weight ,+ "))"
+         [[ar0]] "include" activationLimitsFilename ;
+         [[ar1]]
+         "[[" "activation" "limits" cond "]]"
+         "Immediate" "Action" ( function ,+ )
+         "Activate" ( protocolName ,+ )
+         "Deactivate" ( protocolName ,+ )
+         "Ending" "Action" ( function ,+ )
+         [[ar2]] {--more activation limits-- }
+      "End" ruleName
+      [[r3]] {-- more rules --}
+"End" "Protocol" protocolName ;
+
+condition format
+1-function logicalOperator function
+2-function logicalOperator function logicalOperator function
+
+agent((condition,+) protocolName ,+)
+
+protocolName = "idle" happens when nothing else happens
+protocolName = 'panic' happens when queues overload or time on task/cycle is excessive.

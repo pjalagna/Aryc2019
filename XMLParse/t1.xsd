@@ -22,8 +22,12 @@ this is a simpler xtag xsd
         <element id="x0x5" ref='tagx5' maxOccurs="unbounded"/> 
       </sequence>
     </complexType>
+        <element name='x40' ref='x50'/>
+        <element name='x60' type='pja:string'/>
+        <element name='x70' type='x12'/>
     <elementname>tagx0</elementname>
   </element>
   <element name='tagx1' id='xidtagx1' type='string'/> 
-  <element name='tagx5' id='xidtagx5' type='number'/>  
+  <element name='tagx5' id='xidtagx5' type='integer'/> 
+  <element name='x12'> just text </element> 
 </schema>

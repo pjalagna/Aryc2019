@@ -1,94 +1,45 @@
 file
+pja 6/7/2020
 pja 5/14/2020
-walk an xml
-def xmlFirst(mxml):
-    """pu = getPU() from first"""
-    tpu =mxml['KRID'][mxml['FIRST'].keys()[0]]['ATN']['pickup'].keys()[0]
-    tkrid = mxml['ATN']['pickup'][tpu]['KRID'].keys()[0]
-    return(tkrid)
-#
--- 
-tpu =mxml['KRID'][mxml['FIRST'].keys()[0]]['ATN']['pickup'].keys()[0]
-tkrid = mxml['ATN']['pickup'][tpu]['KRID'].keys()[0]
+walk an ontology of xsd/xml
 
-def xmlNext(mxml,tpu): #=> krid/-1
-    try:
-        tpu = mxml['previousPU'][tpu]['ATN']['pickup'].keys()[0]
-        tkrid = mxml['ATN']['pickup'][tpu]['KRID'].keys()[0]
-        mxml['KRID'][tkrid]['ATN']
-    except:
-        tkrid = -1
-    finally:
-        nop = 1
-    #endtry
-    return(tkrid)
-#
-
-
-
-
-
-
-get cnx of first encounter
-xmlKrid = xmlFirst(mxml)
-xmlCNX = mxml['KRID'][xmlKrid]['ATN']['cnx'].keys()[0]
-
-get xsd KRID via atn name = xmlCNX
-
-xsdKRID = mxsd['ATN']['name'][xmlCNX]['KRID'].keys()[0]
-
-get documentation 
-xsdDocPU = mxsd['ENDCHAIN'][xsdKRID]['ENDNAME:PU']['documentation']
-if len(xsdDocPU)==1 xsdDocPU = xsdDocPU.keys()[0]
-else try mxsd['PICKUP'][xsdDocPU.keys()[0]]['KRID'] ok ix =0
-     except ix = 1
-     xsdDocPU = xsdDocPU.keys()[ix]
-     
-xsdDocKRID = mxsd['PICKUP'][xsdDocPU]['KRID'].keys()[0]
-print(mxsd['KRID'][xsdDocKRID]['ATN']['value'].keys()[0])
-
-{display other id types}
-
-{display children KRIDS}
-mxsd['ATN']['previousKRID']
-
-not an input type move to next
-nextXmlName = 
+not an input type move to next 
 =======
+walk an ontology of xsd/xml
+-- test this
+[[ 1 ]] prid = readall( v18 where v1='first')
+[[ 2 ]][mm] = readall(* where v18=%prid%)
+== process mm ==
+[[ 3 ]] pume = readall(v2 where v18=prid,v1=pickup)
+[[ 4 ]] prid = readall(v18 where v1=previousPickup, v2=%pume%)
+==>2 
 
+search xsd by name
+atn{,atx}
+prid = readall(v18 of v1=atn{,v2=atx})
+mm = readall(* where v18=%prid%)
 
-pja 5/1/2020
+phase 2
+[[1]] add docID to elements in xsd
+rule (at endpoint )
+-- walk provenance to first gpa with tag=element
+---- relate (gpa,pu DocID,myrefid DocValue,docvalue)
 
-i'm building a parse tree for xml using the xsd.
-my use of xsd is sensitive to "<en" en name
-if element, complex, sequence, choice , or none of the above
+[[ 1a ]] add xsd links to xml ontology
+[[ 2 ]] unstable krid's in xsd
+[[ 3 ]] parse xml with xsd
+-- [[ 3a ]] verify 
 
-example 
-mm = """<element name='contact'>
-<complex>
-<sequence>
-<element name='fname' type='string' maxoccurs=1/>
-<element name='lname' type='string' maxoccurs=1/>
-<element name='phone' ref='phoneNumbers' minoccurs=0/>
-</sequence>
-</complex>
-</element>"""
+phase 3
+specify an AI topology in StratML
+by KRID .
+-- hidden layer size
+-- output needs?
 
-q - nesting conflict
-can an xsd element have more than one child? unless that child is "complex"
-yes <a><b>x</b><c>x</c> both b and c are children of a
+phase 4
+load an AI machine from xml using KRID
 
-ie can i parse <complex> to </complex> and know there is no nesting.
-yes within a complexType there is no nesting. if a sequence needs a complex type it will ref call it
-
-
-start:
-mode = open
-//init
-parent=''
-// modesw
-;
-
-modesw:
-p1 -> t1! ...
+to do
+master language for PI calculas using definitions
+SKOS names and definitions
 

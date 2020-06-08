@@ -1,4 +1,25 @@
+"""
+usage:
+import bbox
+bbox.main("bmain") # choose a starting paragraph
+bbox.start({'on'}) # execution loop ; set optional trace to have verbose stepping through basii code 
 
+command line (">?? ")
+commands are:
+blank line
+"text" or 'text'
+number
+"push" - one line of text added to stack
+pop - display and remove top of stack
+"{{""
+multiple lines of text till
+"}}"
+verbs - to see list of active verbs
+"verbName"
+help? - to see definition of verbName
+quit - to exit back to python
+exit - to exit python
+"""
 #file bbox.py
 #generated for bbox.basii at Sun Mar 29 18:03:40 2020 
 
