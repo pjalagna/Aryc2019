@@ -1,0 +1,103 @@
+partner xsd
+schema (*)
+e1 name=begin ref=partner
+e2 partner s(partnerName, c(inclP,protocolStmt)+)
+inclP type=string
+protocolStmt = s(protocolName, c(inclRule,ruleStmt))
+ruleStmt = s+(ruleName, c(inclCond,condStmt)+, c(inclAction,ActionStmt)+)
+ruleName type=string
+inclCond type=string
+
+condStmt = s(Paragraph,lop,Paragraph{,lop,Paragraph})
+inclAction type=string
+ActionStmt s(immediateStmt,readyStmt, dismissStmt, endPStmt)
+immediateStmt = c(inclImm,Imm)
+inclImm type=string
+Imm s+( Paragraph )
+endPStmt s+( Paragraph )
+readyStmt s+( protocolName )
+dismissStmt s+( protocolName )
+
+
+<schema name="partnerSchema"
+version="pja1.0">
+<element name='begin' ref="partner"/>
+<element name="partner">
+--cs
+<element name="partnerName" type="string"/>
+<element ref="ProtocolChoose" max="unbounded"/>
+/--cse
+<element name="ProtocolChoose">
+--cc
+<element name="protocolFile" type="string"/>
+<element ref="ProtocolStmt"/>
+/--cce
+<element name="ProtocolStmt">
+--cs
+s(protocolName, rulechoose
+/--cse
+element name="rulechoose"
+--cc
+<element name="inclRuleFile" type="string"/>
+<element ref="ruleStmt"/>
+/--cce
+
+<element name="ruleStmt">
+--cs
+<element name="ruleName" type="string"/>
+<element ref="condchoose"
+till=';'
+max="unbounded"/>
+<element ref="actionchoose"
+till=';'
+max="unbounded"/>
+/--cse
+
+<element name="condchoose">
+--ce
+<element name="inclCond" type="string"/>
+element ref="condStmt"/>
+/--cce
+
+<element name="condStmt">
+--cs
+element ref=ParagraphStmt,
+element ref=lop,
+element ref=ParagraphStmt
+element ref=lop min=0
+element ref=ParagraphStmt min=0
+--cse
+
+actionchoose
+--cc
+c(inclAction$,ActionStmt))
+/--cce
+
+<!-- basii xsd -->
+
+ActionStmt =
+s(actionName$,actionChoose+till=';')
+
+actionChoose = 
+c(inclActionFile$, actions+ till=';')
+
+actions =
+c(immediateAction, readyList, dismissList , endingProtocol)
+
+immediateAction
+s( paragraph+ till=';' )
+
+readyList
+s( protocolName+ till=';' )
+
+dismissList
+s( protocolName+ till=';' )
+
+endingProtocol
+s( paragraph+ till=';' )
+
+
+
+</schema>
+
+

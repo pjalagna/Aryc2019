@@ -4,6 +4,9 @@ usage main(filename{,trace}) renders to ontology fileName.onto
 trace == "on" will print progress
 """
 """
+pja 6/9/2020 changed collectAttributes 
+--- to allow space inside attribute values
+--- added proc70 special pickup for <![cdata]
 pja 6/7/2020 
 -- added log of r1 in proc8
 -- added atn provenance, 
@@ -14,9 +17,11 @@ pja 6/6/2020 added call105,106,107 spacial attribute processing
 
 test as
 import p9
-p9.fresh('StratML.xsd')
-p9.main('StratMl.xsd','on')
+file = 'StratML.xsd'
+p9.fresh(file)
+p9.main(file,'on')
 
+file = '/Users/PJA/GitHub/Aryc/XMLParse/KR-Ontology1.graphml'
 nds = p9.getnds()
 pkg = p9.getpkg()
 sq={}
@@ -42,6 +47,9 @@ puix = str(sq['0'](sq['5'])[0][0])
 #-- # vector down to SQdb
 
 notes
+space inside a quoted string is allowed.
+<tag/[space/atn=q-q]
+not [space/atn=-first space]
 atn value xx is protected with SQin and will need
 -- SQout for reading/searching
 
@@ -157,6 +165,9 @@ def main(fn,trace=''):
         elif (ctl == 62): #
             logg(proc62.__doc__)
             ctl = proc62() # "
+        elif (ctl == 70): #
+            logg(proc70.__doc__)
+            ctl = proc70() # "
         else:
             print('error ctl ('+ctl.__str__()+')')
             ctl = -1
@@ -247,7 +258,7 @@ def proc4():
             ctl = 5
         if (tt=='>'): 
             nds['r0'] = ans + tt # <-->
-            logg('proc4 r0=('+nds['r0']+')')
+            
             nds['refid'] = pkg['genX']()
             pc4 = -1
             ctl = 8
@@ -256,6 +267,9 @@ def proc4():
             loop = 1
         #endif
     #wend
+    cc = pkg['fioi'].fioxGet()
+    logg('proc4 char count=('+str(cc)+')')
+    logg('proc4 r0=('+nds['r0']+')')
     return(ctl)
 #proc4
 
@@ -303,8 +317,9 @@ def  proc9():
 
 def proc16(): # r0,r1 set collect l1x,l2x from r0 ==> 32 
     """proc16:
-    r0,r1 set; collect l1x,l2x from r0; ==> 32 
+    r0,r1 set; collect l1x,l2x from r0;  
     ATN pickup, previous, l1x,l2x
+    ==> 32
     """
     global pkg,nds
     nds['refid'] = pkg['genX']()
@@ -342,14 +357,17 @@ def proc16(): # r0,r1 set collect l1x,l2x from r0 ==> 32
 
 def  proc32():
     """proc32: Fan on l1x
+      special <!x not <!-
       <? ==> 33  
       <! ==> 34
       </ ==>35
       else ==> 36 """  
     if (nds['l1x']== "<?"):
         ctl = 33
-    elif (nds['l1x']== "<!"):
+    elif (nds['r0'][0:4] == "<!--"):
         ctl = 34
+    elif (nds['l1x']== "<!"):
+        ctl = 70
     elif (nds['l1x']== "</"):
         ctl = 35
     else:
@@ -445,6 +463,8 @@ def  proc50():
         #endif r1
     else: # <tag attr/> or >
         nds['tag'] = nds['r0'][1:spc]
+        logg("ATN "+'tag'+str(nds['tag'])+ 'refid'+ str(nds['refid']))
+        pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']))
         #collect & atn attributes; adjust min,max
         collectAttributes()
         # fix r1 if len>0 atn
@@ -671,6 +691,19 @@ def  proc62():
     return(56)
 #end 62"
 
+def proc70():
+    """
+    proc70 - special backValue process
+    if <![cdata text]> proceeds an element this value belongs to the previous element
+    relate to pu-1 as 'backValue'
+    ==>4
+    """
+    bv = nds['r0'][2:-1]
+    #relate to pu-1 as 'backvalue'
+    pkg['ontology'].RELATEWrite('backValue',str(bv),"backValue",'','pickup',str(nds['pu']-1),str(nds['refid']))
+    return(4)
+    
+#end proc70
 def collectAttributes():
     """
     collect and atn attributes
@@ -688,47 +721,30 @@ def collectAttributes():
     nds['attr']={}
     #remove tag
     spc = ats.find(' ')
+    nds['tag'] = ats[0:spc]
+    #atn tag
+    pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']),flags='640')
     ats = ats[spc+1:]
+    ixx = 0
     cxc = 0
     while (cxc ==0):
-        spc2 = ats.find(' ')
-        if (spc2 ==-1):
-            #do last
-            c1 = ats
-            atn,atv = c1.split('=')
-            #adjust atv remove quotes if any
-            mx = atv.find("'")
-            if (mx <> -1):
-                atv = atv[1:-1]
-            #
-            mx = atv.find('"')
-            if (mx <> -1):
-                atv = atv[1:-1]
-            #
-            nds['attr'][atn]=atv
-            #atn
-            logg("ATN "+atn+str(atv)+ 'refid'+ str(nds['refid']))
-            pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']),flags='640')
-            cxc =-1
-        else:
-            c1 = ats[:spc2]
-            atn,atv = c1.split('=')
-            #adjust atv remove quotes if any
-            mx = atv.find("'")
-            if (mx <> -1):
-                atv = atv[1:-1]
-            #
-            mx = atv.find('"')
-            if (mx <> -1):
-                atv = atv[1:-1]
-            #
-            nds['attr'][atn]=atv
-            #atn
-            logg("ATN "+atn+str(atv)+ 'refid'+ str(nds['refid'])+str(nds['refid']))
-            pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']),flags='657')
-            #reduce ats
-            ats = ats[spc2+1:]
-        #endif
+        #collect atn till =
+        spc2 = ats.find('=')
+        atn = ats[0:spc2]
+        cx = ats[spc2+1]
+        cx2 = ats.find(cx,spc2+2)
+        atv = ats[spc2+1:cx2+1]
+        nds["attr"][atn] = atn
+        #atn attr
+        pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']),flags='712')
+        try:
+            j = ats[cx2+2]
+            ats = ats[cx2+2:]
+        except:
+            cxc = -1
+        finally:
+            nop = 1
+        #endtry
     #wend
     #default min,max if not in attr might have ns: 
     jj = nds['attr'].keys().__str__()

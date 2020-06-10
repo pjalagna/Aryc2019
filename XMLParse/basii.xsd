@@ -1,0 +1,46 @@
+<schema name="basii">
+<annotation><documentation>
+basii schema
+pja 6/8/2020
+</documentation> </annotation>
+<element name="begin" ref="paragraphStmt"/>
+<annotation><documentation>
+added this element so that I could use an xsd as a bnf and a data dictionary
+</documentation> </annotation>
+<!-- basii xsd -->
+<annotation><documentation>
+note on usage of element attribute "till". 
+as a bnf all repeatable referenced element have to present an end token 
+and the parser must know what that is. the "till" attribute holds that end token.
+pja 6/8/2020
+</documentation> </annotation>
+
+<element name="paragraphStmt">
+<complexType> <choice> 
+<element ref="paragraphcooose" maxOccurs="unbounded" till=';'/>
+</choice></complexType> </element>
+
+<element name="paragraphcooose">
+<complexType> <choice> 
+<element name="paragraphIncl" type="string"/>
+<element ref="paragraph"/>
+</choice></complexType> </element>
+
+
+<element name="paragraph">
+<complexType> <sequence> 
+<element ref="paragraphName"/> 
+<element ref="clauses" maxOccurs="unbounded" till=';'/>
+</sequence></complexType> </element>
+
+<element name="paragraphName" type="string"/>
+
+<element name="clauses"> 
+<complexType> <sequence>
+<element name="clauseNumber" type="string"/>
+<element name="verbs" maxOccurs="unbounded" till='.'/>
+</sequence></complexType> </element>
+
+<element name="verbs" type="string"/>
+
+</schema>
