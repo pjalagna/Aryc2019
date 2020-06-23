@@ -1,0 +1,5 @@
+sets up a test site
+in browser type http://localhost:8080/dirt.php to test
+php -S 127.0.0.1:8080
+ctl-c to end
+

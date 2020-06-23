@@ -1,0 +1,78 @@
+file aryc/todo
+- prioritySys
+--- presedence list of tasks
+---- data chart{item{"blank","nonblank"{item}}}
+---- service
+------ proceeds(item1/'',item2)
+------ precedes (item1,item2/'')
+------ remove(item)
+------ doFirst()
+
+- partner
+--- aka berta
+--- see notes
+
+- pbox
+--- independent of doVerb
+----- minimum set 
+------- takeV, 
+------- push,pop,drop,drops,swap,
+------- *,/,+,-,mod
+------- !,@,
+------- =,<>,<,>
+------- crlf,Q?,T?
+------- cat,cats
+------- verbs,.s,.n==dumpNDS
+----- doVerb is takeV type
+
+- BasiiPy
+--- .m == pboxClass
+--- .x(file) == basiiHelper
+----- creates filename+.py
+--- .c(file.xsd)
+----- creates a "takeV" file 
+
+- basiiHelper.main(file,startPoint='init')
+--- create class projects
+--- self init
+
+- pboxClass
+--- set up independent instances of pbox
+
+- pgf
+--- fix pgf
+
+- agent
+---use pbox1-5/pboxClass not bbox
+----- allows pgf
+---move to lib
+
+- XMLDialogue
+-- design
+---- walk xsd and xml according to xsd rules
+
+- copyBooks.db
+----  for sql
+
+- ANN
+-- degign
+-- ANN.xsd
+---- design
+---- inputs,process,expectations==<StratML>.xml
+------ inputs == datawarehouse 
+-------- name-<domainValues
+-------- facts-<name@value
+-------- process basii,pointD scripts SQ protected
+
+- basii
+--- code.xsd
+----- so that an xml extractor could set up a full <name>.basii for compilation into "takeV" type files
+------- note ref=ns:name is an include
+------- provide help
+------- python is an indent language
+------- DO NOT expose p{}
+---------- use .c(file) in basiiPy
+
+
+
+

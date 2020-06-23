@@ -77,7 +77,7 @@ def pgf0 :-
 ;
 /* -- bbox -- */
 def bmain :-
-[[ 1 ]] ">?" ask dup 'bb' !  ==quit drop "bbox done" msg .
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit "bbox done" msg .
 [[ 2 ]] b2 tail. .
 ;
 def Ver :-

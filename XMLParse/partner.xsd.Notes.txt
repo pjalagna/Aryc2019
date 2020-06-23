@@ -1,5 +1,34 @@
 partner xsd
 schema (*)
+<annotation>
+   <documentation>
+      Formerly called BERTA. PARTNER is an extension of that workflow protocol. the name is an anagram of
+      (P)rotocol (groups of rules
+            2 are always defined "idle" and "panic"
+                  )
+      (A)ctions 
+          (immediate action,
+              : trigger events
+              : set values
+              : activate rules 
+          set protocols active
+          set protocols inactive
+          followup actions
+              : trigger events
+              : set values
+              : activate rules 
+          )
+      (R)ules (groups of weighted tests, and with rule activation limits )
+      (T)ests ( functions compared to:
+                 : functions (including event calls) 
+                 : limits ie a high AND low functions
+              )
+      (N)ews - unscheduled events (interruptions)
+      (E)vents - polled or triggered 
+           reading of an internal/external event
+   in (R)eal time - a system that keeps track of time on task, time on queue
+   </documentation>
+</annotation>
 e1 name=begin ref=partner
 e2 partner s(partnerName, c(inclP,protocolStmt)+)
 inclP type=string

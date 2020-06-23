@@ -1,8 +1,24 @@
 /*
 file BPX.basii
 pja 03-07-2020
+BPX is the compiler into lib records
+PGF is the executor 
+
+g: def hw :- [[ 1 ]] "hello world" msg . ; ;;
+r: .l
+{hw {1!!1 : lit!!hello world}}
+{hw {1!!2 : msg!!}}
+{hw {1!!3 : .!!}}
+{hw {2!!1 : ;!!}}
+
 needs testing 
 - hello
+{{
+def hw :- [[ 1 ]] "hello world" msg . ; ;;
+}}
+BPX
+
+-- 
 - call 1
 
 format [def BPXpn :- clauses till ;] till ;;
@@ -11,8 +27,8 @@ verbs // paragraph to call
       . to end
       quoted string
       number
-BPXRecord      BPX: BPXpn BPXcn BPXvn BPXvt BPXpara1 ::
-paragraph list PAR: BPXpn ::
+using lib! verbs 
+lib! ((pn, cn!!vn,  vt!!para1))
 
 */
 BPX.py
@@ -24,12 +40,13 @@ def BPXInit :-
 ;
 
 def doParagraph :-
+/* def name :- // do clauses tail. OR ;; and end */
+/* (paragraphString,,) */
 [[ 1 ]] word "px" ! ... .
 [[ 2 ]] "px" @ ";;" =  BPXFinal .
 [[ 3 ]] "0" "e" ! 
         "px" @  "def" =  
         word "BPXpn" ! 
-        writePAR
         "1" "e" ! word ":-" = 
         "0" "BPXcn" !
         doClauses tail. .
@@ -41,55 +58,62 @@ def doClauses :-
 /* [[ n ]] [BPXvt till .] or ; */
 [[ 1 ]] word "cx" ! ... .
 [[ 2 ]] "cx" @ ";" = 
-        "cx" @ "BPXvt" ! 
-        "BPXcn" @ ++ "BPXcn" !
-        "1" "BPXvn" !
-        writeBPX .
+        "cx" @ 'BPXvt'!
+        "" "BPXpara1" !
+        writeBPX 
+    .
         
 [[ 3 ]] "0" "e" ! "cx" @  "[[" = word "BPXcn" !
         "1" "e" ! word "]]" = "0" "BPXvn" ! doBPXvt tail. .
 [[ 4 ]] "e" @ "0" = " expected [[ " msg .
 [[ 5 ]] "e" @ "1" = " expected ]] " msg .
 ;
+
 def doBPXvt  :-
-[[ 1 ]]  word "BPXvt" ! ... . 
-[[ 2 ]] "BPXvt" @ ".." c1 = 
-        "BPXvn" @ ++ "BPXvn" !
+/* vn++ */
+/* if quote vt = lit para1 = q-q write */
+/* if num vt = num para1 = # write */
+/* if num vt = // para1 = next word write */
+/* else is verb vt! para1='' write */
+[[ 1 ]]  'BPXvn' @++ drop
+         '' 'BPXpara1' ! 
+          word "BPXvt" ! ... . 
+[[ 2 ]] "BPXvt" @ c1 '.' = 
         writeBPX .
 [[ 3 ]] "BPXvt" @ c1 Q? 
         "BPXvt" @ woB "BPXpara1" ! 
         "lit" "BPXvt" !
-        "BPXvn" @ ++ "BPXvn" !
-         writeBPX tail. .
+         writeBPX tail. 
+         .
 [[ 4 ]] "BPXvt" @ c1 T?  
         "BPXvt" @ woB "BPXpara1" !
         "lit" "BPXvt" ! 
-        "BPXvn" @ ++ "BPXvn" !
-         writeBPX tail. .
+         writeBPX tail. 
+         .
 [[ 5 ]] "BPXvt" @ isnum?  
         "BPXvt" @ "BPXpara1" !
         "num" "BPXvt" !
-        "BPXvn" @ ++ "BPXvn" !
-         writeBPX tail. .
+         writeBPX tail. 
+         .
 [[ 6 ]] "BPXvt" @ "//" = word "BPXpara1" !
-        "BPXvn" @ ++ "BPXvn" !
-         writeBPX tail. .
-[[ 7 ]]  "BPXvn" @ ++ "BPXvn" !
-         writeBPX tail. .
+         writeBPX tail. 
+         .
+[[ 7 ]]  '' "BPXpara1" !
+         writeBPX tail. 
+         .
 ;
 def writeBPX :-
-[[ 1 ]]    "BPX:" 
-    "BPXpn" @ cats 
-    "BPXcn" @ cats 
-    "BPXvn" @ cats 
-    "BPXvt" @ cats
-    "BPXpara1" @ cats "::" cats msg 
-    "" "BPXpara1" !
+/* format 
+for lib! r,c,v as {r{c} = v} so pn{cn!!vn} vt!!para1
+ */
+[[ 1 ]]   
+    "BPXpn" @  
+    "BPXcn" @ "!!" cat "BPXvn" @ 
+    "BPXvt" @ cat "!!" cat "BPXpara1" @ cat 
+    lib!
     .
 ;
-def writePAR :-
-[[ 1 ]] "PAR:" "BPXpn" @ cats "::" cats msg .
-;
+
 def BPXFinal :-
 [[ 1 ]] "BPXFinal" msg .s "?" ask .
 ;

@@ -1,1 +1,175 @@
-1
+/* bbox w/ basii interpreter */
+pbox.py
+/* uses lr,ln arrays */
+def pgfinit :-
+[[ 1 ]] 'heapV' takeV heapInit 'lrV' takeV 
+'ok' 'pgfid' ! .
+;
+
+def pgf :-
+/* (name,,) */
+[[ 1 ]] 'pgfid' @ 'ok' <> pgfinit lnz lrz ... .
+[[ 2 ]] 'pgf' pplogd dup ln! 
+         l@ lr! "1" 'pctl' !  pgc .
+;
+
+def pgc :-
+/* umbrella */
+[[ 1 ]] 'pgc ctl=' "pctl" @ cat pplogd
+'pctl' @ "1" = ppgc tail. .
+[[ 2 ]] 'pctl' @ "2" = cpgc tail. .
+[[ 3 ]] 'pctl' @ "3" = pvpgc tail. .
+[[ 4 ]] 'pctl' @ "4" = cspgc tail. .
+[[ 5 ]] 'pctl' @ "5" = pgf tail. .
+[[ 6 ]] 'pctl' @ "6" = pgcv2 tail. .
+[[ 7 ]] 'pctl' @ "8" = lr8 tail. .
+[[ 8 ]] 'pctl' @ "9" = lr4 tail. .
+[[ 9 ]] .
+;
+
+def ppgc :-
+/* paragraph def, //- comment -// */
+[[ 1 ]] 'ppgc' pplogd 
+pgword 'px' ! ... .
+[[ 2 ]] "1" 'e' ! 
+       'px' @  'def' =  pgdef "2" 'pctl' ! .
+[[ 3 ]] 'e' @ "1" = "0" 'e' ! 'expected def' msg "0" 'pctl' ! .
+[[ 4 ]] 'paragraph error' msg "0" 'pctl' ! .
+;
+
+def pgdef :-
+[[ 1 ]] 'pgdef' pplogd
+pgword 'pna' ! 'pna is ' 'pna' @ cats pplogd
+        pgword drop .
+;
+
+def cpgc :-
+/* clause [[ n ]] verbs or ; */
+[[ 1 ]] "cpgc" pplogd
+pgword 'cnx' ! 
+'cnx=' 'cnx' @ cat pplogd 
+... .
+[[ 2 ]] 'cnx' @ SEMI? "9" "pctl" ! .
+[[ 3 ]] "1" 'e' !  
+        'cnx' @ "[["  = 
+        pgword 'cnum' ! 
+        'cnum=' 'cnum' @ cat pplogd
+        "2" 'e' ! pgword ']]' = 
+        '3' 'pctl' ! .
+[[ 4 ]] 'e' @ "1" = 'expected [[' "0" 'pctl' ! .
+[[ 5 ]] 'e' @ "2" =  'expected ]]' "0" 'pctl' ! .
+[[ 6 ]] 'cpgc fall thru' msg .
+;
+
+def pvpgc :-
+/* verbs / ... / // / lits // num // tail. / . */
+[[ 1 ]] "vpgc" pplogd
+pgword 'vx' ! 
+'vx=' 'vx' @ cat pplogd 
+... .
+[[ 2 ]] 'v-2' pplogd
+'vx' @ '...' = pgcv2 .
+[[ 3 ]] 'v-3' pplogd
+'vx' @  'tail.' = pgcv3 .
+[[ 4 ]] 'v-4' pplogd
+'vx' @ c1 Q? 'vx' @ woB 
+'3' 'pctl' !  .
+[[ 5 ]] 'v-5' pplogd
+'vx' @ c1 T? 'vx' @ woB '3' 'pctl' !  .
+[[ 6 ]] 'v-6' pplogd
+'vx' @ '//' = pgword l@ lr! "1" 'pctl' ! .
+[[ 7 ]] 'v-7' pplogd 
+'vx' @ isnum? 'vx' @ 
+'3' 'pctl' !  . 
+[[ 8 ]] 'v-8' pplogd 
+'vx' @ P? "8" 'pctl' ! . 
+[[ 9 ]] 'v-9' pplogd
+voknok . 
+;
+def pgcv3 :-
+/* tail. == reload name ==> p */
+[[ 1 ]] "pgcv3" pplogd
+ln@ lr@ drop "5" 'pctl' ! .
+;
+
+def voknok :-
+/* try verb ok-3 pctl nok= */
+[[ 1 ]] "voknok" pplogd 
+'vx' @  protected 'pOK' = "3" 'pctl' ! .
+[[ 2 ]] drop pgcv2 .
+;
+
+def pgcv2 :-
+/* ... skip till . ==> c */
+[[ 1 ]] 'pgcv2' pplogd 
+pgword P?  "2" 'pctl' ! .
+[[ 2 ]] " - skipped " cat pplog drop tail. .
+;
+def lr8 :-
+/* clause success */
+[[ 1 ]] 'lr8' pplogd
+lr# "1" = lnz lrz 'OK' "0" 'pctl' ! .
+[[ 2 ]] lr@ ln@ drop "3" 'pctl' ! .
+;
+
+def lr4 :-
+/* at semi */
+[[ 1 ]] 'lr4' pplogd
+lr# "0" = lnz lrz 'NOK' "0" 'pctl' ! .
+[[ 2 ]]
+lr@ ln@ "6" "pctl" ! .
+;
+
+/* helper rtns */
+
+def bmain :-
+[[ 1 ]] ">?" ask dup 'bb' !  ==quit "pbox done" msg .
+[[ 2 ]] b2 tail. .
+;
+def Ver :-
+[[ 1 ]]   "bbox version 3.29b.XX" msg .
+;
+
+def b2 :-
+[[ 1 ]] 'bb' @ len ==0 . 
+[[ 2 ]] 'bb' @  c1 Q? 'bb' @ woB .
+[[ 3 ]] 'bb' @  c1 T? 'bb' @ woB .
+[[ 4 ]] 'bb' @  isnum? 'bb' @  /* leave on stack */ . 
+[[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
+[[ 6 ]] 'bb' @  ==pop msg . 
+[[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
+[[ 8 ]] 'bb' @  .X .
+[[ 9 ]] "failed" msg .
+;
+
+def bcollect :- 
+[[ 1 ]] '&' ask ... .
+[[ 2 ]] dup '}}' = drop  .
+[[ 3 ]] cats tail. .
+;
+
+
+def pgword :-
+/* word not comment */
+[[ 1 ]] "pgword" pplogd 
+"1" h^ lr@ trim word trim swap lr! "1" h! ... .
+[[ 2 ]] "1" h@ '//-' = pgDoComment hx tail .
+[[ 3 ]] "1" h@ pplog hx .
+;
+def pgDoComment :-
+[[ 1 ]] pgword dup "1" h! '-//' = .
+[[ 2 ]] tail. .
+;
+def pplog :-
+/* (word,,word) if ptrace==1 msg else nop */
+[[ 1 ]] dup 'ptrace' @ 'on' = '-log' cat msg .
+[[ 2 ]] dup 'ptrace' @ 'step' = '-log' cat ask drop . 
+[[ 2 ]] drop .
+;
+def pplogd :-
+[[ 1 ]] pplog drop .
+;
+
+@endend @endend
+
+     

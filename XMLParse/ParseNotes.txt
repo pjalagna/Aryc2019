@@ -1,0 +1,122 @@
+{{
+"init agent"
+"in bbox"
+'agent'
+takeV
+}}
+
+
+{{
+"init agent 1 xsd"
+drop
+1
+'arV'
+agentPush
+1
+"takeV"
+agentDo
+1
+'heapV'
+agentPush
+1
+"takeV"
+agentDo
+1
+'t1.xsd.onto'
+agentPush
+1
+'SQV'
+agentPush
+1
+"takeV"
+agentDo
+}}
+'init1'
+!
+{{
+"init agent 2 xml"
+drop
+2
+'arV'
+agentPush
+2
+"takeV"
+agentDo
+2
+'heapV'
+agentPush
+2
+"takeV"
+agentDo
+2
+'t1.xml.onto'
+agentPush
+2
+'SQV'
+agentPush
+ 
+}}
+'init2'
+!
+
+{{
+select * from sqlite_master;
+}}
+'sqml'
+!
+{{
+select v18 from v20 where v1='first';
+}}
+'sqfirst'
+!
+
+{{
+get xmlFirst
+'sqfirst'
+@
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+'xmlfirst'
+!
+}}
+'proc-xmlfirst'
+!
+{{
+select v1,v2 from v20 where v18='refid';
+}}
+'sqxv1v2'
+!
+{{
+get RefidByv1v2
+"set v1x v2x" drop
+"select v4 from v20 where v1='v1x' and v2='v2x';"
+'v1x'
+'v1x'
+@
+replace
+'v2x'
+'v2x'
+@
+replace
+'refidByv1v2'
+!
+}}
+{{
+
+"xsdRefidByv1v2" drop
+'refidByv1v2' @
+1
+swap
+agentPush
+1
+"SQReadAll"
+agentDo
+1
+agentPop
+
+}}

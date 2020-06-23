@@ -1,0 +1,29 @@
+file webIO.Notes.txt
+website
+dirt.php
+sfbe.php
+dbDisp.php
+dbInit.php
+dbPut.php 
+dbGet.php 
+SQSQ.php 
+-- rewrite like sfbe
+PDODAO.php
+
+
+
+python
+webioAgent.py
+-- poll 
+urlLoc.txt
+dbna.txt
+u1 = urllib.urlopen(dbGet([url],channel))
+get args
+jj = u1.readlines()
+process to [dbna]
+urllib.urlopen(dbPut([url],channel,c=,v=,processed=))
+-- end poll
+
+webioSend.py(channel,c=,v=,processed=)
+get args
+urllib.urlopen(dbPut(channel,c=,v=,processed=))

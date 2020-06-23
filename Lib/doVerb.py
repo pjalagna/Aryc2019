@@ -6,6 +6,7 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 6-11-2020 added trim
 pja 4-30-2020 fixed pick
 pja 4-28-2020 added lib#, changed l0 to lib0
 pja 04-25-2020 added l0 clear lib
@@ -146,6 +147,10 @@ def init(p,m=m):
     p['help']['Q?'] = "(x,,) fails if x not double quote charicter"
     p['sy']['T?'] = THook
     p['help']['T?'] = "(x,,) fails if x not single quote charicter"
+    p['sy']['P?'] = PHook
+    p['help']['P?'] = "(x,,) fails if x not period charicter"
+    p['sy']['SEMI?'] = SEMIHook
+    p['help']['SEMI?'] = "(x,,) fails if x not semicolon charicter"
     p['sy']['<'] = LT
     p['help']['<'] = "(a,b,,) a < b test fails if not"
     p['sy']['>'] = GT
@@ -199,9 +204,23 @@ def init(p,m=m):
     p['help']['lib#'] = 'list all cells'
     p['sy']['slice'] = slice
     p['help']['slice'] = '(bo,fo,str,,str[fo:bo])'
+    p['sy']['trim'] = trimv
+    p['help']['trim'] = '(str,,str) removes white space front and back'
     return(p)
 #end init
 ##- doverb.py:codespace 0 -##
+def trimv(p):
+    str = p['sy']['pop']() 
+    ans = trim(str)
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
+def trim(str):
+    str = str.lstrip(' \t\r\n')
+    str = str.rstrip(' \t\r\n')
+    return(str)
+#
+    
 def libkeys(p):
     print(p['l'].keys())
     p['sy']['push'](p['OK'])
@@ -386,10 +405,7 @@ def lloadCode(p):
     okb = p['sy']['pop']() # ok rtn
     p['sy']['push'](p['OK'])
 #
-    
-    
-    
-    
+       
 def rwd(p):
     # r> word swap r< .
     p['sy']['r>'](p)
@@ -563,7 +579,28 @@ def GT(p):
         p['sy']['push'](p['NOK'])
     #endif
 #
-    
+def PHook(p):
+    """
+    trap for '.' verb
+    """
+    x = p['sy']['pop']()
+    if (x == '.'):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#    
+def SEMIHook(p):
+    """
+    trap for ';' verb
+    """
+    x = p['sy']['pop']()
+    if (x == ';'):
+        p['sy']['push'](p['OK'])
+    else:
+        p['sy']['push'](p['NOK'])
+    #endif
+#    
 def QHook(p):
     x = p['sy']['pop']()
     if (x == '"'):

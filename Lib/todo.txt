@@ -1,0 +1,18 @@
+todo list for lib files
+basii.helper
+-- add __doc__ to each generated program
+
+doverb
+-- add ascii, unascii (45,,"#")
+
+bbox
+bbox.basii
+-- remove drop after =quit
+
+-- add remote commands so i can execute from external
+---- (allows agents)
+NO-- all bbox objects carry the same p{}
+BUT-- dups of bbox.py like bbox2 are independent
+-- so register each to each other
+
+

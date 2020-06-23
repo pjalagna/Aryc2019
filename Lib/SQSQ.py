@@ -1,6 +1,8 @@
 """
 file SQSQ.py
- 
+pja 6/12/2020 changed quotes to x^z and z^^z 
+-- to be more human readable
+-- added zblz marker for detect encoded strings
 pja 6/7/2020 added quote protection
 pja 12-26-2019 cloned from SQSQ.php
 
@@ -13,7 +15,7 @@ print('back=' + SQSQ.SQout(m))
 """
 
 def SQin(ins) :
-    endans = ''
+    endans = 'zblz' #beginning blank token
     for x in ins:
         ans = x
         if (x=='z') : 
@@ -21,9 +23,9 @@ def SQin(ins) :
         if (x=='*') : 
            ans  = 'zsz'
         if (x=='"') : 
-           ans  = 'zdqz'
+           ans  = 'z^^z'
         if (x=="'") : 
-           ans  = 'zsqz'
+           ans  = 'z^z'
         if (x=='^') : 
            ans  = 'zuz'
         if (x=='&') : 
@@ -79,9 +81,10 @@ def SQin(ins) :
     
 def SQout(ins) :
 	x = ins
+	x = x.replace('zblz','')
 	x = x.replace('zsz','*')
-	x = x.replace('zsqz',"'")
-	x = x.replace('zdqz','"')
+	x = x.replace('z^z',"'")
+	x = x.replace('z^^z','"')
 	x = x.replace('zaz','&')
 	x = x.replace('zsz','*')
 	x = x.replace('zscoz',';')

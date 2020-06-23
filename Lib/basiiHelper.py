@@ -1,5 +1,7 @@
 #file basiiHelper.py
 """history
+pja 06-10-2020 added P?,SEMI? 
+      --- changed logg to step or on.
 error-- logg clips ' in statements bad for sql
 error-- template pickup of statements clips ' bad for sql 
 error-- runaway on unended comment (ie no *+/ ) --fioi
@@ -305,8 +307,11 @@ def eqeq(needle):
 
 def logg(strin):
     global p
-    if (p['v']['trace'] == 'on'):
+    if (p['v']['trace'] == 'step'):
         nop = raw_input(strin)  
+    #endif
+    if (p['v']['trace'] == 'on'):
+        print("log-"+strin+"-log")  
     #endif
 #end logg
 

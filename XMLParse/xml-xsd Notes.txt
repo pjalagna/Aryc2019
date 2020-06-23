@@ -1,0 +1,124 @@
+"xml"
+"select v18 from v20 where v1='first';"
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+"xmlrefd"
+!
+
+"select v2 from v20 where v1='tag' and v18='<xmlrefd>' ;" 
+'<xmlrefd>'
+"xmlrefd"
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+"xmltag"
+!
+
+'get next'
+"select v2 from v20 where v1='pickup' and v18='<xmlrefd>';"
+'<xmlrefd>'
+'xmlrefd'
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+"mypu"
+!
+
+"select v18 from v20 where v1='previousPickup' and v2='<mypu>';"
+'<mypu>'
+"mypu"
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+"xmlnextRefid"
+!
+"select v2 "
+"select v2 from v20 where v1='tag' and v18='<xmlnextRefid>'"
+'<xmlnextRefid>'
+"xmlnextRefid"
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+'nextxmltag'
+!
+========
+verify that according to xsd xml-xmlnext is valid
+
+"select v18 from v20 where v1='name' and v2='<xmltag>';"
+'<xmltag>'
+'xmltag'
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+'xsdxtag1ref'
+!
+'tag2'
+"select v18 from v20 where v1='name' and v2='<nextxmltag>';"
+'<nextxmltag>'
+'nextxmltag'
+@
+replace
+SQReadAll
+0
+swap
+ar@
+0
+swap
+ar@
+'xsdnexttagref'
+!
+
+
+
+
+
+xsd name=<xmltag>
+dat:[[
+(u'pickup', u'7'), 
+(u'previousPickup', u'6'), 
+(u'l1x', u'<e'), 
+(u'l2x', u'x>'), 
+(u'refid', u'XSunXJunX14X20:31:59X20200.65608'), 
+(u'tag', u'element'), 
+(u'name', u'contacts'), 
+(u'minOccurs', u'1'), 
+(u'maxOccurs', u'1'), 
+(u'provenance', u'[0, 2, 7]'), 
+(u'KRID', u'NAME:contacts')
+]]TOS
+xsd name=xmlnexttag

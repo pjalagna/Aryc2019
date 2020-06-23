@@ -1,7 +1,0 @@
-
-
-<t>Sat Oct 28 07:27:53 2017</t> 
- <msg><To>master3</To>
-<From>master1</From>
-<Msg></Msg>
-<Time>Sat Oct 28 07:27:53 2017</Time></msg>

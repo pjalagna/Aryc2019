@@ -1,0 +1,3745 @@
+Last login: Wed Jun 17 11:02:57 on ttys000
+PJA@PAULsMacBook2019 ~ % cd /Users/PJA/GitHub/Aryc/XMLParse/      
+PJA@PAULsMacBook2019 XMLParse % python
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Apr 17 2020, 18:29:03) 
+[GCC 4.2.1 Compatible Apple LLVM 11.0.3 (clang-1103.0.29.20) (-macos10.15-objc- on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import p9
+>>> p9.fresh('t1.xml')
+initilizing
+>>> p9.main('t1.xml','on')
+log: head: ctl=(1)
+initilizing
+here at init
+log: head: ctl=(2)
+log: 
+    white till "<"-1 == 4 or eof ==>5
+    
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(34)
+log: proc4 r0=(<!--
+file t1.xml
+pja 6/14/2020
+-->)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<!)
+log: l2x=(->)
+timestamp=(X159240808987101)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '1',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.050378',
+        v18 = 'XWedXJunX17X11:34:49X20200.050378',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808987101' ;
+        )
+log: ATN pickup1refidXWedXJunX17X11:34:49X20200.050378
+timestamp=(X159240808987374)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '0',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.050378',
+        v18 = 'XWedXJunX17X11:34:49X20200.050378',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808987374' ;
+        )
+log: ATN previousPickup0refidXWedXJunX17X11:34:49X20200.050378
+timestamp=(X159240808987574)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<!',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.050378',
+        v18 = 'XWedXJunX17X11:34:49X20200.050378',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808987574' ;
+        )
+log: ATNl1x<!refidXWedXJunX17X11:34:49X20200.050378
+timestamp=(X159240808987784)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = '->',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.050378',
+        v18 = 'XWedXJunX17X11:34:49X20200.050378',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808987784' ;
+        )
+log: ATNl2x->refidXWedXJunX17X11:34:49X20200.050378
+timestamp=(X159240808988051)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.050378',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.050378',
+        v18 = 'XWedXJunX17X11:34:49X20200.050378',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808988051' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.050378refidXWedXJunX17X11:34:49X20200.050378
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(34)
+log: proc34: Goto 4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(45)
+log: proc4 r0=(<contacts>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<c)
+log: l2x=(s>)
+timestamp=(X159240808988280)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '2',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808988280' ;
+        )
+log: ATN pickup2refidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808988478)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '1',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808988478' ;
+        )
+log: ATN previousPickup1refidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808988702)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<c',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808988702' ;
+        )
+log: ATNl1x<crefidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808988905)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 's>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808988905' ;
+        )
+log: ATNl2xs>refidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808989421)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.060462',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808989421' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.060462refidXWedXJunX17X11:34:49X20200.060462
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240808989631)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contacts',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808989631' ;
+        )
+timestamp=(X159240808989830)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808989830' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: ATN first2refidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808990046)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'first',
+        v2 = '2',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = '497'
+        WHERE
+            VIX = 'X159240808990046' ;
+        )
+log: 504contacts
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(contacts)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(2)
+log: ATN KRIDTAG:contactsrefidXWedXJunX17X11:34:49X20200.060462
+timestamp=(X159240808990267)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:contacts',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.060462',
+        v18 = 'XWedXJunX17X11:34:49X20200.060462',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808990267' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(contacts)
+log: proc54 m1=(tag)
+log: proc54 mv1=(contacts)
+log: proc54 m=(pos)
+log: proc54 vm=(2)
+log: proc54 m1=(pos)
+log: proc54 mv1=(2)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(55)
+log: proc4 r0=(<contact>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<c)
+log: l2x=(t>)
+timestamp=(X159240808990579)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '3',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808990579' ;
+        )
+log: ATN pickup3refidXWedXJunX17X11:34:49X20200.080322
+timestamp=(X159240808990795)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '2',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808990795' ;
+        )
+log: ATN previousPickup2refidXWedXJunX17X11:34:49X20200.080322
+timestamp=(X159240808991004)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<c',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808991004' ;
+        )
+log: ATNl1x<crefidXWedXJunX17X11:34:49X20200.080322
+timestamp=(X159240808991222)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 't>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808991222' ;
+        )
+log: ATNl2xt>refidXWedXJunX17X11:34:49X20200.080322
+timestamp=(X159240808991425)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.080322',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808991425' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.080322refidXWedXJunX17X11:34:49X20200.080322
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240808991626)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808991626' ;
+        )
+timestamp=(X159240808991837)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808991837' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504contact
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(contact)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(3)
+log: ATN KRIDTAG:contactrefidXWedXJunX17X11:34:49X20200.080322
+timestamp=(X159240808992047)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.080322',
+        v18 = 'XWedXJunX17X11:34:49X20200.080322',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808992047' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(contact)
+log: proc54 m1=(tag)
+log: proc54 mv1=(contact)
+log: proc54 m=(pos)
+log: proc54 vm=(3)
+log: proc54 m1=(pos)
+log: proc54 mv1=(3)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(71)
+log: proc4 r0=(<firstName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( Paul )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<f)
+log: l2x=(e>)
+timestamp=(X159240808992305)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '4',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808992305' ;
+        )
+log: ATN pickup4refidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808992540)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '3',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808992540' ;
+        )
+log: ATN previousPickup3refidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808992747)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<f',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808992747' ;
+        )
+log: ATNl1x<frefidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808992999)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808992999' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808993214)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.095225',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808993214' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.095225refidXWedXJunX17X11:34:49X20200.095225
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240808993415)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'firstName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808993415' ;
+        )
+log: ATN valuezblzPaulrefidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808993613)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzPaul',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240808993613' ;
+        )
+timestamp=(X159240808993816)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 4]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808993816' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504firstName
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(firstName)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(4)
+log: ATN KRIDTAG:firstNamerefidXWedXJunX17X11:34:49X20200.095225
+timestamp=(X159240808994089)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:firstName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.095225',
+        v18 = 'XWedXJunX17X11:34:49X20200.095225',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808994089' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(firstName)
+log: proc54 m1=(tag)
+log: proc54 mv1=(firstName)
+log: proc54 m=(pos)
+log: proc54 vm=(4)
+log: proc54 m1=(pos)
+log: proc54 mv1=(4)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(89)
+log: proc4 r0=(</firstName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240808994654)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '5',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808994654' ;
+        )
+log: ATN pickup5refidXWedXJunX17X11:34:49X20200.114962
+timestamp=(X159240808994920)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '4',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808994920' ;
+        )
+log: ATN previousPickup4refidXWedXJunX17X11:34:49X20200.114962
+timestamp=(X159240808995113)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808995113' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:49X20200.114962
+timestamp=(X159240808995304)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808995304' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:49X20200.114962
+timestamp=(X159240808995483)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.114962',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808995483' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.114962refidXWedXJunX17X11:34:49X20200.114962
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240808995665)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'firstName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808995665' ;
+        )
+timestamp=(X159240808996079)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 4]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808996079' ;
+        )
+timestamp=(X159240808996291)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:49X20200.114962',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.114962',
+        v18 = 'XWedXJunX17X11:34:49X20200.114962',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808996291' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(104)
+log: proc4 r0=(<lastName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( Alagna )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<l)
+log: l2x=(e>)
+timestamp=(X159240808996521)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '6',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808996521' ;
+        )
+log: ATN pickup6refidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808996708)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '5',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808996708' ;
+        )
+log: ATN previousPickup5refidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808996877)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<l',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808996877' ;
+        )
+log: ATNl1x<lrefidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808997034)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808997034' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808997202)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.130657',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808997202' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.130657refidXWedXJunX17X11:34:49X20200.130657
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240808997371)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808997371' ;
+        )
+log: ATN valuezblzAlagnarefidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808997528)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzAlagna',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240808997528' ;
+        )
+timestamp=(X159240808997705)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 6]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808997705' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504lastName
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(lastName)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(6)
+log: ATN KRIDTAG:lastNamerefidXWedXJunX17X11:34:49X20200.130657
+timestamp=(X159240808997875)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.130657',
+        v18 = 'XWedXJunX17X11:34:49X20200.130657',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808997875' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(lastName)
+log: proc54 m1=(tag)
+log: proc54 mv1=(lastName)
+log: proc54 m=(pos)
+log: proc54 vm=(6)
+log: proc54 m1=(pos)
+log: proc54 mv1=(6)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(123)
+log: proc4 r0=(</lastName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240808998041)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '7',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808998041' ;
+        )
+log: ATN pickup7refidXWedXJunX17X11:34:49X20200.143585
+timestamp=(X159240808998222)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '6',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808998222' ;
+        )
+log: ATN previousPickup6refidXWedXJunX17X11:34:49X20200.143585
+timestamp=(X159240808998389)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808998389' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:49X20200.143585
+timestamp=(X159240808998625)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808998625' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:49X20200.143585
+timestamp=(X159240808998819)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.143585',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808998819' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.143585refidXWedXJunX17X11:34:49X20200.143585
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240808999011)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808999011' ;
+        )
+timestamp=(X159240808999413)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 6]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808999413' ;
+        )
+timestamp=(X159240808999615)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:49X20200.143585',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.143585',
+        v18 = 'XWedXJunX17X11:34:49X20200.143585',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808999615' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(135)
+log: proc4 r0=(<phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( (732) 555-1212 )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<p)
+log: l2x=(e>)
+timestamp=(X159240808999845)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '8',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240808999845' ;
+        )
+log: ATN pickup8refidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809000030)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '7',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809000030' ;
+        )
+log: ATN previousPickup7refidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809000196)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<p',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809000196' ;
+        )
+log: ATNl1x<prefidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809000383)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809000383' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809000539)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:49X20200.159124',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809000539' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:49X20200.159124refidXWedXJunX17X11:34:49X20200.159124
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240809000712)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809000712' ;
+        )
+log: ATN valuezblzzopz732zcpz 555zdsz1212refidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809000891)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzzopz732zcpz 555zdsz1212',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240809000891' ;
+        )
+timestamp=(X159240809001035)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 8]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001035' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504phone
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(phone)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(8)
+log: ATN KRIDTAG:phonerefidXWedXJunX17X11:34:49X20200.159124
+timestamp=(X159240809001183)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:49X20200.159124',
+        v18 = 'XWedXJunX17X11:34:49X20200.159124',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001183' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(phone)
+log: proc54 m1=(tag)
+log: proc54 mv1=(phone)
+log: proc54 m=(pos)
+log: proc54 vm=(8)
+log: proc54 m1=(pos)
+log: proc54 mv1=(8)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(159)
+log: proc4 r0=(</phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240809001373)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '9',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001373' ;
+        )
+log: ATN pickup9refidXWedXJunX17X11:34:50X20200.171936
+timestamp=(X159240809001531)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '8',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001531' ;
+        )
+log: ATN previousPickup8refidXWedXJunX17X11:34:50X20200.171936
+timestamp=(X159240809001678)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001678' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.171936
+timestamp=(X159240809001849)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001849' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.171936
+timestamp=(X159240809001999)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.171936',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809001999' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.171936refidXWedXJunX17X11:34:50X20200.171936
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809002254)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809002254' ;
+        )
+timestamp=(X159240809002498)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3, 8]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809002498' ;
+        )
+timestamp=(X159240809002678)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.171936',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.171936',
+        v18 = 'XWedXJunX17X11:34:50X20200.171936',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809002678' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(170)
+log: proc4 r0=(</contact>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(t>)
+timestamp=(X159240809002892)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '10',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809002892' ;
+        )
+log: ATN pickup10refidXWedXJunX17X11:34:50X20200.184987
+timestamp=(X159240809003075)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '9',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003075' ;
+        )
+log: ATN previousPickup9refidXWedXJunX17X11:34:50X20200.184987
+timestamp=(X159240809003233)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003233' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.184987
+timestamp=(X159240809003402)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 't>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003402' ;
+        )
+log: ATNl2xt>refidXWedXJunX17X11:34:50X20200.184987
+timestamp=(X159240809003540)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.184987',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003540' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.184987refidXWedXJunX17X11:34:50X20200.184987
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809003679)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003679' ;
+        )
+timestamp=(X159240809003847)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 3]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809003847' ;
+        )
+timestamp=(X159240809004016)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.184987',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.184987',
+        v18 = 'XWedXJunX17X11:34:50X20200.184987',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809004016' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(180)
+log: proc4 r0=(<contact>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<c)
+log: l2x=(t>)
+timestamp=(X159240809004422)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '11',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809004422' ;
+        )
+log: ATN pickup11refidXWedXJunX17X11:34:50X20200.198091
+timestamp=(X159240809004613)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '10',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809004613' ;
+        )
+log: ATN previousPickup10refidXWedXJunX17X11:34:50X20200.198091
+timestamp=(X159240809004827)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<c',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809004827' ;
+        )
+log: ATNl1x<crefidXWedXJunX17X11:34:50X20200.198091
+timestamp=(X159240809005009)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 't>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809005009' ;
+        )
+log: ATNl2xt>refidXWedXJunX17X11:34:50X20200.198091
+timestamp=(X159240809005182)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.198091',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809005182' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.198091refidXWedXJunX17X11:34:50X20200.198091
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240809005360)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809005360' ;
+        )
+timestamp=(X159240809005549)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809005549' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504contact
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(contact)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(11)
+log: ATN KRIDTAG:contactrefidXWedXJunX17X11:34:50X20200.198091
+timestamp=(X159240809005764)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.198091',
+        v18 = 'XWedXJunX17X11:34:50X20200.198091',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809005764' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(contact)
+log: proc54 m1=(tag)
+log: proc54 mv1=(contact)
+log: proc54 m=(pos)
+log: proc54 vm=(11)
+log: proc54 m1=(pos)
+log: proc54 mv1=(11)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(195)
+log: proc4 r0=(<lastName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( mattocks )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<l)
+log: l2x=(e>)
+timestamp=(X159240809006065)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '12',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006065' ;
+        )
+log: ATN pickup12refidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809006256)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '11',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006256' ;
+        )
+log: ATN previousPickup11refidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809006434)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<l',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006434' ;
+        )
+log: ATNl1x<lrefidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809006631)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006631' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809006800)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.211795',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006800' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.211795refidXWedXJunX17X11:34:50X20200.211795
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240809006965)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809006965' ;
+        )
+log: ATN valuezblzmattocksrefidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809007147)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzmattocks',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240809007147' ;
+        )
+timestamp=(X159240809007314)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 12]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809007314' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504lastName
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(lastName)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(12)
+log: ATN KRIDTAG:lastNamerefidXWedXJunX17X11:34:50X20200.211795
+timestamp=(X159240809007716)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.211795',
+        v18 = 'XWedXJunX17X11:34:50X20200.211795',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809007716' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(lastName)
+log: proc54 m1=(tag)
+log: proc54 mv1=(lastName)
+log: proc54 m=(pos)
+log: proc54 vm=(12)
+log: proc54 m1=(pos)
+log: proc54 mv1=(12)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(216)
+log: proc4 r0=(</lastName>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240809007960)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '13',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809007960' ;
+        )
+log: ATN pickup13refidXWedXJunX17X11:34:50X20200.227629
+timestamp=(X159240809008188)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '12',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809008188' ;
+        )
+log: ATN previousPickup12refidXWedXJunX17X11:34:50X20200.227629
+timestamp=(X159240809008362)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809008362' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.227629
+timestamp=(X159240809008531)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809008531' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.227629
+timestamp=(X159240809008705)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.227629',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809008705' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.227629refidXWedXJunX17X11:34:50X20200.227629
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809008853)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'lastName',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809008853' ;
+        )
+timestamp=(X159240809009007)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 12]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009007' ;
+        )
+timestamp=(X159240809009189)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.227629',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.227629',
+        v18 = 'XWedXJunX17X11:34:50X20200.227629',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009189' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(228)
+log: proc4 r0=(<phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( (201) 555-1212 )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<p)
+log: l2x=(e>)
+timestamp=(X159240809009352)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '14',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009352' ;
+        )
+log: ATN pickup14refidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809009570)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '13',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009570' ;
+        )
+log: ATN previousPickup13refidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809009811)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<p',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009811' ;
+        )
+log: ATNl1x<prefidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809009985)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809009985' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809010175)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.23937',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809010175' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.23937refidXWedXJunX17X11:34:50X20200.23937
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240809010363)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809010363' ;
+        )
+log: ATN valuezblzzopz201zcpz 555zdsz1212refidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809010532)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzzopz201zcpz 555zdsz1212',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240809010532' ;
+        )
+timestamp=(X159240809010724)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 14]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809010724' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504phone
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(phone)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(14)
+log: ATN KRIDTAG:phonerefidXWedXJunX17X11:34:50X20200.23937
+timestamp=(X159240809011110)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.23937',
+        v18 = 'XWedXJunX17X11:34:50X20200.23937',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809011110' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(phone)
+log: proc54 m1=(tag)
+log: proc54 mv1=(phone)
+log: proc54 m=(pos)
+log: proc54 vm=(14)
+log: proc54 m1=(pos)
+log: proc54 mv1=(14)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(252)
+log: proc4 r0=(</phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240809011336)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '15',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809011336' ;
+        )
+log: ATN pickup15refidXWedXJunX17X11:34:50X20200.25621
+timestamp=(X159240809011526)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '14',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809011526' ;
+        )
+log: ATN previousPickup14refidXWedXJunX17X11:34:50X20200.25621
+timestamp=(X159240809011705)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809011705' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.25621
+timestamp=(X159240809011894)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809011894' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.25621
+timestamp=(X159240809012060)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.25621',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809012060' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.25621refidXWedXJunX17X11:34:50X20200.25621
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809012242)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809012242' ;
+        )
+timestamp=(X159240809012454)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 14]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809012454' ;
+        )
+timestamp=(X159240809012664)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.25621',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.25621',
+        v18 = 'XWedXJunX17X11:34:50X20200.25621',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809012664' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(264)
+log: proc4 r0=(<phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=( (212) 555-1212 )
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(<p)
+log: l2x=(e>)
+timestamp=(X159240809012889)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '16',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809012889' ;
+        )
+log: ATN pickup16refidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809013132)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '15',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809013132' ;
+        )
+log: ATN previousPickup15refidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809013411)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '<p',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809013411' ;
+        )
+log: ATNl1x<prefidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809013630)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809013630' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809013817)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.269478',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809013817' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.269478refidXWedXJunX17X11:34:50X20200.269478
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(36)
+log: proc36: Goto 50 
+log: head: ctl=(50)
+log: proc50:  Parse tag, 
+        attributes
+        append pu to parent  
+        adjust minOccurs,maxOccurs   
+        ATN tag , attr , {val=r1}
+        atn provenance
+        ==>51 
+    
+log: tag 459
+timestamp=(X159240809014033)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809014033' ;
+        )
+log: ATN valuezblzzopz212zcpz 555zdsz1212refidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809014433)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'value',
+        v2 = 'zblzzopz212zcpz 555zdsz1212',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = '355'
+        WHERE
+            VIX = 'X159240809014433' ;
+        )
+timestamp=(X159240809014627)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 16]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809014627' ;
+        )
+log: head: ctl=(51)
+log: proc51:
+        set first
+        determine Best KRID from attr - may have ns:
+    
+log: 504phone
+log: best krid m1=(TAG)
+log: best krid m=(tag)
+log: best krid vm=(phone)
+log: best krid m1=(POS)
+log: best krid m=(pos)
+log: best krid vm=(16)
+log: ATN KRIDTAG:phonerefidXWedXJunX17X11:34:50X20200.269478
+timestamp=(X159240809014825)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'KRID',
+        v2 = 'TAG:phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.269478',
+        v18 = 'XWedXJunX17X11:34:50X20200.269478',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809014825' ;
+        )
+log: head: ctl=(52)
+log: proc52:  Special tag process - might have ns:
+  element ==> 53  
+complexType ==> 58  
+sequence ==> 60  
+choice ==> 62
+  otherwise ==>53 
+log: head: ctl=(53)
+log: proc53: Element mood process  
+        if sequenceMode =1
+             ATN master
+             seq++
+             ATN seq  
+        if chooseMode=1
+             ATN master
+             seq++
+             ATN seq
+           ==>54     
+log: head: ctl=(54)
+log: proc54: Special attribute processing  
+        -----+type    +type  + ref   +
+        -----+ on list+not   +       +
+        -----+--------+------+-------+
+             +//106   + //107+// 105 +
+        -----+--------+------+-------+
+        otherwise ==> 56
+         
+log: proc54 m=(tag)
+log: proc54 vm=(phone)
+log: proc54 m1=(tag)
+log: proc54 mv1=(phone)
+log: proc54 m=(pos)
+log: proc54 vm=(16)
+log: proc54 m1=(pos)
+log: proc54 mv1=(16)
+log: head: ctl=(56)
+log: proc56: L2x fan  /> pop parent ==>4  x> ==>4         
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(288)
+log: proc4 r0=(</phone>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(e>)
+timestamp=(X159240809015057)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '17',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015057' ;
+        )
+log: ATN pickup17refidXWedXJunX17X11:34:50X20200.287811
+timestamp=(X159240809015247)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '16',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015247' ;
+        )
+log: ATN previousPickup16refidXWedXJunX17X11:34:50X20200.287811
+timestamp=(X159240809015410)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015410' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.287811
+timestamp=(X159240809015578)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 'e>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015578' ;
+        )
+log: ATNl2xe>refidXWedXJunX17X11:34:50X20200.287811
+timestamp=(X159240809015760)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.287811',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015760' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.287811refidXWedXJunX17X11:34:50X20200.287811
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809015930)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'phone',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809015930' ;
+        )
+timestamp=(X159240809016110)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11, 16]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809016110' ;
+        )
+timestamp=(X159240809016254)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.287811',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.287811',
+        v18 = 'XWedXJunX17X11:34:50X20200.287811',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809016254' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(299)
+log: proc4 r0=(</contact>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(t>)
+timestamp=(X159240809016433)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '18',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809016433' ;
+        )
+log: ATN pickup18refidXWedXJunX17X11:34:50X20200.299171
+timestamp=(X159240809016612)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '17',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809016612' ;
+        )
+log: ATN previousPickup17refidXWedXJunX17X11:34:50X20200.299171
+timestamp=(X159240809016770)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809016770' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.299171
+timestamp=(X159240809017001)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 't>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809017001' ;
+        )
+log: ATNl2xt>refidXWedXJunX17X11:34:50X20200.299171
+timestamp=(X159240809017224)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.299171',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809017224' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.299171refidXWedXJunX17X11:34:50X20200.299171
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809017532)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contact',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809017532' ;
+        )
+timestamp=(X159240809017824)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2, 11]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809017824' ;
+        )
+timestamp=(X159240809018016)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.299171',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.299171',
+        v18 = 'XWedXJunX17X11:34:50X20200.299171',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018016' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(311)
+log: proc4 r0=(</contacts>)
+log: head: ctl=(8)
+log:  proc8:
+    optional collect iox(>) till next "<"-1 
+    ;set r1 ==>16 eof ==> 16
+    
+log: proc8: r1=(
+    
+)
+log: head: ctl=(16)
+log: proc16:
+    r0,r1 set; collect l1x,l2x from r0;  
+    ATN pickup, previous, l1x,l2x
+    ==> 32
+    
+log: l1x=(</)
+log: l2x=(s>)
+timestamp=(X159240809018234)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'pickup',
+        v2 = '19',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018234' ;
+        )
+log: ATN pickup19refidXWedXJunX17X11:34:50X20200.314832
+timestamp=(X159240809018420)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'previousPickup',
+        v2 = '18',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018420' ;
+        )
+log: ATN previousPickup18refidXWedXJunX17X11:34:50X20200.314832
+timestamp=(X159240809018592)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l1x',
+        v2 = '</',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018592' ;
+        )
+log: ATNl1x</refidXWedXJunX17X11:34:50X20200.314832
+timestamp=(X159240809018764)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'l2x',
+        v2 = 's>',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018764' ;
+        )
+log: ATNl2xs>refidXWedXJunX17X11:34:50X20200.314832
+timestamp=(X159240809018943)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'refid',
+        v2 = 'XWedXJunX17X11:34:50X20200.314832',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809018943' ;
+        )
+log: ATNrefidXWedXJunX17X11:34:50X20200.314832refidXWedXJunX17X11:34:50X20200.314832
+log: head: ctl=(32)
+log: proc32: 
+    clear attr
+    Fan on l1x
+      special <!x not <!-
+      <? ==> 33  
+      <! ==> 34
+      </ ==>35
+      else ==> 36 
+log: head: ctl=(35)
+log: proc35: Goto 40 
+log: head: ctl=(40)
+log: proc40:
+    atn tag
+    atn provenance
+    "</" Endpoint process   
+    ATN endpoint,refid
+    pop parent ==>41
+    
+log: l 404 
+timestamp=(X159240809019103)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'tag',
+        v2 = 'contacts',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809019103' ;
+        )
+timestamp=(X159240809019286)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'provenance',
+        v2 = '[0, 2]',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809019286' ;
+        )
+timestamp=(X159240809019447)
+ATNWrite sq=(
+        UPDATE v20 
+        SET 
+        VType = 'ATN',
+        v1 = 'endpointRefid',
+        v2 = 'XWedXJunX17X11:34:50X20200.314832',
+        v3 = 'refid',
+        v4 = 'XWedXJunX17X11:34:50X20200.314832',
+        v18 = 'XWedXJunX17X11:34:50X20200.314832',
+        v19 = ''
+        WHERE
+            VIX = 'X159240809019447' ;
+        )
+log: head: ctl=(41)
+log:  proc41:
+    Special endpoints
+    on /complex do nds.pop(ctpu), pop master
+    
+    on /seq do nds.pop(sqpu)
+    /sequence = sequenceMode = 0
+    
+    on /choice do nds.pop(chpu)
+    /choice = chooseMode = 0
+    ==>4 
+log: head: ctl=(4)
+log: 
+    proc4:
+    create refid for <-->
+    collect from iox ("<") till ">" into r0 ==> 8 or 
+    eof ==> 5
+    
+log: proc4 seqMode=(0)
+log: proc4 chMode=(0)
+log: proc4 char count=(317)
+log: proc4 r0=(</contacts>)
+log: head: ctl=(5)
+log: proc5: "DONE" ==> -1 
+DONE
+>>> 

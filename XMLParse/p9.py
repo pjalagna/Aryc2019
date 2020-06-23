@@ -21,7 +21,7 @@ file = 'StratML.xsd'
 p9.fresh(file)
 p9.main(file,'on')
 
-file = '/Users/PJA/GitHub/Aryc/XMLParse/KR-Ontology1.graphml'
+file = 'KR-Ontology2.graphml'
 nds = p9.getnds()
 pkg = p9.getpkg()
 sq={}
@@ -356,12 +356,15 @@ def proc16(): # r0,r1 set collect l1x,l2x from r0 ==> 32
 
 
 def  proc32():
-    """proc32: Fan on l1x
+    """proc32: 
+    clear attr
+    Fan on l1x
       special <!x not <!-
       <? ==> 33  
       <! ==> 34
       </ ==>35
-      else ==> 36 """  
+      else ==> 36 """ 
+    nds['attr'] ={} # clear attr
     if (nds['l1x']== "<?"):
         ctl = 33
     elif (nds['r0'][0:4] == "<!--"):
@@ -401,6 +404,7 @@ def  proc40():
     """
     #atn tag
     vtag = nds['r0'][2:-1]
+    logg('l 404 ')
     pkg['ontology'].ATNWrite("tag", str(vtag),'refid',str(nds['refid']),str(nds['refid']))
     #atn provenance
     pkg['ontology'].ATNWrite("provenance", str(nds['parent']),'refid',str(nds['refid']),str(nds['refid']))
@@ -452,18 +456,18 @@ def  proc50():
         else:
             nds['tag'] = nds['r0'][1:-1]
         #endif
-        logg("ATN "+'tag'+str(nds['tag'])+ 'refid'+ str(nds['refid']))
+        logg('tag 459')
         pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']))
         # r1 attribute
         nds['r1'] = nds['r1'].rstrip()
         nds['r1'] = nds['r1'].lstrip()
         if (len(nds['r1']) <> 0):
-            logg("ATN "+'value'+str(nds['r1'])+ 'refid'+ str(nds['refid']))
-            pkg['ontology'].ATNWrite('value',str(nds['r1']), 'refid',str(nds['refid']),str(nds['refid']),flags='355')
+            logg("ATN "+'value'+str(pkg['SQin'](nds['r1']))+ 'refid'+ str(nds['refid']))
+            pkg['ontology'].ATNWrite('value',str(pkg['SQin'](nds['r1'])), 'refid',str(nds['refid']),str(nds['refid']),flags='355')
         #endif r1
-    else: # <tag attr/> or >
+    else: # <tag attr (/> or >)
         nds['tag'] = nds['r0'][1:spc]
-        logg("ATN "+'tag'+str(nds['tag'])+ 'refid'+ str(nds['refid']))
+        logg('470 tag')
         pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']))
         #collect & atn attributes; adjust min,max
         collectAttributes()
@@ -473,7 +477,6 @@ def  proc50():
         nds['r1'] = nds['r1'].lstrip()
         if (len(nds['r1']) <> 0):
             nds['r1'] = pkg['SQin'](nds['r1'])
-            logg("ATN "+'value'+str(nds['r1'])+ 'refid'+ str(nds['refid']))
             pkg['ontology'].ATNWrite('value',str(nds['r1']), 'refid',str(nds['refid']),str(nds['refid']),flags="367")
         #endif r1
     #endif # <tag attr/> or >
@@ -490,13 +493,14 @@ def  proc51():
         nds['first']=  nds['pu']
         #atn
         logg("ATN "+'first'+str(nds['pu'])+ 'refid'+ str(nds['refid']))
-        pkg['ontology'].ATNWrite('first', str(nds['pu']), 'refid',str(nds['refid']),str(nds['refid']),flags="408")
+        pkg['ontology'].ATNWrite('first', str(nds['pu']), 'refid',str(nds['refid']),str(nds['refid']),flags="497")
     #endif
     # id,name,tag,pos
     # add position to attr
     nds['attr']['pos'] = nds['pu']
     # add tag
     nds['attr']['tag'] = nds['tag']
+    logg('504'+str(nds['attr']['tag']))
     #
     bestscore = 0
     bestkrid = ''
@@ -510,6 +514,8 @@ def  proc51():
         #endif
         m1 = m1.upper()
         logg('best krid m1=('+str(m1)+')')
+        logg('best krid m=('+str(m)+')')
+        logg('best krid vm=('+str(nds['attr'][m])+')')
         if (m1=='ID'):
             bestscore = 99
             bestkrid = m1+":"+nds['attr'][m].__str__()
@@ -579,31 +585,29 @@ def  proc53():
            ==>54     """  
     if (nds['sequenceMode']==1):
         #atn master
-        logg("ATN "+'master'+str(nds['master'])+ 'refid'+ str(nds['refid']))
-        pkg['ontology'].ATNWrite('master',str(nds['master']), 'refid',str(nds['refid']),str(nds['refid']))
+        #logg("ATN "+'master'+str(nds['master'])+ 'refid'+ str(nds['refid']))
+        pkg['ontology'].ATNWrite('masterPosition',str(nds['master']), 'refid',str(nds['refid']),str(nds['refid']))
         nds['seq'] = nds['seq']+1
         #atn seq
-        logg("ATN "+'seq'+str(nds['seq'])+ 'refid'+ str(nds['refid']))
         pkg['ontology'].ATNWrite('seq',str(nds['seq']), 'refid',str(nds['refid']),str(nds['refid']))
     #endif
     if (nds['chooseMode']==1):
         #atn master
-        logg("ATN "+'master'+str(nds['master'])+ 'refid'+ str(nds['refid'])+str(nds['refid']))
-        pkg['ontology'].ATNWrite('master',str(nds['master']), 'refid',str(nds['refid']),str(nds['refid']))
+        pkg['ontology']. ATNWrite('masterPosition',str(nds['master']), 'refid',str(nds['refid']),str(nds['refid']))
         nds['seq'] = nds['seq']+1
         #atn seq
-        logg("ATN "+'seq'+str(nds['seq'])+ 'refid'+ str(nds['refid']))
         pkg['ontology'].ATNWrite('seq',str(nds['seq']), 'refid',str(nds['refid']),str(nds['refid']))
     #endif
     return(54)
 #end 53"
-def  proc54():
+def proc54():
     """proc54: Special attribute processing  
         -----+type    +type  + ref   +
         -----+ on list+not   +       +
         -----+--------+------+-------+
              +//106   + //107+// 105 +
         -----+--------+------+-------+
+        otherwise ==> 56
          """  
     etypeList = """
         "string"
@@ -637,19 +641,24 @@ def  proc54():
         else:
             m1 = m
         #endif
+        logg('proc54 m1=('+str(m1)+')')
         bb = int(str(nds['attr'][m]).find(':'))
         if (bb <> -1):
             mv1 = nds['attr'][m][bb+1:]
         else:
             mv1 = nds['attr'][m]
         #endif
+        logg('proc54 mv1=('+str(mv1)+')')
         if (m1=='ref'):
+            logg('calling 105')
             call105(m)
         #
         if (m1=='type'):
             if (etypeList.find(mv1)<>-1):
+                logg('calling 106')
                 call106(m)
             else:
+                logg('calling 107')
                 call107(m)
             #endif
         #endif
@@ -722,8 +731,6 @@ def collectAttributes():
     #remove tag
     spc = ats.find(' ')
     nds['tag'] = ats[0:spc]
-    #atn tag
-    pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']),flags='640')
     ats = ats[spc+1:]
     ixx = 0
     cxc = 0
@@ -733,12 +740,12 @@ def collectAttributes():
         atn = ats[0:spc2]
         cx = ats[spc2+1]
         cx2 = ats.find(cx,spc2+2)
-        atv = ats[spc2+1:cx2+1]
-        nds["attr"][atn] = atn
+        atv = ats[spc2+2:cx2]
+        nds["attr"][atn] = atv
         #atn attr
         pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']),flags='712')
         try:
-            j = ats[cx2+2]
+            j = ats[cx2+1]
             ats = ats[cx2+2:]
         except:
             cxc = -1
@@ -766,6 +773,7 @@ sql ReadAll returns  x but x[0][0] is the string
 
 def call105(m):
     """
+    call 105:
     "ref" seq mode=1 
     -- relate master, ct-sq , refid
     -- atn master , refid
@@ -781,15 +789,17 @@ def call105(m):
     logg(call105.__doc__)
     if (nds['sequenceMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::sq'+str(nds['sqpu'])
-        pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
+        pkg['ontology'].RELATEWrite('masterPosition', str(nds['master']),"CS",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
+        pkg['ontology'].RELATEWrite('masterPosition', str(nds['master']), "SEQ",str(nds['seq']),'refid',str(nds['refid']),str(nds['refid']))
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
 
         #written later
     #endif
     if (nds['chooseMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::ch'+str(nds['chpu'])
-        pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
+        pkg['ontology'].RELATEWrite('masterPosition', str(nds['master']),"CT",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
+        pkg['ontology'].RELATEWrite('masterPosition', str(nds['master']), "SEQ",str(nds['seq']),'refid',str(nds['refid']),str(nds['refid']))
 
         #written later
     #endif
@@ -801,6 +811,7 @@ def call105(m):
         
 def call106(m):
     """
+    call106:
     type; on entry list
     sequenceMode=1
     -- relate master, ctsq, refid
@@ -814,21 +825,18 @@ def call106(m):
     -- relate parent= , parent , refid
     """
     logg(call106.__doc__)
+    # in all cases relate entryType
+    # relate type= entryPoint'' , refid
+    pkg['ontology'].RELATEWrite( m, str(nds['attr'][m]) ,'entryType',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     if (nds['sequenceMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::sq'+str(nds['sqpu'])
-        pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
+        pkg['ontology'].RELATEWrite('masterPosition', str(nds['master']),"masterCS",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
-
-        # relate type= entryPoint'' , refid
-        pkg['ontology'].RELATEWrite( m, str(nds['attr'][m]) ,'entryType',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     #endif
     if (nds['chooseMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::sq'+str(nds['chpu'])
-        pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
+        pkg['ontology'].RELATEWrite('master', str(nds['master']),"masterCT",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
-
-        # relate type= entryPoint'' , refid
-        pkg['ontology'].RELATEWrite( m, str(nds['attr'][m]) ,'entryType',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     #endif
     #continue
     pkg['ontology'].RELATEWrite('parent', str(nds['parent'][len(nds['parent'])-2]),'parent','','refid',str(nds['refid']),str(nds['refid']))
@@ -837,6 +845,7 @@ def call106(m):
 
 def call107(m):
     """
+    call 107:
     type call
     seqenceMode=1
     -- relate master , ctsq, refid
@@ -852,19 +861,17 @@ def call107(m):
     relate parent= , parent, refid
     """
     logg(call107.__doc__)
+    #relate type=typeVal, typeCall,typeVal refid
+    pkg['ontology'].RELATEWrite(m,str(nds['attr'][m]),'typeCall',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     if (nds['sequenceMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::sq'+str(nds['sqpu'])
         pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
-        #relate type=typeVal, typeCall,typeVal refid
-        pkg['ontology'].RELATEWrite(m,str(nds['attr'][m]),'typeCall',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     #endif
     if (nds['chooseMode']==1):
         relateValue = "ct"+str(nds['ctpu'])+ '::ch'+str(nds['chpu'])
         pkg['ontology'].RELATEWrite('master', str(nds['master']),"master",relateValue,'refid',str(nds['refid']),str(nds['refid']),flags='3')
         pkg['ontology'].ATNWrite('master', str(nds['master']),'refid',str(nds['refid']),str(nds['refid']))
-        #relate type=typeVal, typeCall,typeVal refid
-        pkg['ontology'].RELATEWrite(m,str(nds['attr'][m]),'typeCall',str(nds['attr'][m]),'refid',str(nds['refid']),str(nds['refid']))
     #endif
     #continue
     pkg['ontology'].RELATEWrite('parent',str(nds['parent'][len(nds['parent'])-2]),'parent','','refid',str(nds['refid']),str(nds['refid']))

@@ -1,0 +1,31 @@
+webio todo
+-- design
+overview
+SQ3-db on website
+put-->db-->get web.db
+format (channel,c,v,processed)
+python-webioAgent is a polling agent
+any processed='n' for channel.
+deposits to server side database viz dbLoc
+
+
+programs 
+PHP
+()-dirt
+()-sfbe
+()-PDODAO.php
+()-dbDisp.php
+()-dbInit.php
+()-dbPut(channel,c=,v=,processed=)
+()-dbGet(channel,c=,v=,processed=)
+()-web.db
+
+
+python
+()-dbLoc.txt
+()-DBInit()
+()-webioAgent.py(channel)
+()-webioSend.py(channel,c=,v=,processed=)
+()-database
+()-urlLoc
+
