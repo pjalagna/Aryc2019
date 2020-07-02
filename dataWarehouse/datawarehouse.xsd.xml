@@ -1,0 +1,86 @@
+<schema version='0.0' schemaName='DataWarehouse'>
+  <annotation>
+    <date> 6/23/2020 </date>
+    <author> Paul Alagna </author>
+    <documentation>
+dataWarehouse--<<domains,<<facts
+domains--<<domain
+domain--domainList
+domainList--<<domainValue
+facts--<<fact
+fact--<<factItem
+factItem--domain,domainValue
+    </documentation>
+  </annotation>
+
+<element name='dataWareHouse'>
+  <complexType>
+    <sequence>
+      <element ref='domains' maxOccurs='unbounded'/>
+      <element ref='facts' maxOccurs='unbounded'/>
+    </sequence>
+  </complexType>
+</element> <!-- dataWareHouse -->
+
+<element name='facts'>
+  <annotation> <documentation>
+  facts--<<fact
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element ref='fact' max='unbounded'/>
+  </sequence> </ComplexType>
+</element>
+<element name='fact'>
+  <annotation> <documentation>
+  fact-<<factItem
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element ref='factItem' max='unbounded'/>
+  </sequence> </ComplexType>
+</element> <!-- fact -->
+<element name='factItem'>
+  <annotation> <documentation>
+  item-at-value>>--domainItem(name)
+item-at-value>>--domainValue(value)
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element ref='domainItem'/>
+    <element ref='domainValue'/>
+  </sequence> </ComplexType>
+</element>
+
+<element name='domains'>
+  <annotation> <documentation>
+  list of domain(s)
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element ref='domain' max='unbounded'/>
+  </sequence> </ComplexType>
+</element> <!-- domains -->
+<element name='domain'>
+  <annotation> <documentation>
+  header of list of values of an attribute 
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element name='domainName' type='string'/>
+    <element ref='domainList'/>
+  </sequence> </ComplexType>
+</element> <!-- domain -->
+<element name='domainList'>
+  <annotation> <documentation>
+  domainList(name)--<<domainValues
+  </documentation></annotation>
+  <ComplexType> <sequence>
+    <element ref='domainValue' max='unbounded'/>
+  </sequence> </ComplexType>
+</element> <!-- domainList -->
+<element name='domainValue' type='string'> 
+  <annotation>
+    <documentation>
+    a domain value is the entry type attached to a domain name EG firstName='Paul' where:
+    "firstName" is the domainName and
+    "Paul" is the domainValue
+    </documentation>
+  </annotation> 
+</element> <!-- domainValue -->
+</schema> 

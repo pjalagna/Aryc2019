@@ -12,24 +12,30 @@ this is a simpler xtag xsd
   </documentation>
   </annotation>
   <element name='contacts'>
-      <complexType><sequence>
+      <annotation><documentation id='C-doc'>
+      this is the documentation for contact(s)
+      </documentation></annotation>
+      <xsd:complexType><xsd:sequence>
           <element id='callContact' ref='contact' maxOccurs="unbounded"/>
-      </sequence></complexType>
+      </xsd:sequence></xsd:complexType>
   </element>
   <element name="contact" id="Contact-E"><![CDATA [basis contact information]]>
     <annotation id="A-contact"><documentation id="D-contact">
         contact information is {first Name} lastName {phoneNumber(s)}
     </documentation>
     </annotation>
-    <complexType id="cx0">
-      <sequence id="sx0">
+    <xsd:complexType id="cx0">
+      <xsd:sequence id="sx0">
         <element id="askFirstName" ref='FirstName' minOccurs='0'/> 
         <element id="AskLastName" ref='lastname' maxOccurs="1"/> 
         <element id="AskPhone" ref='Phone' maxOccurs="unbounded"/> 
-      </sequence>
-    </complexType>
+      </xsd:sequence>
+    </xsd:complexType>
   </element>
   <element name='FirstName' id='firstName' type='string'/> 
-  <element name='lastName' id='lastName' type='string'/> 
+  <element name='lastName' id='lastName' type='string'> 
+  <annotation><documentation id='D-lastname'>
+  this is the documentation for last names 
+  </documentation></annotation>
   <element name='Phone' type="integer" maxDigits="10" minDigits="10"/>
 </schema>

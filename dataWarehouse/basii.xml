@@ -1,0 +1,31 @@
+<!-- basii.xml -->
+<basii>
+  <paragraphs>
+    <paragraph Name='helloWorld'>
+      <clause iteration="1">
+        <verb Vtype="literal">hello world</verb>
+        <verb Vtype="msg"/>
+        <verb Vtype="end"/>
+      </clause>
+      <END/>
+    </paragraph>
+    <paragraph Name='helloJohn'>
+      <clause iteration="1">
+        <verb Vtype="literal">hello</verb>
+        <verb Vtype="//">p2</verb>
+        <verb Vtype="cats"/>
+        <verb Vtype="msg"/>
+        <verb Vtype="end"/>
+      </clause>
+      <END/>
+    </paragraph>
+    <paragraph Name='p2'>
+      <clause iteration="1">
+        <verb Vtype="literal">Name</verb>
+        <verb Vtype="ask"/>
+        <verb Vtype="end"/>
+      </clause>
+      <END/>
+    </paragraph>
+  </paragraphs>
+</basii>

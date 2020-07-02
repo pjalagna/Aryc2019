@@ -20,6 +20,7 @@ ch = [0,1,2,3,4,5,6,7,8]
 pc = [0,1,2,3,4,5,6,7,8]
 def init():
     import useLib
+    import usePgx
     import pbox1
     pbox1.main('bmain')
     ch[1] = pbox1
@@ -52,14 +53,30 @@ def init():
     pc[4]['sy']['push']('mych')
     pc[4]['sy']['!'](pc[4])
     no = pc[4]['sy']['pop']()
-    import pbox5
-    pbox5.main('bmain')
-    ch[5] = pbox5
-    pc[5] = pbox5.p
-    pc[5]['sy']['push'](5)
-    pc[5]['sy']['push']('mych')
-    pc[5]['sy']['!'](pc[5])
-    no = pc[5]['sy']['pop']()
+    import pbox6
+    pbox6.main('bmain')
+    ch[6] = pbox6
+    pc[6] = pbox6.p
+    pc[6]['sy']['push'](6)
+    pc[6]['sy']['push']('mych')
+    pc[6]['sy']['!'](pc[6])
+    no = pc[6]['sy']['pop']()
+    import pbox7
+    pbox7.main('bmain')
+    ch[7] = pbox7
+    pc[7] = pbox7.p
+    pc[7]['sy']['push'](7)
+    pc[7]['sy']['push']('mych')
+    pc[7]['sy']['!'](pc[7])
+    no = pc[7]['sy']['pop']()
+    import pbox8
+    pbox8.main('bmain')
+    ch[8] = pbox8
+    pc[8] = pbox8.p
+    pc[8]['sy']['push'](8)
+    pc[8]['sy']['push']('mych')
+    pc[8]['sy']['!'](pc[8])
+    no = pc[8]['sy']['pop']()
 #
     
 def send(sendChannel,ReceiveChannel,command,parameter=''):
@@ -75,14 +92,15 @@ def send(sendChannel,ReceiveChannel,command,parameter=''):
     #endif
     return(ans) 
 #
-def main(p,m=''):
+def main(p):
     import useLib
+    import usePgx
     import useAgent
     import useOnto
     import agent
     agent.init()
     p['package']['agent'] = agent
-    p['help']['agent'] = m
+    p['help']['agent'] = agent.__doc__
     p['sy']['agentPush']= agPush #(mych,recvCh,parameter)
     p['help']['agentPush']= "agPush (recvCh,parameter)"
     p['sy']['agentPop']= agPop

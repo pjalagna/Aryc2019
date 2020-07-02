@@ -1,4 +1,6 @@
-/* bbox w/ basii interpreter */
+/* bbox w/ basii interpreter 
+pja 6/24/2020 added logging
+*/
 pbox.py
 /* uses lr,ln arrays */
 def pgfinit :-
@@ -123,11 +125,21 @@ lr@ ln@ "6" "pctl" ! .
 /* helper rtns */
 
 def bmain :-
-[[ 1 ]] ">?" ask dup 'bb' !  ==quit "pbox done" msg .
+[[ 1 ]] 'off' 'zlogging' ! Ver bmain2 .
+;
+
+def bmain2 :-
+[[ 1 ]] ">?" ask dup 'bb' !  loggingTest ==quit "pbox done" msg .
 [[ 2 ]] b2 tail. .
 ;
 def Ver :-
-[[ 1 ]]   "bbox version 3.29b.XX" msg .
+[[ 1 ]]   "bbox version 3.29b.XX type help for more" msg .
+;
+
+def loggingTest :-
+[[ 1 ]] 'zlogging' @ 'on' = 
+        'zlog' @ 'bb' @ cats 'zlog' !
+        .
 ;
 
 def b2 :-
@@ -138,8 +150,22 @@ def b2 :-
 [[ 5 ]] 'bb' @  ==push  "-----txt" ask . /* left on stack */
 [[ 6 ]] 'bb' @  ==pop msg . 
 [[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
-[[ 8 ]] 'bb' @  .X .
-[[ 9 ]] "failed" msg .
+[[ 8 ]] 'bb' @ 'help' = dohelp .
+[[ 9 ]] 'bb' @  .X .
+[[ 1 ]] "failed" msg .
+;
+def dohelp :-
+[[ 1 ]] 'help:' msg
+        'commands are:' msg
+        'push , pop , help(this message)' msg
+        '{{ multi-line any text till }} on its own line' msg
+        'any verb (use -verbs- command to see list)' msg
+        'any number with or without quotes' msg
+        'a blank line' msg
+        '' msg
+        'any quoted string that contains a verb name can be used with the -help?- command for more information' msg
+        '' msg
+        'end help' msg .
 ;
 
 def bcollect :- 

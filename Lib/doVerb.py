@@ -6,6 +6,7 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 6-26-2020 dumpNDS to .n
 pja 6-11-2020 added trim
 pja 4-30-2020 fixed pick
 pja 4-28-2020 added lib#, changed l0 to lib0
@@ -56,7 +57,7 @@ def init(p,m=m):
     p['sy']['package'] = package
     p['help']['packages'] = "(name,,) displays installed packages help"
     p['sy']['help?'] = helphook
-    p['sy']['dumpNDS'] = ndsOut
+    p['sy']['.n'] = ndsOut
     p['sy']['verbs'] = vocab
     p['sy']['takeV'] = takeV
     p['sy']['msg'] = msg
@@ -96,7 +97,7 @@ def init(p,m=m):
     p['help']['help?'] = "(name,,) displays help about name"
     p['sy']['verb?'] = verbHook
     p['help']['verb?'] = "(name,,) ok if names exists as verb nok if not"
-    p['help']['dumpNDS'] = "displays NDS"
+    p['help']['.n'] = "displays NDS"
     p['help']['verbs'] = "(,,) lists current verbs alphabetically "
     p['help']['takeV'] = "({options},name,,) imports V files"
     p['help']['msg'] = "(txt,,) displays txt"

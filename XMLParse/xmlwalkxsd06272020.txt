@@ -1,0 +1,7 @@
+xml.v1='first'=>xml.refid=>[xml.profile];
+xml.profile('tag')
+--xsd.v1v2('name',xml.profile('tag'))==>xsd.refid
+xsd.refid=>[xsd.profile]
+xsd.profile('pickup')
+
+fix p9 xsd:complexType, xsd:sequence

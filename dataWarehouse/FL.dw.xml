@@ -1,0 +1,47 @@
+<!-- simple dataWarehouse of firstname lastName 
+file FL.dw.xml
+-->
+<dataWarehouse>
+  <domains>
+    <domain>
+      <domainName>firstName
+        <domainList>
+          <domainValue>'Paul'</domainValue>
+          <domainValue>'Carl'</domainValue>
+          <domainValue>'Owen'</domainValue>
+        </domainList>
+      </domainName>
+    </domain>
+    <domain>
+      <domainName>lastName
+        <domainList>
+          <domainValue>'Alagna'</domainValue>
+          <domainValue>'Mattocks'</domainValue>
+          <domainValue>'Amber'</domainValue>
+        </domainList>
+      </domainName>
+    </domain>
+  </domains>
+  <facts>
+    <fact>
+      <factItem>
+          <domain>firstName</domain>
+          <domainValue>Paul</domainValue>
+      </factItem>
+      <factItem>
+          <domain>lastName</domain>
+          <domainValue>Alagna</domainValue>
+      </factItem>
+    </fact>
+    <fact>
+      <factItem>
+          <domain>firstName</domain>
+          <domainValue>Carl</domainValue>
+      </factItem>
+      <factItem>
+          <domain>lastName</domain>
+          <domainValue>Mattocks</domainValue>
+      </factItem>
+    </fact>
+  </facts>
+</dataWarehouse>  

@@ -1,1 +1,6 @@
-1
+file agent.notes.txt
+
+strongly want parallel processing
+agent1 -232- dbAck -- dbAck-232- agent2 
+
+

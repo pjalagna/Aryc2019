@@ -416,6 +416,7 @@ def  proc40():
 def  proc41():
     """ proc41:
     Special endpoints
+    may have ns:
     on /complex do nds.pop(ctpu), pop master
     
     on /seq do nds.pop(sqpu)
@@ -423,16 +424,23 @@ def  proc41():
     
     on /choice do nds.pop(chpu)
     /choice = chooseMode = 0
-    ==>4 """  
-    if (nds['r0'].upper() == "</SEQUENCE>"):
+    ==>4 """
+    m=  nds['r0'].find(":")
+    if (m == -1):
+       j =  nds['r0'].upper()
+    else:
+       j = "</" + nds['r0'].upper()[m+1:]
+    #endif
+    logg('proc41 j=('+ j +')')
+    if (j == "</SEQUENCE>"):
         nds['sequenceMode'] = 0 #off
         nds.pop("sqpu")
     #endif
-    if (nds['r0'].upper() == "</CHOICE>"):
+    if (j == "</CHOICE>"):
         nds['chooseMode'] = 0 #off
         nds.pop("chpu")
     #endif
-    if (nds['r0'].upper() == "</COMPLEXTYPE>"):
+    if (j == "</COMPLEXTYPE>"):
         nds.pop("ctpu") 
         nds.pop("master")
     #endif
@@ -555,9 +563,9 @@ choice ==> 62
   otherwise ==>53 """  
     jj = nds['tag'].find(":")
     if (jj == -1):
-        tag = nds['tag'][jj+1:].upper()
-    else:
         tag = nds['tag'].upper()
+    else:
+        tag = nds['tag'][jj+1:].upper()
     #endif
     if (tag == 'ELEMENT'):
         ctl = 53

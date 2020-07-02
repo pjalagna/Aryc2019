@@ -1,6 +1,6 @@
 
 #file pbox.py
-#generated for pgx.basii at Sat Jun 20 14:58:05 2020 
+#generated for pgx.basii at Wed Jun 24 10:50:33 2020 
 
 # usage 
 # import xx
@@ -5190,11 +5190,11 @@ def bmain_1():
 
     r = p['sy']['pop']()
     logg('for bmain-1 processing text ')
-    logg(""">?""")
+    logg("""on""")
     if (r == p['OK']):
-        logg('push text ' + """>?""")
-        datPush(">?")
-        logg('after ' + """>?""" )
+        logg('push text ' + """on""")
+        datPush("on")
+        logg('after ' + """on""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -5202,38 +5202,12 @@ def bmain_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for bmain-1 processing verb ( ask ) ')
-    if (r == p['OK']):
-        logg('call ask ')
-        p['sy']['ask'](p)
-        logg('after ask')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
-    logg('for bmain-1 processing verb ( dup ) ')
-    if (r == p['OK']):
-        logg('call dup ')
-        p['sy']['dup'](p)
-        logg('after dup')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
     logg('for bmain-1 processing text ')
-    logg("""bb""")
+    logg("""zlogging""")
     if (r == p['OK']):
-        logg('push text ' + """bb""")
-        datPush("bb")
-        logg('after ' + """bb""" )
+        logg('push text ' + """zlogging""")
+        datPush("zlogging")
+        logg('after ' + """zlogging""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -5254,11 +5228,11 @@ def bmain_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for bmain-1 processing verb ( ==quit ) ')
+    logg('for bmain-1 processing verb ( Ver ) ')
     if (r == p['OK']):
-        logg('call ==quit ')
-        p['sy']['==quit'](p)
-        logg('after ==quit')
+        logg('call Ver ')
+        p['sy']['Ver'](p)
+        logg('after Ver')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -5267,24 +5241,11 @@ def bmain_1():
     #endif
 
     r = p['sy']['pop']()
-    logg('for bmain-1 processing text ')
-    logg("""pbox done""")
+    logg('for bmain-1 processing verb ( bmain2 ) ')
     if (r == p['OK']):
-        logg('push text ' + """pbox done""")
-        datPush("pbox done")
-        logg('after ' + """pbox done""" )
-        datPush(p['OK'])
-    else:
-        logg('text skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
-    logg('for bmain-1 processing verb ( msg ) ')
-    if (r == p['OK']):
-        logg('call msg ')
-        p['sy']['msg'](p)
-        logg('after msg')
+        logg('call bmain2 ')
+        p['sy']['bmain2'](p)
+        logg('after bmain2')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -5295,41 +5256,6 @@ def bmain_1():
     #final
     logg('final bmain_1')
 #end bmain_1
-
-def bmain_2():
-    global p
-    logg('bmain_2')
-    datPush(p['OK'])
-
-    r = p['sy']['pop']()
-    logg('for bmain-2 processing verb ( b2 ) ')
-    if (r == p['OK']):
-        logg('call b2 ')
-        p['sy']['b2'](p)
-        logg('after b2')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    r = p['sy']['pop']()
-    logg('for bmain-2 processing verb ( tail. ) ')
-    if (r == p['OK']):
-        logg('call tail. ')
-        p['sy']['tail.'](p)
-        logg('after tail.')
-        #endif
-        # datPush(p['OK']) # verb supplies ok/nok
-    else:
-        logg('verb skipped')
-        p['sy']['push'](r) # pass nok to next
-    #endif
-
-    #final
-    logg('final bmain_2')
-#end bmain_2
 
 def bmain (x):
     global p
@@ -5348,13 +5274,6 @@ def bmain (x):
             # test and adjust for new spoke
             bmainCtl = chk(bmainCtl)
 
-        elif (bmainCtl == 2):
-            logg('call bmain_2')
-            bmain_2()
-            logg('after call bmain_2')
-            # test and adjust for new spoke
-            bmainCtl = chk(bmainCtl)
-
         else:
             #final
             logg('final bmain')    
@@ -5363,6 +5282,199 @@ def bmain (x):
     #wend
 #end bmain
 
+def bmain2_1():
+    global p
+    logg('bmain2_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing text ')
+    logg(""">?""")
+    if (r == p['OK']):
+        logg('push text ' + """>?""")
+        datPush(">?")
+        logg('after ' + """>?""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( ask ) ')
+    if (r == p['OK']):
+        logg('call ask ')
+        p['sy']['ask'](p)
+        logg('after ask')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( dup ) ')
+    if (r == p['OK']):
+        logg('call dup ')
+        p['sy']['dup'](p)
+        logg('after dup')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing text ')
+    logg("""bb""")
+    if (r == p['OK']):
+        logg('push text ' + """bb""")
+        datPush("bb")
+        logg('after ' + """bb""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( loggingTest ) ')
+    if (r == p['OK']):
+        logg('call loggingTest ')
+        p['sy']['loggingTest'](p)
+        logg('after loggingTest')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( ==quit ) ')
+    if (r == p['OK']):
+        logg('call ==quit ')
+        p['sy']['==quit'](p)
+        logg('after ==quit')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing text ')
+    logg("""pbox done""")
+    if (r == p['OK']):
+        logg('push text ' + """pbox done""")
+        datPush("pbox done")
+        logg('after ' + """pbox done""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final bmain2_1')
+#end bmain2_1
+
+def bmain2_2():
+    global p
+    logg('bmain2_2')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for bmain2-2 processing verb ( b2 ) ')
+    if (r == p['OK']):
+        logg('call b2 ')
+        p['sy']['b2'](p)
+        logg('after b2')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for bmain2-2 processing verb ( tail. ) ')
+    if (r == p['OK']):
+        logg('call tail. ')
+        p['sy']['tail.'](p)
+        logg('after tail.')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final bmain2_2')
+#end bmain2_2
+
+def bmain2 (x):
+    global p
+    logg('begin bmain2')
+    ## point of umbrella
+    bmain2Ctl = 1 # starting spoke
+    while bmain2Ctl != 0:
+        logg('loop bmain2Ctl = ' + bmain2Ctl.__str__())
+        if (bmain2Ctl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (bmain2Ctl == 1):
+            logg('call bmain2_1')
+            bmain2_1()
+            logg('after call bmain2_1')
+            # test and adjust for new spoke
+            bmain2Ctl = chk(bmain2Ctl)
+
+        elif (bmain2Ctl == 2):
+            logg('call bmain2_2')
+            bmain2_2()
+            logg('after call bmain2_2')
+            # test and adjust for new spoke
+            bmain2Ctl = chk(bmain2Ctl)
+
+        else:
+            #final
+            logg('final bmain2')    
+            bmain2Ctl = 0 # break
+        #endif
+    #wend
+#end bmain2
+
 def Ver_1():
     global p
     logg('Ver_1')
@@ -5370,11 +5482,11 @@ def Ver_1():
 
     r = p['sy']['pop']()
     logg('for Ver-1 processing text ')
-    logg("""bbox version 3.29b.XX""")
+    logg("""bbox version 3.29b.XX type help for more""")
     if (r == p['OK']):
-        logg('push text ' + """bbox version 3.29b.XX""")
-        datPush("bbox version 3.29b.XX")
-        logg('after ' + """bbox version 3.29b.XX""" )
+        logg('push text ' + """bbox version 3.29b.XX type help for more""")
+        datPush("bbox version 3.29b.XX type help for more")
+        logg('after ' + """bbox version 3.29b.XX type help for more""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -5422,6 +5534,183 @@ def Ver (x):
         #endif
     #wend
 #end Ver
+
+def loggingTest_1():
+    global p
+    logg('loggingTest_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing text ')
+    logg("""zlogging""")
+    if (r == p['OK']):
+        logg('push text ' + """zlogging""")
+        datPush("zlogging")
+        logg('after ' + """zlogging""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing text ')
+    logg("""on""")
+    if (r == p['OK']):
+        logg('push text ' + """on""")
+        datPush("on")
+        logg('after ' + """on""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( = ) ')
+    if (r == p['OK']):
+        logg('call = ')
+        p['sy']['='](p)
+        logg('after =')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing text ')
+    logg("""zlog""")
+    if (r == p['OK']):
+        logg('push text ' + """zlog""")
+        datPush("zlog")
+        logg('after ' + """zlog""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing text ')
+    logg("""bb""")
+    if (r == p['OK']):
+        logg('push text ' + """bb""")
+        datPush("bb")
+        logg('after ' + """bb""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( cats ) ')
+    if (r == p['OK']):
+        logg('call cats ')
+        p['sy']['cats'](p)
+        logg('after cats')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing text ')
+    logg("""zlog""")
+    if (r == p['OK']):
+        logg('push text ' + """zlog""")
+        datPush("zlog")
+        logg('after ' + """zlog""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for loggingTest-1 processing verb ( ! ) ')
+    if (r == p['OK']):
+        logg('call ! ')
+        p['sy']['!'](p)
+        logg('after !')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final loggingTest_1')
+#end loggingTest_1
+
+def loggingTest (x):
+    global p
+    logg('begin loggingTest')
+    ## point of umbrella
+    loggingTestCtl = 1 # starting spoke
+    while loggingTestCtl != 0:
+        logg('loop loggingTestCtl = ' + loggingTestCtl.__str__())
+        if (loggingTestCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (loggingTestCtl == 1):
+            logg('call loggingTest_1')
+            loggingTest_1()
+            logg('after call loggingTest_1')
+            # test and adjust for new spoke
+            loggingTestCtl = chk(loggingTestCtl)
+
+        else:
+            #final
+            logg('final loggingTest')    
+            loggingTestCtl = 0 # break
+        #endif
+    #wend
+#end loggingTest
 
 def b2_1():
     global p
@@ -6012,11 +6301,37 @@ def b2_8():
     #endif
 
     r = p['sy']['pop']()
-    logg('for b2-8 processing verb ( .X ) ')
+    logg('for b2-8 processing text ')
+    logg("""help""")
     if (r == p['OK']):
-        logg('call .X ')
-        p['sy']['.X'](p)
-        logg('after .X')
+        logg('push text ' + """help""")
+        datPush("help")
+        logg('after ' + """help""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for b2-8 processing verb ( = ) ')
+    if (r == p['OK']):
+        logg('call = ')
+        p['sy']['='](p)
+        logg('after =')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for b2-8 processing verb ( dohelp ) ')
+    if (r == p['OK']):
+        logg('call dohelp ')
+        p['sy']['dohelp'](p)
+        logg('after dohelp')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:
@@ -6035,6 +6350,54 @@ def b2_9():
 
     r = p['sy']['pop']()
     logg('for b2-9 processing text ')
+    logg("""bb""")
+    if (r == p['OK']):
+        logg('push text ' + """bb""")
+        datPush("bb")
+        logg('after ' + """bb""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for b2-9 processing verb ( @ ) ')
+    if (r == p['OK']):
+        logg('call @ ')
+        p['sy']['@'](p)
+        logg('after @')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for b2-9 processing verb ( .X ) ')
+    if (r == p['OK']):
+        logg('call .X ')
+        p['sy']['.X'](p)
+        logg('after .X')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final b2_9')
+#end b2_9
+
+def b2_10():
+    global p
+    logg('b2_10')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for b2-10 processing text ')
     logg("""failed""")
     if (r == p['OK']):
         logg('push text ' + """failed""")
@@ -6047,7 +6410,7 @@ def b2_9():
     #endif
 
     r = p['sy']['pop']()
-    logg('for b2-9 processing verb ( msg ) ')
+    logg('for b2-10 processing verb ( msg ) ')
     if (r == p['OK']):
         logg('call msg ')
         p['sy']['msg'](p)
@@ -6060,8 +6423,8 @@ def b2_9():
     #endif
 
     #final
-    logg('final b2_9')
-#end b2_9
+    logg('final b2_10')
+#end b2_10
 
 def b2 (x):
     global p
@@ -6136,6 +6499,13 @@ def b2 (x):
             # test and adjust for new spoke
             b2Ctl = chk(b2Ctl)
 
+        elif (b2Ctl == 10):
+            logg('call b2_10')
+            b2_10()
+            logg('after call b2_10')
+            # test and adjust for new spoke
+            b2Ctl = chk(b2Ctl)
+
         else:
             #final
             logg('final b2')    
@@ -6143,6 +6513,326 @@ def b2 (x):
         #endif
     #wend
 #end b2
+
+def dohelp_1():
+    global p
+    logg('dohelp_1')
+    datPush(p['OK'])
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""help:""")
+    if (r == p['OK']):
+        logg('push text ' + """help:""")
+        datPush("help:")
+        logg('after ' + """help:""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""commands are:""")
+    if (r == p['OK']):
+        logg('push text ' + """commands are:""")
+        datPush("commands are:")
+        logg('after ' + """commands are:""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""push , pop , help(this message)""")
+    if (r == p['OK']):
+        logg('push text ' + """push , pop , help(this message)""")
+        datPush("push , pop , help(this message)")
+        logg('after ' + """push , pop , help(this message)""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""{{ multi-line any text till }} on its own line""")
+    if (r == p['OK']):
+        logg('push text ' + """{{ multi-line any text till }} on its own line""")
+        datPush("{{ multi-line any text till }} on its own line")
+        logg('after ' + """{{ multi-line any text till }} on its own line""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""any verb (use -verbs- command to see list)""")
+    if (r == p['OK']):
+        logg('push text ' + """any verb (use -verbs- command to see list)""")
+        datPush("any verb (use -verbs- command to see list)")
+        logg('after ' + """any verb (use -verbs- command to see list)""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""any number with or without quotes""")
+    if (r == p['OK']):
+        logg('push text ' + """any number with or without quotes""")
+        datPush("any number with or without quotes")
+        logg('after ' + """any number with or without quotes""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""a blank line""")
+    if (r == p['OK']):
+        logg('push text ' + """a blank line""")
+        datPush("a blank line")
+        logg('after ' + """a blank line""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""""")
+    if (r == p['OK']):
+        logg('push text ' + """""")
+        datPush("")
+        logg('after ' + """""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""any quoted string that contains a verb name can be used with the -help?- command for more information""")
+    if (r == p['OK']):
+        logg('push text ' + """any quoted string that contains a verb name can be used with the -help?- command for more information""")
+        datPush("any quoted string that contains a verb name can be used with the -help?- command for more information")
+        logg('after ' + """any quoted string that contains a verb name can be used with the -help?- command for more information""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""""")
+    if (r == p['OK']):
+        logg('push text ' + """""")
+        datPush("")
+        logg('after ' + """""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""end help""")
+    if (r == p['OK']):
+        logg('push text ' + """end help""")
+        datPush("end help")
+        logg('after ' + """end help""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    #final
+    logg('final dohelp_1')
+#end dohelp_1
+
+def dohelp (x):
+    global p
+    logg('begin dohelp')
+    ## point of umbrella
+    dohelpCtl = 1 # starting spoke
+    while dohelpCtl != 0:
+        logg('loop dohelpCtl = ' + dohelpCtl.__str__())
+        if (dohelpCtl == -1):
+            nop = -1 # false test to set up elif chain
+
+        elif (dohelpCtl == 1):
+            logg('call dohelp_1')
+            dohelp_1()
+            logg('after call dohelp_1')
+            # test and adjust for new spoke
+            dohelpCtl = chk(dohelpCtl)
+
+        else:
+            #final
+            logg('final dohelp')    
+            dohelpCtl = 0 # break
+        #endif
+    #wend
+#end dohelp
 
 def bcollect_1():
     global p
@@ -7314,12 +8004,20 @@ def main(startpoint,trace='off'):
     p['sy']['bmain'] = bmain
     #
 
+    # paragraph bmain2
+    p['sy']['bmain2'] = bmain2
+    #
+
     # paragraph ==quit
     p['sy']['==quit'] = EQzblzquit
     #
 
     # paragraph Ver
     p['sy']['Ver'] = Ver
+    #
+
+    # paragraph loggingTest
+    p['sy']['loggingTest'] = loggingTest
     #
 
     # paragraph b2
@@ -7336,6 +8034,10 @@ def main(startpoint,trace='off'):
 
     # paragraph ==pop
     p['sy']['==pop'] = EQzblzpop
+    #
+
+    # paragraph dohelp
+    p['sy']['dohelp'] = dohelp
     #
 
     # paragraph bcollect

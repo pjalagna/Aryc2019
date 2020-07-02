@@ -2,17 +2,51 @@ file aryc/todo
 - prioritySys
 --- presedence list of tasks
 ---- data chart{item{"blank","nonblank"{item}}}
+---- data: chart((item/blank),(item/blank))
 ---- service
 ------ proceeds(item1/'',item2)
 ------ precedes (item1,item2/'')
 ------ remove(item)
 ------ doFirst()
+-------- build RDF from db
+-------- from subject='' walk to child(ren)
+
+- object([data][signals([parameter])])
+-- gets/sets assumed BUT could point to db function.
+--- with pbox
+
+- p9
+-- simple type of attribute
+-- or restricted element name 
+[[
+<element name='foo'>
+<xsd:attribute name="Type" use="required" id="uuid-F64605F4-D373-487C-9C5D-D68F1031BA86">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="Strategic_Plan"/>
+<xsd:enumeration value="Performance_Plan"/>
+<xsd:enumeration value="Performance_Report"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:attribute>
+</element>
+]]
+---- IE base and LOV
+---- attribute attached to previous element (foo)
+
 
 - partner
 --- aka berta
 --- see notes
 
 - pbox
+-- .n==dumpNDS
+-- add input audit (kon)
+---- with help
+--- all input to logfile 
+----- <genn>.log.txt
+----- .an name of logfile
+----- koff close logfile
 --- independent of doVerb
 ----- minimum set 
 ------- takeV, 
@@ -29,22 +63,25 @@ file aryc/todo
 --- .m == pboxClass
 --- .x(file) == basiiHelper
 ----- creates filename+.py
---- .c(file.xsd)
+--- .c(file.xsd)? xsd or xml?
 ----- creates a "takeV" file 
 
-- basiiHelper.main(file,startPoint='init')
+- basiiHelper.main(file,startPoint='Binit')
 --- create class projects
 --- self init
 
-- pboxClass
---- set up independent instances of pbox
+(NO) pboxClass
+-- set up independent instances of pbox
+--- every init calls the same pbox and shares the same p{}
+
 
 - pgf
 --- fix pgf
 
 - agent
----use pbox1-5/pboxClass not bbox
------ allows pgf
+--- see note about pboxClass
+--- use pbox1-5 not bbox
+----- allows basii Scripts
 ---move to lib
 
 - XMLDialogue
@@ -52,19 +89,31 @@ file aryc/todo
 ---- walk xsd and xml according to xsd rules
 
 - copyBooks.db
-----  for sql
+----  for sql w/ functions
+------ ex. sqlfirst() 
+------- == get sql getrefidByV1; 
+           replace 'v1' w/ 'first'
+           doSQL
+           fix ans
+           return ans
+---- use adaptor for pbox
+
+
 
 - ANN
 -- degign
 -- ANN.xsd
 ---- design
 ---- inputs,process,expectations==<StratML>.xml
------- inputs == datawarehouse 
--------- name-<domainValues
--------- facts-<name@value
--------- process basii,pointD scripts SQ protected
+------ inputs == datawarehouse.xsd 
+------ process basii,pointD xsd
+-------- compiler in JS?
+---------- w/ serverside hooks to pbox/agent
+-------- js send full xml to serverside pbox/agent
+---------- w/ jquery response i/o
 
 - basii
+(X) basii.XSD, example basii.XML
 --- code.xsd
 ----- so that an xml extractor could set up a full <name>.basii for compilation into "takeV" type files
 ------- note ref=ns:name is an include
@@ -73,6 +122,8 @@ file aryc/todo
 ------- DO NOT expose p{}
 ---------- use .c(file) in basiiPy
 
+(X)- datawarehouse XSD
+(X)- datawarehouse XML example
 
 
 

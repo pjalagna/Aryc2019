@@ -1,0 +1,26 @@
+"""
+file dbAck
+pja 6/24/2020
+
+enq/ack/nak protocol db-db via database
+m* protocol user-dbAck or dbAck-user
+"""
+"""
+masterHub:
+
+users:
+register userName
+starts modem
+modems
+first we register our channelName to the db.
+then register to the user-database
+then begin the sendLoop
+every dbAck starts out as a sender so 
+idle is enq-->wait from both sides
+when one side has data to send it sends an ACK0 
+
+"""
+def registerUser(channelName,modemChannel):
+    """"
+    users use sr232 ports to communicate with their modem.
+    """"

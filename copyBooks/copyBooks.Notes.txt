@@ -1,0 +1,118 @@
+"""
+file copyBooks.Notes.txt
+
+copyBooks.basii
+
+a system that resurrects/enhances the copyBooks of COBOL
+
+it is a template , parameter service to deliver responses 
+as strings from the input of (name,{[parameters]})
+
+Note:
+could we accept basii-Paragraph,{[parameters]}?
+YES - usage is template&replace => answer
+
+data:
+((name(TID,[list])))
+((TID(template)))
+
+behaviors are:
+help()
+set (name,raw-template,#ofParameters)
+review (name)
+run (name,[parameters])
+init()
+clear()
+main(p) - for pbox take
+-- CBHelp
+-- CBSet
+-- CBReview
+-- CBRun
+-- CBInit
+-- CBClear
+control() - choreography 
+"""
+def init :-
+[[ 1 ]] 
+/* install p['help'] strings */
+'copyBook.db' "SQV" takeV
+        'SQSQ' takeV
+        .
+;
+def set :-
+/* (name,template,#paras) */
+[[ 1 ]]
+/* // correctParas to reset "*" to 1000 */
+/* name record exists? no==>2 */
+/* delete record */
+/* // templateMatch => TID */
+/* writeN ((name(TID,#))) */
+.
+[[ 2 ]]
+/* // templateMatch => TID */
+/* writeN ((name(TID,#))) */
+.
+;
+def correctParas :-
+def templateMatch :-
+/* (raw-template,,TID) */
+/* find or generate a TID */
+[[ 1 ]]
+/* SQin(raw-template) => h1 */
+/* select tid from templ where template' = '%p1%'==h1 */
+/* if none ==> 2 */
+/* return(TID)  */
+.
+[[ 2 ]]
+/* gen new TID */
+/* writeTRec(TID,h1) */
+/* return(TID) */
+.
+;
+
+def help :-
+[[ 1 ]] "copyBooks help" msg
+"a system that resurrects/enhances the copyBooks of COBOL" msg
+
+"it is a template , parameter service to deliver responses " msg
+"as strings from the input of (name,{[parameters]})
+" msg " " msg
+"all templates are in p-format" msg
+"IE all tokens are '%pn%' "
+"the parameterArray is fixed so [1] matches to '%p1% etc. "
+msg
+" this allows searching templates for dups" msg
+.
+;
+def review :-
+/* (name,,raw-template,#paras) */
+[[ 1 ]]
+/* getNRec(name)=> (tid,#) nof==> 2 */
+/* getTRec(TID) => raw-template */
+/* display name,template,# */
+.
+[[ 2 ]] 'no record for ' name ' found ' cats cats msg
+.
+;
+
+def getNRec :-
+/* (name,,tid,#) */
+[[ 1 ]] 'stump' msg .
+;
+
+def writeNRec :-
+/* ((name(tid,#)))
+[[ 1 ]] 'stump' msg .
+;
+def getTRec :-
+/* (tid,,raw-template) */
+[[ 1 ]] 'stump' msg .
+;
+def writeTRec :-
+/* (raw-template,,TID) */
+/* ((TID(protectedTemplate))) */
+[[ 1 ]] 'stump' msg .
+;
+
+@endend @endend 
+

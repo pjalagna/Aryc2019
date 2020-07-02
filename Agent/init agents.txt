@@ -1,0 +1,64 @@
+'init agents'
+drop
+1
+'arV'
+agentPush
+1
+'takeV'
+agentDo
+1
+'heapV'
+agentPush
+1
+'takeV'
+agentDo
+1
+'t1.xsd.onto'
+agentPush
+1
+'SQV'
+agentPush
+1
+'takeV'
+agentDo
+2
+'t1.xml.onto'
+agentPush
+2
+'SQV'
+agentPush
+2
+'takeV'
+agentDo 
+"select v18 from v20 where v1='first';" 'sqv18ByFirst'
+! 
+{{
+def fixar :-
+[[ 1 ]] 1 h^ 1 h!
+        0 1 h@ ar@ 0 ar@ hx .
+;
+}}
+1
+swap
+agentPush
+1
+'fixar'
+agentPush
+1
+'l!'
+agentDo
+1
+'sqv18ByFirst'
+agentPush
+1
+'@'
+agentDo
+1
+'SQReadAll'
+agentDo
+1
+'fixar'
+agentPush
+1
+'pgf'
+agentDo

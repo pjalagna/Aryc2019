@@ -1,0 +1,115 @@
+<!-- basii.xsd.xml
+basii-paragraphs 
+paragraphs[paragraph]
+paragraph(name)-clauses
+clauses[clause OR end]
+clause(iteration)[verb]
+verb=string
+end=string;default='END'
+-->
+<schema version='basii 0.0'>
+<element name='basii'>
+<annotation>
+<author> Paul Alagna </author>
+<date> 6/23/2020 </date>
+<documentation>
+BNF Action Scripts for Intelligent Information
+</documentation>
+</annotation>
+<complexType>
+<sequence>
+<element ref='paragraphs'/>
+</sequence>
+</complexType>
+</element>
+<element name='paragraphs'>
+<annotation>
+<documentation>
+a paragraph
+</documentation>
+</annotation>
+<complexType>
+<sequence>
+<element ref='paragraph' maxOccurs='unbounded'/>
+</sequence>
+</complexType>
+</element>
+<element name='paragraph' paragraphName='string'>
+<annotation>
+<documentation>
+a paragraph
+</documentation>
+</annotation>
+<complexType>
+<sequence>
+<element ref='clauses'/>
+</sequence>
+</complexType>
+</element>
+<element name='clauses'>
+<annotation>
+<documentation>
+the set of ordered clauses for a paragraph
+</documentation>
+</annotation>
+<complexType>
+<choice>
+<element ref='clause' maxOccurs='unbounded'/>
+<element ref='END' maxOccurs='1'/>
+</choice>
+</complexType>
+</element>
+<element name='clause'>
+<attribute name='iteration' use='required'>
+<simpleType>
+<restriction base="string">
+</restriction>
+</simpleType>
+</attribute>
+<annotation>
+<documentation>
+a clause
+</documentation>
+</annotation>
+<complexType>
+<sequence>
+<element ref='verb' maxOccurs='unbounded'/>
+</sequence>
+</complexType>
+</element>
+
+<element name='verb' Vtype="string"/>
+<element name='END'>
+<attribute name='value' use='required'>
+<simpleType>
+<restriction base="string">
+</restriction>
+</simpleType>
+</attribute>
+<annotation>
+<documentation>
+the clause END marker
+</documentation>
+</annotation>
+</element>
+
+</schema>
+<element name=''>
+<annotation>
+<documentation>
+;;
+</documentation>
+</annotation>
+<complexType>
+<sequence>
+<element ref=''/>
+</sequence>
+</complexType>
+</element>
+<attribute name=''>
+<simpleType>
+<restriction base="string">
+<enumeration value="END"/>
+</restriction>
+</simpleType>
+</attribute>
