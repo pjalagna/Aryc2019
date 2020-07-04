@@ -58,16 +58,18 @@ def main(ontoFile,trace='off'):
     contend1s = "select v1,v2,v3,v4,v5,v6,v18 from v20 where vtype='RELATE' and v1='masterPosition' and v3='SEQ';"
     contend1 = pkg['db'].SQReadAll(contend1s)
     ## per
-    for x in range(len(contend1)-1):
+    for x in range(1,len(contend1)+1):
         ### get masterpu, childSeq, master.refid
-        masterpu = contend1[x][1]
-        ChildSeq = contend1[x][3]
+        logg('len contend1-x-1='+str(len(contend1[x-1])))
+        masterpu = contend1[x-1][1]
+        ChildSeq = contend1[x-1][3]
         mrefidS = "select v18 from v20 where v1='pickup' and v2='%p1%' ;"
-        mrefidS = mrefidS.replace('%p1%',contend1[x][1])
+        mrefidS = mrefidS.replace('%p1%',contend1[x-1][1])
         mrefid = pkg['db'].SQReadAll(mrefidS)[0][0]
         logg("mrefid="+mrefid)
         #RELATEWrite(Name1, Value1, relateType,relateValue,Name2, Value2,refid,flags='')
-        pkg['ontology']. RELATEWrite( "leadingPosition", masterpu, "ChildSequence",ChildSeq, "ChildRefid", contend1[x][5],mrefid,flags='')
+        pkg['ontology']. RELATEWrite( "leadingPosition", masterpu, "ChildSequence",ChildSeq, "ChildRefid", contend1[x-1][5],mrefid,flags='')
+        logg('x='+str(x))
     ##/per
     #
     """
@@ -78,23 +80,24 @@ def main(ontoFile,trace='off'):
     relate ("leadingPosition"=mPU)("hasytype"=<tagname>)("value"=value)
     refid of master
     """
+    logg('begin 2')
     # get contenders
     # contender list of @ endpoint not element/complex/seq/choice and not w/ sequence
     sqep22 = "select v18 from v20 where v1='endpointRefid' and v18 not in (select v18 from v20 where v1='tag' and v2='element') and v18 not in (select v18 from v20 where v1='tag' and v2='complexType') and v18 not in (select v18 from v20 where v1='tag' and v2='sequnce') and v18 not in (select v18 from v20 where v1='tag' and v2='choice') and v18 not in (select v18 where v1='seq');"
-    sqepx =  pkg['db'].SQReadAll(sqep22)[0][0]
+    sqepx =  pkg['db'].SQReadAll(sqep22)
     ## per
-    for xi in range(len(sqepx)):
-        #  myprev, myref=[xi]
+    for xi in range(1,len(sqepx)+1):
+        #  myprev, myref=[xi-1]
         myprevSQ = "select v2 from v20 where v1='previousPickup'  and v18 = '%myref%'"
-        myprevSQ = myprevSQ.replace('%myref%',sqepx[xi][0])
+        myprevSQ = myprevSQ.replace('%myref%',sqepx[xi-1][0])
         myprev = pkg['db'].SQReadAll(myprevSQ)[0][0]
         logg("myprev="+myprev)
         ### skip if previous == endpoint 
         # get prev profile.endpoint
         sqppepSQ = "select v1,v2 from v20 where v1='endpointRefid' and V18 in(select v18 from v20 where v1='pickup' and v2='%myprev%');"
         sqppepSQ = sqppepSQ.replace('%myprev%',myprev)
-        sqppep = pkg['db'].SQReadAll(sqppepSQ)[0][0]
-        logg("sqppep="+sqppep)
+        sqppep = pkg['db'].SQReadAll(sqppepSQ)
+        logg("sqppep="+str(sqppep))
         if (len(sqppep)==0):
             # prev not endpoint so process
             # get prev-value via prevProfile
@@ -117,11 +120,11 @@ def main(ontoFile,trace='off'):
             logg("myprov="+myprov)
             myprovsp = myprov[1:-1].split(',')
             # from the back find first tag=element/schema
-            for xp in range(len(myprovsp)):
+            for xp in range(1,len(myprovsp)+1):
                 # is tag of pu = element/schema yes break
-                xxp = len(myprovsp)-xp-1 # from the back
+                xxp = len(myprovsp)-xp # from the back
                 xptagSQ = "select v2 from v20 where v1='tag' and v18 in (select v18 from v20 where v1='pickup' and v2='%xpPu%') ;"
-                xptagSQ.replace('%xpPu%',myprovsp[xxp].strip(' '))
+                xptagSQ = xptagSQ.replace('%xpPu%',myprovsp[xxp].strip(' '))
                 xpTag = pkg['db'].SQReadAll(xptagSQ)[0][0]
                 logg("xpTag="+xpTag)
                 xpRefidSQ = "select v2 from v20 where v1='refid' and v18 in (select v18 from v20 where v1='pickup' and v2='%xpPu%') ;"
