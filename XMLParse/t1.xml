@@ -2,6 +2,8 @@
 file t1.xml
 pja 6/14/2020
 -->
+<contactType>
+<supplier>
 <contacts>
 <contact>
     <firstName> Paul </firstName>
@@ -9,9 +11,11 @@ pja 6/14/2020
     <phone> (732) 555-1212 </phone>
 </contact>
 <contact>
-    <lastName> mattocks </lastName>
-    <phone> (201) 555-1212 </phone>
-    <phone> (212) 555-1212 </phone>
+    <lastName> Mattocks </lastName>
+    <phone> (201) 555-8212 </phone>
+    <phone> (212) 555-9212 </phone>
 </contact>
 </contacts>
+</supplier>
+</contactType>
     

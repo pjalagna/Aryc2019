@@ -8,9 +8,26 @@ schema contacts -< contact ({fn},ln,{ph+})
 -->
 <schema name='xxschema' version='06/14/2020-1300'>
   <annotation id="a-schema"><documentation id="d-schema">
-this is a simpler xtag xsd
+this is a schema xtag xsd
   </documentation>
   </annotation>
+  <element name='contactType'>
+    <complexType>
+      <sequence>
+        <element ref='supplier' minOccurs='0'/>
+        <element ref='vendor' minOccurs='0'/>
+      </sequence>
+    </complextype>
+  <complexType name='supplier'>
+    <sequence>
+      <element ref='contacts' minOccurs='0' maxOccurs='unbounded'/>
+    </sequence>
+  </complexType>
+  <complexType name='vendor'>
+    <sequence>
+      <element ref='contacts' minOccurs='0' maxOccurs='unbounded'/>
+    </sequence>
+  </complexType>
   <element name='contacts'>
       <annotation><documentation id='C-doc'>
       this is the documentation for contact(s)

@@ -4,6 +4,11 @@ usage main(filename{,trace}) renders to ontology fileName.onto
 trace == "on" will print progress
 """
 """
+pja 7/8/2020 recorded (relates) <item>name, <item>nds  
+--- to full item at refid of item
+--- also tagName contains / if endname
+pja 7/4/2020 if complextype has name 
+--- then it is the master element
 pja 6/9/2020 changed collectAttributes 
 --- to allow space inside attribute values
 --- added proc70 special pickup for <![cdata]
@@ -21,32 +26,16 @@ file = 'StratML.xsd'
 p9.fresh(file)
 p9.main(file,'on')
 
-file = 'KR-Ontology2.graphml'
-nds = p9.getnds()
-pkg = p9.getpkg()
-sq={}
-sq["0"] = pkg['ontology'].db.SQReadAll 
-sq['2'] = "select v4 from v20 where v1='first';"
-sq['3'] = "select * from v20 where v18 in (select v4 from v20 where v1='first');"
-sq['5'] = "select * from v20 where v18 in (%puix%);"
-sq['5'] = sq['5'].replace('%puix%',"'"+ str(puix)+"'")
-puix = str(sq['0'](sq['5'])[0][0])
-pu = str(sq['0'](sq['2'])[0][0])
 
-i = 0
-mm = sq['0'](sq['3'])
-mm[i]
-i = i +1
-
-nextpu = 
-sq["4"] = "select v18 from v20 where v1='previousPickup' and v2 ='%pu%';"
-sq['4'] = sq['4'].replace('%pu%',str(pui))
-puix = str(sq['0'](sq['4'])[0][0])
-
-puix = str(sq['0'](sq['5'])[0][0])
-#-- # vector down to SQdb
 
 notes
+<attribute process
+-- attaches attribute to element
+--- allows optional usage
+simpleType process
+--- allows restrictions
+--- allows emumeration
+
 space inside a quoted string is allowed.
 <tag/[space/atn=q-q]
 not [space/atn=-first space]
@@ -403,14 +392,24 @@ def  proc40():
     pop parent ==>41
     """
     #atn tag
-    vtag = nds['r0'][2:-1]
-    logg('l 404 ')
+    vtag = nds['r0'][1:-1]
+    j = vtag.find(":")
+    if (j == -1):
+        tagNS = ''
+        tagName = vtag
+    else:
+        tagNS = vtag[0:j]
+        tagName = "/"+vtag[j+1:]
+    #endif
     pkg['ontology'].ATNWrite("tag", str(vtag),'refid',str(nds['refid']),str(nds['refid']))
     #atn provenance
     pkg['ontology'].ATNWrite("provenance", str(nds['parent']),'refid',str(nds['refid']),str(nds['refid']))
     #atn endpoint
     pkg['ontology'].ATNWrite("endpointRefid", str(nds['refid']),'refid',str(nds['refid']),str(nds['refid']))
     nds['parent'].pop()
+    #relates for ns,name
+    pkg['ontology'].RELATEWrite('tagNS',tagNS,'resolved','nameSpace','tag',vtag,str(nds['refid']))
+    pkg['ontology'].RELATEWrite('tagName',tagName,'resolved','name','tag',vtag,str(nds['refid']))
     return(41)
 #end 40"
 def  proc41():
@@ -464,8 +463,17 @@ def  proc50():
         else:
             nds['tag'] = nds['r0'][1:-1]
         #endif
-        logg('tag 459')
+        j = nds['tag'].find(":")
+        if (j==-1):
+            tagNS = ''
+            tagName = nds['tag']
+        else:
+            tagNS = nds['tag'][0:j]
+            tagName = nds['tag'][j+1:]
+        #endif
         pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']))
+        pkg['ontology'].RELATEWrite('tagNS',str(tagNS),"resolved",'nameSpace','tag',nds['tag'],str(nds['refid']))
+        pkg['ontology'].RELATEWrite('tagName',str(tagName),"resolved",'nameSpace','tag',nds['tag'],str(nds['refid']))
         # r1 attribute
         nds['r1'] = nds['r1'].rstrip()
         nds['r1'] = nds['r1'].lstrip()
@@ -476,7 +484,17 @@ def  proc50():
     else: # <tag attr (/> or >)
         nds['tag'] = nds['r0'][1:spc]
         logg('470 tag')
+        j = nds['tag'].find(":")
+        if (j==-1):
+           tagNS = ''
+           tagName = nds['tag']
+        else:
+           tagNS = nds['tag'][0:j]
+           tagName = nds['tag'][j+1:]
+        #endif
         pkg['ontology'].ATNWrite('tag',str(nds['tag']), 'refid',str(nds['refid']),str(nds['refid']))
+        pkg['ontology'].RELATEWrite( 'tagNS',tagNS,'resolved','nameSpace','tag',str(nds['tag']),str(nds['refid']))
+        pkg['ontology'].RELATEWrite( 'tagName',tagName,'resolved','name','tag',str(nds['tag']),str(nds['refid']))        
         #collect & atn attributes; adjust min,max
         collectAttributes()
         # fix r1 if len>0 atn
@@ -684,11 +702,23 @@ def  proc56():
 #end 56"
 
 def  proc58():
-    """proc58:  "<complexType  "set master= previousparent   ==> 56     """  
+    """proc58:  
+    a) "<complexType  w/o name= ;"set master= previousparent   ==> 56     
+    b) <complextype name= ; set master as me
+    """  
     nds['ctpu'] = nds['pu']
     nds['sqpu'] = ''
-    lp = len(nds['parent'])
-    nds['master'] = nds['parent'][lp-2]
+    j = nds['r0'].find('name=')
+    if (j==-1):
+        #no name
+        lp = len(nds['parent'])
+        nds['master'] = nds['parent'][lp-2]
+        logg('proc58 master w/o namepu='+str(nds['parent'][lp-2]))
+    else:
+        nds['master'] = nds['pu']
+        logg('proc58 master w/name pu='+str(nds['pu']))
+    #endif 
+    
     return(56)
 #end 58"
 
@@ -751,7 +781,20 @@ def collectAttributes():
         atv = ats[spc2+2:cx2]
         nds["attr"][atn] = atv
         #atn attr
-        pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']),flags='712')
+        pkg['ontology'].ATNWrite(atn,str(atv), 'refid',str(nds['refid']),str(nds['refid']))
+        # record attributeNS,attributeName
+        x = atn.find(":")
+        if (x==-1):
+           attNS = ''
+           attName = atn.rstrip(' \n\t')
+           attName = attName.lstrip(' \n\t')
+        else:
+           attNS = atn[0:x-1]
+           attName = atn[x+1:].rstrip(' \n\t')
+           attName = attName.lstrip(' \n\t')
+        #endif
+        pkg['ontology'].RELATEWrite('attND',attNS,'resolved','nameSpace','attribute',atn,str(nds['refid']))
+        pkg['ontology'].RELATEWrite('attName',attName,'resolved','name','attribute',atn,str(nds['refid']))
         try:
             j = ats[cx2+1]
             ats = ats[cx2+2:]

@@ -1,0 +1,21 @@
+file NLP.Notes.txt
+pja 7/11/2020
+
+- popular words
+- popular phrases
+- stems and roots
+-- popular words
+-- popular phrases
+-- sentence in rotation (concordia)
+- namer
+-- acronyms
+- dublin core
+- assigned industrial class
+- formats and patterns
+-- phone numbers
+-- url
+- grammer
+- perkWords
+-- i,us,them,they
+-- today,yesterday,tomorrow,day,night,twilight
+

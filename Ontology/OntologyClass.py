@@ -1,10 +1,16 @@
 """
+ontologyClass.py
+
+see .help() for more
+"""
+"""
 file OntologyClass.py
+pja 07/08/2020 added v18 to seeks
 pja 6/2/2020 added doc 
 pja 5/29/2020 redo format
 pja 5/26/2020 
 
-see .help() for more
+
 """
 
 """
@@ -46,10 +52,9 @@ def help():
     VAR       name,value,flags=''
     THING     name,value
     PREDICATE name,value
-    ATN       name1,value1,name2,value2,flags=''
-    RELATE    name1,value1,relateType,relateValue,name2,value2
+    ATN       name1,value1,name2,value2,refid,flags=''
+    RELATE    name1,value1,relateType,relateValue,name2,value2,refid
     RDF       SubjectName, SubjectValue, PredicateName, PredicateValue, ObjectName, ObjectValue
-    
     
     """
     return(ans)
@@ -272,9 +277,9 @@ WHERE
         logg('ATNWrite sq=(' + sqFact + ')')
         self.db.SQX(sqFact)
     #ATNWrite
-    def ATNSeek(self,name1='',value1='',name2='',value2='',flags=''):
+    def ATNSeek(self,name1='',value1='',name2='',value2='',v18='',flags=''):
         """
-        ATNSeek(self,name1='',value1='',name2='',value2='',flags='')
+        ATNSeek(self,name1='',value1='',name2='',value2='',v18='',flags='')
         """
         sqs = "select * from v20 where VType = 'ATN' "
         if (name1 <> ''):
@@ -288,6 +293,9 @@ WHERE
         #endif
         if (value2 <> ''):
            sqs = sqs + ' and ' + 'v4 =' + "'" + value2 + "'" 
+        #endif
+        if (v18 <> ''):
+           sqs = sqs + ' and ' + 'v18 =' + "'" + v18 + "'" 
         #endif
         if (flags <> ''):
            sqs = sqs + ' and ' + 'v19 =' + "'" + flags + "'" 
@@ -335,9 +343,9 @@ WHERE
         logg('ATNWrite sq=(' + sqFact + ')')
         self.db.SQX(sqFact)
     #RELATEWrite
-    def RELATESeek(self, Name1='', Value1='', relateType='',relateValue='',Name2='', Value2='',flags=''):
+    def RELATESeek(self, Name1='', Value1='', relateType='',relateValue='',Name2='', Value2='',v18='',flags=''):
         """
-        RELATESeek(self, Name1='', Value1='', relateType='',relateValue='',Name2='', Value2='',flags='')
+        RELATESeek(self, Name1='', Value1='', relateType='',relateValue='',Name2='', Value2='',v18='',flags='')
         """
         #factTrack, UICI, lnName, nsName, Name, lnValue, nsValue, Value
         sqs = "select * from v20 where VType = 'RELATE' "
@@ -359,6 +367,8 @@ WHERE
         if (Value2 <> ''):
            sqs = sqs + ' and ' + 'v6 =' + "'" + Value2 + "'" 
         #endif
+        if (v18 <> ''):
+           sqs = sqs + ' and ' + 'v18 =' + "'" + v18 + "'" 
         if (flags <> ''):
            sqs = sqs + ' and ' + 'v19 =' + "'" + flags + "'" 
         #endif
