@@ -1,0 +1,129 @@
+file yedReport.notes.txt
+pja 7/18/2020
+yedRep2
+plist[pickup#]
+per (pickup#) ==> xplist[pickup,rplus()]
+  per (xplist[pickup]) ==> profile_record[]
+    per profile_record[] ==> graphATN(refid,v1,v2)
+--
+
+pja 7/10/2020
+def mainz(ontologyFile):
+    """"
+    step1 - list of <node contenders to s1
+    set xx1=1 xx1Max len(s1)+1
+    ==> 3
+    
+    step3
+    test xx1 == xx1Max==> -1
+    n - get node pu[xxi] 
+    set pu
+    print n n node-id
+    ==> 7
+    
+    setp 7
+    advance pu
+    has tag? n==> 8
+    y
+    tag=</node? y==> 9
+    n
+    ==>10
+    
+    step 8
+    has backValue? n==> 9
+    print(backValue)
+    ==> 9
+    
+    step 9
+    advance xxi
+    ==> 3
+    
+    step 10
+    tag = nodeLable? n==>9
+    has configuration? n==>9
+    configuration for name?
+    y print entity name ==> 9
+    n configuration for name?
+    --y print attributes ==> 9
+    --n ==> 9
+    
+    
+    
+    """"
+    
+    def proc5xx():
+    # walk till tag = </node>
+    pu = int(s1[xx1-1][0])
+    ctl1 = 0
+    while (ctl1==0):
+        pu = pu+1
+        ## get tag
+        gtags = "select v2 from v20 where v1='tag' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+        gtags = gtags.replace('%pu%',str(pu))
+        gtag = pkg['db'].SQReadAll(gtags)
+        
+        if (len(gtag)==0):
+            #look for backValue
+            cval = "select v2 from v20 where v1='backValue' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+            cval = cval.replace('%pu%',str(pu))
+            cvals = pkg['db'].SQReadAll(cval)[0][0]
+            ans = pkg['SQout'](cvals)
+            print(ans)
+        elif (gtag[0][0] == '/node'):
+            ctl1==-1 # break
+        elif (gtag[0][0] == "y:NodeLabel"):
+            #get config
+            confs = "select v2 from v20 where v1='configuration' and v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+            confs = confs.replace('%pu%',str(pu))
+            conf = pkg['db'].SQReadAll(confs)
+            #case1 no config - print no title value
+            if (len(conf)==0):
+                cval = "select v2 from v20 where v1='value' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+                cval = cval.replace('%pu%',str(pu))
+                cvals = pkg['db'].SQReadAll(cval)[0][0]
+                ans = pkg['SQout'](cvals)
+                print(ans)
+            #endif
+            if (len(conf)<>0):
+                conf = conf[0][0]
+                nf = conf.find("label.name")
+                ns = conf.find("label.attributes")
+                # case2 config==name print val as entity name.
+                if (-1 < nf ):
+                    #get val as entity name
+                    cval = "select v2 from v20 where v1='value' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+                    cval = cval.replace('%pu%',str(pu))
+                    cvals = pkg['db'].SQReadAll(cval)[0][0]
+                    ans = pkg['SQout'](cvals)
+                    print("entityName: " + ans)
+                elif (-1 < ns)
+                    # case3 config==attr print val as attributes
+                    #get val as entity name
+                    cval = "select v2 from v20 where v1='value' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+                    cval = cval.replace('%pu%',str(pu))
+                    cvals = pkg['db'].SQReadAll(cval)[0][0]
+                    ans = pkg['SQout'](cvals)
+                    print("Attributes: " + ans)
+            ## if tag = y:NodeLabel and            
+            cval = "select v2 from v20 where v1='value' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+            cval = cval.replace('%pu%',str(pu))
+            cvals = pkg['db'].SQReadAll(cval)[0][0]
+            ans = pkg['SQout'](cvals)
+            print(ans)
+            
+             configuration="com.yworks.entityRelationship.label.name" print value
+            ## if tag = nodeLabel and configuration="com.yworks.entityRelationship.label.attributes" print value
+        else:
+            #test for backckvalue
+            bvs = "select v2 from v20 where v1='backValue' and     v18 in (select v18 from v20 where v1='pickup' and v2='%pu%')"
+            bvs = bvs.replace('%pu%',str(pu))
+            bv = pkg['db'].SQReadAll(bvs)
+            if (len(bv)<>0):
+                #
+            else:
+                nop = 1
+            #endif bv
+        #endif tag test
+    #wend
+    
+    

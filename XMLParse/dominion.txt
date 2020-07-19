@@ -1,0 +1,36 @@
+capturing the dominion of an StratML xsd document
+from the ontology filter out
+numbers
+ID:*
+uuid*
+XX
+[*
+zblz*
+
+1- select distinct(v1) from v20 
+where v1 not like ('ID:%') 
+and v1 not like ('[%')
+and v1 not like ('uuid-%')
+and v1 not like ('zblz%')
+and v1 not in ( select distinct(v2) from v20 
+where v2 not like ('ID:%') 
+and v2 not like ('[%')
+and v2 not like ('uuid-%')
+and v2 not like ('zblz%')
+);
+these are operational terms like tag, KRID - names we assigned or operational for xml
+
+2- select distinct(v2) from v20 
+where v2 not like ('ID:%') 
+and v2 not like ('[%')
+and v2 not like ('uuid-%')
+and v2 not like ('zblz%')
+and v2 not in (
+select distinct(v1) from v20 
+where v1 not like ('ID:%') 
+and v1 not like ('[%')
+and v1 not like ('uuid-%')
+and v1 not like ('zblz%')
+)
+;
+these are business terms like stakeholder - names the XSD assigned
