@@ -1,0 +1,44 @@
+I Started with T1.xsd. A simple xsd that explained the following data relationship:
+contact (( cid ) fname,lname,phone )
+contacts(( ccids ))
+contactPerContacts (( ccids,cid ))
+Supplier (( sid )companyName,ccids )
+Vendor (( vid ) companyName,ccids )
+
+and behavior model:
+NewSupplier (companyName,fname,lname,phone )
+addToSupplier(companyName,fname,lname,phone )
+DeleteSupplier(companyName)
+NewVendor (companyName,fname,lname,phone )
+addToVendor(companyName,fname,lname,phone )
+DeleteVendor(companyName)
+
+<function name=''>
+    <inputParameter name=''/>
+    <process>escaped text of process</
+    <OutputParameter name=''/> <!-- void? -->
+    <functionname>''</functionname>
+</function>
+
+this was rendered into an ontology of ATN, Relate and Function records
+
+this ontology was then rendered into RDF statements
+of the form
+(1) RDF: subject predicate object OR
+(2) Name: subject
+(3) Predicate: name
+
+for (1)
+ subject could be:
+(s1) "(" subject predicate object ")" OR
+(s2) name
+ predicate could be:
+(p1) "(" subject predicate object ")" OR
+(p2) name
+ object could be:
+(o1) "(" subject predicate object ")" OR
+(o2) name
+
+these RDF statements can be rendered into a Yed graph in a two step process.
+(yed1) the RDF statements are rendered into nodes and edges arrays and 
+(yed2) these arrays are rendered into a graphml file.

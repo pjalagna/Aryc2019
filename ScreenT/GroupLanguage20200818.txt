@@ -1,0 +1,67 @@
+{{
+def abort :-
+//- die after reading -//
+[[ 1 ]] ask exit .
+;
+}}
+'abort'
+l!
+
+def getwd :-
+//- get word from str. exclude coments -//
+[[ 1 ]] word 'wd' ! ... .
+[[ 2 ]] 'wd' @ '//-' = getwdC tail. .
+[[ 3 ]] 'wd' @  '' = .
+[[ 4 ]] 'wd' @  .
+;
+
+
+def loop1 :-
+//- (procName,,) -//
+[[ 1 ]] 'pn' ! ... .
+[[ 2 ]] 'pn' @ 'end' .
+[[ 3 ]] '1' 'e' !
+'pn' @  'gp2' = 'gp2' .x 
+'0' 'e' ! tail. .
+[[ 4 ]] 'e' @ '1' = 'error gp2 failed' abort .
+[[ 5 ]] '1' 'e' !
+'pn' @ 'gp' = 'gp' .x 
+'0' 'e' !tail. .
+[[ 6 ]]  'e' @ '1' = 'error gp failed' abort .
+;
+
+
+def gp :-
+[[ 1 ]] 5 h^ 'gp' 5 h!
+getwd 1 h! getwd 2 h! ' ' 3 h! getwd "(" = drop "gp2" .
+;
+
+
+def gp2 :-
+//- 2- =) , 3- var = val, 4- type name ( ) -//
+[[ 1 ]] getwd 'wd' ! ... .
+[[ 2 ]] 'wd' @ ")" = gp2A .
+[[ 3 ]] 5 h^ 'gp2' 5 h!
+'wd' @ 1 h! getwd 2 h!
+2 h@ "=" = gp2B .
+[[ 4 ]] ' ' 3 h! getwd "(" = 'gp2' .
+[[ 5 ]] 'error gp2[5] gp2 failed' abort .
+
+def gp2A :-
+//- close paren -//
+[[ 1 ]] 6 h@ @ 
+"%" 1 h@ "%" cat cat
+2 h@ replace
+8 h@ swap cats 8 h! hx
+??
+;
+
+def gp2B :-
+//- var -//
+[[ 1 ]] 'var' 5 h! 
+getwd 2 h! "gp2" .
+;
+
+
+
+

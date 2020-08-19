@@ -1,0 +1,4049 @@
+
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "pickup@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "pickup@1!XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "pickup" "-" "pickup@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "previousPickup@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "previousPickup@0!XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "l1x@<!" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "l1x@<!!XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<!" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "l2x@->" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.051325" "-" "l2x@->!XMonXJulX13X04:34:46X20200.051325" ) ;
+    
+RDF: ( "l2x" "-" "l2x@->" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "pickup@2" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "pickup@2!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "pickup" "-" "pickup@2" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "previousPickup@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "previousPickup@1!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "l1x@<s!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "refid@XMonXJulX13X04:34:46X20200.061246!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "tag@schema" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "tag@schema!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "tag" "-" "tag@schema" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "name@xxschema" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "name@xxschema!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "name" "-" "name@xxschema" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "version@06/14/2020-1300" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "version@06/14/2020-1300!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "version" "-" "version@06/14/2020-1300" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "provenance@[0, 2]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "provenance@[0, 2]!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "first@2" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.061246" "-" "first@2!XMonXJulX13X04:34:46X20200.061246" ) ;
+    
+RDF: ( "first" "-" "first@2" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "pickup@3" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "pickup@3!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "pickup" "-" "pickup@3" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "previousPickup@2" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "previousPickup@2!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@2" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "l1x@<a!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "refid@XMonXJulX13X04:34:46X20200.085062!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "tag@annotation!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "tag" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "id@a-schema" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "id@a-schema!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "id" "-" "id@a-schema" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "provenance@[0, 2, 3]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.085062" "-" "provenance@[0, 2, 3]!XMonXJulX13X04:34:46X20200.085062" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 3]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "pickup@4" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "pickup@4!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "pickup" "-" "pickup@4" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "previousPickup@3" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "previousPickup@3!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@3" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "l1x@<d!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "refid@XMonXJulX13X04:34:46X20200.104289!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "tag@documentation!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "tag" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "id@d-schema" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "id@d-schema!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "id" "-" "id@d-schema" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "value@zblzthis is a schema xtag xsd" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "value@zblzthis is a schema xtag xsd!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "value" "-" "value@zblzthis is a schema xtag xsd" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "provenance@[0, 2, 3, 4]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.104289" "-" "provenance@[0, 2, 3, 4]!XMonXJulX13X04:34:46X20200.104289" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 3, 4]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "pickup@5" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "pickup@5!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "pickup" "-" "pickup@5" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "previousPickup@4" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "previousPickup@4!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@4" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "l1x@</!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "refid@XMonXJulX13X04:34:46X20200.125266!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "tag@/documentation!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "tag" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "provenance@[0, 2, 3, 4]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.125266" "-" "provenance@[0, 2, 3, 4]!XMonXJulX13X04:34:46X20200.125266" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 3, 4]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "pickup@6" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "pickup@6!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "pickup" "-" "pickup@6" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "previousPickup@5" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "previousPickup@5!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@5" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "l1x@</!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "refid@XMonXJulX13X04:34:46X20200.137931!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "tag@/annotation!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "tag" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "provenance@[0, 2, 3]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.137931" "-" "provenance@[0, 2, 3]!XMonXJulX13X04:34:46X20200.137931" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 3]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "pickup@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "pickup@7!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "pickup" "-" "pickup@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "previousPickup@6" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "previousPickup@6!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@6" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "refid@XMonXJulX13X04:34:46X20200.150692!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "tag@element!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "name@contactType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "name@contactType!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "name" "-" "name@contactType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "provenance@[0, 2, 7]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.150692" "-" "provenance@[0, 2, 7]!XMonXJulX13X04:34:46X20200.150692" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "pickup@8" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "pickup@8!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "pickup" "-" "pickup@8" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "previousPickup@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "previousPickup@7!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "l1x@<c!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "refid@XMonXJulX13X04:34:46X20200.169541!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "tag@complexType!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "tag" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "provenance@[0, 2, 7, 8]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.169541" "-" "provenance@[0, 2, 7, 8]!XMonXJulX13X04:34:46X20200.169541" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "pickup@9" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "pickup@9!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "pickup" "-" "pickup@9" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "previousPickup@8" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "previousPickup@8!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@8" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "l1x@<s!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "refid@XMonXJulX13X04:34:46X20200.183665!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "tag@sequence!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "tag" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "provenance@[0, 2, 7, 8, 9]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.183665" "-" "provenance@[0, 2, 7, 8, 9]!XMonXJulX13X04:34:46X20200.183665" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8, 9]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "pickup@10" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "pickup@10!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "pickup" "-" "pickup@10" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "previousPickup@9" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "previousPickup@9!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@9" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "refid@XMonXJulX13X04:34:46X20200.201428!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "tag@element!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "ref@supplier" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "ref@supplier!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "ref" "-" "ref@supplier" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "minOccurs@0!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "provenance@[0, 2, 7, 8, 9, 10]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "provenance@[0, 2, 7, 8, 9, 10]!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8, 9, 10]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "KRID@TAG:element!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "KRID" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "masterPosition@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "masterPosition@7!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "seq@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "seq@1!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "seq" "-" "seq@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "master@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.201428" "-" "master@7!XMonXJulX13X04:34:46X20200.201428" ) ;
+    
+RDF: ( "master" "-" "master@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "pickup@11" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "pickup@11!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "pickup" "-" "pickup@11" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "previousPickup@10" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "previousPickup@10!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@10" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "refid@XMonXJulX13X04:34:46X20200.241881!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "tag@element!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "ref@vendor" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "ref@vendor!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "ref" "-" "ref@vendor" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "minOccurs@0!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "provenance@[0, 2, 7, 8, 9, 11]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "provenance@[0, 2, 7, 8, 9, 11]!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8, 9, 11]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "KRID@TAG:element!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "KRID" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "masterPosition@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "masterPosition@7!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "seq@2" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "seq@2!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "seq" "-" "seq@2" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "master@7" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.241881" "-" "master@7!XMonXJulX13X04:34:46X20200.241881" ) ;
+    
+RDF: ( "master" "-" "master@7" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "pickup@12" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "pickup@12!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "pickup" "-" "pickup@12" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "previousPickup@11" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "previousPickup@11!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@11" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "l1x@</!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "refid@XMonXJulX13X04:34:46X20200.277331!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "tag@/sequence!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "tag" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "provenance@[0, 2, 7, 8, 9]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.277331" "-" "provenance@[0, 2, 7, 8, 9]!XMonXJulX13X04:34:46X20200.277331" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8, 9]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "pickup@13" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "pickup@13!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "pickup" "-" "pickup@13" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "previousPickup@12" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "previousPickup@12!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@12" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "l1x@</!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "refid@XMonXJulX13X04:34:46X20200.290234!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "tag@/complextype" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "tag@/complextype!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "tag" "-" "tag@/complextype" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "provenance@[0, 2, 7, 8]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.290234" "-" "provenance@[0, 2, 7, 8]!XMonXJulX13X04:34:46X20200.290234" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 8]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "pickup@14" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "pickup@14!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "pickup" "-" "pickup@14" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "previousPickup@13" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "previousPickup@13!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@13" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "l1x@<c!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "refid@XMonXJulX13X04:34:46X20200.303331!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "tag@complexType!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "tag" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "name@supplier" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "name@supplier!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "name" "-" "name@supplier" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "provenance@[0, 2, 7, 14]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.303331" "-" "provenance@[0, 2, 7, 14]!XMonXJulX13X04:34:46X20200.303331" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 14]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "pickup@15" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "pickup@15!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "pickup" "-" "pickup@15" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "previousPickup@14" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "previousPickup@14!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@14" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "l1x@<s!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "refid@XMonXJulX13X04:34:46X20200.322775!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "tag@sequence!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "tag" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "provenance@[0, 2, 7, 14, 15]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.322775" "-" "provenance@[0, 2, 7, 14, 15]!XMonXJulX13X04:34:46X20200.322775" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 14, 15]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "pickup@16" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "pickup@16!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "pickup" "-" "pickup@16" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "previousPickup@15" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "previousPickup@15!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@15" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "refid@XMonXJulX13X04:34:46X20200.335886!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "tag@element!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "ref@contacts" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "ref@contacts!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "ref" "-" "ref@contacts" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "minOccurs@0!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "maxOccurs@unbounded!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "provenance@[0, 2, 7, 14, 15, 16]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "provenance@[0, 2, 7, 14, 15, 16]!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 14, 15, 16]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "KRID@TAG:element!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "KRID" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "masterPosition@14" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "masterPosition@14!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@14" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "seq@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "seq@1!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "seq" "-" "seq@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "master@14" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.335886" "-" "master@14!XMonXJulX13X04:34:46X20200.335886" ) ;
+    
+RDF: ( "master" "-" "master@14" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "pickup@17" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "pickup@17!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "pickup" "-" "pickup@17" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "previousPickup@16" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "previousPickup@16!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@16" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "l1x@</!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "refid@XMonXJulX13X04:34:46X20200.376062!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "tag@/sequence!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "tag" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "provenance@[0, 2, 7, 14, 15]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.376062" "-" "provenance@[0, 2, 7, 14, 15]!XMonXJulX13X04:34:46X20200.376062" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 14, 15]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "pickup@18" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "pickup@18!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "pickup" "-" "pickup@18" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "previousPickup@17" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "previousPickup@17!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@17" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "l1x@</!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "refid@XMonXJulX13X04:34:46X20200.391316!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "tag@/complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "tag@/complexType!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "tag" "-" "tag@/complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "provenance@[0, 2, 7, 14]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.391316" "-" "provenance@[0, 2, 7, 14]!XMonXJulX13X04:34:46X20200.391316" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 14]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "pickup@19" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "pickup@19!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "pickup" "-" "pickup@19" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "previousPickup@18" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "previousPickup@18!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@18" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "l1x@<c!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<c" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "refid@XMonXJulX13X04:34:46X20200.404629!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "tag@complexType!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "tag" "-" "tag@complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "name@vendor" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "name@vendor!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "name" "-" "name@vendor" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "provenance@[0, 2, 7, 19]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.404629" "-" "provenance@[0, 2, 7, 19]!XMonXJulX13X04:34:46X20200.404629" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 19]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "pickup@20" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "pickup@20!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "pickup" "-" "pickup@20" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "previousPickup@19" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "previousPickup@19!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@19" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "l1x@<s!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<s" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "refid@XMonXJulX13X04:34:46X20200.423775!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "tag@sequence!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "tag" "-" "tag@sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "provenance@[0, 2, 7, 19, 20]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.423775" "-" "provenance@[0, 2, 7, 19, 20]!XMonXJulX13X04:34:46X20200.423775" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 19, 20]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "pickup@21" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "pickup@21!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "pickup" "-" "pickup@21" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "previousPickup@20" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "previousPickup@20!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@20" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "refid@XMonXJulX13X04:34:46X20200.436721!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "tag@element!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "ref@contacts" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "ref@contacts!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "ref" "-" "ref@contacts" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "minOccurs@0!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "maxOccurs@unbounded!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "provenance@[0, 2, 7, 19, 20, 21]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "provenance@[0, 2, 7, 19, 20, 21]!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 19, 20, 21]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "KRID@TAG:element!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "KRID" "-" "KRID@TAG:element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "masterPosition@19" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "masterPosition@19!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@19" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "seq@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "seq@1!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "seq" "-" "seq@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "master@19" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.436721" "-" "master@19!XMonXJulX13X04:34:46X20200.436721" ) ;
+    
+RDF: ( "master" "-" "master@19" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "pickup@22" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "pickup@22!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "pickup" "-" "pickup@22" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "previousPickup@21" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "previousPickup@21!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@21" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "l1x@</!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "refid@XMonXJulX13X04:34:46X20200.470338!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "tag@/sequence!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "tag" "-" "tag@/sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "provenance@[0, 2, 7, 19, 20]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.470338" "-" "provenance@[0, 2, 7, 19, 20]!XMonXJulX13X04:34:46X20200.470338" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 19, 20]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "pickup@23" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "pickup@23!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "pickup" "-" "pickup@23" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "previousPickup@22" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "previousPickup@22!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@22" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "l1x@</!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "refid@XMonXJulX13X04:34:46X20200.483606!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "tag@/complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "tag@/complexType!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "tag" "-" "tag@/complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "provenance@[0, 2, 7, 19]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.483606" "-" "provenance@[0, 2, 7, 19]!XMonXJulX13X04:34:46X20200.483606" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 19]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "pickup@24" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "pickup@24!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "pickup" "-" "pickup@24" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "previousPickup@23" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "previousPickup@23!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@23" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "refid@XMonXJulX13X04:34:46X20200.497761!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "tag@element!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "name@contacts" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "name@contacts!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "name" "-" "name@contacts" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "provenance@[0, 2, 7, 24]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.497761" "-" "provenance@[0, 2, 7, 24]!XMonXJulX13X04:34:46X20200.497761" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "pickup@25" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "pickup@25!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "pickup" "-" "pickup@25" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "previousPickup@24" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "previousPickup@24!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@24" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "l1x@<a!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "refid@XMonXJulX13X04:34:46X20200.516967!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "tag@annotation!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "tag" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "provenance@[0, 2, 7, 24, 25]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.516967" "-" "provenance@[0, 2, 7, 24, 25]!XMonXJulX13X04:34:46X20200.516967" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 25]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "pickup@26" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "pickup@26!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "pickup" "-" "pickup@26" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "previousPickup@25" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "previousPickup@25!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@25" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "l1x@<d!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "refid@XMonXJulX13X04:34:46X20200.532953!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "tag@documentation!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "tag" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "id@C-doc" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "id@C-doc!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "id" "-" "id@C-doc" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "value@zblzthis is the documentation for contactzopzszcpz" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "value@zblzthis is the documentation for contactzopzszcpz!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "value" "-" "value@zblzthis is the documentation for contactzopzszcpz" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "provenance@[0, 2, 7, 24, 25, 26]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.532953" "-" "provenance@[0, 2, 7, 24, 25, 26]!XMonXJulX13X04:34:46X20200.532953" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 25, 26]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "pickup@27" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "pickup@27!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "pickup" "-" "pickup@27" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "previousPickup@26" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "previousPickup@26!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@26" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "l1x@</!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "refid@XMonXJulX13X04:34:46X20200.555504!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "tag@/documentation!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "tag" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "provenance@[0, 2, 7, 24, 25, 26]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.555504" "-" "provenance@[0, 2, 7, 24, 25, 26]!XMonXJulX13X04:34:46X20200.555504" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 25, 26]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "pickup@28" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "pickup@28!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "pickup" "-" "pickup@28" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "previousPickup@27" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "previousPickup@27!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@27" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "l1x@</!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "refid@XMonXJulX13X04:34:46X20200.568461!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "tag@/annotation!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "tag" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "provenance@[0, 2, 7, 24, 25]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.568461" "-" "provenance@[0, 2, 7, 24, 25]!XMonXJulX13X04:34:46X20200.568461" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 25]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "pickup@29" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "pickup@29!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "pickup" "-" "pickup@29" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "previousPickup@28" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "previousPickup@28!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@28" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "l1x@<x!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "refid@XMonXJulX13X04:34:46X20200.581322!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "tag@xsd:complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "tag@xsd:complexType!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "tag" "-" "tag@xsd:complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "provenance@[0, 2, 7, 24, 29]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.581322" "-" "provenance@[0, 2, 7, 24, 29]!XMonXJulX13X04:34:46X20200.581322" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 29]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "pickup@30" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "pickup@30!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "pickup" "-" "pickup@30" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "previousPickup@29" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "previousPickup@29!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@29" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "l1x@<x!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "refid@XMonXJulX13X04:34:46X20200.594142!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "tag@xsd:sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "tag@xsd:sequence!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "tag" "-" "tag@xsd:sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "provenance@[0, 2, 7, 24, 29, 30]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.594142" "-" "provenance@[0, 2, 7, 24, 29, 30]!XMonXJulX13X04:34:46X20200.594142" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 29, 30]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "pickup@31" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "pickup@31!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "pickup" "-" "pickup@31" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "previousPickup@30" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "previousPickup@30!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@30" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "refid@XMonXJulX13X04:34:46X20200.607198!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "tag@element!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "id@callContact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "id@callContact!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "id" "-" "id@callContact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "ref@contact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "ref@contact!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "ref" "-" "ref@contact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "maxOccurs@unbounded!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "provenance@[0, 2, 7, 24, 29, 30, 31]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "provenance@[0, 2, 7, 24, 29, 30, 31]!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 29, 30, 31]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "KRID@ID:callContact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "KRID@ID:callContact!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "KRID" "-" "KRID@ID:callContact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "masterPosition@24" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "masterPosition@24!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@24" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "seq@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "seq@1!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "seq" "-" "seq@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "master@24" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.607198" "-" "master@24!XMonXJulX13X04:34:46X20200.607198" ) ;
+    
+RDF: ( "master" "-" "master@24" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "pickup@32" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "pickup@32!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "pickup" "-" "pickup@32" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "previousPickup@31" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "previousPickup@31!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@31" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "l1x@</!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "refid@XMonXJulX13X04:34:46X20200.651168!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "tag@/xsd:sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "tag@/xsd:sequence!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "tag" "-" "tag@/xsd:sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "provenance@[0, 2, 7, 24, 29, 30]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.651168" "-" "provenance@[0, 2, 7, 24, 29, 30]!XMonXJulX13X04:34:46X20200.651168" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 29, 30]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "pickup@33" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "pickup@33!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "pickup" "-" "pickup@33" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "previousPickup@32" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "previousPickup@32!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@32" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "l1x@</!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "l2x@e>!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "refid@XMonXJulX13X04:34:46X20200.664823!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "tag@/xsd:complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "tag@/xsd:complexType!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "tag" "-" "tag@/xsd:complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "provenance@[0, 2, 7, 24, 29]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.664823" "-" "provenance@[0, 2, 7, 24, 29]!XMonXJulX13X04:34:46X20200.664823" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24, 29]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "pickup@34" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "pickup@34!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "pickup" "-" "pickup@34" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "previousPickup@33" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "previousPickup@33!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@33" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "l1x@</!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "l2x@t>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "l2x@t>!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "l2x" "-" "l2x@t>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "refid@XMonXJulX13X04:34:46X20200.677666!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "tag@/element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "tag@/element!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "tag" "-" "tag@/element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "provenance@[0, 2, 7, 24]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.677666" "-" "provenance@[0, 2, 7, 24]!XMonXJulX13X04:34:46X20200.677666" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 24]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "pickup@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "pickup@35!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "pickup" "-" "pickup@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "previousPickup@34" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "previousPickup@34!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@34" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "refid@XMonXJulX13X04:34:46X20200.692582!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "tag@element!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "name@contact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "name@contact!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "name" "-" "name@contact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "id@Contact-E" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "id@Contact-E!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "id" "-" "id@Contact-E" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "provenance@[0, 2, 7, 35]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.692582" "-" "provenance@[0, 2, 7, 35]!XMonXJulX13X04:34:46X20200.692582" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "pickup@36" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "pickup@36!XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "pickup" "-" "pickup@36" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "previousPickup@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "previousPickup@35!XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "l1x@<!" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "l1x@<!!XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<!" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "l2x@]>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.717692" "-" "l2x@]>!XMonXJulX13X04:34:46X20200.717692" ) ;
+    
+RDF: ( "l2x" "-" "l2x@]>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "pickup@37" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "pickup@37!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "pickup" "-" "pickup@37" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "previousPickup@36" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "previousPickup@36!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@36" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "l1x@<a!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "refid@XMonXJulX13X04:34:46X20200.725637!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "tag@annotation!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "tag" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "id@A-contact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "id@A-contact!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "id" "-" "id@A-contact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "provenance@[0, 2, 7, 35, 37]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.725637" "-" "provenance@[0, 2, 7, 35, 37]!XMonXJulX13X04:34:46X20200.725637" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 37]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "pickup@38" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "pickup@38!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "pickup" "-" "pickup@38" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "previousPickup@37" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "previousPickup@37!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@37" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "l1x@<d!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "refid@XMonXJulX13X04:34:46X20200.745361!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "tag@documentation!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "tag" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "id@D-contact" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "id@D-contact!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "id" "-" "id@D-contact" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "value@zblzcontact information is zobrzfirst Namezcbrz lastName zobrzphoneNumberzopzszcpzzcbrz" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "value@zblzcontact information is zobrzfirst Namezcbrz lastName zobrzphoneNumberzopzszcpzzcbrz!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "value" "-" "value@zblzcontact information is zobrzfirst Namezcbrz lastName zobrzphoneNumberzopzszcpzzcbrz" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "provenance@[0, 2, 7, 35, 37, 38]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.745361" "-" "provenance@[0, 2, 7, 35, 37, 38]!XMonXJulX13X04:34:46X20200.745361" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 37, 38]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "pickup@39" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "pickup@39!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "pickup" "-" "pickup@39" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "previousPickup@38" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "previousPickup@38!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@38" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "l1x@</!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "refid@XMonXJulX13X04:34:46X20200.766302!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "tag@/documentation!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "tag" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "provenance@[0, 2, 7, 35, 37, 38]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.766302" "-" "provenance@[0, 2, 7, 35, 37, 38]!XMonXJulX13X04:34:46X20200.766302" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 37, 38]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "pickup@40" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "pickup@40!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "pickup" "-" "pickup@40" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "previousPickup@39" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "previousPickup@39!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@39" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "l1x@</!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "l2x@n>!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "refid@XMonXJulX13X04:34:46X20200.78005!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "tag@/annotation!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "tag" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "provenance@[0, 2, 7, 35, 37]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.78005" "-" "provenance@[0, 2, 7, 35, 37]!XMonXJulX13X04:34:46X20200.78005" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 37]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "pickup@41" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "pickup@41!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "pickup" "-" "pickup@41" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "previousPickup@40" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "previousPickup@40!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@40" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "l1x@<x!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "refid@XMonXJulX13X04:34:46X20200.793104!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "tag@xsd:complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "tag@xsd:complexType!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "tag" "-" "tag@xsd:complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "id@cx0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "id@cx0!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "id" "-" "id@cx0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "provenance@[0, 2, 7, 35, 41]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.793104" "-" "provenance@[0, 2, 7, 35, 41]!XMonXJulX13X04:34:46X20200.793104" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "pickup@42" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "pickup@42!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "pickup" "-" "pickup@42" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "previousPickup@41" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "previousPickup@41!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@41" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "l1x@<x!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<x" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "l2x@x>!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "refid@XMonXJulX13X04:34:46X20200.812318!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "tag@xsd:sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "tag@xsd:sequence!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "tag" "-" "tag@xsd:sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "id@sx0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "id@sx0!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "id" "-" "id@sx0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "minOccurs@1!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "provenance@[0, 2, 7, 35, 41, 42]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.812318" "-" "provenance@[0, 2, 7, 35, 41, 42]!XMonXJulX13X04:34:46X20200.812318" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41, 42]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "pickup@43" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "pickup@43!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "pickup" "-" "pickup@43" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "previousPickup@42" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "previousPickup@42!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@42" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "l1x@<e!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "l2x@/>!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "refid@XMonXJulX13X04:34:46X20200.832068!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "tag@element!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "id@askFirstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "id@askFirstName!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "id" "-" "id@askFirstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "ref@FirstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "ref@FirstName!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "ref" "-" "ref@FirstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "minOccurs@0!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@0" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "maxOccurs@1!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "provenance@[0, 2, 7, 35, 41, 42, 43]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "provenance@[0, 2, 7, 35, 41, 42, 43]!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41, 42, 43]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "KRID@ID:askFirstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "KRID@ID:askFirstName!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "KRID" "-" "KRID@ID:askFirstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "masterPosition@35!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "seq@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "seq@1!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "seq" "-" "seq@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "master@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:46X20200.832068" "-" "master@35!XMonXJulX13X04:34:46X20200.832068" ) ;
+    
+RDF: ( "master" "-" "master@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "pickup@44" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "pickup@44!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "pickup" "-" "pickup@44" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "previousPickup@43" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "previousPickup@43!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@43" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "l1x@<e!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "l2x@/>!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "refid@XMonXJulX13X04:34:47X20200.869878!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "tag@element!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "id@AskLastName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "id@AskLastName!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "id" "-" "id@AskLastName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "ref@lastname" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "ref@lastname!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "ref" "-" "ref@lastname" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "maxOccurs@1!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "minOccurs@1!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "provenance@[0, 2, 7, 35, 41, 42, 44]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "provenance@[0, 2, 7, 35, 41, 42, 44]!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41, 42, 44]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "KRID@ID:AskLastName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "KRID@ID:AskLastName!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "KRID" "-" "KRID@ID:AskLastName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "masterPosition@35!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "seq@2" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "seq@2!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "seq" "-" "seq@2" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "master@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.869878" "-" "master@35!XMonXJulX13X04:34:47X20200.869878" ) ;
+    
+RDF: ( "master" "-" "master@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "pickup@45" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "pickup@45!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "pickup" "-" "pickup@45" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "previousPickup@44" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "previousPickup@44!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@44" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "l1x@<e!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "l2x@/>!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "refid@XMonXJulX13X04:34:47X20200.905092!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "tag@element!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "id@AskPhone" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "id@AskPhone!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "id" "-" "id@AskPhone" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "ref@Phone" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "ref@Phone!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "ref" "-" "ref@Phone" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "maxOccurs@unbounded!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@unbounded" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "minOccurs@1!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "provenance@[0, 2, 7, 35, 41, 42, 45]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "provenance@[0, 2, 7, 35, 41, 42, 45]!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41, 42, 45]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "KRID@ID:AskPhone" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "KRID@ID:AskPhone!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "KRID" "-" "KRID@ID:AskPhone" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "masterPosition@35!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "masterPosition" "-" "masterPosition@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "seq@3" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "seq@3!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "seq" "-" "seq@3" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "master@35" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.905092" "-" "master@35!XMonXJulX13X04:34:47X20200.905092" ) ;
+    
+RDF: ( "master" "-" "master@35" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "pickup@46" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "pickup@46!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "pickup" "-" "pickup@46" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "previousPickup@45" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "previousPickup@45!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@45" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "l1x@</!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "l2x@e>!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "refid@XMonXJulX13X04:34:47X20200.940103!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "tag@/xsd:sequence" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "tag@/xsd:sequence!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "tag" "-" "tag@/xsd:sequence" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "provenance@[0, 2, 7, 35, 41, 42]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.940103" "-" "provenance@[0, 2, 7, 35, 41, 42]!XMonXJulX13X04:34:47X20200.940103" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41, 42]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "pickup@47" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "pickup@47!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "pickup" "-" "pickup@47" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "previousPickup@46" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "previousPickup@46!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@46" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "l1x@</!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "l2x@e>!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "l2x" "-" "l2x@e>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "refid@XMonXJulX13X04:34:47X20200.953135!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "tag@/xsd:complexType" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "tag@/xsd:complexType!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "tag" "-" "tag@/xsd:complexType" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "provenance@[0, 2, 7, 35, 41]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.953135" "-" "provenance@[0, 2, 7, 35, 41]!XMonXJulX13X04:34:47X20200.953135" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35, 41]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "pickup@48" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "pickup@48!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "pickup" "-" "pickup@48" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "previousPickup@47" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "previousPickup@47!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@47" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "l1x@</!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "l2x@t>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "l2x@t>!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "l2x" "-" "l2x@t>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "refid@XMonXJulX13X04:34:47X20200.966089!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "tag@/element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "tag@/element!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "tag" "-" "tag@/element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "provenance@[0, 2, 7, 35]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.966089" "-" "provenance@[0, 2, 7, 35]!XMonXJulX13X04:34:47X20200.966089" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 35]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "pickup@49" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "pickup@49!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "pickup" "-" "pickup@49" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "previousPickup@48" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "previousPickup@48!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@48" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "l1x@<e!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "l2x@/>!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "refid@XMonXJulX13X04:34:47X20200.979574!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "tag@element!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "name@FirstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "name@FirstName!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "name" "-" "name@FirstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "id@firstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "id@firstName!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "id" "-" "id@firstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "type@string" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "type@string!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "type" "-" "type@string" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "minOccurs@1!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "maxOccurs@1!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "provenance@[0, 2, 7, 49]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "provenance@[0, 2, 7, 49]!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 49]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "KRID@ID:firstName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20200.979574" "-" "KRID@ID:firstName!XMonXJulX13X04:34:47X20200.979574" ) ;
+    
+RDF: ( "KRID" "-" "KRID@ID:firstName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "pickup@50" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "pickup@50!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "pickup" "-" "pickup@50" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "previousPickup@49" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "previousPickup@49!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@49" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "l1x@<e!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "l2x@x>!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "refid@XMonXJulX13X04:34:47X20201.013141!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "tag@element!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "name@lastName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "name@lastName!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "name" "-" "name@lastName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "id@lastName" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "id@lastName!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "id" "-" "id@lastName" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "type@string" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "type@string!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "type" "-" "type@string" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "minOccurs@1!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "maxOccurs@1!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "provenance@[0, 2, 7, 50]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.013141" "-" "provenance@[0, 2, 7, 50]!XMonXJulX13X04:34:47X20201.013141" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "pickup@51" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "pickup@51!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "pickup" "-" "pickup@51" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "previousPickup@50" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "previousPickup@50!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@50" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "l1x@<a!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<a" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "l2x@n>!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "refid@XMonXJulX13X04:34:47X20201.046952!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "tag@annotation!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "tag" "-" "tag@annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "provenance@[0, 2, 7, 50, 51]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.046952" "-" "provenance@[0, 2, 7, 50, 51]!XMonXJulX13X04:34:47X20201.046952" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50, 51]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "pickup@52" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "pickup@52!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "pickup" "-" "pickup@52" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "previousPickup@51" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "previousPickup@51!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@51" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "l1x@<d!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<d" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "l2x@x>!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "l2x" "-" "l2x@x>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "refid@XMonXJulX13X04:34:47X20201.063813!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "tag@documentation!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "tag" "-" "tag@documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "id@D-lastname" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "id@D-lastname!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "id" "-" "id@D-lastname" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "minOccurs@1!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "maxOccurs@1!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "value@zblzthis is the documentation for last names" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "value@zblzthis is the documentation for last names!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "value" "-" "value@zblzthis is the documentation for last names" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "provenance@[0, 2, 7, 50, 51, 52]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.063813" "-" "provenance@[0, 2, 7, 50, 51, 52]!XMonXJulX13X04:34:47X20201.063813" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50, 51, 52]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "pickup@53" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "pickup@53!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "pickup" "-" "pickup@53" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "previousPickup@52" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "previousPickup@52!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@52" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "l1x@</!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "l2x@n>!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "refid@XMonXJulX13X04:34:47X20201.092303!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "tag@/documentation!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "tag" "-" "tag@/documentation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "provenance@[0, 2, 7, 50, 51, 52]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.092303" "-" "provenance@[0, 2, 7, 50, 51, 52]!XMonXJulX13X04:34:47X20201.092303" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50, 51, 52]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "pickup@54" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "pickup@54!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "pickup" "-" "pickup@54" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "previousPickup@53" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "previousPickup@53!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@53" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "l1x@</" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "l1x@</!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "l1x" "-" "l1x@</" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "l2x@n>!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "l2x" "-" "l2x@n>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "refid@XMonXJulX13X04:34:47X20201.108049!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "tag@/annotation!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "tag" "-" "tag@/annotation" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "provenance@[0, 2, 7, 50, 51]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.108049" "-" "provenance@[0, 2, 7, 50, 51]!XMonXJulX13X04:34:47X20201.108049" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50, 51]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "pickup@55" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "pickup@55!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "pickup" "-" "pickup@55" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "previousPickup@54" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "previousPickup@54!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "previousPickup" "-" "previousPickup@54" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "l1x@<e!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "l1x" "-" "l1x@<e" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "l2x@/>!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "l2x" "-" "l2x@/>" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "refid@XMonXJulX13X04:34:47X20201.121492!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "tag@element" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "tag@element!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "tag" "-" "tag@element" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "name@Phone" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "name@Phone!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "name" "-" "name@Phone" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "type@integer" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "type@integer!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "type" "-" "type@integer" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "maxDigits@10" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "maxDigits@10!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "maxDigits" "-" "maxDigits@10" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "minDigits@10" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "minDigits@10!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "minDigits" "-" "minDigits@10" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "minOccurs@1!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "minOccurs" "-" "minOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "maxOccurs@1!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "maxOccurs" "-" "maxOccurs@1" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "provenance@[0, 2, 7, 50, 55]" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "provenance@[0, 2, 7, 50, 55]!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "provenance" "-" "provenance@[0, 2, 7, 50, 55]" ) ;
+    
+RDF: ( "refid" "-" "refid@XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "KRID@NAME:Phone" ) ;
+    
+RDF: ( "refid@XMonXJulX13X04:34:47X20201.121492" "-" "KRID@NAME:Phone!XMonXJulX13X04:34:47X20201.121492" ) ;
+    
+RDF: ( "KRID" "-" "KRID@NAME:Phone" ) ;
+    END:

@@ -1,6 +1,6 @@
 
 #file pbox.py
-#generated for pgx.basii at Wed Jun 24 10:50:33 2020 
+#generated for pgx.basii at Tue Aug 18 17:06:09 2020 
 
 # usage 
 # import xx
@@ -5190,11 +5190,11 @@ def bmain_1():
 
     r = p['sy']['pop']()
     logg('for bmain-1 processing text ')
-    logg("""on""")
+    logg("""off""")
     if (r == p['OK']):
-        logg('push text ' + """on""")
-        datPush("on")
-        logg('after ' + """on""" )
+        logg('push text ' + """off""")
+        datPush("off")
+        logg('after ' + """off""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -5482,11 +5482,11 @@ def Ver_1():
 
     r = p['sy']['pop']()
     logg('for Ver-1 processing text ')
-    logg("""bbox version 3.29b.XX type help for more""")
+    logg("""bbox version 8-18-2020 type help for more""")
     if (r == p['OK']):
-        logg('push text ' + """bbox version 3.29b.XX type help for more""")
-        datPush("bbox version 3.29b.XX type help for more")
-        logg('after ' + """bbox version 3.29b.XX type help for more""" )
+        logg('push text ' + """bbox version 8-18-2020 type help for more""")
+        datPush("bbox version 8-18-2020 type help for more")
+        logg('after ' + """bbox version 8-18-2020 type help for more""" )
         datPush(p['OK'])
     else:
         logg('text skipped')
@@ -5687,6 +5687,15 @@ def loggingTest_1():
     logg('final loggingTest_1')
 #end loggingTest_1
 
+def loggingTest_2():
+    global p
+    logg('loggingTest_2')
+    datPush(p['OK'])
+
+    #final
+    logg('final loggingTest_2')
+#end loggingTest_2
+
 def loggingTest (x):
     global p
     logg('begin loggingTest')
@@ -5701,6 +5710,13 @@ def loggingTest (x):
             logg('call loggingTest_1')
             loggingTest_1()
             logg('after call loggingTest_1')
+            # test and adjust for new spoke
+            loggingTestCtl = chk(loggingTestCtl)
+
+        elif (loggingTestCtl == 2):
+            logg('call loggingTest_2')
+            loggingTest_2()
+            logg('after call loggingTest_2')
             # test and adjust for new spoke
             loggingTestCtl = chk(loggingTestCtl)
 
@@ -6781,6 +6797,110 @@ def dohelp_1():
 
     r = p['sy']['pop']()
     logg('for dohelp-1 processing text ')
+    logg("""programming:""")
+    if (r == p['OK']):
+        logg('push text ' + """programming:""")
+        datPush("programming:")
+        logg('after ' + """programming:""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""to load code (basiiCode,name,,) l!""")
+    if (r == p['OK']):
+        logg('push text ' + """to load code (basiiCode,name,,) l!""")
+        datPush("to load code (basiiCode,name,,) l!")
+        logg('after ' + """to load code (basiiCode,name,,) l!""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg(""" to execute (name,,) pgf""")
+    if (r == p['OK']):
+        logg('push text ' + """ to execute (name,,) pgf""")
+        datPush(" to execute (name,,) pgf")
+        logg('after ' + """ to execute (name,,) pgf""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
+    logg("""""")
+    if (r == p['OK']):
+        logg('push text ' + """""")
+        datPush("")
+        logg('after ' + """""" )
+        datPush(p['OK'])
+    else:
+        logg('text skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing verb ( msg ) ')
+    if (r == p['OK']):
+        logg('call msg ')
+        p['sy']['msg'](p)
+        logg('after msg')
+        #endif
+        # datPush(p['OK']) # verb supplies ok/nok
+    else:
+        logg('verb skipped')
+        p['sy']['push'](r) # pass nok to next
+    #endif
+
+    r = p['sy']['pop']()
+    logg('for dohelp-1 processing text ')
     logg("""end help""")
     if (r == p['OK']):
         logg('push text ' + """end help""")
@@ -7279,11 +7399,11 @@ def pgword_2():
     #endif
 
     r = p['sy']['pop']()
-    logg('for pgword-2 processing verb ( tail ) ')
+    logg('for pgword-2 processing verb ( tail. ) ')
     if (r == p['OK']):
-        logg('call tail ')
-        p['sy']['tail'](p)
-        logg('after tail')
+        logg('call tail. ')
+        p['sy']['tail.'](p)
+        logg('after tail.')
         #endif
         # datPush(p['OK']) # verb supplies ok/nok
     else:

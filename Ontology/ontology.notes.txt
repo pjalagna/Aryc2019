@@ -1,4 +1,10 @@
 file ontology.notes.txt
+pja 8/7/2020
+rdf((sub,obj,pred,seq)desc,type)
+-- limb switch==bcm decision point
+---- relates viz association entity 
+----- no entry no limb
+----- multi entry is --<, >-- or --<>--
 pja 5/29/2020
 pja 5/26/2020
 

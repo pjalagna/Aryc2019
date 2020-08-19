@@ -1,0 +1,66 @@
+file spyder.txt
+pja 8/10/2020
+
+part of the modBDev project
+see spyder.graphml for diagram
+see spyder.AMatrix.numbers
+
+
+order of precedence for processes
+1-read data
+2-service (validate;generate;format1;open;create;[read,update];delete;format2;close)
+3- write data
+4- trigger process
+
+
+screen format:
+page(name,PageContents)
+form(name,FormContents)
+table(name,TableContents)
+
+page(spyder,
+form('fr1',
+table('t1',
+"c4","r1",
+[
+[ "r1","c1",text('DBLoc') ]
+[ "r1","c2",button('Load' , "dbLoad" )]
+[ "r1","c3",text('SQL') ]
+[ "r1","c4",button('SQLX' , "xsqlx" )]
+] ;
+)//t1
+lineBreak(' ')
+table('t2',
+"c5","r3+"
+[
+[ "r1","c1", button("bn", "dbnew") ]
+[ "r1","c2", text("New") ]
+[ "r1","c3", label('lb1',' ') ]
+[ "r1","c4", text('count') ]
+[ "r1","c5", label('lb2', ' ' ) ]
+] +
+
+[
+[ "r2","c1", button("bb", "dbbody") ]
+[ "r1","c2", text("Sbody") ]
+[ "r1","c3", label('lb1',' ') ]
+[ "r1","c4", text('leg1') ]
+[ "r2","c1", button("BLeg1", "dbleg1") ]
+] +
+
+newRow(n,"c5",
+[
+[ "rn","c1", label('lbc1:',' ') ]
+[ "rn","c2", label('lbc2:',' ') ]
+[ "rn","c3", label('lbc3:',' ') ]
+[ "rn","c4", text('leg:') ]
+[ "rn","c5", button("BLeg:", "dbleg:") ]
+]
+)//newrow
+;
+)//t2
+) // form
+)// page
+
+
+

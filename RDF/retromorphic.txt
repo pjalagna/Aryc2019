@@ -1,0 +1,54 @@
+given the following XSD:
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:stratml_core"
+    targetNamespace="urn:ISO:std:iso:17469:tech:xsd:stratml_core"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.1">
+    
+<xsd:documentation source="documentation" xml:lang="EN">--</xsd:documentation>
+
+<xsd:element name="AdministrativeInformation" type="stratml:AdministrativeInformationType" id="uuid-9d240214-9768-4dd9-b98a-c62448b63f26"/>
+
+</xsd:schema>
+====
+1- should retromorphic* be an objective of the ontology? 
+
+retromorphic* - the ability to reproduce it's input.
+
+
+to do so we need the RDF to state the format position of the fullname*
+
+fullname* = name as stated in the input 
+like:
+- xml:lang="EN"
+- source="documentation"
+- xsd:documentation
+
+so:
+rdf: ( xsd tagDNS xsd:element )
+rdf: ( element tagName xsd:element ) 
+We need to do so because the dn:name can occur in 3 places
+- the tag
+--- xsd:documentation
+- the attribute name 
+--- xml:lang="EN"
+- the attribute value 
+--- type="stratml:AdministrativeInformationType"
+
+the definition of the format position should have the RDF-predicate (tagDNS) as the (RDF-subject).
+*-currently the RDF-predicate can not be an RDF-subject.
+
+so, I'm proposing an active RDF. to wit: let there be a parallel node that is a subjectified predicate.
+
+for: 
+rdf: ( xsd tagDNS xsd:element ) 
+we add
+node: ( tagDNS )
+rdf: ( activePredicate is tagDNS )
+
+so that a later RDF statement can be added
+rdf: (tagDNS hasDoc "the namespace ...")
+
+and in later reports the "active" predicate can be paired with the named predicate.
+

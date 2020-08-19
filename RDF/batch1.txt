@@ -1,0 +1,6 @@
+rdf: table has coffee ;
+rdf: table has milk ; 
+rdf: coffee from starbucks ;
+rdf: ( ( coffee from starbucks ) cost $3.00 ) ;
+end:
+

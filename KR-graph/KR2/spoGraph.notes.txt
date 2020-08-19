@@ -1,0 +1,34 @@
+file spoGraph.notes.txt
+pja 7/19/2020
+task: take in script to build records,
+      use records to build yed graph
+
+record 
+1-rdf subject,predicate,object,index
+2-rdfThing name,description,index
+3-rdfPredicate name,description,index
+3-report labelText,index
+
+
+
+
+given a language for RDF
+rdf :-
+/* get subject */
+[[ 1 ]]"(" s p o ")" 1 scx ! // spo2 .
+[[ 2 ]] s  // spo2 .
+;
+spo2 :-
+/* get predicate
+[[ 1 ]] "(" s p o ")" 1 pcx ! // spo3 .
+[[ 2 ]] p // spo3 .
+;
+spo3 :-
+/* get object */
+[[ 1 ]] "(" s p o ")" 1 ocx ! // spo4 .
+[[ 2 ]] o // spo4 .
+;
+spo4 :-
+/* assemble */
+
+ 

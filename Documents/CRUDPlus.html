@@ -1,0 +1,57 @@
+<html>
+<head><title>CRUD Plus Tasks</title>
+<script src="alertmsg.js"></script>
+<script src="tableS.js"></script>
+<head>
+
+<body>
+<p id="demo"></p>
+
+<script>
+var documentHistory = tbl2('History <br/> CRUDPlus',
+"pja 3/8/2020 -"+ "</br>" +
+"pja 7/23/2020 amended"+ "</br>");
+var controlT = tbl2('CONTROL',
+"--start <br/>"+
+"--stop <br/>"+
+"--decide <br/>"+
+"--choreograph <br/>"+
+"--synchronize <br/>"
+);
+var createNew = tbl2("createNew",'instanciate a new instance of a known device');
+var createSub = tbl2("createSub",'new device under this device');
+var createT = tbl2('CREATE',
+createNew+
+createSub+
+", generate"
+);
+var read1 = tbl2('read1', 'extract one character from the stream at a given position');
+var RETREIVET = tbl2('RETREIVE',
+read1 + " , readAll, seek "
+);
+var updateT = tbl2('UPDATE',
+"rewrite , " +
+"insert" +
+", format"
+);
+var CRUDPlus = tbl2('CRUD Plus tasks',
+createT+
+RETREIVET+
+updateT+
+"delete <br/>"+
+"======================"+
+"<br/> the Plus functions are:<br/>"+
+controlT+
+"communicate <br/>"+
+"manage <br/>"
+);
+
+
+var main = 
+documentHistory+
+CRUDPlus;
+
+document.getElementById("demo").innerHTML = main;
+</script>
+</body>
+</html>

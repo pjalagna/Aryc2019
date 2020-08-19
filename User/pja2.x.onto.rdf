@@ -1,0 +1,4 @@
+RDF: ( "s1" "s1-o1" "o1"  ) ;
+RDF: (  "o1" "o1-s1" "s1" ) ;
+RDF: ( "o1-s1" "predicate as node" "desc of pred" ) ;
+end:

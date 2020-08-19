@@ -5,6 +5,7 @@ see .help() for more
 """
 """
 file OntologyClass.py
+pja 8/7/2020 added new structure
 pja 07/08/2020 added v18 to seeks
 pja 6/2/2020 added doc 
 pja 5/29/2020 redo format
@@ -18,6 +19,8 @@ test as
 import useLib
 import OntologyClass
 og1 = OntologyClass.Ontology("TestdbName.Onto",'on')
+og1.LimbWrite('sub1','obj1','pred3','dec=t4thwrite')
+og1.LimbSeek()
 
 
 og1.GUid('abc')
@@ -69,6 +72,8 @@ def logg(txt):
 def createDatabase(db):
     """
     creates GUID and v20 tables
+    AND (8/7/2020) limb((sub,obj,pred,seq)desc,type)
+    
     GUID ( element, primary key(element))
     V20 (VIX,  v1--v19 VType, primary key(VIX))
     """
@@ -81,10 +86,97 @@ def createDatabase(db):
     #--- v20 table
     sqv = " create table V20 (VIX,  v1 , v2 , v3 , v4 , v5 ,v6 , v7 , v8, v9 , v10, v11 , v12 , v13 , v14 , v15, v16, v17, v18, v19, VType, primary key(VIX))"
     db.SQX(sqv)
+    sqlm = " create table limb ( subj,objt,predi,seq , desc , rtype , orgTS, primary key(subj,objt,predi,seq))"
+    db.SQX(sqlm)
     global logg,gt
     logg('database created')
 #create database
+
 class Ontology:
+    def __init__(self):
+        import SQSQ
+        self.nds = {}
+        self.pkg = {}
+        self.pkg['SQ'] = SQSQ
+    #/init
+    def LimbWrite(self,subj,objt,predi,desc='',seq='1'):
+        """
+        // limbWriteA(*)
+        if error redo seq
+        // limbWriteA(*+)
+        """
+        status = self.LimbWriteA(subj,objt,predi,desc,seq='1')
+        if (status<0):
+            #get max(seq) for sop +1
+            smx = "select max(seq) from limb where subj = '%subj%' and objt = '%objt%' and predi = '%predi%';"
+            smx = smx.replace('%subj%',self.pkg['SQ'].SQin(subj))
+            smx = smx.replace('%objt%',self.pkg['SQ'].SQin(objt))
+            smx = smx.replace('%predi%',self.pkg['SQ'].SQin(predi))
+            print(smx)
+            seqj = self.db.SQReadAll(smx)
+            nseq = int(seqj[0][0])+1
+            #use as seq
+            self.LimbWriteA( subj,objt,predi,desc,seq=nseq)
+        #endif
+    #end LimbWrite
+
+        
+        
+        
+    def LimbWriteA(self,subj,objt,predi,desc,seq):
+        sq1 = "insert into limb (subj,objt,predi,seq,desc,rtype,orgTS) values ('%subj%','%objt%','%predi%','%seq%','%desc%','%rtype%','%orgTS%') ;"
+        sq1 = sq1.replace('%subj%',self.pkg['SQ'].SQin(subj))
+        sq1 = sq1.replace('%objt%',self.pkg['SQ'].SQin(objt))
+        sq1 = sq1.replace('%predi%',self.pkg['SQ'].SQin(predi))
+        sq1 = sq1.replace('%seq%','1')
+        sq1 = sq1.replace('%desc%',self.pkg['SQ'].SQin(desc))
+        sq1 = sq1.replace('%rtype%',self.pkg['SQ'].SQin('Limb'))
+        sq1 = sq1.replace('%orgTS%',self.pkg['SQ'].SQin(timestamp()))
+        try:
+            self.db.SQX(sq1)
+            status = 1
+        except:
+            status = -1
+        finally:
+            nop = 1
+        #end try
+        return(status)
+    #/LimbWriteA
+    
+    def LimbSeek(self,subj='',objt='',predi='',seq='' , desc='' , rtype='Limb'):
+        sqs = "select * from Limb where rtype = 'zblzLimb' "
+        if (subj <> ''):
+            sqs = sqs + "and subj = '%x%' "
+            subjp = self.pkg['SQ'].SQin(subj)
+            sqs = sqs.replace('%x%',subjp)
+        #
+        if (objt <> ''):
+            sqs = sqs + "and objt = '%x%' "
+            subjp = self.pkg['SQ'].SQin(objt)
+            sqs = sqs.replace('%x%',subjp)
+        #
+        if (predi <> ''):
+            sqs = sqs + "and predi = '%x%' "
+            subjp = self.pkg['SQ'].SQin(predi)
+            sqs = sqs.replace('%x%',subjp)
+        #
+        if (seq <> ''):
+            sqs = sqs + "and seq = '%x%' "
+            subjp = self.pkg['SQ'].SQin(seq)
+            sqs = sqs.replace('%x%',subjp)
+        #
+        if (desc <> ''):
+            sqs = sqs + "and desc = '%x%' "
+            subjp = self.pkg['SQ'].SQin(desc)
+            sqs = sqs.replace('%x%',subjp)
+        #
+        sqs = sqs + ';'
+        logg('rdfseek sq=('+ sqs + ')')
+        ans = self.db.SQReadAll(sqs)
+        return(ans)
+    #/LimbSeek
+    
+    
     def VARWrite(self,name1,value1,flags=''):
         """
         VARWrite(self,name1,value1,flags='')
@@ -134,6 +226,10 @@ WHERE
         
     def __init__(self,dbFilename,trace=''):
         global logg,gt,gti
+        import SQSQ
+        self.nds = {}
+        self.pkg = {}
+        self.pkg['SQ'] = SQSQ
         self.trace = trace
         gt = self.trace
         logg('here at init')

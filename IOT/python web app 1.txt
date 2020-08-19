@@ -1,0 +1,10 @@
+python web app 1
+import urllib
+
+link = "https://aryc.000webhostapp.com/IOT/mox.txt"
+f = urllib.urlopen(link)
+#==== read
+myfile = f.read()
+print(myfile)
+
+#==== write

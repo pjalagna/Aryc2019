@@ -1,0 +1,33 @@
+file IOT.Notes.txt
+pja 8-19-2020
+Add on.html, off.html to IOT web
+-webApp2
+-- Poll agent .3 wait with kill
+--- init tk to follow dimValue
+--- loop [? read-kill file@IOT,y=doPoll,n=exit]
+---- doPoll read-dimFile@IOT;setLocal dimValue; wait.3;ret
+-- Tk interface with on-bulb/off-bulb
+Add kill, resume html to IOT
+(Run is a local python thing)
+-- load and go python runWebApp2, killWebApp2
+
+Add dimmerUp.html, dimmerLow.html
+0-10 not on-off
+-- Tk interface with set of dimmed-bulb
+
+pja 08-15-2020
+
+webApp1.agent() 
+1-reads mox.txt on a website
+2- waits 10 seconds
+3- reads mox.txt again
+4- if the contents has changed it announces that
+OR dies silently
+
+meanwhile...
+on.html redirects to a write function to change the contents to "on"
+OR
+off.html redirects to a write function to change the contents to "off"
+
+if agent were connected to a line switch for a lamp that change could be used to switch that lamp on or off
+

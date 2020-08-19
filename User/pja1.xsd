@@ -1,0 +1,58 @@
+<!--
+file t1.xsd
+simple xsd
+pja 6/14/2020
+pja 5/16/2020
+pja 5/4/2020 
+schema contacts -< contact ({fn},ln,{ph+})
+-->
+<schema name='xxschema' version='06/14/2020-1300'>
+  <annotation id="a-schema"><documentation id="d-schema">
+this is a schema xtag xsd
+  </documentation>
+  </annotation>
+  <element name='contactType'>
+    <complexType>
+      <sequence>
+        <element ref='supplier' minOccurs='0'/>
+        <element ref='vendor' minOccurs='0'/>
+      </sequence>
+    </complextype>
+  <complexType name='supplier'>
+    <sequence>
+      <element ref='contacts' minOccurs='0' maxOccurs='unbounded'/>
+    </sequence>
+  </complexType>
+  <complexType name='vendor'>
+    <sequence>
+      <element ref='contacts' minOccurs='0' maxOccurs='unbounded'/>
+    </sequence>
+  </complexType>
+  <element name='contacts'>
+      <annotation><documentation id='C-doc'>
+      this is the documentation for contact(s)
+      </documentation></annotation>
+      <xsd:complexType><xsd:sequence>
+          <element id='callContact' ref='contact' maxOccurs="unbounded"/>
+      </xsd:sequence></xsd:complexType>
+  </element>
+  <element name="contact" id="Contact-E"><![CDATA [basis contact information]]>
+    <annotation id="A-contact"><documentation id="D-contact">
+        contact information is {first Name} lastName {phoneNumber(s)}
+    </documentation>
+    </annotation>
+    <xsd:complexType id="cx0">
+      <xsd:sequence id="sx0">
+        <element id="askFirstName" ref='FirstName' minOccurs='0'/> 
+        <element id="AskLastName" ref='lastname' maxOccurs="1"/> 
+        <element id="AskPhone" ref='Phone' maxOccurs="unbounded"/> 
+      </xsd:sequence>
+    </xsd:complexType>
+  </element>
+  <element name='FirstName' id='firstName' type='string'/> 
+  <element name='lastName' id='lastName' type='string'> 
+  <annotation><documentation id='D-lastname'>
+  this is the documentation for last names 
+  </documentation></annotation>
+  <element name='Phone' type="integer" maxDigits="10" minDigits="10"/>
+</schema>

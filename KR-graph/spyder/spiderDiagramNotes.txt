@@ -1,0 +1,28 @@
+spiderDiagramNotes.txt
+spider diagram notes
+how to graph viz KR-helix 
+ontology -> KR-helix in RDF
+
+limb switch
+assoc entry mgt 
+
+parsing perspective 
+context mechanism reasoning outcome 
+
+bcm - decision point, switching theory 
+
+spider diagram == reasoning outcome
+rdfRead.php to html.screen
+rdfRead.php
+-- list of things
+---- on select:
+----- onto.seek(sel)->[connections]
+------- rdfReadDisp1.php sel, [connections]
+--------- screen(sel @row=1,col=0,
+--------- --- per-connection;x (c[x]into list)
+--------- --- --- on select:
+--------------------- onto.seek(sel)->[connections]
+--------------------- rdfReadDisp2.php sel, [connections]
+cycle between disp1,disp2
+)
+

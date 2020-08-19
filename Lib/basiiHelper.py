@@ -173,14 +173,14 @@ def clauses(ffo):
     """
     d = 0
     while (d == 0):
-        op = VWord()
+        op = VWord() # [[ or ;
         if (op == ';'):
             d = -1 # break
         else:
             global pgn,cn
             cn = VWord()
             print ('....pgn-cn =(' + pgn + '-' + cn  + ")")
-            bop = VWord()
+            bop = VWord() #  ]]
             sec['cl2'] = ''
             # add your call to paragraph
             #28 with counter

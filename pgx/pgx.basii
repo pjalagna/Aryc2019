@@ -1,4 +1,5 @@
 /* bbox w/ basii interpreter 
+pja 8/18/2020 bug fix
 pja 6/24/2020 added logging
 */
 pbox.py
@@ -133,13 +134,14 @@ def bmain2 :-
 [[ 2 ]] b2 tail. .
 ;
 def Ver :-
-[[ 1 ]]   "bbox version 3.29b.XX type help for more" msg .
+[[ 1 ]]   "bbox version 8-18-2020 type help for more" msg .
 ;
 
 def loggingTest :-
 [[ 1 ]] 'zlogging' @ 'on' = 
         'zlog' @ 'bb' @ cats 'zlog' !
         .
+[[ 2 ]] .
 ;
 
 def b2 :-
@@ -152,7 +154,7 @@ def b2 :-
 [[ 7 ]] 'bb' @  '{{'  =  ' ' bcollect . 
 [[ 8 ]] 'bb' @ 'help' = dohelp .
 [[ 9 ]] 'bb' @  .X .
-[[ 1 ]] "failed" msg .
+[[ 10 ]] "failed" msg .
 ;
 def dohelp :-
 [[ 1 ]] 'help:' msg
@@ -164,6 +166,11 @@ def dohelp :-
         'a blank line' msg
         '' msg
         'any quoted string that contains a verb name can be used with the -help?- command for more information' msg
+        '' msg
+        'programming:' msg
+        '-- after pgfinit' msg
+        'to load code (basiiCode,name,,) l!' msg
+        ' to execute (name,,) pgf' msg
         '' msg
         'end help' msg .
 ;
@@ -179,7 +186,7 @@ def pgword :-
 /* word not comment */
 [[ 1 ]] "pgword" pplogd 
 "1" h^ lr@ trim word trim swap lr! "1" h! ... .
-[[ 2 ]] "1" h@ '//-' = pgDoComment hx tail .
+[[ 2 ]] "1" h@ '//-' = pgDoComment hx tail. .
 [[ 3 ]] "1" h@ pplog hx .
 ;
 def pgDoComment :-

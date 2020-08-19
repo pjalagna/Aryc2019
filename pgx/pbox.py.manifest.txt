@@ -10,7 +10,6 @@ bmain:P
 lr8
 pgword:P
 pvpgc
-tail
 swap
 cpgc:P
 @
