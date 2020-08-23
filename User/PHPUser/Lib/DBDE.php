@@ -98,7 +98,7 @@ function cmdBlank() {
     $tf2 = str_replace('<!--tf2.5.1-->',mkTxt('catDir')[0],$tf2);
     //mkTxtAr('sq')[0],$t2);
     $tf2 = str_replace('<!--tf2.6.1-->',mkTxtAr('SeriesS')[0],$tf2);
-    $tf2 = str_replace('<!--tf2.7.1-->', mkButton('cmd','I-Cat',"value='ICAT'")[0],$tf2);
+    $tf2 = str_replace('<!--tf2.7.1-->', mkButton('cmd','I-Mouse',"value='IMouse'")[0],$tf2);
     $f2 = str_replace('<!--formBody-->',$tf2,$f2);
     $t1 = str_replace('<!--t1.1.2-->',$f2,$t1);
     
