@@ -776,6 +776,8 @@ def collectAttributes():
         #collect atn till =
         spc2 = ats.find('=')
         atn = ats[0:spc2]
+        atn = atn.rstrip(" \n\t")
+        atn = atn.lstrip(" \n\t")
         cx = ats[spc2+1]
         cx2 = ats.find(cx,spc2+2)
         atv = ats[spc2+2:cx2]
@@ -789,11 +791,11 @@ def collectAttributes():
            attName = atn.rstrip(' \n\t')
            attName = attName.lstrip(' \n\t')
         else:
-           attNS = atn[0:x-1]
+           attNS = atn[0:x]
            attName = atn[x+1:].rstrip(' \n\t')
            attName = attName.lstrip(' \n\t')
         #endif
-        pkg['ontology'].RELATEWrite('attND',attNS,'resolved','nameSpace','attribute',atn,str(nds['refid']))
+        pkg['ontology'].RELATEWrite('attNS',attNS,'resolved','nameSpace','attribute',atn,str(nds['refid']))
         pkg['ontology'].RELATEWrite('attName',attName,'resolved','name','attribute',atn,str(nds['refid']))
         try:
             j = ats[cx2+1]

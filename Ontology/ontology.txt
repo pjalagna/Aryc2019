@@ -1,0 +1,226 @@
+pja 08/30/2020
+goal - simple database ontology for xsd/xml
+
+xsd -- schema  
+schema -< xmlns
+xmlns -- (nsName,nsLink)
+schema --< tag
+tag --x< tagType
+tag('complexType')
+tag('simpleType')
+tag('enumeration')
+tag('choice')
+tag('sequence')
+tag('element') -- position, refid, KRID, previousPosition
+tag('element') --< attribute
+tag('other') -- position, refid, KRID, previousPosition
+tag('other') --< attribute
+attribute -- value
+attribute --x< attributeType
+attributeType('type') --> its value is a ValueType
+attributeType('ref') --> its value is a tag
+
+
+pja 08/30/2020
+general format of an ontology:
+object: nameSpace[predicate][predicateName][value]
+ex-1: myNS[attr][xsd:ref][nds:customer]
+-- nameSpace: null or default is this xml report.
+--- for all else; the namespace is specified in the xmlns attribute of the schema. 
+--- one exception is the "xsd:" namespace which has no referent or referent document.
+---- bummer
+object: nameSpace[predicate][predicateName][value]
+ex-1: myNS[attr][xsd:ref][nds:customer]
+-- predicate: in this namespace eg attribute in this xsd
+-- predicateName: attribute "xsd:ref"
+-- value: nds:customer
+
+related object: object.i process([parameters]) object.j
+- always directed i->j
+- each parameter: object
+
+some processes expose other objects because of the method used.
+ex-1: myNS[attr][xsd:ref][nds:customer] implies nds[tag][customer] because in the xsd protocol "ref" attributes call for tags and the name of this tag is "customer" in the "nds" namespace. So the xsdref* process (already hammered out) creates the nds[tag][customer] request.
+-- xsdref: named to have automatic consequential brokering. eg making the process name == namespace+name of referent.
+
+namespace
+-- ((namespace)namespaceLink)
+---- filled by attribute xmlns referent
+object
+-- ((ix)nameSpace,predicate,predicateName,value)
+predicate
+-- ((predicate;predicateName))
+parameterGroup
+-- ((ix,seq)nameSpace,predicate,predicateName,value)
+relatedObject
+-- ((ix)object1-ix,process-name,parameter-ix,object2-ix)
+
+tuple
+(cn,ix,lit,namespace,namespaceLink,object1-ix,object2-ix,parameter-ix,PgfName,predicate,predicateName,process-name,seq,value,vn
+)
+
+pja 08/28/2020
+process 
+-- ((PgfName,cn,vn)vt,lit) -- eg PGX records
+
+we should have a preamble set of objects (like refid) and predicates (like "tag") to enforce the rule that the RDF "subject" (aka object1) must exist. 
+
+task
+- define ontology
+-- Essential ontological dichotomies include:
+--- universals and particulars.
+--- substance and accident.
+--- abstract and concrete objects.
+--- essence and existence.
+--- determinism and indeterminism.
+--- monism and dualism.
+--- idealism and materialism.
+
+
+- enhance.php
+-- add xsd onto info to xml onto
+
+- enhance phase 2
+-- list missing defs, formats
+-- list multiple defs, formats
+
+- venn (xmlAOnto,xmlBOnto,xsdOnto)
+-- returns xmlCommonOnto,xmlAnotBOnto,xmlBnotAOnto
+
+- spider diagram
+-- define pathing of ontology
+# is the ontology as a predicate .
+#[v1] is distinct v1 in ontology
+#[v1]/a -> v1a IE an instance ([a]) of the set.
+v1a -> [v2]@v1a
+([v2]@v1a)/c -> v2c@v1a -> v2@v1 
+
+#[v2]/b -> v2b
+v2b -> v2b@[v1]
+(v2b@[v1])/d -> v2b@v1d -> v2@v1
+
+#[v3]/k -> v3k
+v3k -> [v4]@v3k
+([v4]@v3k)/m -> v4m@v3k -> v4@v3
+
+#[v4]/n -> v4n
+v4n -> v4n@[v3]
+(v4n@[v3])/p -> v4n@v3p -> v4@v3
+
+#[v5]/e -> v5e
+v5e -> [v6]@v5e
+([v6]@v5e)/g -> v6g@v5e -> v6@v5
+
+#[v6]/f -> v6f
+v6f -> v6f@[v5]
+(v6f@[v5])/h -> v6f@v5h -> v6@v5
+
+v4@v3 -> (v2@v1 -> v6@v5)
+v2@v1 -> ({v4@v3},{v6@v5})
+v6@v5 -> ({v4@v3},v2@v1)
+note {x} == x might exist
+
+define xsd ontology
+- ontology type
+-- universals and particulars.
+-- abstracts and instances.
+--- template and filled.
+-- monism and dualism.
+--- reduced dualism via unique pairing
+---- associative a>-<b via ((a,b)) 
+---- and ab must be unique.
+ontological sets
+the xsd/xml ontology has the record forms:
+a- v1[v2]-> v3[v4] . this is the ATN view
+b- v1[v2] -> v5[v6] iff v3[v4] . this is the RELATE view. which could also be seen as the RDF view.
+
+the predicate set (v1) is comprised of
+- xsd/xml operational predicates
+-- tag,tagNS,tagName
+-- ,attND ,attName ,attributeName, ,value
+-- ,minOccurs ,maxOccurs
+-- ,ref, type
+-- ,name
+-- ,xmlns:[NSName]
+-- ,elementFormDefault ,attributeFormDefault
+-- ,xml:lang ,version
+-- ,targetNamespace
+-- ,use ,base
+-- ,source
+
+- xsd organization operational predicates
+-- in our case stratML
+-- ,id
+
+- ontology operational predicates
+-- first, pickup, previousPickup, ,parent
+-- l1x, l2x
+-- refid, KRID
+-- ,provenance
+-- master,masterPosition
+-- ,leadingPosition,elementPosition
+-- ,endpointRefid
+-- ,seq
+-- and context
+
+
+suppose 
+1- # means the full ontology
+then 
+2 - #[v1] is the set from the ontology
+-- IE select distinct(v1)
+
+
+
+given an xsd of 
+- < ({tagNS:}tagName) as tag
+      {[ (attNS:}attName) as atribute
+      =
+      (Q{atvNS:}atvValQ) as attributeValue
+      ]>
+{"value"=txt till }<
+- <
+    (/{tagNS:}tagName) as /tag
+  >
+  
+- define predicates (v1)
+-- define predicate types
+--- xml/xsd operational
+--- ontology operations
+- define objects (v2)
+- define relationships (v1[v2] -> v3[v4]) for ATN
+- define context - unique predicate
+
+
+
+context cna [types tna [(element ena [(element end [*],names)],t-description)]]
+
+main :-
+'context' contextStuff ;
+
+contextStuff :-
+1- 'type' name = typestuff
+2- ; -> 
+
+typestuff :-
+1- description {{ text }} tail. .
+; ->
+<na> ;+
+: typestuff2
+
+1- 'element' name ( elementStuff )
+2- 'name' <name>
+3- 'description' <desc>
+
+elementStuff :-
+1- 'sub element name' <sena> 
+   'sub element description' <sedesc> 
+   tail. .
+   ;
+2- 'element' name ( elementStuff ) tail. .
+
+
+context type tag = tagNS ; tagName : description 
+{{ the complete xml tag element. }}
+;
+

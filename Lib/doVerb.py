@@ -6,6 +6,7 @@
 ##- (0) %code% -##
 m = """
 #file doVerb.py
+pja 8-20-2020 added upper,lower
 pja 6-26-2020 dumpNDS to .n
 pja 6-11-2020 added trim
 pja 4-30-2020 fixed pick
@@ -207,9 +208,25 @@ def init(p,m=m):
     p['help']['slice'] = '(bo,fo,str,,str[fo:bo])'
     p['sy']['trim'] = trimv
     p['help']['trim'] = '(str,,str) removes white space front and back'
+    p['sy']['upper'] = upperV
+    p['help']['upper'] = '(str,,str) converts to upper case '
+    p['sy']['lower'] = lowerV
+    p['help']['lower'] = '(str,,str) converts to lower case '
     return(p)
 #end init
 ##- doverb.py:codespace 0 -##
+def upperV(p):
+    str = p['sy']['pop']()
+    ans = str.upper()
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
+def lowerV(p):
+    str = p['sy']['pop']()
+    ans = str.lower()
+    p['sy']['push'](ans)
+    p['sy']['push'](p['OK'])
+#
 def trimv(p):
     str = p['sy']['pop']() 
     ans = trim(str)

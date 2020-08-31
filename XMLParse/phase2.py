@@ -11,8 +11,10 @@ add to xsd ontology
 usage phase2.main(ontoFile,{trace='on'})
 """
 """
-test as 
-ontoFile = 't1.xsd.onto'
+test as
+import phase2 
+ontoFile = 'StratML.xsd.onto'
+phase2.main(ontoFile,'on')
 trace
 """
 def logg(txt):

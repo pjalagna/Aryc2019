@@ -1,12 +1,15 @@
+""" Stack Class: actions ( push, pop, depth, swap, drop, dropx, dropn, spy, pick, .s dump trace) """
 class Stks() :
    """ Stack Class: actions ( push, pop, depth, swap, drop, dropx, dropn, spy, pick, .s dump trace) """
+   """
    # Stk Class 
    # =====================================================
+   pja 8/20/2020 bug fix in pick
    # 2/2/9	pja	original
    # 2/9/9 pja amended
    # 2/10/09 pja dropx
    # 2/10/09 pja trace switch
-   # 2/10/09 pja added x.str2num 
+   # 2/10/09 pja added x.str2num """
    # =====================================================
    # supporting imports
    import StrnumClass
@@ -79,7 +82,7 @@ class Stks() :
              print ("trace=pick.." + self.sname)
        # get number off stack
        m = self.pop()
-       mi = self.x.str2num(m)
+       mi = int(self.x.str2num(m))
        print ('mi=',mi)
        # 0,1 mean dup
        if (mi == 0) :
