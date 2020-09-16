@@ -1,0 +1,1324 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://www.w3.org/DesignIssues/Notation3
+Subject: Notation 3 Logic
+Date: Sun, 6 Sep 2020 01:20:11 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--vdQ7UZC6H7qO5v0zkwI2lkueD44HV1pmKnLrVsUDMt----"
+
+
+------MultipartBoundary--vdQ7UZC6H7qO5v0zkwI2lkueD44HV1pmKnLrVsUDMt----
+Content-Type: text/html
+Content-ID: <frame-DC1E7CC34582DAFDFA3AB94A44F09749@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.w3.org/DesignIssues/Notation3
+
+<!-- saved from url=3D(0063)N3Logic.html --><!DOCTYPE html PUBLIC "-//W3C//=
+DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-tra=
+nsitional.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml"><head><meta htt=
+p-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+  <meta name=3D"generator" content=3D"HTML Tidy for Mac OS X (vers 31 Octob=
+er 2006 - Apple Inc. build 15.3.6), see www.w3.org">
+ =20
+
+  <title>Notation 3 Logic</title>
+  <link href=3D"https://www.w3.org/DesignIssues/di.css" rel=3D"stylesheet" =
+type=3D"text/css">
+</head>
+
+<body xml:lang=3D"en" lang=3D"en">
+  <address>
+    Tim Berners-Lee, August 2005<br>
+    <small>$Revision: 1.153 $ of $Date: 2018/05/30 10:03:38 $</small><br>
+    Status: An early draft of a semi-formal semantics of the N3
+    logical properties.
+  </address>
+
+  <p><a href=3D"https://www.w3.org/DesignIssues/Notation3">Up to
+  Design Issues</a></p>
+
+  <h3>An RDF language for the Semantic Web</h3>
+  <hr>
+  <img alt=3D"n3" src=3D"file:///home/RDF/icons/n3_small" align=3D"right">
+
+  <h1>Notation 3 Logic</h1>This article gives an operational
+  semantics for Notation3 (N3) and some RDF&nbsp;properties for
+  expressing logic.&nbsp;These properties, together with N3's
+  extensions of RDF to include variables and nested graphs, allow
+  N3 to be used to express rules in a web environment. &nbsp;<br>
+  <br>
+  This is an informal semantics in that should be understandable by
+  a human being but is not&nbsp;a machine readable formal
+  semantics. This document is aimed at a logician wanting to a
+  reference by which to compare N3 Logic with other languages, and
+  at the engineer coding an implementation of N3 Logic and who
+  wants to check the detailed semantics.<br>
+  <br>
+
+  <p>These properties are not part of the N3 language, but are
+  properties which allow N3 to be used to express rules, and rules
+  which talk about the provenance of information, contents of
+  documents on the web, and so on.&nbsp; Just as OWL is expressed
+  in RDF by defining properties, so rules, queries, differences,
+  and so on can be expressed in RDF with the N3 extension to
+  formulae.</p>
+
+  <p>The log: namespace has functions, which have built-in meaning
+  for CWM and other software.</p>
+
+  <p>See also:</p>
+
+  <ul>
+    <li><a href=3D"https://www.w3.org/2000/10/swap/log.n3">The schema
+    for the log: namespace</a></li>
+
+    <li><a href=3D"https://www.w3.org/DesignIssues/Diff.html">A
+    vocabulary for expressing differences between RDF
+    graphs</a></li>
+
+    <li><a href=3D"http://lists.w3.org/Archives/Public/www-rdf-logic/2001Se=
+p/0004.html">
+    a formal design for RDF/N3 context/scopes</a><br>
+    Dan Connolly to www-rdf-logic, Thu, Sep 06 2001</li>
+  </ul>
+
+  <p>The prefix log:&nbsp;&nbsp;is used below as shorthand for the
+  namespace &lt;<a href=3D"http://www.w3.org/2000/10/swap/log#">http://www.=
+w3.org/2000/10/swap/log#</a>&gt;.
+  See the <a href=3D"https://www.w3.org/2000/10/swap/logic.n3">schema</a>
+  for a summary.</p><br>
+
+  <h2><a name=3D"motivation" id=3D"motivation"></a>
+  Motivation</h2><br>
+  The motivation of the logic was to be useful as a tool in in open
+  web environment.&nbsp;&nbsp; The Web contains many sources of
+  information, with different characteristics and relationships to
+  any given reader.&nbsp;&nbsp;Whereas a closed system may be built
+  based on a single knowledge base of believed facts, an open
+  web-based system exists in an unbounded sea of interconnected
+  information resources. This requires that an agent be aware of
+  the provenance of information, and responsible for its
+  disposition.&nbsp;&nbsp;The language for use in this environment
+  typically requires the ability to express what document or
+  message said what, so the ability to quote subgraphs and match
+  them against variable graphs is essential.&nbsp;&nbsp;This
+  quotation and reference, with its inevitable possibility of
+  direct or indirect self-reference, if added directly to first
+  order logic presents problems such as paradox traps. To avoid
+  this, N3 logic has deliberately been kept to limited expressive
+  power: it currently contains no general first order
+  negation.&nbsp;&nbsp;Negated forms of many of the built-in
+  functions are available, however.<br>
+  <br>
+  A goal is that information, such as but not limited to rules,
+  which requires greater expressive power than the RDF graph,
+  should be sharable in the same way as RDF can be
+  shared.&nbsp;&nbsp;This means that one person should be able to
+  express knowledge in N3 for a certain purpose, and later
+  independently someone else reuse that knowledge for a different
+  unforeseen purpose.&nbsp;&nbsp;As the context of the later use is
+  unknown, this prevents us from making implicit closed assumptions
+  about the total set of knowledge in the system as a whole.<br>
+  <br>
+  Further, we require that other users of N3 in the web can express
+  new knowledge without affecting systems we&nbsp;have already
+  built. &nbsp;This means that N3 must be fundamentally monotonic:
+  the addition of new information from elsewhere, while it might
+  cause an inconsistency by contradicting the old information
+  (which would have to be resolved before the combined system is
+  used), the new information cannot silently change the meaning of
+  the original knowledge.<br>
+  <br>
+  The non-monotonicity of many existing systems follows from a form
+  of negation as failure in which a sentence is deemed false if it
+  not held within (or, derivable from)&nbsp; the<span style=3D"font-style: =
+italic;">current knowledge
+  base</span>.&nbsp;&nbsp;It is this concept of current knowledge
+  base,&nbsp;which is a variable quantity, and the ability to
+  indirectly make reference to it which causes the
+  non-monotonicity.&nbsp;&nbsp;In N3Logic, while a current
+  knowledge base is a fine concept, there is no ability to make
+  reference to it implicitly in the negative.&nbsp;&nbsp; The
+  negation provided is the ability only for a specific given
+  document (or, essentially, some abstract formula) to objectively
+  determine whether or not it holds, or allows one to derive, a
+  given fact.&nbsp;&nbsp;This has been called <span style=3D"font-style: it=
+alic;">Scoped Negation As Failure</span>
+  (SNAF).<br>
+  <br>
+
+  <h2><a name=3D"syntax" id=3D"syntax"></a> Formal syntax</h2><br>
+  The syntax of N3 is defined by the <a href=3D"http://www.w3.org/2000/10/s=
+wap/grammar/n3-report.html">context-free
+  grammar</a> &nbsp;This is available in machine-readable form in
+  <a href=3D"http://www.w3.org/2000/10/swap/grammar/n3.n3">&nbsp;Notation3<=
+/a>
+  and&nbsp; <a href=3D"http://www.w3.org/2000/10/swap/grammar/n3.rdf">RDF/X=
+ML.</a><br>
+
+  <br>
+  The top-level production for an N3 document is
+  &lt;http://www.w3.org/2000/10/swap/grammar/n3#document&gt;.<br>
+  <br>
+  In the semantics below we will consider these productions using
+  notation as follows.<br>
+  <br>
+
+  <table style=3D"text-align: left; width: 100%;" border=3D"1" cellpadding=
+=3D"2" cellspacing=3D"2">
+    <tbody>
+      <tr>
+        <th>Production</th>
+
+        <th>N3 syntax examples</th>
+
+        <th>notation below for instances</th>
+      </tr>
+
+      <tr>
+        <td>symbol</td>
+
+        <td><span style=3D"font-family: monospace;">&lt;foo#bar&gt;
+        &nbsp; &nbsp;&lt;http://example.com/&gt;</span></td>
+
+        <td>c d e f</td>
+      </tr>
+
+      <tr>
+        <td>variable</td>
+
+        <td>Any symbol quantified by @forAll or @forSome in the
+        same or an outer formula.</td>
+
+        <td><span style=3D"font-style: italic;">x y z</span></td>
+      </tr>
+
+      <tr>
+        <td>formula</td>
+
+        <td><span style=3D"font-family: monospace;">{&nbsp; ...
+        &nbsp;}</span> &nbsp;or an entire document</td>
+
+        <td>F &nbsp;G H K</td>
+      </tr>
+
+      <tr>
+        <td>set of universal variables of F</td>
+
+        <td><span style=3D"font-family: monospace;">@forAll :x,
+        :y.</span></td>
+
+        <td>uvF</td>
+      </tr>
+
+      <tr>
+        <td>set of existential variables of F</td>
+
+        <td><span style=3D"font-family: monospace;">@forSome :z,
+        :w.</span></td>
+
+        <td>evF</td>
+      </tr>
+
+      <tr>
+        <td>set of statements of F</td>
+
+        <td></td>
+
+        <td>stF</td>
+      </tr>
+
+      <tr>
+        <td>statement</td>
+
+        <td>&nbsp; <span style=3D"font-family: monospace;">&lt;#myCar&gt; &=
+nbsp;
+        &lt;#color&gt; &nbsp; "green".</span></td>
+
+        <td>F<span style=3D"font-style: italic;">i</span> &nbsp; or
+        &nbsp;{s p o}</td>
+      </tr>
+
+      <tr>
+        <td>string</td>
+
+        <td><span style=3D"font-family: monospace;">"hello
+        world"</span></td>
+
+        <td>s</td>
+      </tr>
+
+      <tr>
+        <td>integer</td>
+
+        <td><span style=3D"font-family: monospace;">34</span></td>
+
+        <td>i</td>
+      </tr>
+
+      <tr>
+        <td>list</td>
+
+        <td>( 1 2 ?x &nbsp;&lt;a&gt; )</td>
+
+        <td>L M</td>
+      </tr>
+
+      <tr>
+        <td>Element i of list L</td>
+
+        <td></td>
+
+        <td>L<span style=3D"font-style: italic;">i</span><br></td>
+      </tr>
+
+      <tr>
+        <td>length of list</td>
+
+        <td></td>
+
+        <td>|L|</td>
+      </tr>
+
+      <tr>
+        <td>expression</td>
+
+        <td>see grammar</td>
+
+        <td>n m</td>
+      </tr>
+
+      <tr>
+        <td>Set*</td>
+
+        <td>{$ &nbsp;1, 2, &lt;a&gt; $}</td>
+
+        <td>S T<br></td>
+      </tr>
+    </tbody>
+  </table><br>
+  *The set syntax and semantics are not part of the current
+  Notation3 language but are under consideraton.<br>
+
+  <h2><a name=3D"semantics" id=3D"semantics"></a> Semantics</h2><br>
+  <span style=3D"font-style: italic;">Note.&nbsp;&nbsp;The Semantics
+  of a generic RDF statement are not defined here.&nbsp;&nbsp;The
+  extensibility of RDF is deliberately such that a document may
+  draw on predicates from many sources.&nbsp;&nbsp;The statement {n
+  c m} expresses that the relationship denoted by c holds between
+  the things denoted by n and m.&nbsp;&nbsp;The meaning of
+  the&nbsp;&nbsp;statement {n c m} in general is defined by any
+  specification for c. The Architecture of the WWW specifies
+  informally how the&nbsp; curious can discover information about
+  the relation. It discusses how the architecture and management of
+  the WWW is such that a given social entity has jurisdiction over
+  certain symbols (though for example domain name ownership). This
+  philosophy and architecture is not discussed further
+  here.&nbsp;&nbsp;Here though we do define the semantics of
+  certain specific predicates which allow the expression of the
+  language.&nbsp;&nbsp;In analyzing the language the reader is
+  invited to consider statements of unknown meaning ground
+  facts.&nbsp;&nbsp;N3Logic defines the semantics of certain
+  properties. Clearly a system which recognizes further logical
+  predicates, beyond those defined here, whose meaning introduces
+  greater logical expressiveness would change the properties of the
+  logic.</span><br>
+  <br>
+
+  <h3>Simplifications</h3>N3 has a number of types of shortcut
+  syntax and syntactic sugar. &nbsp;For simplicity, in this article
+  we consider a language&nbsp;simpler the full N3 syntax referenced
+  above though just as expressive, in that we ignore most syntactic
+  sugar. The following simplifications are made.<br>
+  <br>
+  We ignore syntactic sugar of comma and semicolon as shorthand
+  notations. &nbsp; That is, we consider a simpler language in
+  which any such syntax has been expanded out. Loosely:<br>
+  <br>
+
+  <table style=3D"text-align: left; width: 100%;" border=3D"1" cellpadding=
+=3D"2" cellspacing=3D"2">
+    <tbody>
+      <tr>
+        <th>A sentence of the form</th>
+
+        <th>becomes two sentences</th>
+      </tr>
+
+      <tr>
+        <td>subject &nbsp; <span style=3D"font-style: italic;">stuff</span>=
+ ; <span style=3D"font-style: italic;">morestuff</span> .</td>
+
+        <td>subject <span style=3D"font-style: italic;">stuff</span>
+        . &nbsp;subject <span style=3D"font-style: italic;">morestuff</span=
+> .</td>
+      </tr>
+
+      <tr>
+        <td>subject predicate <span style=3D"font-style: italic;">stuff</sp=
+an> , &nbsp;object .</td>
+
+        <td>subject predicate <span style=3D"font-style: italic;">stuff</sp=
+an>&nbsp; subject
+        predicate&nbsp;object .</td>
+      </tr>
+    </tbody>
+  </table><br>
+  <br>
+  For those familiar with N3, the other simplifications in the
+  language considered here are as follows.<br>
+
+  <ul>
+    <li>&nbsp;prefixes have been expanded and all qualified names
+    replaced with symbols using full URIs between angle
+    brackets.</li>
+
+    <li>The path syntax which uses&nbsp;&nbsp; "!" and "^"&nbsp; is
+    assumed expanded into its equivalent blank node form;</li>
+
+    <li>The "is ... of " backwards construction has been replaced
+    by the equivalent forwards direction syntax.</li>
+
+    <li>The "=3D" syntax is not used as shorthand for owl:sameAs. In
+    fact, we use =3D here in the text for value equality.</li>
+
+    <li>@keywords is not used</li>
+
+    <li>The &nbsp;@a &nbsp;shorthand for rdf:type is replaced with
+    a direct use of the full URI symbol for rdf:type</li>
+
+    <li>all ?x forms are replaced with explicit universal
+    quantification in the enclosing parent of the current
+    formula.</li>
+  </ul><br>
+  Notation3 has explicitly quantified existential variables as well
+  as blank nodes.&nbsp;&nbsp;The description below does not mention
+  blank nodes, although they are very close in semantics to
+  existentially quantified variables.&nbsp;&nbsp; We consider for
+  now a simpler language in which blank nodes have been replaced by
+  explicitly named variables&nbsp;&nbsp;existentially quantified in
+  the same formula.<br>
+  <br>
+  We have only included strings and integers, rather than the whole
+  set of RDF types an user-defined types.<br>
+  <br>
+  These simplifications will not deter us from using N3 shorthand
+  in examples where it makes them more readable, so the reader is
+  assumed familiar with them.<br>
+
+  <h2>Defining N3 Entailment</h2>The RDF specification defines a
+  very weak form of entailment, known as RDF entailment or simple
+  entailment.&nbsp;&nbsp;He we define the equivalent very simple
+  N3-entailment. This does not provide us with useful powers of
+  inference: it is almost textual inclusion, but
+  just&nbsp;&nbsp;has conjunction elimination (statement removal) ,
+  universal elimination, existential introduction and variable
+  renaming. Most of this is quite traditional.&nbsp;&nbsp;The
+  only&nbsp;thing to distinguish N3 Logic from typical logics is
+  the Formula, which allows N3 sentences to make statements about
+  N3 sentences.&nbsp;&nbsp; The following details are included for
+  completeness and may be skipped.<br>
+
+  <h3>Substitution</h3><span style=3D"font-style: italic;">Substitution is =
+defined to recursively
+  apply inside compound terms, as is usual.&nbsp;&nbsp;Note only
+  that substitution does descend into compund terms, while
+  substitution of owl:sameAs, discussed later, does
+  not.</span><br>
+  <br>
+  We define a substitution operator&nbsp;&nbsp;
+  =CF=83<sub><span style=3D"font-style: italic;">x</span>/m</sub>
+  &nbsp;which replaces occurrences of the variable <span style=3D"font-styl=
+e: italic;">x</span>. with the expression m.&nbsp; For
+  compound terms, substitution of a compound term (list,
+  formula&nbsp;or set) is performed by performing substitution of
+  each component, recursively.<br>
+  <br>
+  Abbreviating&nbsp; the substitution
+  &nbsp;=CF=83<sub><span style=3D"font-style: italic;">x</span>/m</sub>
+  as&nbsp; =CF=83 , we define substitution operator as
+  usual:<br>
+  <br>
+  =CF=83<span style=3D"font-style: italic;">x</span> =3D m &nbsp;
+  &nbsp; &nbsp; (<span style=3D"font-style: italic;">x</span> is
+  replaced by m)<br>
+  =CF=83<span style=3D"font-style: italic;">y</span> =3D <span style=3D"fon=
+t-style: italic;">y</span> &nbsp; &nbsp; &nbsp; &nbsp;(y not
+  equal to x)<br>
+  =CF=83a =3D a &nbsp; &nbsp; &nbsp; &nbsp;(symbols and literals are
+  unchanged)<br>
+  =CF=83i =3D i<br>
+  =CF=83s =3D s &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>
+  =CF=83( a b ... c )&nbsp; =3D &nbsp;( =CF=83a =CF=83b ...
+  =CF=83c ) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; (substitution goes into compound
+  terms)<br>
+  =CF=83{$ a, b, ... c &nbsp;$} &nbsp; =3D &nbsp;{$ =CF=83a,
+  =CF=83b, ... =CF=83c &nbsp;$}<br>
+  uv =CF=83F &nbsp;=3D =CF=83 uvF<br>
+  ev =CF=83F &nbsp;=3D =CF=83 evF<br>
+  st&nbsp; =CF=83F =3D =CF=83 stF<br>
+  <br>
+  In general a substitution operator is the sequential application
+  of single substitutions:<br>
+  <br>
+  =CF=83&nbsp;=3D&nbsp;=CF=83<sub><span style=3D"font-style: italic;">x</sp=
+an>1/m1</sub>=CF=83<sub><span style=3D"font-style: italic;">x</span>2/m2</s=
+ub>=CF=83<sub><span style=3D"font-style: italic;">x</span>2/m2</sub> ...
+  =CF=83<sub><span style=3D"font-style: italic;">x</span>n/mn</sub><br>
+  <br>
+
+  <h3>Value equality&nbsp;</h3><br>
+  <span style=3D"font-style: italic;">Value equality between terms is
+  defined in an ordinary way, compatible with RDF.</span><br>
+  <br>
+  For concepts which exist in RDF, we&nbsp; use RDF equality. This
+  is RDF node equality. &nbsp;These atomic concepts have a simple
+  form of equality.<br>
+  <br>
+  For lists, equality is defined as a pairwise matching.<br>
+  <br>
+  For sets, equality is defined as a mapping between equal terms
+  existing in each direction.<br>
+  <br>
+  For formulae, equality F =3D G is defined as a&nbsp;
+  substitution&nbsp;=CF=83 existing mapping variables to
+  variables. &nbsp;(Note that as here RDF Blank Nodes are
+  considered as existential variables, the substitution will map
+  b-nodes to b-nodes.)<br>
+  <br>
+  The table below&nbsp;is a summary for completeness.<br>
+  <br>
+
+  <table style=3D"text-align: left; width: 100%;" border=3D"1" cellpadding=
+=3D"2" cellspacing=3D"2">
+    <tbody>
+      <tr>
+        <th>Production</th>
+
+        <th>Equality</th>
+      </tr>
+
+      <tr>
+        <td>symbol</td>
+
+        <td>uri is equal unicode string</td>
+      </tr>
+
+      <tr>
+        <td>variable</td>
+
+        <td>variable name is equal unicode string</td>
+      </tr>
+
+      <tr>
+        <td>formula</td>
+
+        <td>&nbsp;F =3D G iff &nbsp; |stF| =3D |stG| and there is some
+        substitution&nbsp; =CF=83 such
+        that&nbsp;(=E2=88=80<span style=3D"font-style: italic;">i</span> .&=
+nbsp;=E2=88=83<span style=3D"font-style: italic;">j</span> .&nbsp; =CF=83<s=
+pan style=3D"font-style: italic;">Fi</span> =3D =CF=83G<span style=3D"font-=
+style: italic;">j.&nbsp;</span>)</td>
+      </tr>
+
+      <tr>
+        <td>statement</td>
+
+        <td>&nbsp;Subjects are equal, predicates are equal, and
+        objects are equal</td>
+      </tr>
+
+      <tr>
+        <td>string</td>
+
+        <td>&nbsp;equal unicode string</td>
+      </tr>
+
+      <tr>
+        <td>integer</td>
+
+        <td>&nbsp;equal integer</td>
+      </tr>
+
+      <tr>
+        <td>list L =3D M</td>
+
+        <td>&nbsp;|L|&nbsp; =3D&nbsp; |M| &nbsp; &nbsp; &nbsp;
+        &nbsp;&amp; &nbsp; &nbsp;(=E2=88=80<span style=3D"font-style: itali=
+c;">i</span> . L<span style=3D"font-style: italic;">i</span> =3D M<span sty=
+le=3D"font-style: italic;">i &nbsp;)</span></td>
+      </tr>
+
+      <tr>
+        <td>set &nbsp; S =3D T&nbsp;</td>
+
+        <td>(=E2=88=80<span style=3D"font-style: italic;">i</span>
+        .&nbsp;=E2=88=83<span style=3D"font-style: italic;">j</span>
+        .&nbsp; S<span style=3D"font-style: italic;">i</span> =3D
+        T<span style=3D"font-style: italic;">j.&nbsp;</span>) &nbsp;
+        &amp; &nbsp;(=E2=88=80<span style=3D"font-style: italic;">i</span> =
+.&nbsp;=E2=88=83<span style=3D"font-style: italic;">j</span> .&nbsp; S<span=
+ style=3D"font-style: italic;">i</span> =3D T<span style=3D"font-style: ita=
+lic;">j.&nbsp;</span>)</td>
+      </tr>
+
+      <tr>
+        <td>formula F =3D G</td>
+
+        <td>=E2=88=83=CF=83<span style=3D"font-style: italic;">.&nbsp;</spa=
+n>=CF=83 F
+        =3D&nbsp;=CF=83 G</td>
+      </tr>
+
+      <tr>
+        <td style=3D"font-style: italic;">unicode string</td>
+
+        <td>Unicode strings should be in canonical form. They are
+        equal if the corresponding characters have numerically
+        equal code points.</td>
+      </tr>
+    </tbody>
+  </table><br>
+
+  <h3>Conjunction</h3><span style=3D"font-style: italic;">N3, like
+  RDF, has an implied conjunction, with its normal properties,
+  between the statements of a formula.&nbsp;</span><br>
+  <br>
+  The semantics of a formula which has no quantifiers (@forAll or
+  @forSome) are the conjunction of the semantics of the statements
+  of which it is composed.<br>
+  <br>
+  We define the conjunction elimination operator ce(i) of removing
+  the statement F<span style=3D"font-style: italic;">i</span> from
+  formula F. &nbsp;By the conventional semantics of conjunction,
+  the ce(i) operator is truth-preserving. &nbsp;If you take a
+  formula and remove a statement from it it is still true.<br>
+  <br>
+  CE: &nbsp; From &nbsp; &nbsp; F &nbsp;follows &nbsp; &nbsp;ce(i)
+  &nbsp;F<br>
+
+  <h3>Existential quantification</h3><span style=3D"font-style: italic;">Ex=
+istential quantifiers and Universal
+  quantifiers have the usual qualities</span><br>
+  Any formula, including the <span style=3D"font-style: italic;">root
+  formula</span> which matches the "document" production of the
+  grammar,&nbsp; may have a set of existential variables indicated
+  by an <span style=3D"font-family: monospace;">@forSome</span>
+  declaration.&nbsp;&nbsp; This indicates that, where the formula
+  is considered true, it is true for at least one substitution
+  mapping the existential variables onto non-variables.<br>
+  <br>
+  As usual, we define a truth-preserving &nbsp;Existential
+  Introduction operator on formulae, that of introducing an
+  existentially quantified variable in place of any term. The
+  operation &nbsp;ei(x, n) is defined as<br>
+
+  <ol>
+    <li>Creation of a new variable <span style=3D"font-style: italic;">x</s=
+pan> which occurs&nbsp;nowhere
+    else</li>
+
+    <li>The application of&nbsp;=CF=83<sub><span style=3D"font-style: itali=
+c;">x</span>/n</sub> to F</li>
+
+    <li>The addition of<span style=3D"font-style: italic;">x</span>
+    &nbsp;to evF.</li>
+  </ol><br>
+  EI: &nbsp; &nbsp;From &nbsp;F &nbsp; follows &nbsp;ei(x,n)
+  &nbsp;F &nbsp; &nbsp;for any <span style=3D"font-style: italic;">x</span>=
+ not occurring anywhere else<br>
+  <br>
+
+  <h3>Universal quantification</h3><br>
+  Any formula,&nbsp; (including the root formula), may have a set
+  of universal variables. &nbsp;These are indicated by&nbsp;
+  <span style=3D"font-family: monospace;">@forAll</span>
+  &nbsp;declarations. &nbsp;The scope of the @forAll is outside the
+  scope of any @forSome.<br>
+  <br>
+
+  <p>If both universal and existential quantification are specified
+  for the same context, then the scope of the universal
+  quantification is outside the scope of the existentials:</p>
+  <pre>{ @forAll &lt;#h&gt;. @forSome &lt;#g&gt;. &lt;#g&gt; &lt;#loves&gt;=
+ &lt;#h&gt; }.
+</pre>
+
+  <p>means</p>
+
+  <p>=E2=88=80&lt;#h&gt;&nbsp; ( =E2=88=83&lt;#g&gt; &nbsp;((
+  <span style=3D"font-family: monospace;">&nbsp;</span>&lt;#g&gt;
+  &lt;#loves&gt; &lt;#h&gt; ))</p><br>
+  The semantics of @forAll is that &nbsp;for any substitution
+  =CF=83 =3D subst(<span style=3D"font-style: italic;">x</span>, n)
+  where &nbsp;x member of &nbsp;uvF,&nbsp; if &nbsp;F is true then
+  =CF=83F is also true. &nbsp;Any @forAll declaration may also be
+  removed, preserving truth. &nbsp;Combining these, we define a
+  truth-preserving operation &nbsp;ue(x, n)&nbsp; such that
+  &nbsp;ue(x, n) F is formed by<br>
+
+  <ol>
+    <li>Removal of &nbsp;x from &nbsp;evF</li>
+
+    <li>Application of subst(x, n)</li>
+  </ol>We have the axiom of universal elimination<br>
+  <br>
+  UE: &nbsp;From &nbsp; &nbsp; F &nbsp; &nbsp; &nbsp; follows
+  &nbsp; ue(x, n) &nbsp; F &nbsp;&nbsp; for all x in evF<br>
+  As the actual variable used in a formula is quite irrelevant to
+  its semantics, the operation of replacing that variable with
+  another one not used elsewhere within the formula is
+  truth-preserving.<br>
+  <br>
+
+  <h3>Variable renaming</h3><br>
+  &nbsp;We define the operation of variable renaming
+  vr(<span style=3D"font-style: italic;">x,y</span>) on F when x is a
+  member of uvF or is a member of evF.<br>
+  <br>
+  VR: &nbsp;From &nbsp; F &nbsp; follows &nbsp;
+  &nbsp;vr(<span style=3D"font-style: italic;">x, y</span>) F &nbsp;
+  &nbsp;where &nbsp;<span style=3D"font-style: italic;">x</span> is
+  in uvF or evF and <span style=3D"font-style: italic;">y</span> does
+  not occur in F<br>
+  <br>
+  Occurrence in F is defined recursively in the same way as
+  substitution:&nbsp; <span style=3D"font-style: italic;">x</span>
+  occurs in F iff&nbsp;=CF=83<sub><span style=3D"font-style: italic;">x</sp=
+an>/n</sub>F is not equal to F for
+  arbitrary n.<br>
+  <br>
+
+  <h3>Union of formulae</h3>The union H =3D F=E2=88=AAG of two formulae F
+  and G is formed, as usual,&nbsp; as follows.<br>
+  <br>
+  A variable renaming operator is applied to G such that the
+  resulting formula G' has no variables which occur un-quantified
+  or differently quantified or existentially quantified in F, and
+  vice-versa.&nbsp;&nbsp;(F and G' may share universal
+  variables).ied or existentially quantified in F, and
+  vice-ver<br>
+  <br>
+  F=E2=88=AAG is then defined by:<br>
+  <br>
+  st(F=E2=88=AAG) =3D stF =E2=88=AA st G' &nbsp;; &nbsp; &nbsp;ev(F=E2=88=
+=AAG)
+  &nbsp;=3D &nbsp;evF&nbsp;=E2=88=AA evG' ; &nbsp; &nbsp; uv(F=E2=88=AAG) =
+=3D
+  uvF&nbsp;=E2=88=AA uv G'<br>
+  <br>
+  <br>
+
+  <h3>N3 entailment</h3>
+
+  <p>The operators conjunction elimination, existential
+  elimination, universal introduction and variable
+  renaming&nbsp;&nbsp;are truth preserving.&nbsp;&nbsp;We define an
+  N3 entailment operator (=CF=84) as any operator which is the
+  successive application of&nbsp; any sequence (possibly empty) of
+  such operators.&nbsp;&nbsp;We say a formula F n3-entails a
+  formula&nbsp;&nbsp;=CF=84 F.&nbsp;&nbsp;By a combination
+  of&nbsp;&nbsp;SE, EI, UE and VR,&nbsp;&nbsp; =CF=84 F logically
+  follows from F.</p><span style=3D"font-style: italic;">&nbsp;Note.
+  &nbsp;RDF Graph is a subclass of N3 formula. &nbsp;If F and G are
+  RDF graphs, only CI and EI apply and n3-entailment
+  reduces&nbsp;to simple entailment from RDF Semantics. (@@check
+  for any RDF weirdnesses)<br>
+  <br></span>We have now defined this simple form of
+  N3-entailment, which amounts to little more than textual
+  inclusion in one expression of a subset of another.&nbsp;&nbsp;We
+  have not defined the normal collection of implication,
+  disjunction and negation which first order logic, as N3logic does
+  provide for first order negation.&nbsp;&nbsp;We have, in the
+  process,&nbsp; defined a substitution operation which we can now
+  use to define implication, which allows us to express
+  rules.&nbsp;&nbsp;<span style=3D"font-style: italic;"><br></span><br>
+
+  <h2>Logic properties and built-in functions</h2>We now define the
+  semantics of N3 statements whose predicate is one of a small set
+  of logic properties. &nbsp;These are statements whose truth can
+  be established by performing calculations, or by accessing the
+  web. &nbsp;<br>
+  <br>
+  One of our objectives was to make it possible to make statements
+  about, and to query, other statements such as the contents of
+  data in information resources on the web. &nbsp;We have, in
+  formulae, the ability to represent such sets &nbsp;of statements.
+  &nbsp;Now, to allow statements about them, we take some of the
+  relationships we have defined and give them URIs so that these
+  statements and queries can be written in N3.<br>
+  <br>
+  While the properties we introduced can be used simply as ground
+  facts in a database, &nbsp;is very useful to take advantage of
+  the fact that in fact they can be calculated. &nbsp;In some
+  cases, the truth or falsehood of a binary relation can be
+  calculated; in others, the relationship is a function so one
+  argument (subject or object of the statement) can be calculated
+  from the other.<br>
+  <br>
+  We now show how such properties are defined, and give examples of
+  how an inference system can use them.&nbsp;&nbsp;A motivation
+  here is to do for logical information what RDF did for data: to
+  provide a common data model and a common syntax, so that
+  extensions of the language&nbsp; are made simply by defining new
+  terms in an ontology.&nbsp;&nbsp;Declarative programing languages
+  like scheme[@@] of course do this.&nbsp; However, they differ in
+  their choice of pairs rather than the RDF binary relational model
+  for data, and lack the use of universal identifiers as
+  symbols.&nbsp;&nbsp;The goal with N3 was to make a
+  minimal&nbsp;&nbsp;extension to the RDF data model, so that the
+  same language could be used for logic and data, which in practice
+  are mixed as a colloidal solution in many real
+  applications.<br>
+  <br>
+
+  <h3>Calculated entailment</h3><br>
+  We introduce also a set of properties whose truth may be
+  evaluated directly by machine.&nbsp;&nbsp; We call these
+  "built-in" functions.&nbsp;&nbsp;The implementation as built-in
+  functions is&nbsp;&nbsp;not in general required for any
+  implementation of the N3 language, as they can always soundly be
+  treated as ground facts.&nbsp;&nbsp;However, their usefulness
+  derives from their implementation. We say that for example&nbsp;
+  { 1 math:negation&nbsp;&nbsp;-1 } is entailed by
+  calculation.&nbsp;&nbsp;&nbsp;&nbsp;Like other RDF properties,
+  the set is designed to be extensible, as others can use URIs for
+  new functions. A much larger set of such properties is <a href=3D"http://=
+www.w3.org/2000/10/swap/doc/CwmBuiltins">described for
+  example in the CWM bultt-ins list</a>, and the semantics of those
+  are not described here.<br>
+  <br>
+  When the truth of a statement can be deduced because its
+  predicate is a built-in function, then we call the derivation
+  &nbsp;of the statement from no other evidence <span style=3D"font-style: =
+italic;">calculated entailment</span>.<br>
+  <br>
+  We now define a small set of such properties which provide the
+  power of N3 logic for inference on the web.
+
+  <h3>log:includes</h3>If a formula &nbsp;G n3-entails another
+  formula F,&nbsp; this is expressed in N3 logic as<br>
+  <br>
+  &nbsp;F <span style=3D"font-family: monospace;">log:includes</span>
+  G.<br>
+  <br>
+  <span style=3D"font-style: italic;">Note. &nbsp;In deference to the
+  fact that RDF treats lists not as terms but as things constructed
+  from first and rest pairs, we can view formulae which include
+  lists as including rdf:first and rdf:rest statements. &nbsp;The
+  effect on inclusion is that two other entailment operations are
+  added: the addition of any statement of the form
+  &nbsp;</span><span style=3D"font-family: monospace; font-style: italic;">=
+L rdf:first
+  n</span><span style=3D"font-style: italic;">where n is the first
+  element of L, or L rdf:rest K where K is list forming the
+  remaining non-first elements of L. &nbsp; This is not essential
+  to a further understanding of the logic, nor to the operation of
+  a system which does not contain any explicit mention of the terms
+  rdf:first or rdf:rest.</span><br>
+  <br>
+  For the discussion of n3-entailment, clearly:<br>
+  <br>
+  From&nbsp; &nbsp; F &nbsp; and &nbsp; F log:includes G &nbsp;
+  logically follows &nbsp; G<br>
+  <br>
+  This can be calculated, because it is a mathematical operation on
+  two compound terms. &nbsp;It is typically used in a query to test
+  the contents of a formula. &nbsp;Below we will show how it can be
+  used in the antecedent of a rule.<br>
+  <br>
+
+  <h3>log:notIncludes</h3><br>
+  We write of formulae F and G:&nbsp; F log:notIncludes G if it is
+  <span style=3D"font-weight: bold;">not</span> the case that G
+  n3-entails F.<br>
+  <br>
+  As a form of negation, log:notincludes is completely monotonic.
+  &nbsp;It can be evaluated by a mathematical calculation on the
+  value of the two terms: no other knowledge gained can influence
+  the result. &nbsp;This is the <span style=3D"font-style: italic;">scoped =
+negation as failure</span> mentioned
+  in the introduction. &nbsp;This is not a non-monotonic negation
+  as failure.<br>
+  <br>
+
+  <p><span style=3D"font-style: italic;">Note on computation: To
+  ascertain whether G n3-entails F in the worst case involves
+  checking for all possible&nbsp;n3-entailment transformations
+  which are combinations of the variables which occur in G. This
+  operation may be tedious: it is strictly graph isomorphism
+  complete. However&nbsp; the use of symbols rather than variables
+  for a good proportion of nodes makes it much more tractable for
+  practical graphs.&nbsp;&nbsp; The ethos that it is a good idea to
+  give name things with URIs (symbols in N3) is a basic meme of web
+  architecture [AWWW].&nbsp;&nbsp;It has direct practical
+  application in the calculation of n3-entailment, as comparison of
+  graphs whose nodes are labelled is much faster (of order n log
+  (n)))&nbsp;</span></p>
+
+  <h3><a name=3D"log:implie" id=3D"log:implie">log:implies</a></h3>The
+  log:implies property relates two formulae, expressing
+  implication. &nbsp; The shorthand notation for log:implies is
+  &nbsp; <span style=3D"font-family: monospace;">=3D&gt;</span>
+  .&nbsp;&nbsp;A statement using log:implies, unlike log:includes,
+  cannot be calculated.&nbsp;&nbsp;It is not a built-in function,
+  but the predicate which allows the expression of a rule.<br>
+  <br>
+  <span style=3D"font-style: italic;">The semantics of implication
+  are standard, but we elaborate them now for
+  completeness.</span><br style=3D"font-style: italic;">
+  <br>
+  F log:implies G is true if and only if when the formula F is true
+  then also G is true.<br>
+  <br>
+  MP: &nbsp; From &nbsp; &nbsp;F &nbsp;and&nbsp; &nbsp;&nbsp;&nbsp;
+  F =3D&gt; G&nbsp;&nbsp; &nbsp; follows &nbsp; &nbsp; G<br>
+  <br>
+  A statement in formula H is of the form F=3D&gt;G&nbsp;can be
+  considered as rule, in which case, the subject F is the premise
+  (antecedent) of the rule, and the object G is the
+  consequent.<br>
+  <br>
+  Implication is normally used within a formula with universally
+  quantified variables.<span style=3D"font-family: sans-serif;"><span style=
+=3D"font-style: italic;"><span style=3D"font-weight: bold;"><br>
+  <br></span></span></span>For example, universal quantifiers
+  are&nbsp; used with a rule in H as follows.&nbsp;&nbsp;Here H is
+  the formula containing the rules, and K the formula upon which
+  the rules are applied, which we can call the knowledge
+  base.<br>
+  <br>
+  If F =3D&gt; G is in H, and then for every&nbsp;=CF=83&nbsp;which
+  is a transformation composed of universal eliminations of
+  variables universally quantified in H, &nbsp;then &nbsp;it also
+  follows that =CF=83F =3D&gt; =CF=83G. Therefore, for
+  every&nbsp;=CF=83 such that&nbsp; K includes =CF=83F,&nbsp;
+  =CF=83G follows from K.<br>
+  <br>
+  In the particular case that H and K are both the knowledge base,
+  or formula believed true at the top level, then<br>
+  <br>
+  GMP: &nbsp; &nbsp;From &nbsp; &nbsp; &nbsp;F&nbsp; =3D&gt; G
+  &nbsp;and&nbsp; =CF=83F &nbsp; follows &nbsp;&nbsp; =CF=83G
+  &nbsp; &nbsp; &nbsp; if =CF=83 is a transformation composed of
+  universal eliminations of variables universally quantified at the
+  top level.<br>
+
+  <h4>Filtering</h4>When a knowledge base (formula) contains a lot
+  of information, one way to filter off a subset is to run a set of
+  rules on the knowledge base, and take only the new data which is
+  generated by the rules.&nbsp;&nbsp; This is the filter
+  operation.<br>
+  <br>
+  When you apply rules to a knowledge base, the <span style=3D"font-style: =
+italic;">filter result</span> of rules in H applied
+  to K is the union&nbsp;of all&nbsp;=CF=83G for every statement F
+  =3D&gt; G which is in H,&nbsp; for every&nbsp;=CF=83&nbsp;which s
+  a transformation composed of universal eliminations of variables
+  universally quantified in H such that K includes =CF=83F.<br>
+
+  <h4>Repeated application of rules</h4>When rules are added back
+  repeatedly into the same knowledge base,&nbsp; in order to
+  prevent the unnecessary extra growth of the knowledge base,
+  before adding =CF=83G to it,&nbsp; there is a check to see
+  whether the&nbsp;H already includes =CF=83G, and if it does, the
+  adding of =CF=83G is skipped.<br style=3D"font-style: italic;">
+  <br>
+  Let the result of rules in H applied to K,&nbsp;
+  =CF=81<sub>H</sub>K,&nbsp; be the union&nbsp;of K with
+  all&nbsp;=CF=83G for every statement F =3D&gt; G which is in
+  H,&nbsp; for every&nbsp;=CF=83&nbsp;which is a transformation
+  composed of universal eliminations of variables universally
+  quantified in H, such that K includes =CF=83F, and K does not
+  n3-entail =CF=83G.<br>
+  <br style=3D"font-style: italic;">
+  <br>
+  <span style=3D"font-style: italic;">Note. This form of rule allows
+  existentials in the consequent: it is not datalog.&nbsp;&nbsp;It
+  is is clearly possible in a forward-chaining reasoner to generate
+  an unbounded set of conclusions with rules of the&nbsp;form
+  (using shorthand)</span><br style=3D"font-style: italic;">
+  <br style=3D"font-style: italic;">
+  <span style=3D"font-style: italic;">&nbsp; { &nbsp;?x
+  a&nbsp;:Person } &nbsp;=3D&gt; { ?x &nbsp;:mother [ a :Person]
+  }.</span><br style=3D"font-style: italic;">
+  <br style=3D"font-style: italic;">
+  <span style=3D"font-style: italic;">While this is a trap for the
+  unwary user of a forward-chaining reasoner, it was found to be
+  essential in general to be able to generate arbitrary RDF
+  containing blank nodes, for example when translating information
+  from one ontology into another.</span><br>
+  <br>
+  Consider the &nbsp;repeated application of rules in H to K,&nbsp;
+  =CF=81<sup style=3D"font-style: italic;"><span style=3D"font-style: itali=
+c;">i</span></sup><sub>H</sub>K. &nbsp;If there
+  are no existentially quantified variables in the consequents of
+  any of the rules in H, then this is like datalog, and there will
+  be some threshold <span style=3D"font-style: italic;">n</span>
+  above which no more data is added, and there is a closure:
+  =CF=81<sup style=3D"font-style: italic;"><span style=3D"font-style: itali=
+c;">i</span></sup><sub>H</sub>K =3D
+  =CF=81<sup style=3D"font-style: italic;"><span style=3D"font-style: itali=
+c;">n</span></sup><sub>H</sub>K &nbsp;for all
+  <span style=3D"font-style: italic;">i</span>&gt;<span style=3D"font-style=
+: italic;">n</span>. &nbsp; In fact in many practical
+  applications even with the datalog constraint removed, there is
+  also a closure. &nbsp;This =CF=81<sup>=E2=88=9E</sup><sub>H</sub>K
+  is the result of running a forward-chaining reasoner on H and
+  K.<br>
+
+  <h4>Rule Inference on the knowledge base</h4>In the case in which
+  rules are in the same formula as the data, the single rule
+  operation can be written &nbsp;=CF=81<sub>K</sub>K, and the
+  closure under rule application
+  =CF=81<sup>=E2=88=9E</sup><sub>K</sub>K<br>
+  <span style=3D"font-weight: bold;"><br></span> <span style=3D"font-style:=
+ italic;">Cwm note: &nbsp; the --rules command line
+  option calculates &nbsp;=CF=81</span><sub style=3D"font-style: italic;">K=
+</sub><span style=3D"font-style: italic;">K,
+  and the --think calculates&nbsp;=CF=81</span><sup style=3D"font-style: it=
+alic;">=E2=88=9E</sup><sub style=3D"font-style: italic;">K</sub><span style=
+=3D"font-style: italic;">K.
+  &nbsp;The --filter=3DH calculates the filter result of H on the
+  knowledge base.<br>
+  <br></span>
+
+  <h3><span style=3D"font-style: italic;">Examples</span></h3>Here a
+  simple rule uses log:implies.<br>
+  <br>
+  <pre>@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt;.<br>@keywor=
+ds.<br>@forAll x, y, z. {x parent y. y sister z} log:implies {x aunt z}
+</pre>
+
+  <p>This N3 formula has three universally quantified variables and
+  one statement.&nbsp;&nbsp;The subject of the statement,&nbsp;</p>
+  <pre>{x parent y. y sister z}
+</pre>
+
+  <p>is the antecedent of the rule and the object, &nbsp;</p>
+  <pre>{x aunt z}
+</pre>
+
+  <p>is the conclusion. Given data</p>
+  <pre>Joe parent Alan.<br>Alan sister Susie.<br><br>
+</pre>
+
+  <p>a rule engine would conclude</p>
+  <pre>Joe aunt Susie.
+</pre>
+
+  <p>As a second example, we use a rule which looks inside a
+  formula:</p>
+  <pre>@forAll x, y, z.<br>{ x wrote y.<br>  y log:includes {z weather w}.<=
+br>  x livesIn z<br>} log:implies {<br>  Boston weather y<br>}.
+</pre>
+
+  <p>Here the rule fires when x is bound to a symbol denoting some
+  person who is the author of a formula y, when the formula makes a
+  statement about the weather in (presumably some place) z, and x's
+  home is z.&nbsp;&nbsp;That is, we believe statements about the
+  weather at a place only from people who live there.&nbsp; Given
+  the data</p>
+  <pre>Bob livesIn  Boston.<br>Bob wrote  { Boston weather sunny }.<br>Alic=
+e livesIn Adelaide.<br>Alice wrote { Boston weather cold }.
+</pre>
+
+  <p>a valid inference would be</p>
+  <pre>Boston weather sunny.
+</pre>
+
+  <h3>log:supports</h3><br>
+  We say that F log:supports G if there is some sequence of
+  &nbsp;rule inference and/or calculated entailment and/or n3
+  entailment operators which when applied to F produce G.<br>
+  <br>
+
+  <h3>log:conclusion</h3><br>
+  <br>
+  The log:conclusion property expresses the relationship between a
+  formula and its deductive closure under operations of
+  n3-entailment, rule entailment and calculated entailment.
+  &nbsp;<br>
+  <br>
+  As noticed above, there are circumstances when this will not be
+  finite.<br>
+  <br>
+  log:conclusion is the transitive closure of log:supports.<br>
+  <br>
+  log:supports can be written in terms of log:conclusion and
+  log:includes.<br>
+  <br>
+  { ?x log:supports ?y }&nbsp;&nbsp; if and only dan&nbsp;&nbsp; {
+  ?x log:conclusion [ log:includes ?y ]}<br>
+  <br>
+  However, log:supports may be evaluated in many cases without
+  evaluating log:conclusion: one can determine whether y can be
+  derived from x in many ways, such as backward chaining, without
+  necessarily having to evaluate the (possibly infinite) deductive
+  closure.<br>
+  <br>
+  Now we have a system which has the capacity to do inference using
+  rules, and to operate on formulae.&nbsp;&nbsp;However, it
+  operates in a vacuum.&nbsp;&nbsp;In fact, our goal is that the
+  system should operate in the context of the web.<br>
+  <br>
+
+  <h2>Involving the Web</h2>We therefore&nbsp;expose the web as a
+  mapping between URIs and the information returned when such a URI
+  is dereferenced, using appropriate protocols.&nbsp;&nbsp;In
+  N3,&nbsp;&nbsp;the information resource is identified by a
+  symbol, which is in fact is its URI. In N3, information is
+  represented in formulae, so we represent the information
+  retrieved as a formula.<br>
+  Not all information on the web is, of course in N3. However the
+  architecture we design is that N3 should here be the interlingua.
+  Therefore, from the point of view of this system, the semantics
+  of a document is exactly what can be expressed in N3, no more and
+  no less.
+
+  <h3>log:semantics**</h3>
+
+  <p>c log:semantics F &nbsp;is true iff c is a document whose
+  logical semantics expressed in N3 is the formula F.</p>
+
+  <p>The relation between a document and the logical expression
+  which represents its meaning expressed as N3.&nbsp;&nbsp; The
+  Architecture of the World Wide Web [AWWW] defines algorithms by
+  which a machine can determine representations of
+  document&nbsp;&nbsp;given its symbol (URI).&nbsp;&nbsp;&nbsp;For
+  a representation in N3, this is the formula which corresponds to
+  the <span style=3D"font-style: italic;">document</span> production
+  of the grammar.&nbsp;&nbsp; For&nbsp;&nbsp;a representation in
+  RDF/XML it is the formula which is the entire graph
+  parsed.&nbsp;&nbsp;For any other languages, it may be calculated
+  in as much&nbsp; a specification exists which defines the
+  equivalent N3 semantics for files in that language.</p>
+
+  <p>On the meaning of N3 formula</p>
+
+  <p>This is not of course the&nbsp; semantics of the document in
+  any absolute sense.&nbsp;&nbsp;It is the semantics expressed in
+  N3.&nbsp;&nbsp;In turn, the full semantics of an N3 formula are
+  grounded,&nbsp; in the definitions of the properties and classes
+  used by&nbsp;the formula.&nbsp;&nbsp;In the HTTP space in which
+  URIs are minted by an authority, definitive information about
+  those definitions may be found by dereferencing the URIs. This
+  information may be in natural language, in some
+  machine-processable logic, or a mixture.&nbsp;&nbsp; Two patterns
+  are important for the semantic web.&nbsp;</p>
+
+  <p>One is the grounding of properties and classes by defining
+  them in natural language.&nbsp;&nbsp;Natural language, of course,
+  is not capable of giving an absolute meaning to anything in
+  theory, but in practice a well written document, carefully
+  written by a group of people achieves a precision of definition
+  which is quite sufficient for the community to be able to
+  exchange data using the terms concerned.&nbsp;&nbsp;The other
+  pattern is the raft-like definition of terms in terms of related
+  neighboring ontologies.</p>
+
+  <p>&nbsp; @@@@ A full discussion of the grounding of meaning in a
+  web of such definitions is beyond the scope of this
+  article.&nbsp;&nbsp;Here we define only the operation semantics
+  of a system using N3.</p>
+
+  <p>@@@@ &nbsp;Edited up to here</p>The log:semantics of an N3
+  document is the formula achieved by parsing representation of the
+  document.<br>
+  (Cwm note: Cwm knows how to go get a document and parse N3 and
+  RDF/XML , in order to evaluate this. )<br>
+  <br>
+  Other languages for web documents &nbsp;may be defined whose N3
+  semantics are therefore also calculable, and so they could be
+  added in due course.<br>
+  See for example [GRDDL], [RDF/A], etc<br>
+
+  <p>However, for the purpose of the analysis of the language, it
+  is a convenient to&nbsp; consider the semantic web simply as a
+  binary 1:1 relation between a subset of&nbsp;symbols and
+  formulae.</p>
+
+  <p>For a document in Notation3, log:semantics is the<br>
+  log:parsedAsN3 of the log:contents of the document.<br>
+  <br></p>
+
+  <h3>log:says</h3>log:says is defined by:<br>
+  <br>
+  F &nbsp;log:says &nbsp;G &nbsp; iff &nbsp;=E2=88=83 &nbsp;H &nbsp;.
+  &nbsp; <span style=3D"font-family: monospace;">F log:semantics
+  &nbsp;H</span> &nbsp; and &nbsp; <span style=3D"font-family: monospace;">=
+H log:includes G</span>&nbsp;
+  &nbsp;<br>
+  <br>
+  In other words, loosely a document says something if a
+  representation of it in the sense of the Architecture of the
+  World Wide Web [AWWW] N3-entails it.<br>
+  <br>
+  The semantics of log:says are similar to that of says in
+  [PCA].<br>
+  <br>
+
+  <h2>Miscellaneous</h2>
+
+  <h3>log:Truth</h3>
+
+  <p>This is a class of true formulae.&nbsp;</p>
+
+  <p>From &nbsp; { F rdf:type log:Truth } &nbsp; &nbsp;follows
+  &nbsp;F&nbsp; &nbsp;</p>
+
+  <p>The cwm engine will process rules in the (indirectly
+  command-line specified) formula or any formula which that
+  declares to be a Truth.&nbsp;</p>
+
+  <p>The dereifier will output any described formulae which are
+  described as being in the class Truth.&nbsp;</p>This class is not
+  at all central to the logic.
+
+  <h2>Working with OWL</h2>
+
+  <p>@@ Summary</p>
+
+  <ul>
+    <li>owl:sameAs considered the same as N3 value equality for
+    data values.&nbsp;&nbsp;Axioms of
+    equality.&nbsp;&nbsp;log:equalTo and
+    log:notEqualTo&nbsp;&nbsp;compared with owl:SameAs. Compare
+    math and string equality, and SPARQL equality.</li>
+
+    <li>Operating in equality-aware mode.</li>
+
+    <li>No attempt at connecting&nbsp;OWL DL language with the N3
+    logic.&nbsp;</li>
+
+    <li>Use of functional properties of a datatype conflicting with
+    OWL DL.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+
+  <p>The semantics of N3 have been defined, as have some built-in
+  operator properties which add logical inference using rules to
+  the language, and allow rules to define inference which can be
+  drawn from specific web documents on the web, as a function of
+  other information about those documents.</p>
+
+  <p>The language has been found to have some useful practical
+  properties.&nbsp;&nbsp;The separation between the Notation3
+  extensions to RDF and the logic properties has allowed N3 by
+  itself to be used in many other applications directly, and to be
+  used with other properties to provide other functionality such as
+  the expression of patches (updates) [Diff].</p>
+
+  <p>The use of log:notIncludes to allow default reasoning without
+  non-monotonic behavior achieves a design goal for distributed
+  rule systems.</p><br>
+  <hr style=3D"width: 100%; height: 2px;">
+  **[Footnote: Philosophers may be distracted here into worrying
+  about the meaning of meaning. At least we didn't call this
+  function "meaning"! In as much as N3 is used as an interlingua
+  for interoperability for different systems, this for an N3 based
+  system is the meaning expressed by a document.&nbsp;&nbsp;One
+  reviewer was aghast at the definition of semantics as being that
+  of retrieval of a representation, its parsing and assimilation in
+  terms of the local common logical framework. I suspect however
+  that the meaning of the paper to the reviewer could be considered
+  quite equivalently the&nbsp;&nbsp;result of the process of
+  retrieval of a representation of the paper, its parsing by the
+  review, and its assimilation in terms of the reviewer's local
+  logical framework: a similar though perhaps imperfect
+  process.<br>
+  Of course, the semantics of many documents are not expressible in
+  logics at all, and many in logic but not in N3. However, we are
+  building a system for which a prime goal is the reading and
+  investigation of machine-readable documents on the web. We use
+  the URI log:semantics for this function and apologize for any
+  heartache it may cause.]<br>
+  <br>
+  <br>
+
+  <p><a name=3D"includes" id=3D"includes">&nbsp;F =3D G iff &nbsp; |stF|
+  =3D |stG| and there is some substitution&nbsp; =CF=83 such
+  that&nbsp;(=E2=88=80<span style=3D"font-style: italic;">i</span>
+  .&nbsp;=E2=88=83<span style=3D"font-style: italic;">j</span> .&nbsp;
+  =CF=83<span style=3D"font-style: italic;">Fi</span> =3D
+  =CF=83G<span style=3D"font-style: italic;">j.&nbsp;</span>)</a></p>
+
+  <p><a name=3D"includes" id=3D"includes"></a></p>
+
+  <h2><a name=3D"includes" id=3D"includes">Appendix: Colophon</a></h2>
+
+  <p><a name=3D"includes" id=3D"includes">formatting XHTML 1 with
+  nvu</a></p>
+
+  <h2><a name=3D"includes" id=3D"includes">Appendix: Drafting
+  Notes</a></h2>
+
+  <p><a name=3D"includes" id=3D"includes">yes, discuss notational
+  abbreviation, but not abstract syntax</a></p>
+
+  <p><a name=3D"includes" id=3D"includes">hmm... are log:includes,
+  log:implies and such predicates? relations? operators?
+  properties?</a></p>
+
+  <p><a name=3D"includes" id=3D"includes">To do: describe the syntactic
+  sugar transformations formally to close the loop.</a></p>
+
+
+</body></html>
+------MultipartBoundary--vdQ7UZC6H7qO5v0zkwI2lkueD44HV1pmKnLrVsUDMt----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.w3.org/DesignIssues/di.css
+
+@charset "utf-8";
+
+body { font-family: opensans, sans-serif; background-color: white; line-hei=
+ght: 1.2em; color: black; margin: 2em 8% 2em 10%; }
+
+table { background: rgb(243, 255, 243); }
+
+th { background: white; text-align: left; }
+
+h1, h2, h3 { font-family: sans-serif; margin: 1em 0px 0.5em; break-after: a=
+void; }
+
+h1 { font-size: 150%; }
+
+h2 { font-size: 120%; }
+
+h3 { font-size: 100%; font-style: italic; }
+
+h4 { break-after: avoid; }
+
+p { margin: 0px 0px 1em; line-height: 1.4em; font-family: sans-serif; }
+
+a { font-weight: bold; color: rgb(0, 68, 35); text-decoration: none; }
+
+td, th { padding: 1em; }
+
+li { padding: 0.6em; }
+
+.tbd { color: rgb(136, 136, 136); }
+
+.ramble { font-size: 80%; }
+
+.cols { column-width: 24em; column-gap: 1em; }
+
+pre { font-size: 80%; }
+
+.note { color: rgb(68, 136, 85); }
+
+blockquote { font-style: italic; font-family: sanserif; }
+
+.abstract { font-style: italic; font-family: sans-serif; margin: 0.5em 3em;=
+ }
+
+.number { font-family: monospace; }
+
+.detail { font-size: 80%; }
+
+.axiom { margin: 1em; border: thin; background-color: white; }
+------MultipartBoundary--vdQ7UZC6H7qO5v0zkwI2lkueD44HV1pmKnLrVsUDMt------

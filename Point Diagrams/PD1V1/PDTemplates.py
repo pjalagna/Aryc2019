@@ -132,6 +132,7 @@ class %class%Class ():
   #end stump
   
   def trace(self,msg,objj):
+    helpmsg = " debug help: DS,PS,ES,NDS,OBJJ "
     x = raw_input(msg + "... ")
     while (x != ''):
 		if (x.upper() == "DS"):
@@ -144,6 +145,8 @@ class %class%Class ():
 			print(objj['nds'].dump())
 		elif (x.upper() == "OBJJ"):
 			print(objj)
+		elif (x.upper() == "HELP"):
+		    print(helpmsg)
 		else:
 			x = ''
 		#endif

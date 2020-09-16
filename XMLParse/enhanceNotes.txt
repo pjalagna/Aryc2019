@@ -1,0 +1,410 @@
+enhanceNotes.txt
+pja 9/3/2020
+masterName:refValue= id
+
+@attName=id
+Goal!id <<id>>
+tagName!id
+
+@element under sequence attr=id
+masterName:refValue id
+Goal!stratml:Name!id  <<id>>
+
+phase2
+referent or type not entry type 
+-> name=x type==entry type
+Goal!stratml:Name!xsd:string!id <<id>>
+
+filter for annotations
+
+
+xmlTag 
+--name
+--xml definition[]
+--xsd refid
+--xsd krid
+--xsd has doc[]
+--xsd id
+--xsd ref (referent)
+--xsd type (referent or entryType)
+--xsd child[]
+
+pja 9/1/2020
+w3.org/skos
+skosXL
+
+Venn -> anotb element ANB , bnota element BNA .
+analisys observes there is a SKOS commonality. ie (ANB==BNA)=true then
+Via SKOS tags ANB==BNA and are no longer outliers.
+so, add skos property to ontology. 
+EG relate tag="foo" has:skos skos=<name> .z.(ie no refid)
+to both ontologies.
+
+
+using nk to find the mk series
+the XML nk tagName translates to the XSD element.name .
+eg <fox covering="wool"/> has a tagName=="fox" which
+has an element in the XSD with the attributeName of "name"  with a attributeValue of "fox"
+
+xml-element
+-- add cat-xsd-id 
+--- cat-xsd-id.format (string,etc) -- may have id,doc
+--- cat-xsd-id.definition -- may have id,doc
+-- add xsd-KRID 
+-- add xsd-refid
+-- add [child][seq][min][max]
+
+
+main (ontoXMLFile,ontoXSDFile):-
+[[ 1 ]] 
+initE()
+a1 = get_first_from_xml_onto()[0][0]
+id = get_cat_xsd("id",a1)[0][0]
+krid = get_cat_xsd("KRID",a1)[0][0]
+refid = get_cat_xsd("refid",a1)[0][0]
+pickup = get_cat_xsd('pickup',a1)[0][0]
+#children
+child = []
+child = get_child(refid)
+-seq, [0][1]-Crefid
+i =0
+Crefid = child[i][1]
+Cmin = get_cat_xsd('minOccurs',Crefid)[0][0]
+Cmax = get_cat_xsd('maxOccurs',Crefid)[0][0]
+Cref = ''
+try:
+    Cref = get_cat_xsd('ref',Crefid)[0][0]
+except:
+    nop = 1
+finally:
+    nop = 1
+Ctype = ''
+try:
+    Ctype = get_cat_xsd('type',Crefid)[0][0]
+except:
+    nop = 1
+finally:
+    nop = 1
+nop =1
+
+
+
+
+
+def get_first_from_xml_onto():
+    global pkg,nds
+    # :-
+    sq1 = """
+select v2 from v20
+where v18 in (
+select v4 from v20 where v1='first'
+)
+and v1 = 'tag'
+;
+"""
+    ans = pkg['dbXML'].SQReadAll(sq1)
+    return(ans)
+#end 
+
+def get_cat_xsd(P,A):
+    # :-
+    global pkg,nds
+    sq1 = """
+select v2 from v20
+where v1='%P%'
+and v18 in (
+select v4 from v20
+where v2='%A%'
+and v3 = 'refid'
+)
+;
+"""
+    sq1 = sq1.replace('%P%',P)
+    sq1 = sq1.replace('%A%',A)
+    ans = pkg['dbXSD'].SQReadAll(sq1)
+    return(ans)
+#end 
+
+def cat_xsd_desc(B) :
+    sq1 = """
+select v6 from v20 
+where v18 = '%B%'
+and v3='has'
+and (v4='xsd:documentation' or v4='documentation')
+;
+"""
+    sq1 = sq1.replace('%B%',B)
+    ans = pkg['dbXSD'].SQReadAll(sq1)
+    return(ans)
+#end 
+
+
+
+def initE():
+    global pkg,nds
+    pkg = {}
+    nds = {}
+    trace = 'on'
+    nds['trace'] = trace
+    import useLib
+    import SQClass
+    ontoXMLFile = 'example.xml.onto'
+    ontoXSDFile = 'StratML.xsd.onto'
+    pkg['dbXSD'] = SQClass.SQC(ontoXSDFile)
+    pkg['dbXML'] = SQClass.SQC(ontoXMLFile)
+    import gennV
+    pkg['genX'] = gennV.gennX
+    import useOnto
+    import SQSQ
+    pkg['SQin'] = SQSQ.SQin
+    pkg['SQout'] = SQSQ.SQout
+    import OntologyClass
+    pkg['ontologyXSD'] = OntologyClass.Ontology(ontoXSDFile,str(nds['trace']))
+    pkg['ontologyXML'] =OntologyClass.Ontology(ontoXMLFile,str(nds['trace']))
+#exit
+
+def get_child(refid):
+    global pkg,nds
+    sq1 = """
+select v4,v6 from v20
+where v18 = '%refid%'
+and v1 = 'leadingPosition'
+and v3 = 'ChildSequence'
+order by v4;
+"""
+    sq1 = sq1.replace('%refid%',refid)
+    ans = pkg['dbXSD'].SQReadAll(sq1)
+    return(ans)
+#end 
+
+# select by element name
+select * from v20
+where v18 in (
+select v18 from v20
+where 
+v1 = 'name'
+and v2='%R%'
+)
+
+"""
+child-> do-each-child -->
+min=0-> is-next-xml==this-child-yes->
+
+
+
+
+-- ATN pred value   refid refid-value  
+-- REL pred value   pred  pred        pred    value  
+-- REL tag  <name>  role  refidM      refid  <refid>  
+
+
+attNS  attName  attributeFormDefault  attributeName  base  context  elementFormDefault  elementPosition  endpointRefid  first  id  l1x  l2x  leadingPosition  master  masterPosition  maxOccurs  minOccurs  name  parent  pickup  previousPickup  provenance  ref  refid  seq  source  tag  tagNS  tagName  targetNamespace  type  use  value  version  xml:lang  xmlns:stratml  xmlns:xsd            
+
+CS  ChildSequence  SEQ  attributeEnumeration  attributeRefid  base  entryType  has  parent  refid  resolved  type  typeCall  use      
+
+ChildRefid  ID  Refid  attribute  base  enumeration  refid  tag  use  value 
+"""
+xml info already in ontology
+((
+select v1,v2 from v20 
+where v18 in (
+select v18 from v20
+where v1='first'
+)
+and v2 <> ''
+and v1 not in ('pickup','previousPickup','l1x','l2x','refid','provenance','minOccurs','maxOccurs')
+))
+
+first->
+xsd info
+tag	StrategicPlan
+tagName	StrategicPlan
+xmlns	urn:ISO:std:iso:17469:tech:xsd:stratml_core
+attName	xmlns
+xmlns:xsi	http://www.w3.org/2001/XMLSchema-instance
+attNS	xmlns
+attName	xsi
+xsi:schemaLocation	urn:ISO:std:iso:17469:tech:xsd:stratml_core http://xml.govwebs.net/stratml/references/StrategicPlanISOVersion20140401.xsd
+attNS	xsi
+attName	schemaLocation
+first	3
+KRID	TAG:StrategicPlan
+Name	zblzPresidentz^zs Management Agenda: Modernizzzing Government for the 21st Century
+Description	zblzThe Presidentz^zs Management Agenda lays out a longzdszterm vision for modernizzzing the Federal Government in key areas that will improve the ability of agencies to deliver mission outcomeszcmz provide excellent servicezcmz and effectively steward taxpayer dollars on behalf of the American peoplezpz To drive these management prioritieszcmz the Administration leverages CrosszdszAgency Priority zopzCAPzcpz Goals to coordinate and publicly track implementation across Federal agencieszpz
+OtherInformation	zblzThe Presidentz^zs Management Agenda sets forth a longzdszterm vision for effective government on behalf of the American people focused on the following:
+
+zsz Mission zdszzdsz
+The American people count on the Federal Government every dayzcmz from national security to infrastructure to food and water safetyzpz Public servants must be accountable for missionzdszdriven results but must also have the necessary tools and resources to deliverzpz
+
+zsz Service zdszzdsz
+Federal customers range from small businesses seeking loanszcmz to families receiving disaster supportzcmz to veterans owed proper benefits and medical carezpz They deserve a customer experience that compares to zdszzdsz or exceeds zdszzdsz that of leading private sector organizzzationszcmz yet most Federal services lag behind the private sectorzpz
+
+zsz Stewardship zdszzdsz 
+Effective stewardship of taxpayer funds is a crucial responsibility of Governmentzcmz from preventing fraud to maximizzzing impactzpz Taxpayer dollars must go to effective programs that produce results efficientlyzpz
+
+
+xsd info
+((
+select v1,v2,v3,v4,v5,v6 from v20
+where v18 in (
+select v18 from v20
+where v1='name' and v2='StrategicPlan'
+)
+))
+pickup	169	refid	XTueXSepXX8X16:20:41X20204.720302		
+previousPickup	168	refid	XTueXSepXX8X16:20:41X20204.720302		
+l1x	<x	refid	XTueXSepXX8X16:20:41X20204.720302		
+l2x	x>	refid	XTueXSepXX8X16:20:41X20204.720302		
+refid	XTueXSepXX8X16:20:41X20204.720302	refid	XTueXSepXX8X16:20:41X20204.720302		
+tag	xsd:element	refid	XTueXSepXX8X16:20:41X20204.720302		
+tagNS	xsd	resolved	nameSpace	tag	xsd:element
+tagName	element	resolved	name	tag	xsd:element
+
+-name	StrategicPlan	refid	XTueXSepXX8X16:20:41X20204.720302	
+	
+attNS		resolved	nameSpace	attribute	name
+attName	name	resolved	name	attribute	name
+
+-id	uuid-63a6e34c-737d-4d24-955b-bbf72d8c1511	refid	XTueXSepXX8X16:20:41X20204.720302
+		
+attNS		resolved	nameSpace	attribute	id
+attName	id	resolved	name	attribute	id
+minOccurs	1	refid	XTueXSepXX8X16:20:41X20204.720302		
+maxOccurs	1	refid	XTueXSepXX8X16:20:41X20204.720302		
+provenance	[0, 2, 169]	refid	XTueXSepXX8X16:20:41X20204.720302
+		
+-KRID	ID:uuid-63a6e34c-737d-4d24-955b-bbf72d8c1511	refid	XTueXSepXX8X16:20:41X20204.720302	
+	
+leadingPosition	169	ChildSequence	1	ChildRefid	XTueXSepXX8X16:20:41X20204.788719
+leadingPosition	169	ChildSequence	2	ChildRefid	XTueXSepXX8X16:20:41X20204.832892
+leadingPosition	169	ChildSequence	3	ChildRefid	XTueXSepXX8X16:20:41X20204.881855
+leadingPosition	169	ChildSequence	4	ChildRefid	XTueXSepXX8X16:20:41X20204.931281
+leadingPosition	169	ChildSequence	5	ChildRefid	XTueXSepXX8X16:20:41X20204.975583
+context	169	type	pickup	ID	XTueXSepXX8X16:23:51X202014.339092
+context	pickup	type	designation	ID	XTueXSepXX8X16:23:51X202014.344268
+context	168	type	previousPickup	ID	XTueXSepXX8X16:23:51X202014.347595
+context	previousPickup	type	designation	ID	XTueXSepXX8X16:23:51X202014.350409
+context	<x	type	l1x	ID	XTueXSepXX8X16:23:51X202014.353836
+context	l1x	type	designation	ID	XTueXSepXX8X16:23:51X202014.357097
+context	x>	type	l2x	ID	XTueXSepXX8X16:23:51X202014.360127
+context	l2x	type	designation	ID	XTueXSepXX8X16:23:51X202014.364664
+context	XTueXSepXX8X16:20:41X20204.720302	type	refid	ID	XTueXSepXX8X16:23:51X202014.369261
+context	refid	type	designation	ID	XTueXSepXX8X16:23:51X202014.374248
+context	xsd:element	type	tag	ID	XTueXSepXX8X16:23:51X202014.378249
+context	tag	type	designation	ID	XTueXSepXX8X16:23:51X202014.38247
+context	StrategicPlan	type	name	ID	XTueXSepXX8X16:23:51X202014.386036
+context	name	type	designation	ID	XTueXSepXX8X16:23:51X202014.389414
+context	uuid-63a6e34c-737d-4d24-955b-bbf72d8c1511	type	id	ID	XTueXSepXX8X16:23:51X202014.392532
+context	id	type	designation	ID	XTueXSepXX8X16:23:51X202014.398544
+context	1	type	minOccurs	ID	XTueXSepXX8X16:23:51X202014.402321
+context	minOccurs	type	designation	ID	XTueXSepXX8X16:23:51X202014.405773
+context	1	type	maxOccurs	ID	XTueXSepXX8X16:23:51X202014.408864
+context	maxOccurs	type	designation	ID	XTueXSepXX8X16:23:51X202014.412317
+context	[0, 2, 169]	type	provenance	ID	XTueXSepXX8X16:23:51X202014.415469
+context	provenance	type	designation	ID	XTueXSepXX8X16:23:51X202014.418385
+context	ID:uuid-63a6e34c-737d-4d24-955b-bbf72d8c1511	type	KRID	ID	XTueXSepXX8X16:23:51X202014.42149
+context	KRID	type	designation	ID	XTueXSepXX8X16:23:51X202014.425472
+xsd:complexType		Role	refid	refid	XTueXSepXX8X16:20:41X20204.752286
+
+xsd info
+((
+select v1,v2,v3,v4,v5,v6 from v20
+where v18 in (
+select v18 from v20
+where v1='name' and v2='Stakeholder'
+)
+and v3 in ('Role','has') XTueXSepXX8X16:20:40X20203.911392
+))
+-elementPosition	138	
+--has	xsd:documentation	
+---value	zblzAn individualzcmz organizzzationzcmz or generic group whose interests may be affected by or whose action may be required to achieve a goal or objectivezpz
+====note value was hoisted. but annotation record may have more.
+xsd:annotation		Role	refid	refid	XTueXSepXX8X16:20:40X20203.911392
+xsd:complexType		Role	refid	refid	XTueXSepXX8X16:20:40X20204.009739
+
+xsd annotation of 'Stakeholder'
+((
+select v1,v2,v3,v4,v5,v6 from v20
+where v18 in ( 'XTueXSepXX8X16:20:40X20203.911392')
+))
+pickup	139	refid	XTueXSepXX8X16:20:40X20203.911392		
+previousPickup	138	refid	XTueXSepXX8X16:20:40X20203.911392		
+l1x	<x	refid	XTueXSepXX8X16:20:40X20203.911392		
+l2x	n>	refid	XTueXSepXX8X16:20:40X20203.911392		
+refid	XTueXSepXX8X16:20:40X20203.911392	refid	XTueXSepXX8X16:20:40X20203.911392		
+tag	xsd:annotation	refid	XTueXSepXX8X16:20:40X20203.911392		
+tagNS	xsd	resolved	nameSpace	tag	xsd:annotation
+tagName	annotation	resolved	nameSpace	tag	xsd:annotation
+provenance	[0, 2, 138, 139]	refid	XTueXSepXX8X16:20:40X20203.911392		
+KRID	TAG:xsd:annotation	refid	XTueXSepXX8X16:20:40X20203.911392		
+context	139	type	pickup	ID	XTueXSepXX8X16:23:48X202011.981142
+context	pickup	type	designation	ID	XTueXSepXX8X16:23:48X202011.985723
+context	138	type	previousPickup	ID	XTueXSepXX8X16:23:48X202011.989115
+context	previousPickup	type	designation	ID	XTueXSepXX8X16:23:48X202011.992193
+context	<x	type	l1x	ID	XTueXSepXX8X16:23:48X202011.997524
+context	l1x	type	designation	ID	XTueXSepXX8X16:23:48X202012.000823
+context	n>	type	l2x	ID	XTueXSepXX8X16:23:48X202012.004178
+context	l2x	type	designation	ID	XTueXSepXX8X16:23:48X202012.007483
+context	XTueXSepXX8X16:20:40X20203.911392	type	refid	ID	XTueXSepXX8X16:23:48X202012.011072
+context	refid	type	designation	ID	XTueXSepXX8X16:23:48X202012.015186
+context	xsd:annotation	type	tag	ID	XTueXSepXX8X16:23:48X202012.018677
+context	tag	type	designation	ID	XTueXSepXX8X16:23:48X202012.023362
+context	[0, 2, 138, 139]	type	provenance	ID	XTueXSepXX8X16:23:48X202012.027515
+context	provenance	type	designation	ID	XTueXSepXX8X16:23:48X202012.031459
+context	TAG:xsd:annotation	type	KRID	ID	XTueXSepXX8X16:23:48X202012.035427
+context	KRID	type	designation	ID	XTueXSepXX8X16:23:48X202012.039081
+
+xsd:documentation	zblzAn individualzcmz organizzzationzcmz or generic group whose interests may be affected by or whose action may be required to achieve a goal or objectivezpz	Role	refid	refid	XTueXSepXX8X16:20:40X20203.933163
+
+((
+select v1,v2,v3,v4,v5,v6 from v20
+where v18 in ( 'XTueXSepXX8X16:20:40X20203.933163')
+/* documentation record */
+))
+pickup	140	refid	XTueXSepXX8X16:20:40X20203.933163		
+previousPickup	139	refid	XTueXSepXX8X16:20:40X20203.933163		
+l1x	<x	refid	XTueXSepXX8X16:20:40X20203.933163		
+l2x	x>	refid	XTueXSepXX8X16:20:40X20203.933163		
+refid	XTueXSepXX8X16:20:40X20203.933163	refid	XTueXSepXX8X16:20:40X20203.933163		
+tag	xsd:documentation	refid	XTueXSepXX8X16:20:40X20203.933163		
+tagNS	xsd	resolved	nameSpace	tag	xsd:documentation
+tagName	documentation	resolved	name	tag	xsd:documentation
+source	documentation	refid	XTueXSepXX8X16:20:40X20203.933163		
+attNS		resolved	nameSpace	attribute	source
+attName	source	resolved	name	attribute	source
+minOccurs	1	refid	XTueXSepXX8X16:20:40X20203.933163		
+maxOccurs	1	refid	XTueXSepXX8X16:20:40X20203.933163		
+
+value	zblzAn individualzcmz organizzzationzcmz or generic group whose interests may be affected by or whose action may be required to achieve a goal or objectivezpz	refid	XTueXSepXX8X16:20:40X20203.933163		
+
+provenance	[0, 2, 138, 139, 140]	refid	XTueXSepXX8X16:20:40X20203.933163		
+
+KRID	TAG:xsd:documentation	refid	XTueXSepXX8X16:20:40X20203.933163		
+context	140	type	pickup	ID	XTueXSepXX8X16:23:48X202012.045743
+context	pickup	type	designation	ID	XTueXSepXX8X16:23:48X202012.049197
+context	139	type	previousPickup	ID	XTueXSepXX8X16:23:48X202012.054491
+context	previousPickup	type	designation	ID	XTueXSepXX8X16:23:48X202012.057802
+context	<x	type	l1x	ID	XTueXSepXX8X16:23:48X202012.061076
+context	l1x	type	designation	ID	XTueXSepXX8X16:23:48X202012.064633
+context	x>	type	l2x	ID	XTueXSepXX8X16:23:48X202012.06758
+context	l2x	type	designation	ID	XTueXSepXX8X16:23:48X202012.07075
+context	XTueXSepXX8X16:20:40X20203.933163	type	refid	ID	XTueXSepXX8X16:23:48X202012.075021
+context	refid	type	designation	ID	XTueXSepXX8X16:23:48X202012.080659
+context	xsd:documentation	type	tag	ID	XTueXSepXX8X16:23:48X202012.083885
+context	tag	type	designation	ID	XTueXSepXX8X16:23:48X202012.087413
+context	documentation	type	source	ID	XTueXSepXX8X16:23:48X202012.09089
+context	source	type	designation	ID	XTueXSepXX8X16:23:48X202012.094236
+context	1	type	minOccurs	ID	XTueXSepXX8X16:23:48X202012.09737
+context	minOccurs	type	designation	ID	XTueXSepXX8X16:23:48X202012.100467
+context	1	type	maxOccurs	ID	XTueXSepXX8X16:23:48X202012.104785
+context	maxOccurs	type	designation	ID	XTueXSepXX8X16:23:48X202012.109155
+context	zblzAn individualzcmz organizzzationzcmz or generic group whose interests may be affected by or whose action may be required to achieve a goal or objectivezpz	type	value	ID	XTueXSepXX8X16:23:48X202012.113225
+context	value	type	designation	ID	XTueXSepXX8X16:23:48X202012.117439
+context	[0, 2, 138, 139, 140]	type	provenance	ID	XTueXSepXX8X16:23:48X202012.12482
+context	provenance	type	designation	ID	XTueXSepXX8X16:23:48X202012.130091
+context	TAG:xsd:documentation	type	KRID	ID	XTueXSepXX8X16:23:48X202012.135496
+context	KRID	type	designation	ID	XTueXSepXX8X16:23:48X202012.140011
+====
+i expected a xsd:lang attribute set to 'en'
+like xml:lang	EN
+

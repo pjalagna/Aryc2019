@@ -1,0 +1,42 @@
+file OntologyOperations.txt
+pja 9-15-2020
+p9==X2Onto 
+- creates the ontology dataset
+collect1==Ocontext 
+- extracts meta components 
+-- from the ontology into the ontology
+collect1 == OHoistInternal
+- hoists internal metaData 
+enhance == ORigging
+- rigging of XSD ontology metadata onto XML ontology
+
+(pickup) == Kimball index
+(pickup,previousPickup) == Kimball boundary indexes
+previousPickup = pickup + 1;
+refid == session record id
+KRID == best identity of element.
+provenance chain == the historical relationships of elements (father followed by son).
+masterPickup == the father in a provenance chain determined by process other than pure indexing.
+
+fact table (v20) format
+predicate,name,predicate,name,predicate,name,index,type
+
+record types
+type='ATN'
+v1=ATNType
+v2=Name[ATNType][i]
+v3='refid'
+v4=refid[k]
+
+
+
+
+Dominion
+== areas of interest of the ontology 
+- extraction
+Domain
+== distinct values of one area of interest
+- extraction
+Relationship 
+== the pairing of areas of interest
+- extraction

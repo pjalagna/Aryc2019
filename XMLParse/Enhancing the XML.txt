@@ -1,0 +1,30 @@
+Enhancing the XML:
+XML relationships to its XSD and
+property inheritance.
+Paul Alagna 9/1/2020
+
+given:
+XSD has M:m such that 
+m:[null + ({mk} + mk + [mk] + (mki-xor-mkj) );...;end]
+definition:  {mk} the minimum occurrence is 0
+definition:  [mk] the maximum occurrence is more than 1
+definition:  (mki-xor-mkj) the xor set. (mki&-mkj + -mki&mkj)
+
+and given:
+XML has N:n such that n;nk...;end
+-- a special property exists called "first" that references the first nk of the series in the XML. (first -> n)
+
+THEN
+if n;nk is in m:mk for all nk then the XML follows the XSD.
+
+if mk has (non positional, non operational)* properties  then nk inherits those properties and all of the non positional and non operational properties in that chain of mk.
+properties like: id,format,description and their id,format, or description.
+-- in the case of repeatable mk (IE [mk]) each nk of the repetition of mk inherits the sigma index (EG sequence count) property. ie nk[1],nk[2]...
+
+definition: non positional == NOT properties that were created for reference within the document (XSD in this case)
+like: refid, pickup, previousPickup,leadingPosition.
+
+definition: non operational == NOT properties that were created to define the flow of operations in the XSD.
+like the operational predicates of:
+ "tag", "namespace", "attribute"(name or value), or whether the flow was produced by "ref" (reference calling) or by "type" (type calling) or, as in the case of complex sequences, by fall-through (IE next in line). 
+-- these define the m:mk but once reduced to the series are not thereafter considered as transferable properties.

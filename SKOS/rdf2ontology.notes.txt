@@ -1,0 +1,3 @@
+goal to convert SKOS vocabulary into ontology
+try p9,phase2,collect1
+

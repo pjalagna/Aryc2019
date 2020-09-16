@@ -4,6 +4,8 @@ usage main(filename{,trace}) renders to ontology fileName.onto
 trace == "on" will print progress
 """
 """
+pja 9/8/2020 add namespace to all roles (tag,attributeName,refValue,typeValue)
+pja 9/6/2020 fixed genx
 pja 7/8/2020 recorded (relates) <item>name, <item>nds  
 --- to full item at refid of item
 --- also tagName contains / if endname
@@ -71,10 +73,11 @@ def main(fn,trace=''):
     usage main(fileName)
     renders to ontology fileName.onto
     """
+    global nds,pkg
     nds = {}
     pkg = {}
     nds = getnds()
-    pkg = getpkg
+    pkg = getpkg()	
     nds['trace'] = trace
     # umbrella ctl
     ctl = 1
@@ -175,12 +178,13 @@ def fresh(fn,trace=''):
     pkg['ontology'].db.SQX('delete from GUID;')
 #
 def init(fn,trace=''):
+    global pkg,nds
     print('initilizing')
     nds['trace'] = trace
     nds['file'] = fn
     import useLib
     import gennV
-    pkg['genX'] = gennV.gennX
+    pkg['genX'] = gennV
     import fioiClass
     pkg['fioi'] = fioiClass.fio(fn)
     import useOnto
@@ -248,7 +252,7 @@ def proc4():
         if (tt=='>'): 
             nds['r0'] = ans + tt # <-->
             
-            nds['refid'] = pkg['genX']()
+            nds['refid'] = pkg['genX'].gennX()
             pc4 = -1
             ctl = 8
         else:
@@ -311,7 +315,7 @@ def proc16(): # r0,r1 set collect l1x,l2x from r0 ==> 32
     ==> 32
     """
     global pkg,nds
-    nds['refid'] = pkg['genX']()
+    nds['refid'] = pkg['genX'].gennX()
     # set pu, prevpu
     nds['prevPu'] =nds['pu']
     nds['pu'] = nds['pu'] +1
@@ -348,7 +352,7 @@ def  proc32():
     """proc32: 
     clear attr
     Fan on l1x
-      special <!x not <!-
+      special <!x not <!--
       <? ==> 33  
       <! ==> 34
       </ ==>35
@@ -395,7 +399,7 @@ def  proc40():
     vtag = nds['r0'][1:-1]
     j = vtag.find(":")
     if (j == -1):
-        tagNS = ''
+        tagNS = 'xsd:'
         tagName = vtag
     else:
         tagNS = vtag[0:j]
@@ -465,7 +469,7 @@ def  proc50():
         #endif
         j = nds['tag'].find(":")
         if (j==-1):
-            tagNS = ''
+            tagNS = 'xsd:'
             tagName = nds['tag']
         else:
             tagNS = nds['tag'][0:j]
@@ -486,7 +490,7 @@ def  proc50():
         logg('470 tag')
         j = nds['tag'].find(":")
         if (j==-1):
-           tagNS = ''
+           tagNS = 'xsd:'
            tagName = nds['tag']
         else:
            tagNS = nds['tag'][0:j]
@@ -579,19 +583,14 @@ complexType ==> 58
 sequence ==> 60  
 choice ==> 62
   otherwise ==>53 """  
-    jj = nds['tag'].find(":")
-    if (jj == -1):
-        tag = nds['tag'].upper()
-    else:
-        tag = nds['tag'][jj+1:].upper()
-    #endif
-    if (tag == 'ELEMENT'):
+    tag = nds['tag'].upper()
+    if (tag == 'XSD:ELEMENT'):
         ctl = 53
-    elif (tag == 'COMPLEXTYPE'):
+    elif (tag == 'XSD:COMPLEXTYPE'):
         ctl = 58
-    elif (tag == 'SEQUENCE'):
+    elif (tag == 'XSD:SEQUENCE'):
         ctl = 60
-    elif (tag == 'CHOICE'):
+    elif (tag == 'XSD:CHOICE'):
         ctl = 62
     else:
         ctl = 53
@@ -636,7 +635,7 @@ def proc54():
         otherwise ==> 56
          """  
     etypeList = """
-        "string"
+"string"
 "boolean"
 "float"
 "int"

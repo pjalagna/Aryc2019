@@ -1,0 +1,15 @@
+XMLParseOperations.txt
+-- create ontology
+--- p9.main(XSDFilename) => XSDFilename.onto
+XSDFilename.onto is a SQLite database
+
+-- for XSD add phase2
+--- phase2.main(XSDFilename) +> XSDFilename.onto
+
+-- for XSD/XML add connections
+--- connect1(XSDFilename) +> XSDFilename.onto
+
+
+-- add XSDAttributes to XML
+--- enhance.main(XSDOntoFileName,XMLOntoFileName) +> XMLOntoFileName
+

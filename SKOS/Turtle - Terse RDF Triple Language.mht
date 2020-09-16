@@ -1,0 +1,1886 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://www.w3.org/TeamSubmission/turtle/
+Subject: Turtle - Terse RDF Triple Language
+Date: Sun, 6 Sep 2020 01:20:32 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----"
+
+
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: text/html
+Content-ID: <frame-218667638A6B923484A75189F48617B2@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.w3.org/TeamSubmission/turtle/
+
+<!--?xml version=3D"1.0" encoding=3D"utf-8"?--><!DOCTYPE html PUBLIC "-//W3=
+C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict=
+.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" xml:lang=3D"=
+en"><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-85c1ab=
+71-8224-4e8b-ac7b-cc069f1db266@mhtml.blink" />
+ =20
+  <title>Turtle - Terse RDF Triple Language</title>
+
+    <link rel=3D"stylesheet" type=3D"text/css" href=3D"https://www.w3.org/T=
+eamSubmission/turtle/style.css">
+    <link rel=3D"stylesheet" type=3D"text/css" href=3D"http://www.w3.org/St=
+yleSheets/TR/W3C-Team-SUBM">
+</head>
+<body>
+
+<div class=3D"head">
+  <p><a href=3D"http://www.w3.org/"><img height=3D"48" width=3D"72" alt=3D"=
+W3C" src=3D"http://www.w3.org/Icons/w3c_home"></a>=20
+     <a href=3D"http://www.w3.org/TeamSubmission/"><img height=3D"48" width=
+=3D"211" alt=3D"W3C Team Submission" src=3D"http://www.w3.org/Icons/team_su=
+bm"></a></p>
+
+<h1 id=3D"main">Turtle - Terse RDF Triple Language</h1>
+<h2>W3C Team Submission 28 March 2011</h2>
+
+<dl>
+<dt>This version:</dt>
+<dd><a href=3D"http://www.w3.org/TeamSubmission/2011/SUBM-turtle-20110328/"=
+>http://www.w3.org/TeamSubmission/2011/SUBM-turtle-20110328/</a></dd>
+<dt>Latest version:</dt>
+<dd><a href=3D"http://www.w3.org/TeamSubmission/turtle/">http://www.w3.org/=
+TeamSubmission/turtle/</a></dd>
+<dt>Previous version:</dt>
+<dd><a href=3D"http://www.w3.org/TeamSubmission/2008/SUBM-turtle-20080114/"=
+>http://www.w3.org/TeamSubmission/2008/SUBM-turtle-20080114/</a></dd>
+<dt>Authors:</dt>
+<dd><a href=3D"http://purl.org/net/dajobe/">David Beckett</a><br><a href=3D=
+"http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a> W3C</dd>
+</dl>
+
+<p class=3D"copyright"><a href=3D"http://www.w3.org/Consortium/Legal/ipr-no=
+tice#Copyright">Copyright</a> =C2=A9 2008 <a href=3D"http://www.w3.org/"><a=
+cronym title=3D"World Wide Web Consortium">W3C</acronym></a><sup>=C2=AE</su=
+p> (<a href=3D"http://www.csail.mit.edu/"><acronym title=3D"Massachusetts I=
+nstitute of Technology">MIT</acronym></a>, <a href=3D"http://www.ercim.org/=
+"><acronym title=3D"European Research Consortium for Informatics and Mathem=
+atics">ERCIM</acronym></a>, <a href=3D"http://www.keio.ac.jp/">Keio</a>), A=
+ll Rights Reserved. W3C <a href=3D"http://www.w3.org/Consortium/Legal/ipr-n=
+otice#Legal_Disclaimer">liability</a>, <a href=3D"http://www.w3.org/Consort=
+ium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href=3D"http://ww=
+w.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply=
+.</p>
+</div>
+
+
+<hr title=3D"Separator for header">
+<div>
+  <h2 class=3D"notoc" id=3D"abstract">Abstract</h2>
+
+  <p>The Resource Description Framework
+  (<abbr title=3D"Resource Description Framework">RDF</abbr>) is a=20
+  general-purpose language for representing information in the Web.</p>
+
+  <p>This document defines a textual syntax for RDF called Turtle
+  that allows RDF graphs to be completely written in a compact and
+  natural text form, with abbreviations for common usage patterns and
+  datatypes.  Turtle provides levels of  compatibility with the existing
+  <a href=3D"http://www.w3.org/TR/rdf-testcases/#ntriples">N-Triples</a>
+  and
+  <a href=3D"http://www.w3.org/DesignIssues/Notation3">Notation 3</a>=20
+  formats as well as the triple pattern syntax of the
+  <a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112/">SPARQ=
+L</a>
+  W3C Proposed Recommendation.
+  </p>
+
+      <p>This document specifies a language that is in common usage under t=
+he name "Turtle". It is intended to be compatible with, and a subset of, <a=
+ href=3D"https://www.w3.org/TeamSubmission/turtle/">Notation 3</a>.</p>
+
+</div>
+
+
+<div>
+<h2 class=3D"status" id=3D"status">Status of this Document</h2>
+
+<p><em>This section describes the status of this document at the time of it=
+s publication. Other documents may supersede this document. A list of curre=
+nt W3C publications can be found in the <a href=3D"http://www.w3.org/TR/">W=
+3C technical reports index</a>  at http://www.w3.org/TR/.</em></p>
+
+      <p>This 14 January 2008 <a href=3D"http://www.w3.org/TeamSubmission/"=
+>W3C Team Submission</a> documents the currently deployed <em>Turtle</em> l=
+anguage, an alternative syntax to RDF/XML.</p>
+
+<p>By publishing this document, David Beckett and Tim Berners-Lee have made=
+ a formal submission to W3C for discussion. Publication of this document by=
+ W3C indicates no endorsement of its content by W3C, nor that W3C has, is, =
+or will be allocating any resources to the issues addressed by it. This doc=
+ument is not the product of a chartered W3C group, but is published as pote=
+ntial input to the W3C Process. Please consult the <a href=3D"https://www.w=
+3.org/view=3DMedium/www.w3.org/TeamSubmission">complete list of acknowledge=
+d W3C Team Submissions</a>.</p>
+
+</div>
+
+<hr>
+
+<div class=3D"toc">
+  <h2 id=3D"contents">Table of Contents</h2>
+
+  <ul class=3D"toc">
+    <li class=3D"tocline1">1. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-intro">Introduction</a></li>
+    <li class=3D"tocline1">2. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-tutorial">Turtle Syntax</a></li>
+    <li class=3D"tocline1">3. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-grammar">Turtle Grammar</a></li>
+    <li class=3D"tocline2">3.1 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-grammar-ws">White Space</a></li>
+    <li class=3D"tocline2">3.2 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-grammar-comments">Comments</a></li>
+    <li class=3D"tocline2">3.3 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-strings">String Escapes</a></li>
+    <li class=3D"tocline2">3.4 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-uris">URI References</a></li>
+    <li class=3D"tocline2">3.5 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-collections">Collections</a></li>
+    <li class=3D"tocline2">3.6 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-grammar-grammar">Grammar</a></li>
+    <li class=3D"tocline1">4. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-examples">Examples</a></li>
+    <li class=3D"tocline1">5. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-identifiers">Identifiers for the Turtle Language</a></li>
+    <li class=3D"tocline1">6. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-conformance">Conformance</a></li>
+    <li class=3D"tocline1">7. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-mime">Media Type and Content Encoding</a></li>
+    <li class=3D"tocline1">8. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-diff-ntriples">Turtle compared to N-Triples</a></li>
+    <li class=3D"tocline1">9. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-diff-n3">Turtle compared to Notation3</a></li>
+    <li class=3D"tocline1">10. <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-diff-sparql">Turtle compared to SPARQL</a></li>
+    <li class=3D"tocline1">A. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-refs">References</a></li>
+    <li class=3D"tocline2">A.1 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-refs-normative">Normative</a></li>
+    <li class=3D"tocline2">A.2 <a href=3D"https://www.w3.org/TeamSubmission=
+/turtle/#sec-refs-informative">Informative</a></li>
+    <li class=3D"tocline1">B. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-mediaReg">Internet Media Type, File Extension and Macintosh Fil=
+e Type</a></li>
+    <li class=3D"tocline1">C. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-acks">Acknowledgements</a></li>
+    <li class=3D"tocline1">D. <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#sec-changelog">Changes</a></li>
+  </ul>
+
+</div>
+
+<hr>
+
+<h2 id=3D"sec-intro">1. Introduction</h2>
+
+
+<p>This document defines Turtle, the Terse RDF Triple Language,
+a concrete syntax for RDF as defined in the
+<a href=3D"http://www.w3.org/TR/rdf-concepts/">RDF Concepts and Abstract Sy=
+ntax</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-rdf-concepts">[RD=
+F-CONCEPTS]</a>) W3C Recommendation.
+Turtle is an extension of=20
+<a href=3D"http://www.w3.org/TR/rdf-testcases/#ntriples">N-Triples</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-ntriples">[N-TRIP=
+LES]</a>)
+carefully taking the most useful and appropriate things added from
+<a href=3D"http://www.w3.org/DesignIssues/Notation3">Notation 3</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-n3">[NOTATION3]</=
+a>)
+while keeping it in the RDF model.</p>
+
+<p>The recommended XML syntax for RDF,
+<a href=3D"http://www.w3.org/TR/2004/REC-rdf-syntax-grammar-20040210/">RDF/=
+XML</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-rdfxml">[RDF-XML]=
+</a>)
+has certain restrictions imposed by XML and the use of XML Namespaces
+that prevent it encoding all RDF graphs (some predicate URIs are
+forbidden and XML 1.0 forbids encoding some Unicode codepoints).
+These restrictions do not apply to Turtle.</p>
+
+    <p>Turtle is intended to be compatible with, and a subset of, <a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/">Notation 3</a> (see=20
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-diff-n3">Turtle co=
+mpared to Notation 3</a>), and is generally usable in systems that support =
+N3.</p>
+
+<p>All RDF written in Turtle should be usable inside the query
+language part of the
+<a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112/">SPARQL =
+Protocol And RDF Query Language</a>
+(<acronym title=3D"SPARQL Protocol And RDF Query Language">SPARQL</acronym>=
+)
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-sparqlq">[SPARQLQ]=
+</a>
+which uses a Turtle/N3 style syntax for the Triple patterns and
+for RDF triples in the <code>CONSTRUCT</code> clause.  This allows
+using RDF written in Turtle to allow forming "queries by example",
+using the data to make an initial query which can then be edited to
+use variables where bindings are wanted.
+</p>
+
+
+<h2 id=3D"sec-tutorial">2. Turtle Syntax (Informative)</h2>
+
+<p>This section is informative.  In case of disagreement, the
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-grammar">Turtle Gr=
+ammar</a> section is definitive.
+</p>
+
+<p>A Turtle document allows writing down an RDF graph in a compact
+textual form.  It consists of a sequence of directives, triple-generating
+statements or blank lines.  Comments may be given after a <code>#</code>
+and continue to the end of the line.</p>
+
+<p>Simple triples are a sequence of (subject, predicate, object)
+terms, separated by whitespace and terminated by '.' after each
+triple.  This corresponds to
+<a href=3D"http://www.w3.org/TR/rdf-testcases/#ntriples">N-Triples</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-ntriples">[N-TRIP=
+LES]</a>).
+</p>
+
+<p>There are three types of <em>RDF Term</em>:
+<a href=3D"http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-URI-ref=
+erence">RDF URI References</a> (URIs for short),
+<a href=3D"http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-literal=
+">literals</a> and
+<a href=3D"http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#dfn-blank-n=
+ode">blank nodes</a>.</p>
+
+<h3 id=3D"terms">2.1. RDF Terms</h3>
+
+<p>URIs are written enclosed in '&lt;' and '&gt;' and may be
+absolute RDF URI References or relative to the current base URI
+(described below).
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+&lt;http://example.org/path/&gt;
+&lt;http://example.org/path/#fragment&gt;
+&lt;/path&gt;
+&lt;#fragment&gt;
+&lt;&gt;
+</pre>
+
+<p>URIs may also be abbreviated by using Turtle's <code>@prefix</code>
+directive that allows declaring a short prefix name for a long prefix
+of repeated URIs. This is useful for many RDF vocabularies that are
+all defined in nearby namespace URIs, possibly using XML's namespace
+mechanism that works in a similar fashion.</p>
+
+<p>Once a prefix such as <code>@prefix foo:
+&lt;http://example.org/ns#&gt;</code> is defined, any mention of a
+URI later in the document may use a <em>qualified name</em> that
+starts <code>foo:</code> to stand for the longer URI.  So for
+example, the qualified name <code>foo:bar</code> is a shorthand for
+the URI <code>http://example.org/ns#bar</code>.</p>
+
+<pre class=3D"example"># this is a complete turtle document
+@prefix foo: &lt;http://example.org/ns#&gt; .
+@prefix : &lt;http://other.example.org/ns#&gt; .
+foo:bar foo: : .
+:bar : foo:bar .
+</pre>
+
+<p>Literals are written either using double-quotes when they do not
+contain linebreaks like <code>"simple literal"</code> or
+<code>"""long literal"""</code> when they may contain linebreaks.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+"a string"
+"""a string"""
+"""a string
+with newlines
+"""
+</pre>
+
+<p>Literals may be given either a language suffix or a datatype URI
+but not both.  Languages are indicated by appending the simple
+literal with <code>@</code> and the language tag.  Datatype URIs
+similarly append <code>^^</code> followed by any legal URI form (full
+or qualified) as described above to give the datatype URI.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+"chat"
+"chat"@en
+"chat"@fr
+"foo"^^&lt;http://example.org/my/datatype&gt;
+"""10"""^^xsd:decimal
+</pre>
+
+<p>Blank nodes are written as <code>_:</code><em>nodeID</em>
+to provide a blank node either from the given <a href=3D"https://www.w3.org=
+/TeamSubmission/turtle/#nodeID">nodeID</a>.
+A generated blank node may also be made with <code>[]</code>
+which is useful to provide the subject of RDF triples for
+each pair from the <a href=3D"https://www.w3.org/TeamSubmission/turtle/#pre=
+dicateObjectList">predicateObjectList</a>
+or the root of the <a href=3D"https://www.w3.org/TeamSubmission/turtle/#col=
+lection">collection</a>.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+_:me
+_:a1234
+</pre>
+
+
+<p>Literals and URIs may also contain escapes to encode surrounding
+syntax, non-printable characters and to encode Unicode characters by
+codepoint number (although they may also be given directly, encoded
+as UTF-8).  The character escapes are:</p>
+<ul>
+<li><code>\t</code> (U+0009, tab)</li>
+<li><code>\n</code> (U+000A, linefeed)</li>
+<li><code>\r</code> (U+000D, carriage return)</li>
+<li><code>\"</code> (U+0022, double quote - only allowed inside <a href=3D"=
+https://www.w3.org/TeamSubmission/turtle/#quotedString">strings</a>)</li>
+<li><code>\&gt;</code> (U+003E, greater than - only allowed inside <a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">URIs</a>)</li>
+<li><code>\\</code> (U+005C, backslash)</li>
+<li>
+<code>\u</code><em>HHHH</em> or
+<code>\U</code><em>HHHHHHHH</em>
+for writing Unicode characters by hexadecimal codepoint where
+<em>H</em> is a single hexadecimal digit.
+</li>
+</ul>
+<p>See the <a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-strings=
+">String escapes</a> section for full details.</p>
+
+
+<h3 id=3D"uris">2.2. Abbreviating URIs</h3>
+
+<p>The current base URI may be altered in a Turtle document using the
+<code>@base</code> directive.  It allows further abbreviation of
+URIs but is usually for simplifying the URIs in the data, where
+the prefix directives are for vocabularies that describe the data.</p>
+
+<p>Whenever this directive appears, it defines the base URI for which
+all relative URIs are resolved against.  That includes URIs,
+qualified names, prefix directives as well as later base directives.
+</p>
+
+<pre class=3D"example"># this is a complete turtle document
+# In-scope base URI is the document URI at this point
+&lt;a1&gt; &lt;b1&gt; &lt;c1&gt; .
+@base &lt;http://example.org/ns/&gt; .
+# In-scope base URI is http://example.org/ns/ at this point
+&lt;a2&gt; &lt;http://example.org/ns/b2&gt; &lt;c2&gt; .
+@base &lt;foo/&gt; .
+# In-scope base URI is http://example.org/ns/foo/ at this point
+&lt;a3&gt; &lt;b3&gt; &lt;c3&gt; .
+@prefix : &lt;bar#&gt; .
+:a4 :b4 :c4 .
+@prefix : &lt;http://example.org/ns2#&gt; .
+:a5 :b5 :c5 .
+</pre>
+
+
+<p>The token <code>a</code> is equivalent to the URI
+<code>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</code>
+</p>
+
+<pre class=3D"example"># this is a complete turtle document
+@prefix doc: &lt;http://example.org/#ns&gt; .
+&lt;http://example.org/path&gt; a doc:Document .
+</pre>
+
+
+<h3 id=3D"groups">2.3. Abbreviating groups of triples</h3>
+
+<p>The <code>,</code> symbol may be used to repeat the subject and
+predicate of triples that only differ in the object RDF term.</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+:a :b :c ,
+      :d .
+# the last triple is :a :b :d .
+</pre>
+
+<p>The <code>;</code> symbol may be used to repeat the subject of
+of triples that vary only in predicate and object RDF terms.</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+:a :b :c ;
+   :d :e .
+# the last triple is :a :d :e .
+</pre>
+
+
+<h3 id=3D"abbrev">2.4. Abbreviating common datatypes</h3>
+
+<p>Decimal integers may be written directly and correspond to
+the XML Schema Datatype
+<a href=3D"http://www.w3.org/TR/xmlschema-2/#integer">xsd:integer</a>.
+in both syntax and datatype URI.</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+-5
+0
+1
+10
++1
+# some long form examples
+"-5"^^xsd:integer
+"10"^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt;
+</pre>
+
+<p>Decimal floating point double/fixed precision numbers may be written
+directly and correspond to the XML Schema Datatype
+<a href=3D"http://www.w3.org/TR/xmlschema-2/#integer">xsd:double</a>
+in both syntax and datatype URI.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+1.3e2
+10e0
+-12.5e10
+# some long form examples
+"1.3e2"^^xsd:double
+"-12.5e10"^^&lt;http://www.w3.org/2001/XMLSchema#double&gt;
+</pre>
+
+<p>Decimal floating point arbitrary precision numbers may be written
+directly and correspond to the XML Schema Datatype
+<a href=3D"http://www.w3.org/TR/xmlschema-2/#integer">xsd:decimal</a>.
+in both syntax and datatype URI.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+0.0
+1.0
+1.234567890123456789
+-5.0
+# some long form examples
+"0.0"^^xsd:decimal
+"-5.0"^^&lt;http://www.w3.org/2001/XMLSchema#decimal&gt;
+</pre>
+
+<p>Boolean may be written directly as <code>true</code> or
+<code>false</code> and correspond to the
+the XML Schema Datatype
+<a href=3D"http://www.w3.org/TR/xmlschema-2/#boolean">xsd:boolean</a>
+in both syntax and datatype URI.
+</p>
+
+<pre class=3D"example"># this is not a complete turtle document
+true
+false
+# same in long form
+"true"^^xsd:boolean
+"false"^^&lt;http://www.w3.org/2001/XMLSchema#boolean&gt;
+</pre>
+
+<h3 id=3D"collections">2.5. Abbreviating RDF Collections</h3>
+
+<p>An RDF Collection may be abbreviated using a sequence of
+RDF Terms enclosed in <code>( )</code> brackets.  Whitespace may
+be used to separate them, as usual.  This format provides a
+blank node at the start of RDF Collection which may be used
+in further abbreviations.
+</p>
+
+<pre class=3D"example"># this is a complete turtle document
+@prefix : &lt;http://example.org/foo&gt; .
+# the value of this triple is the RDF collection blank node
+:subject :predicate ( :a : b : c ) .
+
+# an empty collection value - rdf:nil
+:subject :predicate2 () .
+</pre>
+
+<p>See section <a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-col=
+lections">Collections</a> for
+the details on the long form of the generated triples.
+</p>
+
+<h2 id=3D"sec-grammar">3. Turtle Grammar</h2>
+
+<p>A Turtle document is a
+Unicode<cite><a href=3D"https://www.w3.org/TeamSubmission/turtle/#Unicode">=
+[UNICODE]</a></cite>
+character string encoded in UTF-8.
+Unicode codepoints only in the range U+0 to U+10FFFF inclusive are
+allowed.
+</p>
+
+
+<h3 id=3D"sec-grammar-ws">3.1 White Space</h3>
+
+<p>White space (production <a href=3D"https://www.w3.org/TeamSubmission/tur=
+tle/#ws">ws</a>) is used to separate
+two tokens which would otherwise be (mis-)recognized as one token.
+</p>
+
+<p>White space is significant in tokens
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">relativeU=
+RI</a>, <a href=3D"https://www.w3.org/TeamSubmission/turtle/#string">string=
+</a>
+and <a href=3D"https://www.w3.org/TeamSubmission/turtle/#longString">longSt=
+ring</a>.
+</p>
+
+
+<h3 id=3D"sec-grammar-comments">3.2 Comments</h3>
+
+<p>Comments in Turtle take the form of '#', outside an
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">relativeU=
+RI</a> or strings,
+and continue to the end of line (marked by characters U+000D or U+000A)
+or end of file if there is no end of line after the comment
+marker.  Comments are treated as white space and defined by token
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#comment">comment</a>.
+</p>
+
+<h3 id=3D"sec-strings">3.3. String Escapes</h3>
+
+<p>Turtle strings and URIs can use <code>\</code>-escape sequences to
+represent Unicode code points.</p>
+
+
+<p>The following table describes all the escapes
+allowed inside a <a href=3D"https://www.w3.org/TeamSubmission/turtle/#strin=
+g">string</a>,=20
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#longString">longString=
+</a>
+or <a href=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">relati=
+veURI</a>:</p>
+
+  <table border=3D"1" summary=3D"Turtle string escapes">
+    <tbody>
+      <tr>
+        <th>Escape</th>
+
+        <th>Unicode code point</th>
+
+      </tr>
+
+      <tr>
+        <td>'\u' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">=
+hex</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <=
+a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D=
+"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a></td>
+        <td>A Unicode codepoint in the range U+0 to U+FFFF inclusive
+	corresponding to the encoded hexadecimal value.</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\U' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">=
+hex</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <=
+a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D=
+"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://=
+www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://www.w3.or=
+g/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://www.w3.org/TeamSub=
+mission/turtle/#hex">hex</a> <a href=3D"https://www.w3.org/TeamSubmission/t=
+urtle/#hex">hex</a></td>
+        <td>A Unicode codepoint in the range U+10000 to U+10FFFF inclusive
+	corresponding to the encoded hexadecimal value.</td>
+      </tr>
+
+      <tr>
+        <td>'\t'</td>
+        <td>U+0009</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\n'</td>
+        <td>U+000A</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\r'</td>
+        <td>U+000D</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\"'<br>
+ (inside <a href=3D"https://www.w3.org/TeamSubmission/turtle/#string">strin=
+g</a> and
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#longString">longString=
+</a>)</td>
+      <td>U+0022</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\&gt;'<br>
+ (inside <a href=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">=
+relativeURI</a> only)</td>
+        <td>U+003E</td>
+      </tr>
+		      		       		       		      =20
+      <tr>
+        <td>'\\'</td>
+        <td>U+005C</td>
+      </tr>
+		      		       		       		      =20
+    </tbody>
+  </table>
+
+
+<h3 id=3D"sec-uris">3.4. URI References</h3>
+
+<p>URIs are resolved relative to the <em>In-scope base URI</em>.
+</p>
+
+<p>The starting <em>In-Scope Base URI</em> is defined using
+the Base URI mechanism defined in the URI RFC - dependent
+on the protocol or other context outside the document.
+During turtle parsing, the in-scope base URI at any point in
+the document is determined by the=20
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#base"><code>@base</cod=
+e></a> directive
+which sets a new base URI relative to the current in-scope base URI.
+This directive may be repeated.
+</p>
+
+<p>Example (<a href=3D"https://www.w3.org/TeamSubmission/turtle/tests/test-=
+30.ttl">test-30.ttl</a>) with document base URI=20
+http://www.w3.org/2001/sw/DataAccess/df1/tests/</p>
+<pre class=3D"example"># In-scope base URI is http://www.w3.org/2001/sw/Dat=
+aAccess/df1/tests/ at this point
+&lt;test-00.ttl&gt; &lt;test-01.ttl&gt; &lt;test-02.ttl&gt; .
+@base &lt;http://example.org/ns/&gt; .
+# In-scope base URI is http://example.org/ns/ at this point
+&lt;a2&gt; &lt;http://example.org/ns/b2&gt; &lt;c2&gt; .
+@base &lt;foo/&gt; .
+# In-scope base URI is http://example.org/ns/foo/ at this point
+&lt;a3&gt; &lt;b3&gt; &lt;c3&gt; .
+@prefix : &lt;bar#&gt; .
+:a4 :b4 :c4 .
+@prefix : &lt;http://example.org/ns2#&gt; .
+:a5 :b5 :c5 .
+</pre>
+<p>encodes the following N-Triples
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/tests/test-30.out">tes=
+t-30.out</a>):
+</p>
+<pre class=3D"example">&lt;http://www.w3.org/2001/sw/DataAccess/df1/tests/t=
+est-00.ttl&gt; &lt;http://www.w3.org/2001/sw/DataAccess/df1/tests/test-01.t=
+tl&gt; &lt;http://www.w3.org/2001/sw/DataAccess/df1/tests/test-02.ttl&gt; .
+&lt;http://example.org/ns/a2&gt; &lt;http://example.org/ns/b2&gt; &lt;http:=
+//example.org/ns/c2&gt; .
+&lt;http://example.org/ns/foo/a3&gt; &lt;http://example.org/ns/foo/b3&gt; &=
+lt;http://example.org/ns/foo/c3&gt; .
+&lt;http://example.org/ns/foo/bar#a4&gt; &lt;http://example.org/ns/foo/bar#=
+b4&gt; &lt;http://example.org/ns/foo/bar#c4&gt; .
+&lt;http://example.org/ns2#a5&gt; &lt;http://example.org/ns2#b5&gt; &lt;htt=
+p://example.org/ns2#c5&gt; .
+</pre>
+
+
+<h3 id=3D"sec-collections">3.5. Collections</h3>
+
+<p>The triples that are generated by the <a href=3D"https://www.w3.org/Team=
+Submission/turtle/#collection">collection</a>
+term is given by these expansions to the longer triples form:</p>
+
+<p>( <em>object1</em> <em>object2</em> ) is short for:<br>
+[ <code>rdf:first</code> <em>object1</em>;
+<code>rdf:rest</code> [ <code>rdf:first</code> <em>object2</em>;
+<code>rdf:rest</code> <code>rdf:nil</code> ] ]</p>
+
+<p><code>( )</code> is short for the resource:<br>
+<code>rdf:nil</code><br>
+</p>
+
+
+
+<h3 id=3D"sec-grammar-grammar">3.6 Grammar</h3>
+
+<p>The EBNF used here is defined in XML 1.0 (Third Edition)
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-notation">[NOTATIO=
+N]</a>
+</p>
+
+<table class=3D"grammar" summary=3D"Turtle - Terse RDF Triple Language EBNF=
+">
+   <caption>Turtle - Terse RDF Triple Language EBNF</caption>
+   <tbody>
+<tr align=3D"left">
+          <td class=3D"cell">[1]</td><td class=3D"topcell"><a name=3D"ntrip=
+lesPlusDoc"></a><a name=3D"turtleDoc">turtleDoc</a></td> <td class=3D"topce=
+ll">::=3D</td> <td class=3D"topcell"><a href=3D"https://www.w3.org/TeamSubm=
+ission/turtle/#statement">statement</a>*</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[2]</td><td class=3D"cell"><a name=3D"statemen=
+t">statement</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#directive">directive</a>  =
+'.'  | <a href=3D"https://www.w3.org/TeamSubmission/turtle/#triples">triple=
+s</a>  '.'  | <a href=3D"https://www.w3.org/TeamSubmission/turtle/#ws">ws</=
+a>+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[3]</td><td class=3D"cell"><a name=3D"directiv=
+e">directive</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#prefixID">prefixID</a> | <=
+a href=3D"https://www.w3.org/TeamSubmission/turtle/#base">base</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[4]</td><td class=3D"cell"><a name=3D"prefixID=
+">prefixID</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'@pref=
+ix' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#ws">ws</a>+ <a hre=
+f=3D"https://www.w3.org/TeamSubmission/turtle/#prefixName">prefixName</a>? =
+':' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#uriref">uriref</a>=
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[5]</td><td class=3D"cell"><a name=3D"base">ba=
+se</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'@base' <a hre=
+f=3D"https://www.w3.org/TeamSubmission/turtle/#ws">ws</a>+ <a href=3D"https=
+://www.w3.org/TeamSubmission/turtle/#uriref">uriref</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[6]</td><td class=3D"cell"><a name=3D"triples"=
+ id=3D"triples">triples</a></td> <td class=3D"cell">::=3D</td> <td class=3D=
+"cell"><a href=3D"https://www.w3.org/TeamSubmission/turtle/#subject">subjec=
+t</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#predicateObjectL=
+ist">predicateObjectList</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[7]</td><td class=3D"cell"><a name=3D"predicat=
+eObjectList">predicateObjectList</a></td> <td class=3D"cell">::=3D</td> <td=
+ class=3D"cell"><a href=3D"https://www.w3.org/TeamSubmission/turtle/#verb">=
+verb</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#objectList">o=
+bjectList</a> (  ';'  <a href=3D"https://www.w3.org/TeamSubmission/turtle/#=
+verb">verb</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#objectL=
+ist">objectList</a> )* ( ';')?</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[8]</td><td class=3D"cell"><a name=3D"objectLi=
+st">objectList</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a=
+ href=3D"https://www.w3.org/TeamSubmission/turtle/#object">object</a> ( ','=
+  <a href=3D"https://www.w3.org/TeamSubmission/turtle/#object">object</a>)*=
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[9]</td><td class=3D"cell"><a name=3D"verb">ve=
+rb</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=3D"htt=
+ps://www.w3.org/TeamSubmission/turtle/#predicate">predicate</a> | 'a'</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[10]</td><td class=3D"cell"><a name=3D"comment=
+">comment</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'#' ( [=
+^#xA#xD] )*</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[11]</td><td class=3D"cell"><a name=3D"subject=
+">subject</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/#resource">resource</a> | <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#blank">blank</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[12]</td><td class=3D"cell"><a name=3D"predica=
+te">predicate</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a =
+href=3D"https://www.w3.org/TeamSubmission/turtle/#uriref">resource</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[13]</td><td class=3D"cell"><a name=3D"object"=
+>object</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/#resource">resource</a> | <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#blank">blank</a> | <a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/#literal">literal</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[14]</td><td class=3D"cell"><a name=3D"literal=
+">literal</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=
+=3D"https://www.w3.org/TeamSubmission/turtle/#quotedString">quotedString</a=
+> ( '@' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#language">lang=
+uage</a> )? | <a href=3D"https://www.w3.org/TeamSubmission/turtle/#datatype=
+String">datatypeString</a> | <a href=3D"https://www.w3.org/TeamSubmission/t=
+urtle/#integer">integer</a> | <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#double">double</a> | <a href=3D"https://www.w3.org/TeamSubmission/t=
+urtle/#decimal">decimal</a> | <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#boolean">boolean</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[15]</td><td class=3D"cell"><a name=3D"datatyp=
+eString">datatypeString</a></td> <td class=3D"cell">::=3D</td> <td class=3D=
+"cell"><a href=3D"https://www.w3.org/TeamSubmission/turtle/#quotedString">q=
+uotedString</a> '^^' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#r=
+esource">resource</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[16]</td><td class=3D"cell"><a name=3D"integer=
+">integer</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">('-' | =
+'+') ? [0-9]+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[17]</td><td class=3D"cell"><a name=3D"double"=
+>double</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">('-' | '+=
+') ? ( [0-9]+ '.' [0-9]* <a href=3D"https://www.w3.org/TeamSubmission/turtl=
+e/#exponent">exponent</a> | '.' ([0-9])+ <a href=3D"https://www.w3.org/Team=
+Submission/turtle/#exponent">exponent</a> | ([0-9])+ <a href=3D"https://www=
+.w3.org/TeamSubmission/turtle/#exponent">exponent</a> )</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[18]</td><td class=3D"cell"><a name=3D"decimal=
+">decimal</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">('-' | =
+'+')? ( [0-9]+ '.' [0-9]* | '.' ([0-9])+ | ([0-9])+ )</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[19]</td><td class=3D"cell"><a name=3D"exponen=
+t">exponent</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">[eE] =
+('-' | '+')? [0-9]+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[20]</td><td class=3D"cell"><a name=3D"boolean=
+">boolean</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'true' =
+| 'false'</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[21]</td><td class=3D"cell"><a name=3D"blank">=
+blank</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=3D"=
+https://www.w3.org/TeamSubmission/turtle/#nodeID">nodeID</a> | '[]' | '['  =
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#predicateObjectList">p=
+redicateObjectList</a>  ']' | <a href=3D"https://www.w3.org/TeamSubmission/=
+turtle/#collection">collection</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[22]</td><td class=3D"cell"><a name=3D"itemLis=
+t">itemList</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a hr=
+ef=3D"https://www.w3.org/TeamSubmission/turtle/#object">object</a>+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[23]</td><td class=3D"cell"><a name=3D"collect=
+ion">collection</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'=
+('  <a href=3D"https://www.w3.org/TeamSubmission/turtle/#itemList">itemList=
+</a>?  ')'</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[24]</td><td class=3D"cell"><a name=3D"ws">ws<=
+/a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">#x9 | #xA | #xD |=
+ #x20 | <a href=3D"https://www.w3.org/TeamSubmission/turtle/#comment">comme=
+nt</a> </td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[25]</td><td class=3D"cell"><a name=3D"resourc=
+e">resource</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a hr=
+ef=3D"https://www.w3.org/TeamSubmission/turtle/#uriref">uriref</a> | <a hre=
+f=3D"https://www.w3.org/TeamSubmission/turtle/#qname">qname</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[26]</td><td class=3D"cell"><a name=3D"nodeID"=
+>nodeID</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'_:' <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#name">name</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[27]</td><td class=3D"cell"><a name=3D"qname">=
+qname</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=3D"=
+https://www.w3.org/TeamSubmission/turtle/#prefixName">prefixName</a>? ':' <=
+a href=3D"https://www.w3.org/TeamSubmission/turtle/#name">name</a>?</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[28]</td><td class=3D"cell"><a name=3D"uriref"=
+>uriref</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">'&lt;' <a=
+ href=3D"https://www.w3.org/TeamSubmission/turtle/#relativeURI">relativeURI=
+</a> '&gt;'
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[29]</td><td class=3D"cell"><a name=3D"languag=
+e">language</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">[a-z]=
++ ('-' [a-z0-9]+ )*
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[30]</td><td class=3D"cell"><a name=3D"nameSta=
+rtChar">nameStartChar</a></td> <td class=3D"cell">::=3D</td> <td class=3D"c=
+ell">[A-Z] | "_" | [a-z] | [#x00C0-#x00D6] | [#x00D8-#x00F6] | [#x00F8-#x02=
+FF] | [#x0370-#x037D] | [#x037F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F]=
+ | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | =
+[#x10000-#xEFFFF]</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[31]</td><td class=3D"cell"><a name=3D"nameCha=
+r">nameChar</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a hr=
+ef=3D"https://www.w3.org/TeamSubmission/turtle/#nameStartChar">nameStartCha=
+r</a> | '-' | [0-9] | #x00B7 | [#x0300-#x036F] | [#x203F-#x2040]</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[32]</td><td class=3D"cell"><a name=3D"name">n=
+ame</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><a href=3D"ht=
+tps://www.w3.org/TeamSubmission/turtle/#nameStartChar">nameStartChar</a> <a=
+ href=3D"https://www.w3.org/TeamSubmission/turtle/#nameChar">nameChar</a>*<=
+/td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[33]</td><td class=3D"cell"><a name=3D"prefixN=
+ame">prefixName</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">(=
+ <a href=3D"https://www.w3.org/TeamSubmission/turtle/#nameStartChar">nameSt=
+artChar</a> - '_' ) <a href=3D"https://www.w3.org/TeamSubmission/turtle/#na=
+meChar">nameChar</a>*</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[34]</td><td class=3D"cell"><a name=3D"relativ=
+eURI">relativeURI</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"=
+>
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ucharacter">ucharacter=
+</a>*</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[35]</td><td class=3D"cell"><a name=3D"quotedS=
+tring">quotedString</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cel=
+l"><a href=3D"https://www.w3.org/TeamSubmission/turtle/#string">string</a> =
+| <a href=3D"https://www.w3.org/TeamSubmission/turtle/#longString">longStri=
+ng</a></td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[36]</td><td class=3D"cell"><a name=3D"string"=
+>string</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">#x22 <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#scharacter">scharacter</a>=
+* #x22</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[37]</td><td class=3D"cell"><a name=3D"longStr=
+ing">longString</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">#=
+x22 #x22 #x22 <a href=3D"https://www.w3.org/TeamSubmission/turtle/#lcharact=
+er">lcharacter</a>* #x22 #x22 #x22</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[38]</td><td class=3D"cell"><a name=3D"charact=
+er">character</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">
+'\u' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"ht=
+tps://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://www=
+.w3.org/TeamSubmission/turtle/#hex">hex</a> |<br>
+'\U' <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a h=
+ref=3D"https://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"ht=
+tps://www.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://www=
+.w3.org/TeamSubmission/turtle/#hex">hex</a> <a href=3D"https://www.w3.org/T=
+eamSubmission/turtle/#hex">hex</a> <a href=3D"https://www.w3.org/TeamSubmis=
+sion/turtle/#hex">hex</a> <a href=3D"https://www.w3.org/TeamSubmission/turt=
+le/#hex">hex</a> <a href=3D"https://www.w3.org/TeamSubmission/turtle/#hex">=
+hex</a> |<br>
+'\\' |<br>
+[#x20-#x5B] | [#x5D-#x10FFFF]
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[39]</td><td class=3D"cell"><a name=3D"echarac=
+ter">echaracter</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell"><=
+a href=3D"https://www.w3.org/TeamSubmission/turtle/#character">character</a=
+> |
+'\t' | '\n' | '\r'
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[40]</td><td class=3D"cell"><a name=3D"hex">he=
+x</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">[#x30-#x39] | [=
+#x41-#x46]</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[41]</td><td class=3D"cell"><a name=3D"ucharac=
+ter">ucharacter</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">
+( <a href=3D"https://www.w3.org/TeamSubmission/turtle/#character">character=
+</a> - #x3E ) | '\&gt;'
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[42]</td><td class=3D"cell"><a name=3D"scharac=
+ter">scharacter</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">
+( <a href=3D"https://www.w3.org/TeamSubmission/turtle/#echaracter">echaract=
+er</a> - #x22 ) | '\"'
+</td>
+</tr>
+
+<tr align=3D"left">
+          <td class=3D"cell">[43]</td><td class=3D"cell"><a name=3D"lcharac=
+ter">lcharacter</a></td> <td class=3D"cell">::=3D</td> <td class=3D"cell">
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#echaracter">echaracter=
+</a> | '\"' | #x9 | #xA | #xD
+</td>
+</tr>
+
+      </tbody>
+    </table>
+
+
+<h2 id=3D"sec-examples">4. Examples</h2>
+
+<p>This example is a Turtle translation of=20
+<a href=3D"http://www.w3.org/TR/rdf-syntax-grammar/#example7">example 7</a>
+in the
+<a href=3D"http://www.w3.org/TR/rdf-syntax-grammar/">RDF/XML Syntax specifi=
+cation</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/example1.ttl">example1=
+.ttl</a>):
+</p>
+
+<pre class=3D"example">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-sy=
+ntax-ns#&gt; .
+@prefix dc: &lt;http://purl.org/dc/elements/1.1/&gt; .
+@prefix ex: &lt;http://example.org/stuff/1.0/&gt; .
+
+&lt;http://www.w3.org/TR/rdf-syntax-grammar&gt;
+  dc:title "RDF/XML Syntax Specification (Revised)" ;
+  ex:editor [
+    ex:fullname "Dave Beckett";
+    ex:homePage &lt;http://purl.org/net/dajobe/&gt;
+  ] .
+</pre>
+
+
+<p>An example of an RDF collection of two literals.</p>
+<pre class=3D"example">@prefix : &lt;http://example.org/stuff/1.0/&gt; .
+:a :b ( "apple" "banana" ) .
+</pre>
+<p>which is short for (<a href=3D"https://www.w3.org/TeamSubmission/turtle/=
+example2.ttl">example2.ttl</a>):</p>
+<pre class=3D"example">@prefix : &lt;http://example.org/stuff/1.0/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+:a :b
+  [ rdf:first "apple";
+    rdf:rest [ rdf:first "banana";
+               rdf:rest rdf:nil ]
+  ] .
+</pre>
+
+<p>An example of two identical triples containing literal objects
+containing newlines, written in plain and long literal forms.
+Assumes that line feeds in this document are #xA.
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/example3.ttl">example3=
+.ttl</a>):</p>
+
+<pre class=3D"example">@prefix : &lt;http://example.org/stuff/1.0/&gt; .
+
+:a :b "The first line\nThe second line\n  more" .
+
+:a :b """The first line
+The second line
+  more""" .
+</pre>
+
+
+
+<h2 id=3D"sec-identifiers">5. Identifiers for the Turtle Language</h2>
+
+<p>The URI that identifies the Turtle language is:<br>
+<code>http://www.w3.org/2008/turtle#turtle</code>
+</p>
+
+<p>The XML (Namespace name, Local name) pair that identifies
+the Turtle language is:<br>
+Namespace: <code>http://www.w3.org/2008/turtle#</code><br>
+Local name: <code>turtle</code><br>
+The suggested namespace prefix is <code>ttl</code> (informative)
+which would make this <code>ttl:turtle</code> as an XML QName.
+</p>
+
+
+<h2 id=3D"sec-conformance">6. Conformance</h2>
+
+<p>Systems conforming to Turtle MUST pass all the following test cases:</p>
+
+<ol>
+<li>The <a href=3D"http://www.w3.org/TR/2004/REC-rdf-testcases-20040210/#nt=
+rip_tests">N-Triples tests</a> in the
+<a href=3D"http://www.w3.org/TR/2004/REC-rdf-testcases-20040210/">RDF Test =
+Cases</a> W3C Recommendation.</li>
+<li>The <a href=3D"https://www.w3.org/TeamSubmission/turtle/tests/">Turtle =
+Test Suite</a>
+(<a href=3D"https://www.w3.org/TeamSubmission/turtle/tests.zip">tests.zip</=
+a> md5sum 361f0b8b5e3a36d0ecd60be7965009df )
+<br>
+<p>Passing these tests means:</p>
+<ol>
+<li>All the <code>test-n.ttl</code> tests MUST generate equivalent RDF
+triples to those given in the corresponding <code>test-n.out</code>
+N-Triples file.</li>
+<li>All the <code>bad-n.ttl</code> tests MUST NOT generate RDF triples.</li=
+>
+</ol>
+</li>
+</ol>
+
+
+
+<h2 id=3D"sec-mime">7. Media Type and Content Encoding</h2>
+
+<p>The media type of Turtle is
+<code>text/turtle</code> (pre-registration media type
+<code>application/x-turtle</code> should be accepted).
+The content encoding of Turtle content is always
+UTF-8.
+      Charset parameters on the mime type are required until such time as t=
+he <tt>text/</tt> media type tree permits UTF-8 to be sent without a charse=
+t parameter.
+      See <a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-mediaReg=
+">B. Internet Media Type, File Extension and Macintosh File Type</a> for th=
+e media type registration form.
+</p>
+
+
+<h2 id=3D"sec-diff-ntriples">8. Turtle compared to N-Triples (Informative)<=
+/h2>
+
+<p>Turtle adds the following syntax to N-Triples:</p>
+
+<ol>
+<li>Whitespace restrictions removed</li>
+<li>Text content-encoding changed from ASCII to UTF-8</li>
+<li><code>@prefix</code></li>
+<li>QNames</li>
+<li><code>,</code></li>
+<li><code>;</code></li>
+<li><code>[]</code></li>
+<li><code>a</code></li>
+<li><code>()</code></li>
+<li>Decimal integer literals (<code>xsd:integer</code>)</li>
+<li>Decimal double literals (<code>xsd:double</code>)</li>
+<li>Decimal arbitrary length literals (<code>xsd:decimal</code>)</li>
+<li>Boolean literals</li>
+<li><code>@base</code></li>
+</ol>
+
+
+<h2 id=3D"sec-diff-n3">9. Turtle compared to Notation 3 (Informative)</h2>
+
+<p>Notation 3 includes at least the following syntax that is not in Turtle
+(not a complete list):</p>
+
+<ol>
+<li><code>{</code> ... <code>}</code></li>
+<li><code>is</code> <code>of</code></li>
+<li>paths like <code>:a.:b.:c</code> and <code>:a^:b^:c</code></li>
+<li><code>@keywords</code></li>
+<li><code>=3D&gt;</code> implies</li>
+<li><code>=3D</code>  equivalence</li>
+<li><code>@forAll</code></li>
+<li><code>@forSome</code></li>
+<li>&lt;=3D</li>
+</ol>
+
+
+<h2 id=3D"sec-diff-sparql">10. Turtle compared to SPARQL (Informative)</h2>
+
+<p>the
+<a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112/">SPARQL =
+Query Language for RDF</a>
+(<acronym title=3D"SPARQL Protocol And RDF Query Language">SPARQL</acronym>=
+)
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#ref-sparqlq">[SPARQLQ]=
+</a>
+uses a Turtle/N3 style syntax for the Triple patterns including
+the same forms of abbreviated forms given here.</p>
+
+<p>SPARQL includes at least the following syntax that is not in Turtle
+(not a complete list):
+</p>
+
+<ol>
+<!-- li>Blank nodes are allowed in triple predicates either given explicitl=
+y
+with a blank node identifier using
+<code>_:</code><em>name</em> or with no name using <code>[]</code>
+or <code>[</code> ... <code>]</code>.
+</li -->
+<li>RDF Literals are allowed in triple subjects</li>
+<li>Variables are allowed in any part of the triple of the form
+<code>?</code><em>name</em> or <code>$</code><em>name</em>
+</li>
+<li>Long literals can use use single quote (<code>'</code>) characters:
+<code>'''</code> ... <code>'''</code>
+</li>
+<li>The constants allowed for XSD booleans: <code>true</code> and
+<code>false</code> are case independent.  In Turtle they are not,
+only lowercase forms are allowed.
+</li>
+<li>SPARQL allows '.'s in names in all positions apart from the first or la=
+st.  These would correspond to rules:<br>
+<span class=3D"grammar">name ::=3D nameStartChar ( ( nameChar | '.' )* name=
+Char )?</span><br>
+<span class=3D"grammar">prefixName ::=3D ( nameStartChar - '_' ) ( ( nameCh=
+ar | ' .' )* nameChar )?</span>
+</li>
+      <li>SPARQL allows digits in the first character of the <a href=3D"htt=
+p://www.w3.org/TR/rdf-sparql-query/#rPN_LOCAL">PN_LOCAL</a> lexical token. =
+In Turtle, the only ascii characters allowed in a <a href=3D"https://www.w3=
+.org/TeamSubmission/turtle/#nameStartChar">nameStartChar</a> are <span clas=
+s=3D"grammar">[A-Z]&nbsp;|&nbsp;"_"&nbsp;|&nbsp;[a-z]</span>.</li>
+      <li>Turtle allows <a href=3D"https://www.w3.org/TeamSubmission/turtle=
+/#nameStartChar">prefix and base declarations</a> anywhere outside of a tri=
+ple. In SPARQL, they are only allowed in the <a href=3D"http://www.w3.org/T=
+R/rdf-sparql-query/#rPrologue">Prologue</a> (at the start of the SPARQL que=
+ry).</li>
+</ol>
+
+<p>For further information see the
+<a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112/#QSynIRI"=
+>Syntax for IRIs</a>
+and <a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112/#gram=
+mar">SPARQL Grammar</a>
+sections of the SPARQL query document <a href=3D"https://www.w3.org/TeamSub=
+mission/turtle/#ref-sparqlq">[SPARQLQ]</a>.
+</p>
+
+
+<h2 id=3D"sec-refs">A. References</h2>
+
+<h3 id=3D"sec-refs-normative">A.1 Normative</h3>
+
+<dl>
+
+
+<dt><a name=3D"ref-notation">[NOTATION]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2004/REC-xml-20040204/#sec-notati=
+on">Notation</a></cite> section in <cite><a href=3D"http://www.w3.org/TR/20=
+04/REC-xml-20040204/">Extensible Markup Language (XML) 1.0 (Third Edition)<=
+/a></cite>, T. Bray, J. Paoli, C.m. Sperberg-McQueen, E. Maler, F. Yergeau =
+editors, W3C Recommendation, 04 February 2004. This version of XML 1.0 is h=
+ttp://www.w3.org/TR/2004/REC-xml-20040204/.  The <a href=3D"http://www.w3.o=
+rg/TR/REC-xml/">latest version of the Extensible Markup Language (XML) 1.0<=
+/a> is at http://www.w3.org/TR/REC-xml/.
+</dd>
+
+<dt><a name=3D"ref-ntriples">[N-TRIPLES]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2004/REC-rdf-testcases-20040210/"=
+>N-Triples</a></cite> section in <a href=3D"http://www.w3.org/TR/rdf-testca=
+ses/">RDF Test Cases</a>, J. Grant and D. Beckett, Editors, W3C Recommendat=
+ion, 10 February 2004.  This version of the RDF Test Cases is http://www.w3=
+.org/TR/2004/REC-rdf-testcases-20040210/.  The <a href=3D"http://www.w3.org=
+/TR/rdf-testcases/">latest version of the RDF Test Cases</a> is at http://w=
+ww.w3.org/TR/rdf-testcases/.
+</dd>
+
+<dt><a name=3D"Unicode">[UNICODE]</a></dt>
+<dd><cite><a href=3D"http://www.unicode.org/unicode/standard/standard.html"=
+>The Unicode Standard Version 3.0</a></cite>, Addison Wesley, Reading MA, 2=
+000, ISBN: 0-201-61633-5. This document is http://www.unicode.org/unicode/s=
+tandard/standard.html.</dd>
+
+<dt><a name=3D"charmod">[CHARMOD]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2005/REC-charmod-20050215/">Chara=
+cter Model for the World Wide Web 1.0: Fundamentals</a></cite>, M. J. D=C3=
+=BCrst, F. Yergeau, R. Ishida, M. Wolf, T. Texin editors, W3C Recommendatio=
+n, 15 February 2005. This version of Character Model for the WWW 1.0: Funda=
+mentals is http://www.w3.org/TR/2005/REC-charmod-20050215/ The <a href=3D"h=
+ttp://www.w3.org/TR/charmod/">latest version</a> of Character Model for the=
+ WWW: Fundamentals 1.0 is at http://www.w3.org/TR/charmod/.</dd>
+
+<dt><a name=3D"ref-rdf-concepts">[RDF-CONCEPTS]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/">=
+Resource Description Framework (RDF): Concepts and Abstract Syntax</a></cit=
+e>, G. Klyne, J.J. Carroll editors, W3C Recommendation, 10 February 2004.  =
+This version of RDF Concepts and Abstract Syntax is http://www.w3.org/TR/20=
+04/REC-rdf-concepts-20040210/.  The <a href=3D"http://www.w3.org/TR/rdf-con=
+cepts/">latest version</a> of RDF Concepts and Abstract Syntax is http://ww=
+w.w3.org/TR/rdf-concepts/.</dd>
+
+<dt><a name=3D"ref-rdfxml">[RDF-XML]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2004/REC-rdf-syntax-grammar-20040=
+210/">RDF/XML Syntax Specification (Revised)</a></cite>, D. Beckett editor,=
+ W3C Recommendation, 10 February 2004.  This version of RDF/XML is http://w=
+ww.w3.org/TR/2004/REC-rdf-syntax-grammar-20040210/.  The <a href=3D"http://=
+www.w3.org/TR/rdf-syntax-grammar/">latest version</a> of RDF/XML is http://=
+www.w3.org/TR/rdf-syntax-grammar/.</dd>
+
+<dt><a name=3D"rfc3629" id=3D"rfc3629">[RFC3629]</a></dt>
+<dd>RFC 3629 <cite><a href=3D"http://www.ietf.org/rfc/rfc3629.txt">UTF-8, a=
+ transformation format of ISO 10646</a></cite>, F. Yergeau November 2003</d=
+d>
+
+<dt><a name=3D"rfc3986" id=3D"rfc3986">[RFC3986]</a></dt>
+<dd>RFC 3986 <cite><a href=3D"http://www.ietf.org/rfc/rfc3986.txt">Uniform =
+Resource Identifier (URI): Generic Syntax</a></cite>, T. Berners-Lee, R. Fi=
+elding, L. Masinter January 2005</dd>
+
+<dt><a name=3D"rfc3987" id=3D"rfc3987">[RFC3987]</a></dt>
+<dd><a href=3D"http://www.ietf.org/rfc/rfc3987.txt">RFC 3987</a>, "Internat=
+ionalized Resource Identifiers (IRIs)", M. D=C3=BCrst , M. Suignard</dd>
+
+<dt><a name=3D"UNISEC" id=3D"UNISEC">[UNISEC]</a></dt>
+<dd><cite><a href=3D"http://www.unicode.org/reports/tr36/">Unicode Security=
+ Considerations</a></cite>, Mark Davis, Michel Suignard</dd>
+
+<dt><a name=3D"UNICODE" id=3D"UNICODE">[UNICODE]</a></dt>
+<dd><cite>The Unicode Standard, Version 4</cite>. ISBN 0-321-18578-1, as up=
+dated from time to time by the publication of new versions. The latest vers=
+ion of Unicode and additional information on versions of the standard and o=
+f the Unicode Character Database is available at <a href=3D"http://www.unic=
+ode.org/unicode/standard/versions/">http://www.unicode.org/unicode/standard=
+/versions/</a>.</dd>
+
+</dl>
+
+<h3 id=3D"sec-refs-informative">A.2 Informative</h3>
+
+<dl>
+      <dt>Previous version</dt>
+<dd><a href=3D"http://www.dajobe.org/2004/01/turtle/2007-09-11/">http://www=
+.dajobe.org/2004/01/turtle/2007-09-11/</a></dd>
+
+<dt><a name=3D"ref-n3">[NOTATION3]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/DesignIssues/Notation3">Notation 3</=
+a></cite>, Tim Berners-Lee, World Wide Web Consortium</dd>
+
+<dt><a name=3D"mswm">[MSWM]</a></dt>
+<dd><cite><a href=3D"http://www.idealliance.org/papers/dx_xmle04/papers/03-=
+08-03/03-08-03.html">Modernising Semantic Web Markup</a></cite>, Dave Becke=
+tt and <a href=3D"http://www.dajobe.org/talks/xmleurope2004/">presentation<=
+/a> given at  <a href=3D"http://www.xmleurope.com/">XML Europe 2004</a>, Am=
+sterdam, 20 April 2004</dd>
+
+<dt><a name=3D"ref-sparqlq">[SPARQLQ]</a></dt>
+<dd><cite><a href=3D"http://www.w3.org/TR/2007/PR-rdf-sparql-query-20071112=
+/">SPARQL Query Language for RDF</a></cite>, E. Prud'hommeaux, A. Seaborne,=
+ Editors. World Wide Web Consortium.  W3C Proposed Recommendation, 12 Novem=
+ber 2007. This version is http://www.w3.org/TR/2007/PR-rdf-sparql-query-200=
+71112/.  The <a href=3D"http://www.w3.org/TR/rdf-sparql-query/">latest vers=
+ion of SPARQL Query Language for RDF</a> is available at http://www.w3.org/=
+TR/rdf-sparql-query/.</dd>
+
+</dl>
+
+
+<h2 id=3D"sec-mediaReg">B. Internet Media Type, File Extension and Macintos=
+h File Type (Normative)</h2>
+
+    <dl>
+      <dt>Contact:</dt>
+      <dd>Eric Prud'hommeaux</dd>
+      <dt>See also:</dt>
+      <dd><a href=3D"http://www.w3.org/2002/06/registering-mediatype">How t=
+o Register a Media Type for a W3C Specification</a></dd>
+      <dd><a href=3D"http://www.w3.org/2001/tag/2002/0129-mime">Internet Me=
+dia Type registration, consistency of use</a><br>TAG Finding 3 June 2002 (R=
+evised 4 September 2002)</dd>
+    </dl>
+    <p>The Internet Media Type / MIME Type for Turtle is "text/turtle".</p>
+    <p>It is recommended that Turtle files have the extension ".ttl" (all l=
+owercase) on all platforms.</p>
+    <p>It is recommended that Turtle files stored on Macintosh HFS file sys=
+tems be given a file type of "TEXT".</p>
+    <p>This information that follows has been <a href=3D"http://www.w3.org/=
+mid/20071218114549.GQ8244@w3.org">submitted to the IESG</a> for review, app=
+roval, and registration with IANA.</p>
+    <dl>
+      <dt>Type name:</dt>
+      <dd>text</dd>
+      <dt>Subtype name:</dt>
+      <dd>turtle</dd>
+      <dt>Required parameters:</dt>
+      <dd>None</dd>
+      <dt>Optional parameters:</dt>
+      <dd><tt>charset</tt> =E2=80=94 this parameter is required when transf=
+erring non-ASCII data. If present, the value of <tt>charset</tt> is always =
+<tt>UTF-8</tt>.</dd>
+      <dt>Encoding considerations:</dt>
+      <dd>The syntax of Turtle is expressed over code points in Unicode [<a=
+ href=3D"https://www.w3.org/TeamSubmission/turtle/#UNICODE">UNICODE</a>]. T=
+he encoding is always UTF-8 [<a href=3D"https://www.w3.org/TeamSubmission/t=
+urtle/#rfc3629">RFC3629</a>].</dd>
+      <dd>Unicode code points may also be expressed using an \uXXXX (U+0 to=
+ U+FFFF) or \UXXXXXXXX syntax (for U+10000 onwards) where X is a hexadecima=
+l digit [0-9A-F]</dd>
+      <dt>Security considerations:</dt>
+      <dd>Turtle is a general-purpose assertion language; applications may =
+evaluate given data to infer more assertions or to dereference URIs, invoki=
+ng the security considerations of the scheme for that URI. Note in particul=
+ar, the privacy issues in [<a href=3D"https://www.w3.org/TeamSubmission/tur=
+tle/#rfc3023">RFC3023</a>] section 10 for HTTP URIs. Data obtained from an =
+inaccurate or malicious data source may lead to inaccurate or misleading co=
+nclusions, as well as the dereferencing of unintended URIs. Care must be ta=
+ken to align the trust in consulted resources with the sensitivity of the i=
+ntended use of the data; inferences of potential medical treatments would l=
+ikely require different trust than inferences for trip planning.</dd>
+      <dd>Turtle is used to express arbitrary application data; security co=
+nsiderations will vary by domain of use. Security tools and protocols appli=
+cable to text (e.g. PGP encryption, MD5 sum validation, password-protected =
+compression) may also be used on Turtle documents. Security/privacy protoco=
+ls must be imposed which reflect the sensitivity of the embedded informatio=
+n.</dd>
+      <dd>Turtle can express data which is presented to the user, for examp=
+le, RDF Schema labels. Application rendering strings retrieved from untrust=
+ed Turtle documents must ensure that malignant strings may not be used to m=
+islead the reader. The security considerations in the media type registrati=
+on for XML ([RFC3023] section 10) provide additional guidance around the ex=
+pression of arbitrary data and markup.</dd>
+      <dd>Turtle uses IRIs as term identifiers. Applications interpreting d=
+ata expressed in Turtle should address the security issues of
+  <a class=3D"norm" href=3D"http://www.ietf.org/rfc/rfc3987.txt">Internatio=
+nalized Resource Identifiers (IRIs)</a> [<a href=3D"https://www.w3.org/Team=
+Submission/turtle/#rfc3987">RFC3987</a>] Section 8, as well as
+  <a class=3D"norm" href=3D"http://www.ietf.org/rfc/rfc3986.txt">Uniform Re=
+source Identifier (URI): Generic Syntax</a> [<a href=3D"https://www.w3.org/=
+TeamSubmission/turtle/#rfc3986">RFC3986</a>] Section 7.</dd>
+      <dd>Multiple IRIs may have the same appearance. Characters in differe=
+nt scripts may=20
+look similar (a Cyrillic "=D0=BE" may appear similar to a Latin "o"). A cha=
+racter followed=20
+by combining characters may have the same visual representation as another =
+character=20
+(LATIN SMALL LETTER E followed by COMBINING ACUTE ACCENT has the same visua=
+l representation=20
+as LATIN SMALL LETTER E WITH ACUTE).
+<!-- (<code>foo:resum&#40751;code> and <code>f&#1086;&#1086;:resume&#769;</=
+code>)-->
+Any person or application that is writing or interpreting data in Turtle mu=
+st take care to use the IRI that matches the intended semantics, and avoid =
+IRIs that make look similar.
+Further information about matching of similar characters can be found=20
+in <a class=3D"inform" href=3D"http://www.unicode.org/reports/tr36/">Unicod=
+e Security=20
+Considerations</a> [<a href=3D"https://www.w3.org/TeamSubmission/turtle/#UN=
+ISEC">UNISEC</a>] and
+<a class=3D"norm" href=3D"http://www.ietf.org/rfc/rfc3987.txt">Internationa=
+lized Resource=20
+Identifiers (IRIs)</a> [<a href=3D"https://www.w3.org/TeamSubmission/turtle=
+/#rfc3987">RFC3987</a>] Section 8.
+<!--@@ no security considerations section at this time. @@
+See Turtle - Terse RDF Triple Language appendix X, <a href=3D"#security">Se=
+curity Considerations</a>=20
+	as well as <a class=3D"norm" href=3D"http://www.ietf.org/rfc/rfc3629.txt">=
+RFC 3629</a>=20
+	[<a href=3D"#rfc3629">RFC3629</a>] section 7, Security Considerations. -->=
+</dd>
+
+      <dt>Interoperability considerations:</dt>
+      <dd>There are no known interoperability issues.</dd>
+      <dt>Published specification:</dt>
+      <dd>This specification.</dd>
+      <dt>Applications which use this media type:</dt>
+      <dd>No widely deployed applications are known to use this media type.=
+ It may be used by some web services and clients consuming their data.</dd>
+      <dt>Additional information:</dt>
+      <dt>Magic number(s):</dt>
+      <dd>Turtle documents may have the strings '@prefix' or '@base' (case =
+dependent) near the beginning of the document.</dd>
+      <dt>File extension(s):</dt>
+      <dd>".ttl"</dd>
+      <dt>Base URI:</dt>
+      <dd>The Turtle '@base &lt;IRIref&gt;' term can change the current bas=
+e URI for relative IRIrefs in the query language that are used sequentially=
+ later in the document.</dd>
+      <dt>Macintosh file type code(s):</dt>
+      <dd>"TEXT"</dd>
+      <dt>Person &amp; email address to contact for further information:</d=
+t>
+      <dd>Eric Prud'hommeaux &lt;eric@w3.org&gt;</dd>
+      <dt>Intended usage:</dt>
+      <dd>COMMON</dd>
+      <dt>Restrictions on usage:</dt>
+      <dd>None</dd>
+      <dt>Author/Change controller:</dt>
+      <dd>The Turtle specification is the product of David Beckett and Tim =
+Berners-Lee. A W3C Working Group may assume maintenance of this document; W=
+3C reserves change control over this specifications.</dd>
+    </dl>
+
+
+<h2 id=3D"sec-acks">C. Acknowledgements (Informative)</h2>
+
+<p>This work was described in the paper
+<a href=3D"http://www.dajobe.org/2003/11/new-syntaxes-rdf/">New Syntaxes fo=
+r RDF</a>
+which discusses other RDF syntaxes and the background
+to the Turtle (Submitted to WWW2004, referred to as <em>N-Triples
+Plus</em> there).
+</p>
+
+
+<p>This work was started during the
+<a href=3D"http://www.w3.org/2001/sw/Europe/">Semantic Web Advanced Develop=
+ment Europe (SWAD-Europe)</a>
+project funded by the EU IST-7 programme IST-2001-34732 (2002-2004)
+and further development supported by the
+<a href=3D"http://www.ilrt.bris.ac.uk/">Institute for Learning and Research=
+ Technology</a> at the  <a href=3D"http://www.bristol.ac.uk/">University of=
+ Bristol</a>, UK (2002-Sep 2005).
+</p>
+
+
+
+<h2 id=3D"sec-changelog">D. Changes (Informative)</h2>
+
+<p>Changes since the last publication of this document
+<a href=3D"http://www.dajobe.org/2004/01/turtle/2007-09-11/">Turtle 2007-09=
+-11</a>
+.  See the
+<a href=3D"http://www.dajobe.org/2004/01/turtle/2007-09-11/#sec-changelog">=
+Previous changelog for further information</a>
+</p>
+
+
+<ul>
+
+<li>
+Renamed section 2 to Turtle Syntax and completed it with examples.<br>
+Tidied mime type section<br>
+Added acknowledgements appendix C<br>
+Added normative and informative references appendices<br>
+Added RDF Concepts reference and link to it for RDF terms<br>
+Renumbered collections section to 3.5<br>
+Renumbered sections 4 onwards<br>
+Removed <!-- a href=3D"#sec-implementations" -->implementations section<!--=
+ /a -->
+2007-11-20
+</li>
+
+<li>
+Added <a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-tutorial">Tu=
+torial Section</a><br>
+Removed canonicalisation of lexical forms <a href=3D"https://www.w3.org/Tea=
+mSubmission/turtle/#integer">integer</a> and <a href=3D"https://www.w3.org/=
+TeamSubmission/turtle/#boolean">boolean</a> literals<br>
+Renumbered section 6 as <a href=3D"https://www.w3.org/TeamSubmission/turtle=
+/#sec-uris">3.4. URI References</a><br>
+Renumbered section 3 as <a href=3D"https://www.w3.org/TeamSubmission/turtle=
+/#sec-strings">3.3. String Escapes</a><br>
+Deleted empty section <a id=3D"sec-future" name=3D"sec-future">11. Possible=
+ Extensions</a><br>
+Deleted section <a id=3D"sec-qnames" name=3D"sec-qnames">10. XML QNames</a>
+as differences with SPARQL are noted elsewhere<br>
+Added grammar sub-sections
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-grammar-ws">3.1 Wh=
+ite Space</a> and
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-grammar-comments">=
+3.2 Comments</a> and
+<a href=3D"https://www.w3.org/TeamSubmission/turtle/#sec-grammar-grammar">3=
+.5 Grammar</a>
+<br>
+Removed use of <a href=3D"https://www.w3.org/TeamSubmission/turtle/#ws">ws<=
+/a> production except where required<br>
+2007-11-19
+</li>
+
+</ul>
+
+
+
+</body></html>
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-85c1ab71-8224-4e8b-ac7b-cc069f1db266@mhtml.blink
+
+@charset "utf-8";
+
+.grammar { font-size: 88%; break-inside: avoid; background-color: rgb(248, =
+248, 248); }
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.w3.org/TeamSubmission/turtle/style.css
+
+@charset "utf-8";
+
+body { font-family: Verdana, Arial, Helvetica, Geneva, SunSans-Regular, san=
+s-serif; background-color: white; color: black; }
+
+th, td, p, li, dl, dt, blockquote { font-family: Verdana, Arial, Helvetica,=
+ Geneva, SunSans-Regular, sans-serif; }
+
+ol, ul { font-size: 100%; }
+
+h1, h2, h3, h4 { text-align: left; }
+
+h1 { font-weight: normal; font-size: 200%; font-family: Verdana, Arial, Hel=
+vetica, Geneva, SunSans-Regular, sans-serif; }
+
+h2 { font-weight: bold; text-transform: capitalize; font-size: 130%; font-f=
+amily: Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; }
+
+h3 { font-weight: bold; font-size: 110%; font-family: Verdana, Arial, Helve=
+tica, Geneva, SunSans-Regular, sans-serif; }
+
+h4 { font-weight: bold; font-size: 100%; font-family: Verdana, Arial, Helve=
+tica, Geneva, SunSans-Regular, sans-serif; }
+
+pre { margin: 1em 4em; color: black; background-color: rgb(238, 238, 238); =
+padding: 0.5em; border-color: rgb(0, 0, 102); border-width: 1px; border-sty=
+le: dotted; }
+
+pre, code, tt { font-family: Courier, monospace; }
+
+@media screen {
+  a { color: rgb(0, 51, 153); background-color: white; font-family: Verdana=
+, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; }
+  a:hover { color: rgb(63, 122, 240); background-color: white; font-family:=
+ Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; }
+  a:visited { color: rgb(75, 3, 96); background-color: white; font-family: =
+Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; }
+  a:visited:hover { color: rgb(63, 122, 240); background-color: white; }
+}
+
+table.grammar { border: 1px solid rgb(119, 119, 119); }
+
+td.cell { border-top: 1px solid rgb(119, 119, 119); }
+
+div.head { margin-bottom: 1em; }
+
+div.head h1 { clear: both; }
+
+div.head table { margin-left: 2em; }
+
+p.copyright { font-size: small; }
+
+p.copyright small { font-size: small; }
+
+ul.toc, ol.toc { list-style: none; }
+
+.toc { text-indent: 0px; }
+
+div.toc ul ul, div.toc ol ol { margin-left: 0px; }
+
+div.toc ul ul ul, div.toc ol ol ol { margin-left: 1em; }
+
+div.toc ul ul ul ul, div.toc ol ol ol ol { margin-left: 0px; }
+
+li.tocline1 { font-weight: bold; }
+
+li.tocline2 { font-weight: normal; }
+
+li.tocline4 { font-style: italic; }
+
+div.toc, ul.index, dt { text-align: left; }
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.w3.org/StyleSheets/TR/W3C-Team-SUBM
+
+@charset "utf-8";
+
+body { padding: 2em 1em 2em 70px; margin: 0px; font-family: sans-serif; col=
+or: black; background: left top no-repeat fixed white; }
+
+:link { color: rgb(0, 0, 204); background: transparent; }
+
+:visited { color: rgb(102, 0, 153); background: transparent; }
+
+a:active { color: rgb(204, 0, 0); background: transparent; }
+
+a:link img, a:visited img { border-style: none; }
+
+a img { color: white; }
+
+@media all {
+  a img { color: inherit; }
+}
+
+th, td { font-family: sans-serif; }
+
+h1, h2, h3, h4, h5, h6 { text-align: left; }
+
+h1, h2, h3 { color: rgb(0, 90, 156); background: white; }
+
+h1 { font: 170% sans-serif; }
+
+h2 { font: 140% sans-serif; }
+
+h3 { font: 120% sans-serif; }
+
+h4 { font: bold 100% sans-serif; }
+
+h5 { font: italic 100% sans-serif; }
+
+h6 { font: small-caps 100% sans-serif; }
+
+.hide { display: none; }
+
+div.head { margin-bottom: 1em; }
+
+div.head h1 { margin-top: 2em; clear: both; }
+
+div.head table { margin-left: 2em; margin-top: 2em; }
+
+p.copyright { font-size: small; }
+
+p.copyright small { font-size: small; }
+
+a#outdated-note { color: white; }
+
+a#outdated-note:hover { background: transparent; }
+
+.outdated-spec { background-color: rgba(0, 0, 0, 0.5); }
+
+.outdated-warning { position: fixed; bottom: 50%; left: 0px; right: 0px; ma=
+rgin: 0px auto; width: 50%; background: maroon; color: white; border-radius=
+: 1em; box-shadow: red 0px 0px 1em; padding: 2em; text-align: center; z-ind=
+ex: 2; }
+
+.edited-rec-warning { background: darkorange; box-shadow: 0px 0px 1em; }
+
+.outdated-warning button { position: absolute; top: 0px; right: 0px; margin=
+: 0px; border: 0px; padding: 0.25em 0.5em; background: transparent; color: =
+white; font: 1em sans-serif; text-align: center; }
+
+.outdated-warning span { display: block; }
+
+.outdated-collapsed { bottom: 0px; border-radius: 0px; width: 100%; padding=
+: 0px; }
+
+@media screen {
+  a[href]:hover { background: rgb(255, 255, 170); }
+}
+
+pre { margin-left: 2em; }
+
+dt, dd { margin-top: 0px; margin-bottom: 0px; }
+
+dt { font-weight: bold; }
+
+ul.toc, ol.toc { list-style: none; }
+
+@media speech {
+  h1, h2, h3 { }
+  .hide { speak: none; }
+  p.copyright { }
+  dt { }
+}
+
+@media print {
+  .outdated-warning { position: absolute; border-style: solid; border-color=
+: red; }
+  .outdated-warning input { display: none; }
+}
+
+h1, h2, h3, h4, h5, h6 { color: rgb(0, 0, 0); background: rgb(255, 255, 255=
+); }
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/Icons/w3c_home
+
+iVBORw0KGgoAAAANSUhEUgAAAEgAAAAwCAMAAACFQszZAAADAFBMVEUAAAABAQECAgIFBQUGBgYI
+CAgMDAwODg4SEhIUFBQVFRUYGBgaGhodHR0fHx8gICAmJiYoKCgsLCwxMTE1NTU2NjY3Nzc4ODg7
+Ozs/Pz9ERERFRUVGRkZJSUlOTk5PT09WVlZdXV1eXl5gYGBhYWFkZGRnZ2dsbGxtbW1vb29wcHBx
+cXF0dHR8fHwAWpwBW5wCW50DXJ0EXZ4FXZ4GXp4IX58JYJ8LYaAMYqEOY6EPZKISZqMTZqMUZ6QW
+aKUYaqUaa6Yba6Yebagfbqggb6ghb6kjcaokcaoodKwtd60yeq80fLA1fLE3frE4frI5f7I6gLM8
+gbNBhLVChbZEhrZHiLhJibhKirlLi7lOjLpRjrtVkb1ZlL9alL9blb9dlsBfl8FimcJnncRpnsVq
+n8Vrn8ZsoMZtocZuocdvosdxo8hzpMl1psl3p8p4qMt6qct8qsx9q81+rM2BgYGEhISJiYmKioqM
+jIyNjY2Pj4+RkZGSkpKWlpaXl5eYmJiampqdnZ2fn5+goKChoaGioqKlpaWmpqaoqKiqqqqrq6us
+rKytra2vr6+xsbGysrKzs7O0tLS3t7e5ubm8vLy/v7+Crs6Dr8+FsNCGsdCHsdCIstGLtNKMtdKW
+u9aXvNeYvNeZvdebvtigwtqkxNylxdyox92qyN6vy+CwzOCxzeGyzeG0zuK30OO70+W81OW+1ebB
+wcHCwsLDw8PFxcXGxsbHx8fNzc3Ozs7Pz8/T09PY2NjZ2dnb29vc3Nzd3d3f39/A1ufB1+fD2OjF
+2ejH2+nI2+rK3erL3evM3uvN3uvO3+vN3+zR4e3S4u7T4+7U4+7V5O/X5e/Y5e/Z5vDa5vDb6PHc
+6PHg4ODh4eHk5OTn5+fp6enr6+vt7e3u7u7h7PPi7PTk7vXn7/bp8fbq8ffr8vft8/ju9Pjw8PDy
+8vL09PT19fX39/fw9fnz9/r0+Pv2+fz3+vz5+fn7+/v4+vz5+/36/P37/P38/Pz9/f38/f79/v7+
+/v7+/v/////MzMyRmidfAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAASAAAAEgARslrPgAABClJREFU
+SMftlwlUlFUUxx9UQ2JpViRkiJW08zEwhAZBhQZMKAa2TBFFIbRQZBISGNECibZHVChTZkQREUbR
+BrTQoqMg0b4QhBiyCBEUEgzveO973+P7ZhgGzsFz6py858D3f/e773e++9679wE5hhwScyFmldFp
+GJnO5MOgfxP07U6TqV121JlMpl7lfTsMTTsU67Wa3wk/5pomGRQnSVKy/CYatFEJTJYsrZZ5B9Ld
+XM75EdUZlFal5T2a1s1AxRChl2cWgjYoIL0V6HN0dpyIh1nzCKXvOjTTtA3nLqxYx0A9Oghp4TMb
+Qfr3CU6LFSdiBJxDrrwsjnyLepCKnx/POdOzOp2MyycUdKkAGWEQcAWzpSC92QdliAKbtc2BPNSV
+nfOEx4AMUudzG+h4ATLAYBNTf4WBvB5VvzMhDvOysk9zJBri9CvNeKbm7dyNZFw+5aBDZE6fPwy+
+Z7IA1OJWVNmEHLUexTtATIGVfyAz82lxjlT5fIVrUc91KchwpvZcAPI5Jj0IyeWvP9DM6LQ6kLcq
++WCaUgHX8SCTqDghl/7Jtl5DThezs+6hViBVPrjwUhTXISDLUWz3BvUq81UTx2oxe2i/NWgwQOTD
+joLkww56Pe7ZIIjRSFAreehTxH3CEgGLEfkU8wNTJBY4BsXLIHx388gccq890FaRTxwHxaKOArEV
+nr2XgLhRjryPVNkDtWl5PsMXwj6FS1LgMBSsjyRp2+DlakRrr+Zbud7pH3sgupznU4v7lMSrswge
+kfjufP6Vui04yDuO2gXl83yw2j8p590gVqybqDRvzPPDk+yDdkksHz3+xj3U0+FAsZNlZSX54Uha
+BJVtnm8fNHox5tPCv+s67Aa1qlqh9MDtSLoJVIp9EDvFyUa+Urg6xmR19YJdg9UGBfn+JCCsKz1U
+u66d75dBr+4nYF/iJ70Bx3kSEKt0P0mKlk+Qn0WHQwsCz/N0AlPdIga+NYWoN3NtsIhdAZ6EKYCM
+fHIj6kaujRaxV4HnhimAeH8O44NQdm5+s4i9HFyJv1jONw+MB/Ebg7cfegvqyywnXQSuNU92Wfge
+fM8GiN1h5Vy/ifou/M479X9wVwO6XmvyUnN+Ovp+G6Ba0X6o3KC+oPQVOAjPclcC9pLfqedjyoxu
+N3KWDdBIsNx+0KBBBcMl1uoLXeF1dHyGHe9aSj92zhMxXacQ8rANEPaiIqGhQcXhcxX2y5s//e4l
+/EQt3mupR9zdz0IqjydkvtkWqFhusWh7faRifO5borpoE9EzdDI59ryc3LVzHQiZ3UxtgXp0Ucog
+StfDnnVBY5wr/2aeDldx1c75iNoE0egCRRdEy+KbZRyjTRAF0322I+O4N9MJQC98reiGF8c2oSQu
+InzlHQ2qwB9ST13gVame+h/90+//AjLbsimAZh6af7NOOAhIdkqdYiybxQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.w3.org/Icons/team_subm
+
+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
+
+------MultipartBoundary--eRFb1F1P6pI3A83UTLV2YQhufIA5K5z2cxL69BLbRQ------

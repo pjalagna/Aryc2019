@@ -74,7 +74,8 @@ def PHPPDX(rec):
 #end PHPPDX
         
 def main():
-     # ask file name
+    # ask file name
+    global rec
     fina = raw_input("Script file name? ")
     rec = main2(fina)
     return(rec)

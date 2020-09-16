@@ -519,7 +519,7 @@ Disclaimer: 	This document and the information contained herein is provided on a
 		</xsd:complexType>
 	</xsd:element>
 
-		<xsd:attribute name="StartDate" type="DateTypeType" id="uuid-11a1e9c3-959b-4c2e-b3de-5e1296eb6ab3">
+	<xsd:attribute name="StartDate" type="DateTypeType" id="uuid-11a1e9c3-959b-4c2e-b3de-5e1296eb6ab3">
 		<xsd:annotation>
 			<xsd:documentation source="documentation" xml:lang="EN">The year, month and day the element with which it is associated is scheduled to begin.</xsd:documentation>
 		</xsd:annotation>

@@ -1,0 +1,135 @@
+P9 a conversion process to absorb xml/XSD information into an ontology
+
+the full collection of methods is:
+(xsd/xml)/file => p9->phase2->collect1 =>ontology
+
+xsd/xml review (not a primer)
+see (XSD-ref) to familiarize  yourself with the operations of 
+(
+xsd:element
+xsd:annotation
+xsd:documentation
+xsd:complexType
+xsd:sequence
+xsd:attribute
+xsd:simpleType
+xsd:restriction
+xsd:enumeration
+xsd:name
+)
+
+XSD and XML streams follow the HTML protocol.
+Firstly an HTML stream is a sequence of characters that can be indexed from the zeroth position to the nth position.
+
+tokens:
+The XSD/XML committee has determined 
+that certain character collections (tokens) will have names (the vocabulary) and that certain collections will be events. Some events will be mode switches. Each mode (except for the initial mode) is set and unset by a triggering token.
+Each mode will define a set of rules to change token formation and name according to the rules set forth by the mode. see (r) for more
+ 
+I have endeavored to use the vocabulary except where those names were ambiguous. In those cases I added clarification adjective to that name ( IE tagNamespace for Namespace)
+
+I also added to the vocabulary event tokens and named them uniquely.
+
+Records:
+In general the character collection starting with “<“ to “>” constitutes a record.
+Thereafter the XSD/XML standard is record driven.
+
+pickup: first:
+I added a name to that event which I called “pickup”. It is the index of record occurrences starting from 1. One special occurrence of a pick up event is that moment when a first real element record is found. This pick up number is recorded in an entity called "first".
+
+previousPickup:
+Xml and Xsd records are hierarchical in nature,
+Records proceed one to the other. Which necessitated the addition of the vocabulary name “previousPickup” to specify a this-follows-that relationship. Other modes defined other inter-relationships of records so other names were added (as will be discussed below). A special note is the zeroth record number. Which precedes the first entity record record but is fictional (nonexistent).
+
+endPoint:
+any record that begins with "</" or any record that ends with "/>" defines an end point.
+This event triggers a method to adjust the provenance chain to be explained directly.
+
+provenance: (master: masterPosition:)
+In a normal hierarchical sense the order of visiting each entity is that 2 follows 1, 3 follows 2, etc. .
+the history of that flow is then [0,1,2,3]. this is the provenance chain or simply the provenance.
+But once an end point is reached that last element (3 in our case) is removed because 3 has no child record. record 2 however might have another chain (which could start anywhere in the stream) and its "master" or "masterPosition" would be 2.
+
+l1x,l2x:
+Tokens within a record : the HTML/XSD/XML standards talk about "conditions" but never name the event tokens that define the determination or switching between those conditions. I have discovered two event tokens: l1x and l2x (my names)
+these store the first 2 characters of the record (l1x) and the last 2 ending with the ">" (l2x). as an aside the "l" is short for lexical.
+
+the general format for a record is:
+<Tag {space ; attribute=$text$ as attributeValue}(/> OR area </endTag>).
+
+but first a conversation about namespaces.
+a namespace is a library of concepts that is defined elseware. the "xmlns" declaration in the schema record alerts us to the name of the namespace and the location of the defining library. 
+the form of this notification is xmlns:xsd=$URI$ (where the "$" is a quote or double-quote pair). once defined that namespace can be used anywhere. the form of that usage is:
+ns:Name.
+
+The reason for using a namespace is to avoid ambiguity. The definition for "element" might not mean the same in a "science" library than it does in computer science library. as in defining an attribute of cobalt versus an XSD entity type. also the default xmlns is xsd. sometimes its stated other times not. "xsd:element" and "element" are the same. yet science:element is not.
+
+for p9 that necessitated the addition of role signatures to each token.
+role with a roleNamespace and a roleName EG "tag" with tagNamespace and tagName.
+
+in p9 a rule was established: in all cases the namespace (said or unsaid) was added to the role.
+
+refid:
+The reference ID is a session identifer. 
+a number that was generated for each record.
+
+KRID:
+Knowledge resource identification is a method to determine the most stable identifier to use for an entity.
+The knowledge resource identifier or KRID will record that value.
+
+Identity stability: in general XSD's are not edited often but do suffer from version changes. Any identifier that would break from one version to another (such as pickup points, or refid session numbers) could not be used as a knowledge resource identifier. For an XML report this is amplified due to the addition of new entities that will move the other entities around. But if an entity is named or given an identifier then that name or identifier is a stable attribute of the element that doesn't break from session to session or from edit to edit this now is a stable identity. 
+
+
+Separating peers: (seq:)
+unique identification
+in first order logic (r) all lists are unordered (ie unindexed peers) but for xsd complex types the order is strict. so a mechanism was needed to record that order. the attribute "seq" was added to those elements that were under a complex-type;sequence or under a complex-type;choice. This attribute holds the index always starting at one. 
+in p9 methods were chosen to attach the "master" attribute to all elements within a complex-type. this is the pickup index of the entity in the provenance. NOT counting the complexType entity unless that complexType entity had a "xsd:name" attribute.
+ 
+
+
+
+both hold the pickup number of the preceeding element
+
+
+-pickup
+-previousPickup
+-l1x
+-l2x
+-refid
+tag
+tagNS
+tagName
+
+attributeName
+attNS
+attName
+
+xmlns:stratml
+xmlns:xsd
+targetNamespace
+elementFormDefault
+attributeFormDefault
+version
+minOccurs
+maxOccurs
+provenance
+first
+-KRID
+name
+type
+id
+parent
+source
+xml:lang
+value
+endpointRefid
+ref
+-masterPosition
+-seq
+-master
+use
+base
+leadingPosition
+elementPosition
+attributeName
+context

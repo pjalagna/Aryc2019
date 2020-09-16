@@ -1,0 +1,68 @@
+file language3.notes.txt
+pja 9/9/2020
+
+purpose to use template fill sections in a cascade C=V format
+
+example 1 
+template text {{
+%label% <input type='text' name='%name%' id='%name%' value='%text%'/>
+}}
+define l1 = 'first name' ;
+define t1 = "customer first name" ;
+define tx1 = text ( %label% = l1 , %text% = t1 ) ;
+run tx1 ; 
+
+
+def L3statement :-
+[[ 1 ]] wd upper 'stmt' ! ... .
+[[ 2 ]] wd @ "TEMPLATE" // doTemplate tail. .
+[[ 3 ]] wd @ "DEFINE" // doDefine tail. .
+[[ 5 ]] wd @ "RUN" // doRun .
+;
+
+def doTemplate :- 
+/* format template tname {{ text }} */
+/* store in nds['template']['name'] */
+[[ 1 ]] wd 'tname' 'template' 'nds' ar-! ar-! ar! ... .
+[[ 2 ]] wd =={{ // collect1 
+'nds' 'template' 'tname' ar@ ar@ ar@ ! .
+;
+
+def strfn :-
+/* string function */
+/* 
+statement :- 
+[[ 1 ]] eof .
+[[ 2 ]] rval "=" expression .
+;
+
+expression :-
+[[ 1 ]] term expression2 .
+;
+expression2 :-
+[[ 1 ]] =="+" term tail. .
+[[ 2 ]] =='-' term tail. .
+[[ 3 ]] .
+;
+term :-
+[[ 1 ]] uni factor term2 .
+;
+term2 :-
+[[ 1 ]] "*" uni factor tail. .
+[[ 2 ]] '/' uni factor tail. .
+[[ 3 ]] .
+;
+factor :-
+[[ 1 ]] GetRegister wd fact ! ... .
+[[ 2 ]] fact @ =="(" expression wd ==")" .
+[[ 3 ]] fact @ c1 ==Q$ setString .
+[[ 4 ]] fact @ c1 ==T$ setString .
+[[ 5 ]] isNumber setIsNumber .
+[[ 6 ]] lookAheadEQOP doFunction .
+[[ 7 ]] lookAheadEQOB doArray .
+[[ 8 ]] setIsLabel .
+
+
+
+
+

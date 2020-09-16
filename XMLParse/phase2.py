@@ -1,5 +1,6 @@
 """
 file phase2.py
+pja 08-31-2020 amended sql for endpoint pickup
 pja 07-112-2020 attach contextID
 pja 07-08-2020 attach attributes and 
 --- enumerations to elements
@@ -8,7 +9,9 @@ pja 07-04-2020 ns: removal
 pja 06-29-2020
 
 add to xsd ontology
-usage phase2.main(ontoFile,{trace='on'})
+import phase2
+ontoFile = 'StratML.xsd.onto'
+phase2.main(ontoFile,'on')
 """
 """
 test as
@@ -93,7 +96,20 @@ def main(ontoFile,trace='off'):
     logg('begin 2')
     # get contenders
     # contender list of @ endpoint not element/complex/seq/choice and not w/ sequence
-    sqep22 = "select v18 from v20 where v1='endpointRefid' and v18 not in (select v18 from v20 where v1='tag' and v2='element') and v18 not in (select v18 from v20 where v1='tag' and v2='complexType') and v18 not in (select v18 from v20 where v1='tag' and v2='sequnce') and v18 not in (select v18 from v20 where v1='tag' and v2='choice') and v18 not in (select v18 where v1='seq');"
+    sqep22 = """select v18 from v20 
+/* get endpoints but not element, complexType, sequence, choice, or seq */
+where 
+v1='endpointRefid' 
+and v18 not in (select v18 from v20 where v1='tag' and v2='element') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='xsd:element') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='xsd:schema') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='complexType') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='xsd:complexType')
+and v18 not in (select v18 from v20 where v1='tag' and v2='sequnce') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='xsd:sequnce') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='choice') 
+and v18 not in (select v18 from v20 where v1='tag' and v2='xsd:choice')
+and v18 not in (select v18 where v1='seq');"""
     sqepx =  pkg['db'].SQReadAll(sqep22)
     ## per
     for xi in range(1,len(sqepx)+1):
@@ -141,6 +157,7 @@ def main(ontoFile,trace='off'):
                 xxp = len(myprovsp)-xp # from the back
                 xptagSQ = "select v2 from v20 where v1='tag' and v18 in (select v18 from v20 where v1='pickup' and v2='%xpPu%') ;"
                 xptagSQ = xptagSQ.replace('%xpPu%',myprovsp[xxp].strip(' '))
+                logg('xptagSQ=('+xptagSQ+')')
                 xpTag = pkg['db'].SQReadAll(xptagSQ)[0][0]
                 # remove ns:
                 mo = xpTag.find(':')
@@ -171,7 +188,7 @@ def main(ontoFile,trace='off'):
             toRefid = xpRefid
             logg("toRefid="+toRefid)
             ### you have=doc value=xx
-            pkg['ontology'].RELATEWrite( "elementPosition", elementPosition, "has",prevTag, "value", prevVal,xpRefid,flags='')
+            pkg['ontology'].RELATEWrite( "elementPosition", elementPosition, "has",prevTag, "value", prevVal,xpRefid,flags='188')
         #endif len-sqppep      
     ## /per end for xi
     #
@@ -374,7 +391,5 @@ def backwalk(ttype,ref18):
     #endif
     return(ans)
 #/backwalk
-
-
 
     
