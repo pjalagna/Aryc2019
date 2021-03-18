@@ -1,5 +1,7 @@
 /* filename tableG.basii 
 pja 3-27-2020 orig
+-- pja 3/17/21 needs LOV language
+--- state key="NJ", StateName="New Jersey" etc
 
 format 
 a) T: <<name>> (( keys ,+ {) tags ,+} )) ;
