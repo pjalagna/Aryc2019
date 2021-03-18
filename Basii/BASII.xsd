@@ -7,6 +7,18 @@ pja 5/12/2020
 <element Name='BASII'>
     <annotation>
         <documentation>
+Business Actuated Scripts for Intelligent Information is a BNF language with FORTH like verbs. this will allow the actuation of BNF statements.
+the language format in BNF is:
+paragraph: clauses
+clauses: clause +clause
+clause: verbs
+verbs: verb +verb
+verb: 
+[1]- stack verbs
+[2]- format verbs
+[3]- database verbs 
+[4]- dataStore verbs 
+[5]- library verbs 
         </documentation>
     </annotation>
     <complexType>

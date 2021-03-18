@@ -1,0 +1,3 @@
+file gennNotes.txt
+all routines for genn are now included into the gennV.py file
+
